@@ -46,6 +46,6 @@ bower.json
 
 # Ignore application configuration
 /config/application.yml
-config/database.yml
+/config/database.yml
 .ruby-gemset
 .ruby-version
