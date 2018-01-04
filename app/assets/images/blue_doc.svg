@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Layer_1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Wireframes---CURRENT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Layer_1" fill="#4990E2">
+            <g id="Group">
+                <g id="Shape">
+                    <path d="M1,1.347 L11.386,4.072 L11.386,22.7545 L1,20.0285 L1,1.347 L1,1.347 Z M0,0.051 L0,20.8 L12,23.9495 L12.3855,23.8495 L12.3855,3.3005 L0,0.051 L0,0.051 Z"></path>
+                    <path d="M23,1.347 L23,20.0285 L12.6145,22.7545 L12.6145,4.072 L23,1.347 L23,1.347 Z M24,0.051 L11.614,3.3005 L11.614,23.849 L12,23.949 L24,20.8 L24,0.051 L24,0.051 Z"></path>
+                </g>
+                <g transform="translate(2.000000, 3.500000)" id="Rectangle-path">
+                    <g>
+                        <rect transform="translate(4.085619, 1.947680) rotate(15.206375) translate(-4.085619, -1.947680) " x="0.0978170814" y="1.44767315" width="7.97560484" height="1.00001314"></rect>
+                        <rect transform="translate(4.085784, 6.249119) rotate(15.211904) translate(-4.085784, -6.249119) " x="0.0976265557" y="5.74909921" width="7.97631409" height="1.00003938"></rect>
+                        <rect transform="translate(4.086311, 10.549111) rotate(15.213407) translate(-4.086311, -10.549111) " x="0.0985391811" y="10.04914" width="7.97554444" height="0.999942883"></rect>
+                        <rect transform="translate(4.085938, 14.851831) rotate(15.211904) translate(-4.085938, -14.851831) " x="0.0977805557" y="14.3518117" width="7.97631409" height="1.00003938"></rect>
+                    </g>
+                    <g transform="translate(11.500000, 0.000000)">
+                        <rect transform="translate(4.414146, 1.948109) rotate(74.770007) translate(-4.414146, -1.948109) " x="3.91413558" y="-2.03997704" width="1.00002165" height="7.97617268"></rect>
+                        <rect transform="translate(4.414211, 6.249182) rotate(74.770007) translate(-4.414211, -6.249182) " x="3.91420068" y="2.26109566" width="1.00002165" height="7.97617268"></rect>
+                        <rect transform="translate(4.413753, 10.550652) rotate(74.770007) translate(-4.413753, -10.550652) " x="3.9137421" y="6.56231538" width="1.00002165" height="7.97667269"></rect>
+                        <rect transform="translate(4.413909, 14.851609) rotate(74.770007) translate(-4.413909, -14.851609) " x="3.91389843" y="10.8635224" width="1.00002165" height="7.97617268"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

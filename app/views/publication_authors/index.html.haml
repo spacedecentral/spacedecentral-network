@@ -1,0 +1,19 @@
+%h1 Listing publication_authors
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @publication_authors.each do |publication_author|
+      %tr
+        %td= link_to 'Show', publication_author
+        %td= link_to 'Edit', edit_publication_author_path(publication_author)
+        %td= link_to 'Destroy', publication_author, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Publication author', new_publication_author_path

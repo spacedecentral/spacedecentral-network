@@ -1,0 +1,16 @@
+.modal-body.view_message_modal_body
+  .row
+    .col-xs-2
+      - if @notification.sender
+        = image_tag @notification.sender&.avatar.try(:url, :thumb), class: "message-avatar"
+    .col-xs-6.pull-left
+      =simple_format(@notification.event)
+    .col-xs-4.pull-left.pull-right
+      .platform_timestamp{"data-time-stamp"=>@notification.created_at}
+        =platform_timestamp(@notification.created_at)
+.modal-footer
+  .row
+    .col-md-12.pull-right
+      = link_to 'Delete', @notification, :method => :delete,
+        :data => { :confirm => 'Are you sure?' }, :class=>"btn btn-danger"
+

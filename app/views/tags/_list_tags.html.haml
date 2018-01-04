@@ -1,0 +1,28 @@
+- current_tag_id ||= nil
+- link ||= nil
+- checkable ||= false
+
+%hr
+%h4
+  %span.text-uppercase tags
+  - if checkable
+    %span.pull-right.clear-filter Clear
+%ul.list-tags
+  = render partial: 'tags/tag',
+    collection: tags[0..8],
+    as: :tag,
+    locals: { current_tag_id: current_tag_id, link: link, checkable: checkable }
+
+  - if tags.count > 9
+    .more-tags.hidden
+      = render partial: 'tags/tag',
+        collection: tags[9..-1],
+        as: :tag,
+        locals: { current_tag_id: current_tag_id , link: link, checkable: checkable }
+
+    %li
+      = link_to '#', class: 'btn show-more-btn js-show-more-tags' do
+        %span.less-icon.hidden= inline_svg('minus-blue.svg')
+        %span.more-icon= inline_svg('plus-blue.svg')
+        %span.btn-text show more
+

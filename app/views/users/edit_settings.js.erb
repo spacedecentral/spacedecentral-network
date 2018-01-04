@@ -1,0 +1,6 @@
+$('#modal').html("<%= j render('users/settings_modal') %>");
+$('#modal .modal').modal({
+  show:true,
+  backdrop: 'static',
+  keyboard: false
+});

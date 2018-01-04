@@ -1,0 +1,38 @@
+.center-left.publication-banner.container-fluid
+  .row
+    .container
+      .row
+        .col-md-12
+          .row
+            .col-md-8.col-md-offset-2
+              .publication-heading
+                = render "publication_heading", publication: @user_publication
+
+.container.single-forum-container
+  .row
+    .col-md-8.col-md-offset-2.list-forum-cards
+      .forum-card.js-publication-abstract
+        = render "publication_abstract", publication: @user_publication
+      #publication_request_stages
+        = render 'request_stage', publication: @user_publication
+
+      %h4.text-responses Comments
+      .response_box
+        = image_tag(current_user.avatar.url(:thumb), :class=>'img-circle img-responsive nav-profile-img')
+        %span
+          Write a response…
+      .response_box_form
+        = render 'replies/reply_form', replicable: @user_publication
+      = render 'replies/list_replies', replies: @user_publication.replies, report_parent: @user_publication
+
+= render "shared/modal_confirmation",
+  id: 'publication_delete_confirmation_modal',
+  title: 'Delete Publication',
+  content: 'Are you sure you want to send this publication into the void?',
+  action: { title: 'Delete', path: user_publication_path(@user_publication), method: :delete, remote: false }
+
+.mb-50
+:javascript 
+  $(function() {
+    initSCEditor('textarea#reply_content');
+  });

@@ -1,0 +1,28 @@
+= render partial: 'replies/reply',
+  collection: replies,
+  as: :reply,
+  locals: { report_parent: report_parent }
+
+= render "shared/modal_confirmation",
+  id: 'reply_delete_comfirmation_modal',
+  title: 'Delete Comment',
+  content: 'Are you sure you want to send this comment into the void?',
+  action: { title: 'Delete', method: :delete, remote: false }
+
+:javascript
+  $(function() {
+    var hashTag = window.location.hash;
+    if (hashTag && /\#reply_content_*/.test(hashTag)) {
+      $(hashTag).addClass('card-highlight');
+
+      $('html, body').animate({
+        scrollTop: $(hashTag).offset().top
+      }, 1000);
+
+      var timer = setTimeout(function() {
+        $(hashTag).removeClass('card-highlight');
+        timer = null;
+      }, 4000)
+    }
+  }, false);
+

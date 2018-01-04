@@ -1,0 +1,74 @@
+.center-text.forum-banner
+  .container
+    %h1 FORUM
+    %p How can an idea turn into a plan? It needs to be discussed, analyzed and debated. The intention of the discussion forum is to facilitate conversations that lead to action.
+    %br
+    = link_to "#{inline_svg('white_pencil.svg')} New Post".html_safe, new_post_path,:class=>"btn btn-danger new-topic"
+    = link_to "#{inline_svg('bulb.svg')} Etiquette".html_safe, '#', :class => 'btn btn-transparent'
+.container
+  .row.forum-topbar
+    .col-md-3
+      -# .input-group
+      -#   %input{ class: 'form-control', placeholder: 'Search Posts' }
+      -#     %span.input-group-addon
+      -#       = image_tag('search.svg', width: '20px')
+    .col-md-9
+      %span.search-title
+        .forum-subtext
+        = inline_svg('filter_icon.svg', class: 'filter-icon')
+        %span.display-text Displaying the most recent topics about
+        %span.display-text= link_to @current_tag.tag, @current_tag, :title => @current_tag.tag
+
+  .row
+    .col-md-3.hidden-md-down.side-md-down
+      .forum-sidebar
+        %h4.text-uppercase Category
+        %ul
+          %li= link_to raw('Trending'), '#', :title => 'Trending'
+          %li= link_to raw('News'), '#', :title => 'News'
+          %li= link_to raw('Proposals'), '#', :title => 'Proposals'
+          %li= link_to raw('Publications'), '#', :title => 'Publications'
+        %hr
+        %h4.text-uppercase Missions
+        %ul
+          - @missions.each do |mission|
+            %li= link_to mission.name, "/forum/mission/" + mission.id.to_s, :title => mission.name
+
+        - if @tags.present?
+          = render partial: 'tags/list_tags', locals: { tags: @tags, current_tag_id: @current_tag.id }
+
+    .col-md-9.post-list
+      - @posts.each do |post|
+        .forum-card
+          %h2
+            =link_to post.title, post, :class => 'forum-title'
+          %div= render_markdown_content(post.content, stripdown: true)
+
+          .field.forum_user.clearfix
+            = image_tag( post.user.avatar.url(:thumb), :class=>"img-circle avatar-img")
+            .info
+              %b= post.user.name
+              .forum-title= post.user.title
+
+
+          -# .tag-div
+          -#   / - post.tags.split(',').each do |tag|
+          -#   /   %a.forum-taglink
+          -#   /     =tag
+          .like-share.clearfix
+            .like.pull-left{id: "like_box#{post.id}"}
+              = render partial: 'likes/like', locals: { likable: post }
+            .reply.pull-left
+              = inline_svg('reply.svg', class: 'reply-icon')
+              %span.like-size
+                = post.replies_count
+            %span.forum-time.pull-right
+              .platform_timestamp{"data-time-stamp"=>post.created_at}=platform_timestamp(post.created_at)
+              %span.dropdown
+                %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
+                  = inline_svg('post_action.svg')
+                %ul.dropdown-menu.dropdown-menu-right.forum-dropmenu
+                  %li
+                    = link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' }
+                  %li
+                    = link_to "Edit", edit_post_path(post)

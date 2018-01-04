@@ -1,0 +1,13 @@
+= form_for @conversation do |f|
+  - if @conversation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@conversation.errors.count, "error")} prohibited this conversation from being saved:"
+      %ul
+        - @conversation.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'

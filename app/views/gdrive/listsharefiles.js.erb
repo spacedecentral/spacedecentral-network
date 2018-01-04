@@ -1,0 +1,13 @@
+<% if response.successful? %>
+  $('#gdrive_share_file_list').html("<%= j (render 'gdrive_share_file_list') %>");
+  $("#share_gdrive_file").modal('show');
+  $("#share_gdrive_file").css('display', 'block');
+  $(".share_gdrive_page_link").click(function() {
+    $('#gdrive_share_file_list').html("<div class='modal-body'>loading...</div>");
+  });
+<% else %>
+  $('#gdrive_share_file_list').html("<div class='alert alert-danger'>There was an error, someone is working on it</div>");
+  $("#share_gdrive_file").modal('show');
+  $("#share_gdrive_file").css('display', 'none');
+<% end %>
+

@@ -1,0 +1,118 @@
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.landing-cover
+    .fixed-bg-slide
+      .imgbg.stars-cover
+  .container.landing-cover-detail
+    .col-md-10.col-md-offset-1.mt-60
+      .center-text
+        %h1
+          TO SPACE, TOGETHER
+        %h3
+          We are building a decentralized space program, connecting thousands of engineers, scientists, and future astronauts, to devise and fund next-generation space initiatives. 
+  .container.mt-20.mb-30
+    %h2.section-title.center-text How it Works
+    #how-it-works.container.platform-show-container
+      .row
+        .col-md-15
+          .col-md-12.how-box.space-col
+            = inline_svg('how/brainstorm.svg', title: 'co-owner', class: 'how-icon')
+            %h3 STEP 1
+            %h2 Define Projects
+            %ul
+              %li Initial collaboration is fostered through the community-driven curation of a portfolio of projects 
+              %li Requirements and goals are defined for the projects in order to guide the solution stage
+        .col-md-15
+          .col-md-12.how-box.space-col
+            = inline_svg('how/build.svg', title: 'code', class: 'how-icon')
+            %h3 STEP 2
+            %h2 Create Solutions
+            %ul
+              %li Community members are incentivized to submit open-source action plans through a competitive “request for proposals” process
+              %li Action plans are vetted using a transparent decision-making process 
+        .col-md-15
+          .col-md-12.how-box.space-col
+            = inline_svg('how/solutions.svg', title: 'donate', class: 'how-icon')
+            %h3 STEP 3
+            %h2 Catalog Plans
+            %ul
+              %li The best proposal for each project will be added to a digital commons, with alternates archived
+              %li Everyone will have access to these shared commons and will be enabled to take action
+            %br
+        .col-md-15
+          .col-md-12.how-box.space-col
+            = inline_svg('how/fund.svg', title: 'donate', class: 'how-icon')
+            %h3 STEP 4
+            %h2 Raise Funding
+            %ul
+              %li Funds are collectively raised to support the development, testing, and launch of top action plans
+              %li Jobs are created and work contracts are assigned based on solution proposals   
+            %br
+        .col-md-15
+          .col-md-12.how-box.space-col
+            = inline_svg('how/launch.svg', title: 'donate', class: 'how-icon')
+            %h3 STEP 5
+            %h2 Engines On
+            %ul
+              %li Collaborative research and shared visions become realities
+              %li Contributions are rewarded upon commercial adoption of solutions seeded from the digital commons   
+            %br
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.landing-cover.medium-post-cover
+    .fixed-bg-slide
+      .imgbg.stars-cover
+  .container.mt-20.mb-30
+    %h2.section-title.center-text Missions
+    #list_missions.row.mission-tile-row
+      = render partial: 'missions/mission', collection: @missions, as: :mission
+
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.landing-cover.medium-post-cover
+    .fixed-bg-slide
+      .imgbg.stars-cover
+  .container.mt-20.mb-30
+    %h2.section-title.center-text Projects
+    #list_missions.row.mission-tile-row
+      = render partial: 'missions/mission', collection: @projects, as: :mission
+
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.landing-cover.medium-post-cover
+    .fixed-bg-slide
+      .imgbg.stars-cover
+  .container.mt-20.mb-30
+    .section-title.center-text Trending Posts
+    #trending_posts.row
+      = render partial: 'posts/post_tile', collection: @trending_posts, as: :post, locals: { remote: true }
+
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.landing-cover.medium-post-cover
+    .fixed-bg-slide
+      .imgbg.stars-cover
+  .container.mb-30
+    #medium_posts
+
+.container-fluid.container-margin.platform-cover-container.bottom-platform-cover-container
+  .platform-cover.landing-cover
+    .fixed-bg-slide
+      .imgbg.stars-cover
+  .container.landing-cover-detail.center-text
+    #newsletter
+      %h3 Sign up for our newsletter
+      = form_tag '//space.us15.list-manage.com/subscribe/post?u=40bc28142665fd2205e8673ec&id=dc4a585c29',
+        method: :post,
+        target: '_blank',
+        id: 'newsletter_form',
+        onsubmit: "setTimeout(function() { document.getElementById('newsletter_form').reset(); }, 3000);",
+        class: 'form-inline col-md-6 col-md-offset-3 col-sm-12 col-xs-12' do
+        .form-group.col-xs-9.col-sm-10.col-md-10.col-lg-11.p-0
+          = hidden_field_tag 'b_40bc28142665fd2205e8673ec_dc4a585c29'
+          = text_field_tag 'EMAIL', nil, class: 'email', id: 'newsletter_email_field', autocomplete: 'off'
+        .col-xs-2.col-sm-2.col-md-2.col-lg-1.p-0
+          = button_tag 'Submit', value: 'Subscribe', name: 'subscribe', class: 'btn btn-info subscribe-btn'
+
+= render 'shared/footer'
+= render "shared/modal_confirmation",
+  id: 'post_delete_confirmation_modal',
+  title: 'Delete Post',
+  content: 'Are you sure you want to send this post into the void?',
+  action: { title: 'Delete', method: :delete, remote: false }
+

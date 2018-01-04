@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+ xmlns:gx="http://www.google.com/kml/ext/2.2" hint="target=mars">
+<Document>
+<name>A spectroscopic analysis of Martian crater central peaks: Formation of the ancient crust</name>
+<description>
+  <![CDATA[
+NASA's Planetary Data System Geosciences Node Product Coverage KML file<br>
+  This is the product coverage for 
+<ul>
+   <li>Product id: FRT00006415_07_DE164L_DDR1</li>
+   <li>Instrument host id: MRO</li>
+   <li>Instrument id: CRISM</li>
+   <li>Target body: MARS</li>
+   <li>Planetocentric latitudes </li>
+   <li>Generated from PDS Geosciences Orbital Data Explorer on 2015-07-19T02:15:00.134</li>
+ <li>Links: 
+<ul>
+   <li><a href="http://pds.jpl.nasa.gov/">NASA Planetary Data System</a></li>
+   <li><a href="http://geo.pds.nasa.gov/">Geosciences Node</li></a>
+   <li><a href="http://ode.rsl.wustl.edu/">Orbital Data Explorer</li></a>
+   <li><a href="http://ode.rsl.wustl.edu/mars/indexproductpage.aspx?product_id=FRT00006415_07_DE164L_DDR1">Product link</a></li>
+</li></li></ul></ul>
+  ]]>
+</description>
+<Style id="highlightPlacemark">
+  <IconStyle>
+    <Icon>
+      <href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>
+    </Icon>
+  </IconStyle>
+  <LabelStyle>
+    <scale>1</scale>
+  </LabelStyle>
+  <LineStyle>
+      <color>ffff00ff</color>
+  </LineStyle>
+  <PolyStyle>
+    <color>ffff00ff</color>
+  </PolyStyle>
+</Style>
+<Style id="normalPlacemark">
+  <IconStyle>
+    <Icon>
+      <href>http://maps.google.com/mapfiles/kml/paddle/red-blank.png</href>
+    </Icon>
+  </IconStyle>
+  <LabelStyle>
+    <scale>0</scale>
+  </LabelStyle>
+  <LineStyle>
+      <color>ffffff00</color>
+  </LineStyle>
+  <PolyStyle>
+    <color>ffffff00</color>
+  </PolyStyle>
+</Style>
+<StyleMap id="hightlightStyleMap">
+  <Pair>
+    <key>normal</key>
+    <styleUrl>#normalPlacemark</styleUrl>
+  </Pair>
+  <Pair>
+    <key>highlight</key>
+    <styleUrl>#highlightPlacemark</styleUrl>
+  </Pair>
+</StyleMap>
+
+<Placemark id="FRT00006415_07_DE164L_DDR1">
+  <name>FRT00006415_07_DE164L_DDR1</name>
+  <description>
+    <![CDATA[
+<font face="Arial">
+<b>A spectroscopic analysis of Martian crater central peaks: Formation of the ancient crust</b></br>
+<i>J. R. Skok,1 J. F. Mustard,1 L. L. Tornabene,2 C. Pan,3 D. Rogers,3 and S. L. Murchie4 Received 31 May 2012; revised 17 August 2012; accepted 14 September 2012; published 7 November 2012.</i></br>
+      <img src="http://launch.space.coop/FRT00006415.png" align="center" width=200px></img>
+</br>
+</br>
+</br> 
+        Product: <a href="http://ode.rsl.wustl.edu/mars/indexproductpage.aspx?product_id=FRT00006415_07_DE164L_DDR1">FRT00006415_07_DE164L_DDR1</a>
+        </br>Mission: MRO
+        </br>Instrument: CRISM
+        </br>Product Type: DDR</br>
+      <a href="http://pds.nasa.gov/">NASA Planetary Data System</a></br>
+      <a href="http://geo.pds.nasa.gov/">Geosciences Node's</a></br>
+      <a href="http://ode.rsl.wustl.edu/mars/">Orbital Data Explorer</a></br></br>
+
+      <b>Other Images Referenced:</b></br>
+      <a href="#FRT00017D02_05_DE156S_DDR1;balloonFlyto"><img src="http://launch.space.coop/FRT00017D02.png" align="center" width=100px></img></a>&nbsp;<a href="#FRT0001EBA0_07_DE164L_DDR1;balloonFlyto"><img src="http://launch.space.coop/FRT0001EBA0.png" align="center" width=100px></img></a></font>
+    ]]>
+  </description>
+  <LookAt>
+    <latitude>-24.34</latitude>
+    <longitude>-26.646</longitude>
+    <range>14794.882995</range>
+    <altitude>1000000.0</altitude>
+  </LookAt>
+  <visibility>1</visibility>
+  <open>0</open>
+  <styleUrl>#hightlightStyleMap</styleUrl>
+  <MultiGeometry>
+    <Point>
+      <coordinates>
+      -26.646,-24.34,100
+      </coordinates>
+    </Point>
+    <LinearRing>
+      <extrude>0</extrude>
+      <tessellate>1</tessellate>
+      <altitudeMode>clampToGround</altitudeMode>
+      <coordinates>
+      -26.528,-24.412,100
+      -26.583,-24.413,100
+      -26.639,-24.421,100
+      -26.695,-24.432,100
+      -26.75,-24.448,100
+      -26.742,-24.381,100
+      -26.74,-24.348,100
+      -26.75,-24.314,100
+      -26.774,-24.249,100
+      -26.714,-24.25,100
+      -26.656,-24.247,100
+      -26.6,-24.238,100
+      -26.543,-24.231,100
+      -26.551,-24.293,100
+      -26.554,-24.328,100
+      -26.547,-24.359,100
+      -26.528,-24.412,100
+       </coordinates>
+    </LinearRing>
+  </MultiGeometry>
+</Placemark>
+<Placemark id="FRT00017D02_05_DE156S_DDR1">
+  <name>FRT00017D02_05_DE156S_DDR1</name>
+  <description>
+    <![CDATA[
+<font face="Arial">
+<b>A spectroscopic analysis of Martian crater central peaks: Formation of the ancient crust</b></br>
+<i>J. R. Skok,1 J. F. Mustard,1 L. L. Tornabene,2 C. Pan,3 D. Rogers,3 and S. L. Murchie4 Received 31 May 2012; revised 17 August 2012; accepted 14 September 2012; published 7 November 2012.</i></br>
+      <img src="http://launch.space.coop/FRT00017D02.png" align="center" width=200px></img>
+</br>
+</br>
+</br>
+        
+        Product: <a href="http://ode.rsl.wustl.edu/mars/indexproductpage.aspx?product_id=FRT00017D02_05_DE156S_DDR1">FRT00017D02_05_DE156S_DDR1</a>
+        </br>Mission: MRO
+        </br>Instrument: CRISM
+        </br>Product Type: DDR</br>
+      <a href="http://pds.nasa.gov/">NASA Planetary Data System</a></br>
+      <a href="http://geo.pds.nasa.gov/">Geosciences Node's</a></br>
+      <a href="http://ode.rsl.wustl.edu/mars/">Orbital Data Explorer</a></br></br>
+
+      <b>Other Images Referenced:</b></br>
+      <a href="#FRT00006415_07_DE164L_DDR1;balloonFlyto"><img src="http://launch.space.coop/FRT00006415.png" align="center" width=100px></img></a>&nbsp;<a href="#FRT0001EBA0_07_DE164L_DDR1;balloonFlyto"><img src="http://launch.space.coop/FRT0001EBA0.png" align="center" width=100px></img></a></font>
+    ]]>
+  </description>
+  <LookAt>
+    <latitude>-26.487</latitude>
+    <longitude>331.904</longitude>
+    <range>14794.882995</range>
+    <altitude>1000000.0</altitude>
+  </LookAt>
+  <visibility>1</visibility>
+  <open>0</open>
+  <styleUrl>#hightlightStyleMap</styleUrl>
+   <MultiGeometry>
+    <Point>
+      <coordinates>
+      -26.487,331.904,100
+      </coordinates>
+    </Point>
+    <LinearRing>
+      <extrude>0</extrude>
+      <tessellate>1</tessellate>
+      <altitudeMode>clampToGround</altitudeMode>
+      <coordinates>
+        -26.605,331.832,100
+        -26.55,331.831,100
+        -26.494,331.823,100
+        -26.438,331.812,100
+        -26.383,331.796,100
+        -26.391,331.863,100
+        -26.393,331.896,100
+        -26.383,331.93,100
+        -26.359,331.995,100
+        -26.419,331.994,100
+        -26.477,331.997,100
+        -26.533,332.006,100
+        -26.59,332.013,100
+        -26.582,331.951,100
+        -26.579,331.916,100
+        -26.586,331.885,100
+        -26.605,331.832,100
+       </coordinates>
+    </LinearRing>
+  </MultiGeometry>
+</Placemark>
+<Placemark id="FRT0001EBA0_07_DE164L_DDR1">
+  <name>FRT0001EBA0_07_DE164L_DDR1</name>
+  <description>
+    <![CDATA[
+<font face="Arial">
+<b>A spectroscopic analysis of Martian crater central peaks: Formation of the ancient crust</b></br>
+<i>J. R. Skok,1 J. F. Mustard,1 L. L. Tornabene,2 C. Pan,3 D. Rogers,3 and S. L. Murchie4 Received 31 May 2012; revised 17 August 2012; accepted 14 September 2012; published 7 November 2012.</i></br>
+      <img src="http://launch.space.coop/FRT0001EBA0.png" align="center" width=200px></img>
+</br>
+</br>
+</br> 
+        Product: <a href="http://ode.rsl.wustl.edu/mars/indexproductpage.aspx?product_id=FRT0001EBA0_07_DE164L_DDR1">FRT0001EBA0_07_DE164L_DDR1</a>
+        </br>Mission: MRO
+        </br>Instrument: CRISM
+        </br>Product Type: DDR</br>
+      <a href="http://pds.nasa.gov/">NASA Planetary Data System</a></br>
+      <a href="http://geo.pds.nasa.gov/">Geosciences Node's</a></br>
+      <a href="http://ode.rsl.wustl.edu/mars/">Orbital Data Explorer</a></br></br>
+
+      <b>Other Images Referenced:</b></br>
+      <a href="#FRT00006415_07_DE164L_DDR1;balloonFlyto"><img src="http://launch.space.coop/FRT00006415.png" align="center" width=100px></img></a>&nbsp;<a href="#FRT00017D02_05_DE156S_DDR1;balloonFlyto"><img src="http://launch.space.coop/FRT00017D02.png" align="center" width=100px></img></a></font>
+    ]]>
+  </description>
+  <LookAt>
+    <latitude>-31.427</latitude>
+    <longitude>81.634</longitude>
+    <range>14794.882995</range>
+    <altitude>1000000.0</altitude>
+  </LookAt>
+  <visibility>1</visibility>
+  <open>0</open>
+  <styleUrl>#hightlightStyleMap</styleUrl>
+  <MultiGeometry>
+    <Point>
+      <coordinates>
+      -31.427,81.634,100
+      </coordinates>
+    </Point>
+    <LinearRing>
+      <extrude>0</extrude>
+      <tessellate>1</tessellate>
+      <altitudeMode>clampToGround</altitudeMode>
+      <coordinates>
+      -31.309,81.562,100
+      -31.364,81.561,100
+      -31.42,81.553,100
+      -31.476,81.542,100
+      -31.531,81.526,100
+      -31.523,81.593,100
+      -31.521,81.626,100
+      -31.531,81.66,100
+      -31.555,81.725,100
+      -31.495,81.724,100
+      -31.437,81.727,100
+      -31.381,81.736,100
+      -31.324,81.743,100
+      -31.332,81.681,100
+      -31.335,81.646,100
+      -31.328,81.615,100
+      -31.309,81.562,100
+       </coordinates>
+    </LinearRing>
+  </MultiGeometry>
+</Placemark>
+</Document>
+</kml>

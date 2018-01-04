@@ -1,0 +1,10 @@
+$('#modal').html("<%= j render('posts/modal_form', title: 'New Post') %>");
+$('#modal .modal').modal({
+  show: true,
+  backdrop: 'static',
+  keyboard: false,
+});
+
+
+initSCEditor('textarea#post_content');
+initPostForm();

@@ -1,0 +1,84 @@
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.forum-cover
+    .fixed-bg-slide
+      .imgbg{style: @post.general? ? "background: url(#{image_url('forum-banner.jpg')});" : "background: url(#{@post.decorate.cover_url});"}
+  .container.platform-cover-detail.forum-cover-detail.single-forum-banner
+    .row
+      .col-md-8.col-sm-12.col-md-offset-2
+        .row
+          .col-sm-12.pl-0
+            = link_to @post.postable_type == 'Mission' ? mission_path(@post.postable) : posts_path do
+              .post-label.relative
+                .post-type{class: @post.post_type}
+                  = inline_svg('mission_tab.svg', class: 'type-icon')
+                  = @post.decorate.label
+        .row
+          .post-heading.col-sm-12
+            = link_to request.referer.present? ? 'javascript:history.go(-1)' : posts_path do
+              = inline_svg('arrow.svg', class: 'post-arrow-left')
+            %h1= link_to @post.title, @post
+.container.single-forum-container
+  .row
+    .col-md-8.col-md-offset-2.list-forum-cards
+      .forum-card
+        = render 'shared/user_info', user: @post.user
+        %div.post-content
+          = render_markdown_content(@post.content, target: '_blank')
+        .row
+          .col-xs-12
+            %hr
+            %ul.inline-tags
+              = render partial: 'tags/tag', collection: @post.tags, as: :tag, locals: { link: true }
+        .like-share.clearfix
+          .like.pull-left{ id: "like_box#{@post.id}" }
+            = render partial: 'likes/like', locals: { likable: @post }
+          .reply.pull-left
+            = link_to '#', class: 'js-trigger-response-box' do
+              = inline_svg('reply.svg', class: 'reply-icon')
+              %span.like-size
+                = @post.replies_count
+          .forum-time.pull-right
+            .platform_timestamp{"data-time-stamp"=>@post.created_at}=platform_timestamp(@post.created_at)
+            .dropdown.pull-right
+              %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
+                = inline_svg('post_action.svg')
+              %ul.dropdown-menu.dropdown-menu-right
+                - if @post.decorate.mine?
+                  %li
+                    = link_to "Delete", '#post_delete_confirmation_modal',
+                      data: { toggle: 'modal' }
+                  %li
+                    = link_to "Edit", edit_post_path(@post)
+                - else
+                  - if user_signed_in?
+                    %li= report_link(@post)
+
+      %h4.text-responses Responses
+      - if user_signed_in?
+        .response_box
+          = image_tag( current_user.avatar.url(:thumb), :class=>'img-circle img-responsive nav-profile-img')
+          %span
+            Write a response…
+        .response_box_form
+          = render 'replies/reply_form', replicable: @post
+        = render 'replies/list_replies', replies: @post.replies, report_parent: @post
+      - else
+        .forum-card.response_box_no_user
+          .center-text
+            You must
+            = link_to 'log in', new_session_path(resource_name)
+            or
+            = link_to 'sign up', new_registration_path(resource_name)
+            to reply
+
+
+.mb-50
+= render "shared/modal_confirmation",
+  id: 'post_delete_confirmation_modal',
+  title: 'Delete Post',
+  content: 'Are you sure you want to send this post into the void?',
+  action: { title: 'Delete', path: post_path(@post), method: :delete, remote: false }
+:javascript
+  $(function() {
+    initSCEditor('textarea#reply_content');
+  });

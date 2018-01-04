@@ -1,0 +1,30 @@
+- remote ||= nil
+- request_from ||= (params[:request_from] || 'forum')
+= form_for @post, remote: remote, html: {class: 'sleek_form forum-post-form'}  do |f|
+  = hidden_field_tag :request_from, request_from
+  .field.forum_user.clearfix.mb-0.hidden-xs
+    = link_to user_path(current_user), target: '_blank' do
+      = image_tag current_user.avatar.url(:thumb), class: "img-circle avatar-img"
+      .info
+        %b=current_user.name
+        %p=current_user.title
+
+  .form-group.mb-0
+    = f.hidden_field :postable_type, value: f.object.postable_type || params[:postable_type]
+    = f.hidden_field :postable_id, value: f.object.postable_id || params[:postable_id]
+    = f.label :title, class: "control-label"
+    = f.text_field :title, class: "form-control", id: 'title', autocomplete: 'off'
+  = render_error(f.object.errors.full_messages_for(:title))
+  %div
+    = f.text_area :content, class: 'form-control', id: 'post_content'
+  .form-group
+    %label{ class: 'control-label' } Tags
+    .tags.chips.chips-autocomplete.chips-placeholder.form-control{ data: { chip: f.object.decorate.tags_chip }}
+    = f.hidden_field :tag_ids, value: nil, id: 'post_tag_field'
+  .actions
+    .content
+      - if remote
+        %button.btn.btn-default.mr-10{"data-dismiss"=>"modal"} Cancel
+      - else
+        = link_to 'Cancel', @post, class: "btn btn-default mr-10"
+      = f.submit 'Submit', class: "btn btn-primary"

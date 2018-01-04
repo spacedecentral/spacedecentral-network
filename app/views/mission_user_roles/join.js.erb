@@ -1,0 +1,6 @@
+<% if !@mission_user_role.errors.empty? %>
+	$("#join_mission_errors").html("<%= j (render 'mission_user_role_errors') %>").show();
+<% else %>
+	$("#join_mission_modal").modal('hide');
+  window.location.reload(true); 
+<% end %>

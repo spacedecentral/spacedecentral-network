@@ -1,0 +1,27 @@
+%h1 Listing user_careers
+
+%table
+  %thead
+    %tr
+      %th Position
+      %th Company
+      %th From
+      %th To
+      %th
+      %th
+      %th
+
+  %tbody
+    - @user_careers.each do |user_career|
+      %tr
+        %td= user_career.position
+        %td= user_career.company
+        %td= user_career.from
+        %td= user_career.to
+        %td= link_to 'Show', user_career
+        %td= link_to 'Edit', edit_user_career_path(user_career)
+        %td= link_to 'Destroy', user_career, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+=render 'career_list'
+= link_to 'New User career', new_user_career_path

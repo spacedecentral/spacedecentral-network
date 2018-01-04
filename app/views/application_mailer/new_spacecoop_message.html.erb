@@ -1,0 +1,13 @@
+<p style="padding:15px 0 15px 0;border-top: 1px solid #eee;border-bottom: 1px solid #eee;width:50%;">You have received a new message from <%= @from.name %>!</p>
+<%= @message_date %>
+<table style="width:50%;">
+<tr>
+<td>
+<%= image_tag(@from.avatar.url(:thumb), :style=>"border-radius:50%;height:44px;width:44px;margin:12px 12px 0 0;") %>
+</td>
+<td>
+<%= simple_format(@message["body"]) %>
+</td>
+</tr>
+</table>
+

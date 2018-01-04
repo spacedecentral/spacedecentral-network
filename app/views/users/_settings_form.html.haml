@@ -1,0 +1,105 @@
+= form_for current_user, url: update_settings_users_path(step: params[:step] || 'personal'),
+  remote: true, html: { class: 'sleek_form', autocomplete: :off } do |f|
+
+  - if params[:step].to_s == 'personal' || params[:step].blank?
+    .modal-header
+      %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        %span{"aria-hidden"=>"true"} &times;
+      %h4.modal-title Edit Personal
+    .modal-body
+      .row
+        .col-md-8.col-sm-8.col-xs-8
+          .form-group
+            = f.label :name, class: 'control-label'
+            = f.text_field :name, class: 'form-control'
+          = render_error(f.object.errors.full_messages_for(:name))
+          .form-group
+            = f.label :title, class: 'control-label'
+            = f.text_field :title, class: 'form-control'
+          = render_error(f.object.errors.full_messages_for(:title))
+          .form-group
+            = f.label :location, class: 'control-label'
+            = f.text_field :location, class: 'form-control'
+          = render_error(f.object.errors.full_messages_for(:location))
+        .col-md-4.col-sm-4.col-xs-4
+          .user_avatar_edit
+            = image_tag current_user.avatar.url(:medium),
+              class: "img-circle avatar-img", id: "user_avatar_image"
+            = image_tag current_user.default_avatar,
+              class: "img-circle avatar-img", id: "user_default_avatar"
+            .overlay
+            %label.avatar-edit-button{for: "user_avatar"}
+              = image_tag "camera.svg"
+              Update
+          %a.btn#remove_avatar{:style=>'display:' + (current_user.avatar.file? ? 'block' : 'none')}  Remove Photo
+          = f.hidden_field :remove_avatar
+          = f.file_field :avatar, :class=>"profile-file-field"
+          = render_error(f.object.errors.full_messages_for(:avatar))
+
+  - elsif params[:step].to_s == 'username'
+    .modal-header
+      %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        %span{"aria-hidden"=>"true"} &times;
+      %h4.modal-title Edit Username
+    .modal-body
+      %p
+        Your current username is:
+        %strong= current_user.username
+      .form-group
+        = f.label :username, 'Enter New Username', class: 'control-label'
+        = f.text_field :username, value: nil, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:username))
+
+  - elsif params[:step].to_s == 'email'
+    .modal-header
+      %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        %span{"aria-hidden"=>"true"} &times;
+      %h4.modal-title Edit Email
+    .modal-body
+      .form-group
+        = f.label :email, 'New Email', class: 'control-label'
+        = f.text_field :email, value: nil, class: 'form-control', autocomplete: "off"
+      = render_error(f.object.errors.full_messages_for(:email))
+      .form-group
+        = f.label :email_confirmation, 'Retype New Email', class: 'control-label'
+        = f.text_field :email_confirmation, value: nil,
+          class: 'form-control', autocomplete: "off"
+      = render_error(f.object.errors.full_messages_for(:email_confirmation))
+      .form-group
+        = f.label :current_password, 'Current Password', class: 'control-label'
+        = f.password_field :current_password, value: nil,
+          class: 'form-control', autocomplete: "new-password"
+      = render_error(f.object.errors.full_messages_for(:current_password))
+
+  - elsif params[:step].to_s == 'password'
+    .modal-header
+      %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        %span{"aria-hidden"=>"true"} &times;
+      %h4.modal-title Edit Password
+    .modal-body
+      .form-group
+        = f.label :current_password, 'Current Password', class: 'control-label'
+        = f.password_field :current_password, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:current_password))
+      .form-group
+        = f.label :new_password, 'New Password', class: 'control-label'
+        = f.password_field :new_password, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:new_password))
+      .form-group
+        = f.label :new_password_confirmation, 'Retype New Password', class: 'control-label'
+        = f.password_field :new_password_confirmation, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:new_password_confirmation))
+
+  .modal-footer.no-border.mt-15
+    .pull-left
+      - if params[:step].to_s == 'password'
+        = link_to 'Forgot your password?', generate_new_password_email_users_path, method: :post, remote: true
+    .pull-right
+      %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        Cancel
+      = f.submit 'Save', class: 'btn btn-info'
+:javascript 
+  $(function() {
+    initUserForm();
+    confirmCloseModal();
+  });

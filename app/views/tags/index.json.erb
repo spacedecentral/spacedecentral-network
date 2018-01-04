@@ -1,0 +1,13 @@
+[
+  <% @tags.each_with_index do |tag,i| %>
+    {
+      "label": "<%= tag.tag %>",
+      "id": "<%= tag.id  %>"
+    <% if i == @tags.size - 1 %>
+      }
+    <% else %>
+      },
+    <% end %>
+  <% end %>
+]
+

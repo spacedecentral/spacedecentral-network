@@ -1,0 +1,16 @@
+= form_for(@tag_reference, remote: true) do |f|
+  #add-tag-errors.alert.alert-danger{:style=>"display:none;"}  
+  .form-group
+    %label{:for=>"tag_lookup"}=@tag_ref_name
+    %input#tag_lookup.form-control{:type=>"text",:name=>"tag_lookup_text"}
+    = f.hidden_field :tag_id
+    = f.hidden_field :user_publication_id
+    = f.hidden_field :post_id
+    = f.hidden_field :user_id
+    %input{:type=>"hidden",:name=>"tag_ref_name",:value=>@tag_ref_name}
+  .form-group
+    .row
+      .col-md-12
+        .pull-right
+          %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Cancel
+          = f.submit 'Add '+@tag_ref_name, :class=>"btn btn-success"

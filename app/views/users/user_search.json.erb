@@ -1,0 +1,15 @@
+[
+  <% @users.each_with_index do |user,i| %>
+    {
+      "label": "<%= user.name + ' ' + user.email %>",
+      "id": "<%= user.id  %>",
+      "name": "<%= user.name  %>",
+      "email": "<%= user.email  %>",
+      "avatar": "<%= user.avatar  %>"
+    <% if i == @users.size - 1 %>
+      }
+    <% else %>
+      },
+    <% end %>
+  <% end %>
+]

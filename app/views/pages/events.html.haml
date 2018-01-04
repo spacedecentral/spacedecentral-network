@@ -1,0 +1,91 @@
+.landing-cover
+  .fixed-bg-slide
+    .imgbg.iss2-cover
+.container.landing-cover-detail.center-text
+  %div.pt-50
+    %h1 PARTICIPATE IN EVENTS
+    %h3 Our events encourage the cross-pollination of ideas amongst scientists, engineers, artists and thinkers that are interested in all aspects of becoming a spacefaring civilization.
+
+#events.container
+  .main
+    %article
+      .row.white-bg.mt-10
+        .col-md-6.pl-0
+          %a{:href => "https://www.meetup.com/livinginspace/", :target => "_blank"}
+            = image_tag 'events/livinginspace.jpg', class: 'img-responsive'
+        .col-md-6
+          .entry-content.pt-10
+            %a.btn.btn-block.btn-lg.btn-primary{:href => "https://www.meetup.com/livinginspace/", :target => "_blank"} Join our Meetup Group
+            %p.mt-10{:style => "text-align: left;"}
+              We collaborate with 
+              %strong>
+                %a{:href => "http://www.innovatepasadena.org", :target => "_blank"}Innovate Pasadena
+              to produce an ongoing series of meetups called 
+              %em>
+                %strong> Living In Space
+                \.
+                %strong  
+              These events encourage the cross-pollination of ideas amongst scientists, engineers, artists and thinkers that are interested in all aspects of becoming a spacefaring civilization. We present challenges that stem from both socio-economical and technological perspectives, reaching out to experts from both industry and academia to inform the community about their latest work. Meetups are highly interactive and engage the audience through “brainstorming jams” that are both fun and thought-provoking.
+            .sponsor.mt-30 Sponsors
+            %p.mt-10
+              = image_tag 'logo.png', size: '120x33', alt: 'Space Cooperative', class: 'mr-30'
+              = image_tag 'events/cross-campus.png', size: '120x33', alt: 'Cross Campus', class: 'mr-20'
+              = image_tag 'events/ip.jpg', size: '120x64', alt: 'PPT_BG'
+
+      .row.mt-20
+        .events.slider
+          .item
+            %a{:href => "https://www.meetup.com/livinginspace/events/244409374/", :target => "_blank"}
+              .upcoming upcoming
+              %span November 2017
+          .item
+            %a{:href => "https://www.youtube.com/watch?v=LGz8v-5fgfs", :target => "_blank"}
+              %span July 2017
+          .item
+            %a{:href => "https://www.youtube.com/watch?v=DgAigl46plU", :target => "_blank"}
+              %span June 2017
+          .item
+            %a{:href => "https://www.youtube.com/watch?v=MBAjO6l0xaE", :target => "_blank"}
+              %span May 2017
+          .item
+            %a{:href => "https://www.youtube.com/playlist?list=PL9dSryg3LHZF-XHjkLoL0UvPzPlpLoeOm", :target => "_blank"}
+              %span March 2017
+          .item
+            %a{:href => "https://www.youtube.com/watch?v=lE_etbCWUlU", :target => "_blank"}
+              %span February 2017
+:javascript
+  $(function() {
+    var next = "<img class='a-right control-c next slick-next custom-icon-next' src='#{asset_url('arrow_559.svg')}'>";
+    var prev = "<img class='a-left control-c prev slick-prev custom-icon-prev' src='#{asset_url('arrow_559.svg')}'>";
+
+    $('.events').slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      infinite: false,
+      prevArrow: prev,
+      nextArrow: next,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        }
+      ],
+    });
+  });

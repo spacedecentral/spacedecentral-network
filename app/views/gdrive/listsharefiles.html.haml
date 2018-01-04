@@ -1,0 +1,31 @@
+.tab-content
+  .container-fluid#mission_files.tab-pane.fade.in.active{:role=>"tabpanel"}
+    = render partial: "mission_files_tab", locals: { dont_show_share_modal: true }
+  .container-fluid.tab-pane.fade#main_mission_tab{:role=>"tabpanel"}
+  .container-fluid#discussion.tab-pane.fade{:role=>"tabpanel"}
+.modal.fade#share_gdrive_file{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title 
+          Select the file to share
+      #gdrive_share_file_list
+        = render partial: "gdrive_share_file_list"
+:javascript
+  $(function() {
+    $("#share_gdrive_file").modal("show");
+    $("#share_gdrive_search_url").click(function(){
+      if ( $("#share_gdrive_search").val().length > 0 ) {
+        $(this).attr('href', function() {
+            return this.href + '&term='+$("#share_gdrive_search").val();
+        });
+      } else {
+        return false;
+      }
+    });
+    $(".share_gdrive_page_link").click(function() {
+      $('#loading_a_modal').modal("show");
+    });
+  });

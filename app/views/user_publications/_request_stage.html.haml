@@ -1,0 +1,37 @@
+- if user_signed_in? && publication.paper&.exists?
+  .forum-card.pb-30
+    - if current_user.is_owner_of?(publication)
+      .card-title Read full-text
+      = render 'download_or_view_document_link', publication: publication
+
+    - elsif publication.decorate.current_user_has_permission?
+      .card-title Read full-text
+      .post-content.text-success
+        = link_to publication.user&.name, user_path(publication.user), class: 'text-bold'
+        \has approved you to read this paper.
+      .mt-25
+        = render 'download_or_view_document_link', publication: publication
+
+    - elsif publication.decorate.requested?
+      .card-title Full-text has been requested
+      .post-content.text-success We sent your request to the authors to provide you the full-text. Waiting for lift off...
+      = link_to request_full_text_user_publication_path(publication),
+        data: { disable_with: 'Resending ...' },
+        class: 'btn request-btn mt-25', remote: true, method: :post do
+        = inline_svg('doc.svg', class: 'btn-icon')
+        %span Send Reminder
+
+    - elsif publication.keep_private?
+      .card-title Want to read the full-text?
+      .post-content Request the the authors to provide the full-text version so we can more efficiently collaborate!
+      = link_to request_full_text_user_publication_path(publication),
+        data: { disable_with: 'Requesting ...' },
+        class: 'btn request-btn mt-25', remote: true, method: :post do
+        = inline_svg('doc.svg', class: 'btn-icon')
+        %span Request Full-text
+
+    - else
+      .card-title Read full-text
+      .post-content This paper has been released to the public by the authors.
+      .mt-25
+        = render 'download_or_view_document_link', publication: publication

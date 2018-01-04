@@ -1,0 +1,1 @@
+json.partial! "mission_user_roles/mission_user_role", mission_user_role: @mission_user_role

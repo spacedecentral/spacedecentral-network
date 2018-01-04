@@ -1,0 +1,17 @@
+%h3 Activity
+- if @user.activities.empty?
+  .no-data.publications-no-data.text-center
+    = inline_svg('no_activity.svg', :class=>'fill_width_icon')
+    %p.fill_width_caption
+      - if current_user && current_user == @user
+        You have no activity yet.
+      - else
+        This user does not have any activity yet.
+- else
+  %br
+  .row
+    %ul.activities
+      = render partial: 'shared/activity', collection: @user_activities[0..5], as: :activity
+      - if @user_activities.size > 6
+        .text-center
+          %a#show-more-activity.show-more Show More

@@ -1,0 +1,18 @@
+- title ||= 'Untitled'
+- id ||= ''
+- content ||= 'Content'
+- action = { title: 'Untitled', path: '', class: 'btn-danger', remote: true, method: '' }.merge(action)
+
+.modal.fade.square.confirmation.mt-20{id: id}
+  .modal-dialog.modal-md
+    .modal-content
+      .modal-header
+        %h4.modal-title= title
+      .modal-body
+        = content
+      .modal-footer
+        %button.btn.js-btn-modal-close.btn-default.btn-modal-cancel{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+          Cancel
+        = link_to action[:title], action[:path],
+          class: "btn js-btn-modal-action #{action[:class]}",
+          remote: action[:remote], method: action[:method]

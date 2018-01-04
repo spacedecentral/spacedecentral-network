@@ -1,0 +1,43 @@
+.container.platform-show-container
+  .container-fluid.mission_crew_list_container.mission_sub_nav
+    .row.mission_crews_utils
+      .col-md-4
+        %h3 Crew
+      .col-md-8
+        =form_tag tab_render_control_mission_path(@mission.id), method: :get, remote: true, id: "mission_crews_filter_form" do |f|
+          = inline_svg('search.svg', :class=>'input_search_icon')
+          = text_field_tag :mission_crew_keyword, params[:mission_crew_keyword], placeholder: 'Search Crew'
+          = hidden_field_tag :selector, 'mission_crews'
+          = hidden_field_tag :role, params[:role] || 'all'
+    .row.mission_crews_lists
+      .col-xs-12
+        %ul.nav.nav-tabs
+          %li.active
+            =link_to '#all', 'data-role'=>'all', :role=>'tab', :data=>{ :toggle=>'tab' } do
+              All
+              %span.numeral= "#{@members.length}"
+          %li.coordinators
+            =link_to '#coordinator', 'data-role'=>'3', :role=>'tab', :data=>{ :toggle=>'tab' } do
+              Coordinators
+              %span.numeral= "#{@members.select { |m| m.role == 3 }.length}"
+          %li.designers
+            =link_to '#designer', 'data-role'=>'4', :role=>'tab', :data=>{ :toggle=>'tab' } do
+              Designers
+              %span.numeral= "#{@members.select { |m| m.role == 4 }.length}"
+          %li.trainees
+            =link_to '#trainee', 'data-role'=>'5', :role=>'tab', :data=>{ :toggle=>'tab' } do
+              Trainees
+              %span.numeral= "#{@members.select { |m| m.role > 4 }.length}"
+        .tab-content
+          .tab-pane#coordinator
+            .row
+          .tab-pane#designer
+            .row
+          .tab-pane#trainee
+            .row
+          .tab-pane.in.active#all{role: 'tabpanel'}
+            .row
+              - if @members.blank?
+                = render "blank_member"
+              - else
+                = render partial: 'member', collection: @members, as: :member

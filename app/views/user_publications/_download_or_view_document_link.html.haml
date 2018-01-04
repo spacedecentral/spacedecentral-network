@@ -1,0 +1,16 @@
+- is_button = (style ||= 'button') == 'button'
+- paper = publication.paper
+- if paper.file?
+  - if paper.content_type == 'application/pdf'
+    = link_to publication.paper&.url,
+      target: '_blank', class: (is_button ? 'btn request-btn' : '') do
+      - if is_button
+        = inline_svg('doc.svg', class: 'btn-icon')
+      %span View Document
+  - else
+    = link_to download_document_user_publication_path(publication),
+      class: (is_button ? 'btn request-btn' : ''), method: :get do
+      - if is_button
+        = inline_svg('doc.svg', class: 'btn-icon')
+      %span View Document
+

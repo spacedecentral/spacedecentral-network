@@ -1,0 +1,31 @@
+.space-col#user-profile-publications
+  - if @publications.empty?
+    .no-data.publications-no-data.text-center
+      = inline_svg('publications.svg', :class=>'fill_width_icon', :title=>"no publications by user")
+      %p.fill_width_caption
+        - if current_user && current_user == @user
+          You have not added any publications yet.
+        - else
+          This user has not added any publications yet.
+  - @publications.each do |paper|
+    .publication-row.clearfix
+      .title
+        = link_to paper.title, user_publication_path(paper)
+      -if paper.publication_date? || paper.publisher?
+        .date_publisher
+          -if paper.publication_date?
+            =paper.publication_date.strftime('%B %Y')
+            -if paper.publisher?
+              %span
+                &#183;
+          =paper.publisher
+      -if paper.abstract?
+        .abstract
+          =paper.abstract
+      -if paper.authors.count > 0
+        .author-list
+          -paper.decorate.get_authors.each do |author|
+            .author.text-capitalize= author
+            %span.separator &#183;
+    %hr
+

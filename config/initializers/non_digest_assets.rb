@@ -1,0 +1,1 @@
+NonStupidDigestAssets.whitelist = ["404.html","500.html", "422.html"]

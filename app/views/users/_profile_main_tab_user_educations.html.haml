@@ -1,0 +1,26 @@
+- educations = @user.user_educations.select {|x| x.school.present? && x.degree.present? }
+- if educations.present?
+  - educations.each_with_index do |education, index|
+    .clearfix
+      .icon
+        - if index < 1
+          =image_tag('profile-education.svg')
+        - else
+          .line-up{:style=>'height:'+(index < 2 ? '32px': '38px')+';margin-bottom:4px'}
+          .circle
+      - if @editable_by_user && index < 1
+        .pull-right
+          = link_to edit_user_education_user_path(@user), :class=>"link-edit-education",
+            :title=>"", remote: true do
+            =image_tag('2blue_pencil.svg')
+      .info-text
+        = education.degree.to_s + ','
+        %b= education.school
+- else
+  .clearfix
+    .icon
+      = image_tag('profile-education.svg')
+    - if @editable_by_user
+      .info-text
+        = link_to 'Add Education', edit_user_education_user_path(@user),
+          class: "link-edit-education", title: "", remote: true

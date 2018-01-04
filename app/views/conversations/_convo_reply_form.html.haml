@@ -1,0 +1,9 @@
+= form_for @reply_message, remote: true, html: { class: 'sleek_form'} do |f|
+  .form-group
+    .user_pm_group
+      .chips.chips-autocomplete.chips-placeholder.form-control.recepients{data: { chip: f.object.decorate.chat_recepients_chip_data(@group_users) }}
+      = hidden_field_tag :group_users, nil, class: 'group_users_input', :value=>@group_users 
+  .form-group
+    = f.text_area :body, :class=>"user_pm_message pull-left"
+    = f.hidden_field :conversation_id
+    = f.submit 'Reply', :class=>"send_user_pm btn btn-primary pull-right"

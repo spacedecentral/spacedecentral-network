@@ -1,0 +1,19 @@
+%h1 Listing publication_long_lats
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @publication_long_lats.each do |publication_long_lat|
+      %tr
+        %td= link_to 'Show', publication_long_lat
+        %td= link_to 'Edit', edit_publication_long_lat_path(publication_long_lat)
+        %td= link_to 'Destroy', publication_long_lat, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Publication long lat', new_publication_long_lat_path

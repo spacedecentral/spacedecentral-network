@@ -1,0 +1,74 @@
+%footer.footer
+  .container-fluid
+    .row
+      .col-md-4.visible-xs.mb-30
+        %ul.socials.center-text
+          %li
+            = link_to 'https://www.facebook.com/spacecooperative/', title: 'Facebook' do
+              = inline_svg('socials/facebook.svg')
+          %li
+            = link_to 'https://www.linkedin.com/company/17879935/' do
+              = inline_svg('socials/linkedin.svg')
+          %li
+            = link_to 'https://blog.space.coop/', title: 'Medium' do
+              = inline_svg('socials/medium.svg')
+          %li
+            = link_to 'https://twitter.com/spacecoopinc', title: 'Twitter' do
+              = inline_svg('socials/twitter.svg')
+          %li
+            = link_to 'https://www.youtube.com/channel/UCJdmSntrS_V_qGW6f5kA7oA',
+              title: 'Youtube' do
+              = inline_svg('socials/youtube.svg')
+          %li
+            = link_to '#', title: 'Slack' do
+              = inline_svg('socials/slack.svg')
+          %li
+            = link_to '#', title: 'Gitlab' do
+              = inline_svg('socials/gitlab.svg')
+      .col-md-4.col-sm-4.mb-30
+        .row
+          #footer_logo.col-sm-8.col-sm-offset-2.col-xs-6.col-xs-offset-3
+            .head= image_tag('favicon.png')
+            .body
+              = image_tag('logo-text.png')
+              .text To Space, Together
+      .col-md-4.col-sm-4.mb-30
+        .row
+          .col-xs-12
+            %ul.menus.col-xs-6
+              %li= link_to 'About', page_path('team')
+              %li= link_to 'Contribute', page_path('contribute')
+              %li= link_to 'Events', page_path('events')
+            %ul.menus.col-xs-6
+              %li= link_to 'Join Us', page_path('membership')
+              %li= link_to 'Blog', 'https://blog.space.coop/'
+              %li= link_to 'Contact', page_path('contact')
+      .col-md-4.col-sm-4.hidden-xs
+        %ul.socials.center-text
+          %li
+            = link_to 'https://www.facebook.com/spacecooperative/', title: 'Facebook' do
+              = inline_svg('socials/facebook.svg')
+          %li
+            = link_to 'https://www.linkedin.com/company/17879935/' do
+              = inline_svg('socials/linkedin.svg')
+          %li
+            = link_to 'https://blog.space.coop/', title: 'Medium' do
+              = inline_svg('socials/medium.svg')
+          %li
+            = link_to 'https://twitter.com/spacecoopinc', title: 'Twitter' do
+              = inline_svg('socials/twitter.svg')
+          %li
+            = link_to 'https://www.youtube.com/channel/UCJdmSntrS_V_qGW6f5kA7oA',
+              title: 'Youtube' do
+              = inline_svg('socials/youtube.svg')
+          %li
+            = link_to '#', title: 'Slack' do
+              = inline_svg('socials/slack.svg')
+          %li
+            = link_to '#', title: 'Gitlab' do
+              = inline_svg('socials/gitlab.svg')
+
+    .row.mt-30
+      .col-md-12.center-text
+        .copyright.center-text &copy; 2017 Space Cooperative Inc. All right reserved.
+        .terms.center-text= link_to 'Terms of Service', 'terms'

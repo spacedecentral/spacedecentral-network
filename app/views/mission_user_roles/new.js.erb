@@ -1,0 +1,43 @@
+$('#join_mission_modal .join_mission_form').html("<%= j (render 'join_mission_form') %>");
+$("#join_mission_modal").modal('show');
+
+// $("#user_lookup").autocomplete({
+//   source: function( request, response ) {
+//     $.ajax( {
+//       url: "/users/search",
+//       dataType: "json",
+//       data: {
+//         term: request.term
+//       },
+//       success: function( data ) {
+//         response( data );
+//       }
+//     } );
+//   },
+//    minLength: 3,
+//    select: function(event, ui) {
+//       //auto populate other fields when selected item
+//       $("#mission_user_role_modal #mission_user_role_user_id").val(ui.item.id);
+//    }
+// });
+
+
+// $("#mission_lookup").autocomplete({
+//   source: function( request, response ) {
+//     $.ajax( {
+//       url: "/missions/search",
+//       dataType: "json",
+//       data: {
+//         term: request.term
+//       },
+//       success: function( data ) {
+//         response( data );
+//       }
+//     } );
+//   },
+//    minLength: 3,
+//    select: function(event, ui) {
+//       //auto populate other fields when selected item
+//       $("#mission_user_role_modal #mission_user_role_mission_id").val(ui.item.id);
+//    }
+// });

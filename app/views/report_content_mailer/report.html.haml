@@ -1,0 +1,13 @@
+- url = reportable_url(@report.reportable, @report.report_parent)
+%p
+  = link_to @report.reporter.name, user_url(@report.reporter)
+  \ has reported a #{@report.reportable&.decorate.alias} made by
+  = link_to @report.reportable&.user&.name, user_url(@report.reportable&.user)
+
+%p Reason: #{@report.report_type.humanize}
+
+%p Source: #{report_source(@report.reportable)}
+
+%p
+  URL:
+  = link_to url, url

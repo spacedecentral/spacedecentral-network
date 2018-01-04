@@ -1,0 +1,7 @@
+%li
+  .activity-row
+    .pull-left
+      = image_tag('activity-post-icon.svg')
+    .activity-text.mr-0
+      = render_markdown_content(activity.activity)
+    %hr

@@ -1,0 +1,221 @@
+.platform-messages-dropdown hr{
+  width: 95%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.platform-messages-dropdown .nav-msg-icon{
+  height: 22px;
+}
+.platform-messages-dropdown .message-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.approve-link {
+  color: #25B350;
+  font-weight: bold !important;
+  .approve-icon {
+    g g {
+      fill: #25B350;
+    }
+  }
+  &:hover {
+    color: #25B350;
+  }
+}
+
+.deny-link {
+  color: #DE0202;
+  font-weight: bold !important;
+  .deny-icon {
+    width: 18px;
+    height: 18px;
+    g g {
+      fill: #DE0202;
+    }
+  }
+  &:hover {
+    color: #DE0202;
+  }
+}
+.nav_unread_alert {
+  border-radius: 50%;
+  background-color: #C22;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 18px;
+  position:relative;
+  margin: -9px -9px -9px -9px;
+  top:-21px;
+  right:-19px;
+}
+.nav_messages_list {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+.platform-notifications-nav {
+  width: 364px;
+  margin-right: -15px !important;
+
+  li {
+    padding-left: 8px;
+    padding-right: 12px;
+    &.dropdown-footer{
+      text-align: center;
+      padding: 10px 0px;
+      &:hover {
+        background-color: #FFFFFF;
+      }
+      a{
+        color: #4A90E2;
+        &:hover {
+          background-color: #FFFFFF;
+          color: #4A90E2;
+        }
+      }
+    }
+    >div{
+      padding:15px 5px 8px 0px;
+      border-bottom: solid 1px #F5F5F5;
+    }
+    &:hover{
+      background-color: #F5F5F5;
+    }
+    &.no-message{
+      text-align: center;
+      padding: 40px 10px;
+      border-bottom: solid 1px #F5F5F5;
+      margin-top: -1px;
+      border-top: solid 1px #F5F5F5;
+      &:hover{
+        background-color: #FFFFFF;
+      }
+    }
+  }
+}
+.unread-mark {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #4A90E2;
+}
+#nav_notifications_list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-height: 380px;
+  overflow-y: scroll;
+  margin-right: -10px;
+}
+.messages-container{
+  margin-left:72px;
+  margin-right: 17px;
+  color:#4A4A4A;
+
+  .message-text,.user{
+    line-height: 17px;
+    height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    a{
+      color:#4A4A4A;
+    }
+  }
+  .user a{
+    font-weight: bold;
+  }
+}
+.platform-messages-dropdown .avatar-nav-dropdown {
+  margin-left:12px;
+}
+.platform-messages-dropdown .avatar-nav-toggle {
+  padding: 0px !important;
+}
+.platform-messages-dropdown .message-author h5{
+  font-weight:900;
+  color: #717171;
+  margin-top:  0px;
+}
+.platform-messages-dropdown .message-time{
+  color: #B2B2B2;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 8px;
+}
+.platform-messages-dropdown .dropdown-header{
+  font-size: 16px;
+  color:#39393A;
+  padding: 0px 12px 0px 8px !important;
+  >div{
+    padding: 10px 2px !important;
+  }
+  &:hover{
+    background-color: #FFFFFF;
+  }
+}
+.platform-messages-dropdown .dropdown-header h6{
+    margin-left:  0px;
+}
+.platform-messages-dropdown .dropdown-header .nav li{
+  margin-right: 0px;
+}
+.platform-messages-dropdown .dropdown-menu > li > a {
+    padding:0 10px !important;
+}
+.platform-messages-dropdown.dropdown .strong{
+  float: left;
+  line-height: 50%;
+  font-weight:900;
+  color:#717171;
+  margin-left:  15px;
+}
+.platform-messages-dropdown.dropdown h6{
+  line-height: 50% !important;
+  margin-bottom: 0px;
+}
+.platform-header-nav .dropdown-menu .new-message {
+  background-color: #fff;
+  border: 0px;
+  float: right;
+  padding: 0px !important;
+}
+.platform-messages-dropdown .new-message img{
+  height: 22px;
+  width: 22px;
+  margin: 0 auto;
+}
+.platform-messages-dropdown .align-bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.platform-messages-dropdown .btn-all-message{
+  width: 100%;
+  text-align: center;
+  color: #0084bf !important;
+  font-size: 16px;
+  margin-top: 15px;
+  border: 0px;
+}
+.view_message_modal_body {
+  padding: 50px 15px 30px 15px;
+}
+#all_notifications_list {
+  list-style: none;
+  padding: 0;
+  width: 800px;
+  margin: 20px auto;
+  li {
+    background: #fff;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

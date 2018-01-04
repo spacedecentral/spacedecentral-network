@@ -1,0 +1,10 @@
+[
+	<% @missions.each do |mission| %>
+		{
+			"label": "<%= mission.name %>",
+			"id": "<%= mission.id  %>",
+			"cover": "<%= mission.cover  %>"
+		}
+	<% end %>
+]
+

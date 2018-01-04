@@ -1,0 +1,33 @@
+-if !message.nil?
+  - render_for_current_user = !render_for_current_user.nil? && render_for_current_user
+  / render_for_current_user is used for when the current_user is either loading the page viewing their messages
+  / Or the current_user could be sending a message async so this layout although rendered by the current_user request Is rendered for another user
+  - not_from_current_user = !render_for_current_user || message["m_user_id"] != current_user.id
+  - if !not_from_current_user
+    - other_group_members = get_other_group_members(message,current_user.id)
+  %li{:id=>"message_in_nav_#{message['c_id']}"}
+    .clearfix
+      .pull-left
+        - if not_from_current_user
+          =image_tag raw_avatar_helper(message).avatar.url(:thumb), :class=>"message-avatar"  
+        - else      
+          - user_to_img = other_group_members&.first&.avatar&.url(:thumb)
+          - if !user_to_img.nil?
+            =image_tag user_to_img, :class=>"message-avatar"        
+      -if message["g_read"] == 0
+        .unread-mark.pull-right
+      .messages-container
+        .user
+          - if not_from_current_user
+            =link_to message["u_name"], user_path(message["m_user_id"])
+          - else
+            - other_group_members&.each do |u|
+              = u&.name
+        =link_to conversation_path(message["c_id"]), remote:true do
+          .message-text
+            - if render_for_current_user && message["m_user_id"] == current_user.id
+              %span You: 
+            =simple_format(message["m_body"])
+      %div
+        .message-time.pull-right
+          .platform_timestamp{"data-time-stamp"=>message["m_created_at"]}=platform_timestamp(message["m_created_at"])

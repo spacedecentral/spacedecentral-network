@@ -1,0 +1,12 @@
+<% if @user_publication.errors.present? %>
+  $('#add-publication-form').html("<%= j remotipart_render('user_publications/form') %>");
+<% else %>
+  <% if @user_publication.previous_changes['slug'].present? %>
+    window.location.href = "<%= user_publication_path(@user_publication) %>";
+  <% end %>
+
+  $('#modal .modal').modal('hide');
+  $(".js-publication-abstract").html("<%= j remotipart_render('user_publications/publication_abstract', publication: @user_publication) %>");
+  $(".publication-heading").html("<%= j remotipart_render('user_publications/publication_heading', publication: @user_publication) %>");
+  $("#publication_request_stages").html("<%= j remotipart_render('user_publications/request_stage', publication: @user_publication) %>");
+<% end %>

@@ -1,0 +1,5 @@
+$("#unfollow_user").css('display', 'block');
+$("#follow_user").css('display', 'none');
+$("#unfollow-form").html("<%= j (render 'users/unfollow') %>")
+$("#follow-message").html("<div class='alert alert-success'><h4>You are now following <%= @user.name %></h4></div>");
+$("#follow-modal").modal('show');

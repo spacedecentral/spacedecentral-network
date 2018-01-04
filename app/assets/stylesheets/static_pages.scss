@@ -1,0 +1,219 @@
+#body_static_page {
+  background-color: #F2F4F9;
+  .main {
+    margin-top: 100px;
+    ol, ul, p, h1, h3, span {
+      font-family: "Lato";
+      line-height: 1.38;
+      color: #4a4a4a;
+    }
+    h1, h2, h3 {
+      color: #333 !important;
+    }
+    .btn-theme-primary {
+      margin-bottom: 10px;
+      color: #fff;
+      text-transform: uppercase;
+      background-color: #bd2a32;
+    }
+    .error-help-block p{
+      color: #c00;
+      margin-top: 10px;
+    }
+  }
+  #about {
+    .main {
+      margin-top: 30px;
+    }
+    .member {
+      width: 100%;
+      padding: 0 10px 0 0;
+      float: left;
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 0;
+      border-bottom: 1px solid #eeeeee;
+      figure {
+        float: left;
+        width: 200px !important;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  #membership {
+    padding: 20px 0;
+    .main {
+      margin-top: 0px;
+      }
+    p span {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .note {
+      font-size: 16px;
+    }
+    ul, ol {
+      padding-left: 30px;
+      margin: 0;
+      li {
+        margin: 14px 0;
+        font-size: 16px;
+      }
+      li a {
+        color: #bd2a32;
+        font-weight: 400;
+      }
+    }
+  }
+
+  #contribute {
+    .cont-margin {
+      margin-top: 30px;
+      margin-bottom: 45px;
+    }
+    .btn {
+      width: 100%;
+    }
+    .contribute-icon {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      height: auto;
+    }
+    .contribute-box {
+      height: auto;
+      p {
+        font-weight: 300;
+        font-size: 16px;
+      }
+      h2 {
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+      }
+      slim-margin {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+
+  #faq {
+    .section-desc {
+      font-size: 18px;
+      margin: 30px 20px 50px 20px;
+    }
+  }
+  #events {
+    .main {
+      margin-top: 30px;
+      article h3 {
+        font-size: 36px;
+        text-align: center;
+        color: #4a4a4a;
+        text-shadow: 0 4px 4px rgba(255, 255, 255, 0.5);
+        margin-bottom: 20px;
+      }
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin: 0;
+      li {
+        margin: 8px 0;
+      }
+      li a {
+        color: #bd2a32;
+        font-weight: 400;
+      }
+    }
+    .entry-content {
+      .sponsor {
+        font-size: 22px;
+        line-height: 0.91;
+        text-align: left;
+        color: #4a4a4a;
+        font-weight: 400;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+    }
+    .events {
+      list-style: none;
+      padding: 0 20px;
+      margin: 20px 20px 50px 20px;
+      .item {
+        width: 150px;
+        height: 150px;
+        display: block;
+        position: relative;
+        background-color: #fff;
+        border: 1px solid #e8e8e8;
+        margin-right: 10px;
+        text-align: center;
+        a {
+          color: #9b9b9b;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          span {
+            display: block;
+            width: 55px;
+            margin: 0 auto;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.9;
+            text-align: center;
+            color: #9b9b9b;
+          }
+        }
+        .upcoming {
+          width: 100%;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 5px 8px;
+          background-color: #40C7D8;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  /* the slides */
+  .slick-slide {
+    margin: 0 10px;
+  }
+  /* the parent */
+  .slick-list {
+    margin: 0 -10px;
+  }
+  .slick-disabled {
+    opacity: 0;
+    pointer-events:none;
+  }
+  .control-c {
+    top: 64px;
+    height: 46px;
+    width: 46px;
+  }
+  .custom-icon-next {
+    transform: rotate(-90deg);
+  }
+  .custom-icon-prev {
+    transform: rotate(90deg);
+  }
+}

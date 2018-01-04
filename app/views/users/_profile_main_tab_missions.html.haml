@@ -1,0 +1,15 @@
+%h3 Participating Missions
+.mission-tile-row.clearfix.participating-missions.row
+  - if @missions.blank?
+    .no-data.missions-no-data.text-center
+      = inline_svg('rocket.svg', class: 'no_data_image')
+      %p.desc
+        - if current_user && current_user == @user
+          You have not joined any missions yet.
+        - else
+          This user has not joined any missions yet.
+  - else
+    = render partial: 'missions/mission', collection: @missions.last(2), as: :mission, locals: { col: 'col-sm-6 col-xs-12' }
+- if @missions.count > 2
+  .text-center
+    %a#show-more-mission.show-more Show More

@@ -1,0 +1,677 @@
+.or-divider {
+  margin-top: 5px;
+  margin-bottom: 15px !important;
+  position: relative;
+  .left-divider, .right-divider {
+    border-top: 2px dashed #fff;
+  }
+  text-align: center;
+  margin-bottom: 10px;
+  span {
+    position: absolute;
+    top: -10px;
+    text-align: center;
+    left: 40%;
+  }
+}
+.nav-title {
+  text-align: center;
+  background-color: #565656;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  padding: 15px;
+}
+
+#user_setting_modal {
+  .user_avatar_edit {
+  }
+}
+
+.user-settings {
+  background-color: #fff;
+  font-size: 18px;
+  text-align: left;
+  color: #808184;
+
+  .setting-title {
+    margin-top: 35px;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .profile-edit-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    svg {
+      width: 32px;
+      height: 32px;
+      g {
+        fill: #4990e2;
+      }
+    }
+  }
+  .user-info {
+    min-height: 192px;
+    border-radius: 6px;
+    border: solid 1px #eaeaeb;
+    padding: 35px 25px;
+    position: relative;
+
+    .name {
+      font-weight: bold;
+    }
+    .title {
+    }
+    .location {
+    }
+    .profile-edit-button {
+      top: 8px;
+      right: 5px;
+    }
+  }
+  .account-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 6px;
+    border: solid 1px #eaeaeb;
+
+    .item {
+      padding: 15px;
+      position: relative;
+      border-bottom: 1px solid #eaeaeb;
+      &:last-child {
+        border-bottom: none;
+      }
+      .title {
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+      .content {
+        font-weight: bold;
+      }
+      .profile-edit-button {
+        top: 8px;
+        right: 5px;
+      }
+    }
+  }
+}
+
+.profile-cover {
+  height: 320px;
+}
+.profile-cover-detail {
+  display: table;
+  margin-top: -320px;
+  height: 320px;
+  padding: 0px !important;
+  >div{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height:100%;
+  }
+  svg {
+    height: 14px;
+    fill: #fff;
+  }
+  h1 {
+    margin-bottom: 7px;
+  }
+}
+
+
+#profile_content {
+  font-size: 16px;
+  color: #4A4A4A;
+}
+.user-profile-info {
+  .bio {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 80%;
+      top:10%;
+      right:-10px;
+      background-color: #D8D8D8;
+
+    }
+  }
+  .skills {
+    padding-top: 10px;
+  }
+  .skill {
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 13px;
+    border-radius: 6px;
+    background-color: #D7E0DF;
+    margin-right: 30px;
+    font-size: 18px;
+  }
+
+  .career-education {
+    font-size: 16px;
+    >div {
+      padding: 8px 0px 8px 20px;
+    }
+    .icon {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      float: left;
+      opacity: 0.4;
+      margin-top: -2px;
+      .circle {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border: solid 2px #4A4A4A;
+        border-radius: 50%;
+        margin-top: 10px;
+      }
+      .line-up{
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        left: 50%;
+        bottom: 50%;
+        margin-left: -1px;
+        background-color: #4A4A4A;
+      }
+    }
+    .edit-link{
+
+    }
+    .info-text {
+      margin-left: 40px;
+      margin-right: 35px;
+    }
+    .link-LinkedIn {
+      display: inline-block;
+      padding: 3px 10px 6px 10px;
+      border: solid 1px #DCDCDC;
+      border-radius: 2px;
+      margin-left: 5px;
+      a {
+        font-size: 16px;
+        color: #4A90E2;
+      }
+    }
+  }
+}
+.no-data, .profile-no-data
+{
+  svg {
+    margin-top: 42px;
+    width: 100px;
+    height: 100px;
+  }
+  .desc {
+    margin-top:25px;
+  }
+  .desc, .action-link a{
+    font-size: 14px;
+  }
+  a {
+    color:#3B7ADB;
+  }
+}
+.missions-no-data svg { margin-top: 50px; }
+.publications-no-data svg { margin-top: 18px; }
+
+.activities {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 15px;
+}
+.activity-row{
+  img{
+    opacity: 0.4;
+  }
+  .activity-time{
+    font-size:12px;
+    color: #B2B2B2;
+  }
+  .activity-text{
+    word-wrap: break-word;
+    *{
+      font-size:16px;
+    }
+    margin-left: 30px;
+    margin-right: 70px;
+  }
+}
+.user_avatar_edit{
+  position: relative;
+  text-align: center;
+  .overlay{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -120px;
+    background: #4A4A4A;
+    opacity: 0.5;
+  }
+
+  &:hover{
+    .overlay{
+      opacity: 0.7;
+    }
+
+  }
+  #user_default_avatar{
+    display: none;
+  }
+  .avatar-edit-button {
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    margin-left: -23px;
+    margin-top: -22px;
+    cursor: pointer;
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+}
+.avatar_img_container {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.follower-more{
+  display: inline-block;
+  cursor: pointer;
+  width: 61px;
+  height: 61px;
+  border:solid 1px #D8D8D8;
+  border-radius: 50%;
+  text-align: center;
+  color: #4A90E2;
+  line-height: 61px;
+  margin-top: 15px;
+  margin-right: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none !important;
+}
+.profile-file-field {
+  display:none !important;
+}
+.profile-edit-button {
+  float:none !important;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff !important;
+  border-radius: 50%;
+  padding: 7px;
+  width: 50px;
+  height: 50px;
+}
+.profile-edit-button:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #eee;
+}
+.profile-edit-button img {
+  width: 100%;
+  height: 100%;
+}
+.profile-title {
+  font-size: 18px;
+  color: #fff;
+}
+.profile-location {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 12px;
+}
+.profile-tag-list.list-inline {
+  margin-top: 12px;
+}
+.profile-tag-list.list-inline > li {
+  background-color: #00CCAA;
+  border-radius: 12px;
+  color: #fff;
+  padding-top: 7px;
+  padding-right: 12px;
+  padding-bottom: 7px;
+  padding-left: 12px;
+}
+.profile-tag-list.list-inline > li a {
+  color: #fff;
+}
+
+.education_row, .career_row{
+  border: solid 1px #eeeeee;
+  overflow: hidden;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  .input-area {
+    margin-right: 26px;
+  }
+}
+.education_title, .career_title{
+  border-top: solid 2px #EBEBEB;
+  padding: 20px 8px 0px 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+#add_education_button, #add_career_button {
+  display: inline-block;
+  cursor: pointer;
+  margin-top: -13px;
+  height: 35px;
+  .btn-text{
+    float: left;
+    margin-top: 12px;
+    margin-left: -5px;
+  }
+  svg{
+    display: block;
+    float: left;
+    margin-left: -28px;
+  }
+}
+.remove_education_button {
+  font-size: 35px !important;
+  margin-top: 35px !important;
+  margin-left: -5px;
+  margin-right: 10px;
+  color: #337ab7 !important;
+  font-weight:lighter !important;
+  opacity: 1 !important;
+}
+.remove_career_button {
+  font-size: 35px !important;
+  margin-top: 60px !important;
+  margin-left: -5px;
+  margin-right: 10px;
+  color: #337ab7 !important;
+  font-weight:lighter !important;
+  opacity: 1 !important;
+}
+.modal-body {
+  .modal-content-container{
+    max-height: 333px;
+    overflow-y: scroll;
+    margin: -15px -15px 15px -15px;
+    padding: 15px;
+    border-bottom: solid 1px #e5e5e5;
+  }
+}
+
+
+/*Avatar DropDown Menu*/
+#avatar-dropdown-menu {
+  width: 220px;
+  color: #838384;
+}
+#avatar-dropdown-menu.dropdown-menu > li{
+  .username{
+    color: #39393A;
+    font-size: 16px;
+  }
+  .email{
+    color: #808184;
+    font-size: 16px;
+    margin-bottom : 0px;
+
+  }
+
+}
+#avatar-dropdown-menu.dropdown-menu > li > a{
+  color: #838384;
+  padding: 13px 20px;
+}
+
+/* Icons on User Page*/
+.profile_cover_icon_row {
+  display: inline-flex;
+}
+.follow_user {
+  height: 41px;
+  width: 41px;
+  margin: 5px;
+  background-image: image-url("plus.svg");
+  background-repeat: no-repeat;
+  border: none;
+  background-size: 40px 40px;
+}
+.follow_user:hover {
+  background-image: image-url("plus_white.svg");
+  background-repeat: no-repeat;
+}
+.unfollow_user {
+  height: 41px;
+  width: 41px;
+  margin: 5px;
+  background-image: image-url("following.svg");
+  background-repeat: no-repeat;
+  border: none;
+  background-size: 40px 40px;
+}
+.unfollow_user:hover {
+  background-image: image-url("unfollow.svg");
+  background-repeat: no-repeat;
+}
+.message_icon {
+  height: 41px;
+  width: 41px;
+  margin: 5px;
+  background-image: image-url("message.svg");
+  background-repeat: no-repeat;
+  border: none;
+  background-size: 40px 40px;
+}
+.message_icon:hover {
+  background-image: image-url("message_white.svg");
+  background-repeat: no-repeat;
+}
+/* People page */
+.user_list_container {
+  background-color: #FFFFFF;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  .title {
+    font-size: 28px;
+  }
+  svg {
+    height: 30px;
+ fill: #337ab7;
+  }
+  .user {
+  margin-top: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+    h3 {
+    margin-top: 10px;
+    }
+    .avatar-img{
+  width: 120px;
+  height: 120px;
+    }
+    a{
+      font-size: 22px;
+      font-weight: 400;
+      color: #4A4A4A;
+      text-decoration: none;
+    }
+    .job{
+      width: 100%;
+      max-height: 40px;
+      color:#4A4A4A;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .city{
+      color:#ABABAB;
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+}
+/* end profile */
+/* session page */
+.or-divider {
+  margin-top: 5px;
+  margin-bottom: 15px !important;
+  position: relative;
+  .left-divider, .right-divider {
+    border-top: 2px dashed #fff;
+  }
+  text-align: center;
+  margin-bottom: 10px;
+  span {
+    position: absolute;
+    top: -10px;
+    text-align: center;
+    left: 40%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #profile_content {
+    font-size: 16px;
+
+    hr {
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+    }
+  }
+
+  .user-profile-info {
+    .bio {
+      padding-bottom: 10px;
+      &:after {
+        width: 100%;
+        height: 1px;
+        left: 0px;
+        top: 100%;
+      }
+    }
+    .skill {
+      margin-right: 10px;
+    }
+    .career-education {
+      border-bottom: solid 1px #D8D8D8;
+      padding-bottom: 15px;
+      > div {
+        padding: 8px 0px;
+      }
+    }
+  }
+}
+  @media only screen and (max-width: 768px) {
+  .user_list_container {
+    .title {
+      font-size: 24px;
+    }
+    svg {
+      height: 24px;
+    }
+    .user {
+      margin-top: 25px;
+      .avatar-img{
+        width: 100px;
+        height: 100px;
+      }
+      a{
+        font-size: 18px;
+      }
+      .job{
+        font-size: 14px;
+      }
+      .city{
+        font-size: 12px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 548px) {
+  .auth-container {
+    width: 100%;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .auth-container .auth-sign-up{
+    width: 100%;
+    margin: 15px 0 0 0px;
+    padding-top: 17px;
+    float:left;
+  }
+  .auth-container .auth-sign-up .pull-left{
+    line-height: 15px;
+    font-size: 15px;
+  }
+  .user_list_container {
+    .title {
+      font-size: 20px;
+    }
+    svg {
+      height: 20px;
+    }
+    .user {
+      margin-top: 20px;
+      .avatar-img{
+        width: 80px;
+        height: 80px;
+      }
+      a{
+        font-size: 16px;
+      }
+      .job{
+        font-size: 12px;
+      }
+      .city{
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media(max-width: 480px){
+  .auth-container h2 {
+    font-size: 38px;
+  }
+  .user_list_container {
+    .title {
+      font-size: 18px;
+    }
+    svg {
+      height: 18px;
+    }
+  }
+}
+@media(max-width: 320px){
+  .user_list_container {
+    .title {
+      font-size: 16px;
+    }
+    svg {
+      height: 16px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .user-settings .user-info .text {
+    margin-top: 15px;
+  }
+}

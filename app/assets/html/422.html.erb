@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600" rel="stylesheet">
+    <title>Space Cooperative: Going to space, together.</title>
+    <%= favicon_link_tag 'favicon.png' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class='navbar platform-header-nav navbar-fixed-top'>
+    <div class='container-fluid'>
+    <div class='navbar-header'>
+    <button class='navbar-toggle' data-target='#platform-header-nav' data-toggle='collapse' type='button'>
+    <span class='sr-only'>Toggle Navigation</span>
+        <%= image_tag("nav_toggle.png", :class=>"toggle-icon") %>
+        <%= image_tag("arrow_down.svg", :class=>"arrow") %>
+    </button>
+    <a class='navbar-brand' href='/'>
+      <%= image_tag("logo.png") %>
+    </a>
+    </div>
+    <ul class='navbar-right'>
+    <li>
+    <a href='#'>
+      <%= image_tag('search.svg', :class=>'right_nav_icon') %>
+    <!-- %span.small-screen-text Search -->
+    </a>
+    </li>
+    <li>
+    <a class="btn btn_login" role="button" href="/log-in">LOG IN</a>
+    </li>
+    <li>
+    <a class="btn btn_signup" role="button" href="/users/sign_up">SIGN UP</a>
+    </li>
+    </ul>
+    <div class='collapse navbar-collapse' id='platform-header-nav'>
+    <ul class='nav navbar-nav'>
+    <li class='home-navigation'>
+    <a href="/">Home</a>
+    </li>
+    <li>
+    <a href='/missions'>Missions</a>
+    </li>
+    <li>
+    <a href='/people'>People</a>
+    </li>
+    <li>
+    <a href='/forum'>Forum</a>
+    </li>
+    <li>
+    <a href='/events'>Events</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </nav>
+
+    <main id="spacedecentral_main_layout_content">
+       <div class="exception_handler_exception" data-status="404" data-response="Not found" data-rails="5.0.4">
+        <h2>
+          422
+          Unprocessable Entity
+        </h2>
+        <div class="exception_handler_exception_404 bg">
+        </div>
+      </div>
+    </main>
+
+  </body>
+</html>

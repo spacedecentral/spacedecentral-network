@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="WIREFRAMES" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage---Tile-View-Copy" transform="translate(-818.000000, -2125.000000)" fill="#8C8C8C">
+            <g id="facebook-copy" transform="translate(818.000000, 2125.000000)">
+                <path d="M18.89625,0 L1.10375,0 C0.49375,0 0,0.49375 0,1.10375 L0,18.89625 C0,19.50625 0.49375,20 1.10375,20 L10.6825,20 L10.6825,12.255 L8.075,12.255 L8.075,9.2375 L10.6825,9.2375 L10.6825,7.00875 C10.6825,4.42625 12.26,3.02125 14.565,3.02125 C15.66875,3.02125 16.6175,3.10125 16.89375,3.13875 L16.89375,5.83875 L15.29375,5.83875 C14.04375,5.83875 13.8,6.43875 13.8,7.31375 L13.8,9.23875 L16.7875,9.23875 L16.4,12.26375 L13.8,12.26375 L13.8,20 L18.89625,20 C19.50625,20 20,19.50625 20,18.89625 L20,1.10375 C20,0.49375 19.50625,0 18.89625,0" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

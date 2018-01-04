@@ -1,0 +1,106 @@
+function decrement_messages_unread(convo_id){
+  if ( $("#messages_unread_badge").length > 0 ) {
+    var current_unread = parseInt($("#messages_unread_badge").html());
+    if ( current_unread > 1 ) {
+      $("#messages_unread_badge").html(current_unread-1);
+    } else {
+      $("#messages_unread_badge").html("")
+    }
+  }
+  if ( $("#nav_messages_list #message_in_nav_"+convo_id+" .unread-mark").length > 0 ) {
+    $("#nav_messages_list #message_in_nav_"+convo_id+" .unread-mark").remove();
+  }
+}
+function increment_messages_unread(){
+  if ( $("#messages_unread_badge").length > 0 ) {
+    var current_unread = parseInt($("#messages_unread_badge").html());
+    $("#messages_unread_badge").html(current_unread+1);
+  } else {
+    $("#messages_dropdown_toggle").append("<span id='messages_unread_badge' class='badge'>1</span>")
+  }
+}
+function decrement_notifications_unread(){
+  if ( $("#notifications_unread_badge").length > 0 ) {
+    var current_unread = parseInt($("#notifications_unread_badge").html());
+    if ( current_unread > 1 ) {
+      $("#notifications_unread_badge").html(current_unread-1);
+    } else {
+      $("#notifications_unread_badge").html("")
+      $("#nav_notifications_none").show();
+    }
+  }
+  if( $("#nav_notifications_none").length > 0 ) {
+    $("#nav_notifications_none").hide();
+  }
+}
+function increment_notifications_unread(){
+  if ( $("#notfications_unread_badge").length > 0 ) {
+    var current_unread = parseInt($("#notfications_unread_badge").html());
+    $("#notfications_unread_badge").html(current_unread+1);
+  } else {
+    $("#notifications_dropdown_toggle").append("<span id='notfications_unread_badge' class='badge'>1</span>")
+  }
+  $("#nav_notifications_none").hide();
+}
+function send_pm_msg(msginput,id,save_in_convo){
+  if ( $(msginput).val().length > 0 ) {
+    // App.notifier.send({message:$(msginput).val(),mission_chat_id:id,save_in_convo:save_in_convo});
+    $(msginput).val("");
+  }
+}
+var register_notifier = function() {
+    App.notifier = App.cable.subscriptions.create({
+    channel: "NotifierChannel"}, {
+    connected: function() {
+    },
+
+    disconnected: function() {
+    },
+    received: function(data) {
+      console.log(data);
+      if ( data['new_message'] == 1 ) {
+        if ( $("#nav_messages_list #message_in_nav_"+data['conversation_id']).length > 0 ) {
+          $("#nav_messages_list #message_in_nav_"+data['conversation_id']).remove();
+        }
+        $("#nav_messages_list").prepend(data['dom_nav_update']);
+        if ( data['mark_as_unread'] == 1 ) {
+          increment_messages_unread();
+        }
+        if( $("#nav_messages_none").length > 0 ) {
+          $("#nav_messages_none").remove();
+        }
+        if( $("#user_chat_pm_"+data['conversation_id']).length > 0 ) {
+          $("#user_chat_pm_"+data['conversation_id']+" .user_chat_pm_feed").append(data['dom_convo_update']);
+        }
+      } else if ( data['pm_typing'] == 1 ) {
+        if( $("#user_chat_pm_"+data['conversation_id']).length > 0 ) {
+          var message_in_convo = '<div class="clearfix user_chat_pm_typing">';
+          message_in_convo += '<div class="row"><div class="col-md-6"><div class="pull-left">';
+          message_in_convo += data['user_avatar']+'...</div></div></div>';
+          $("#user_chat_pm_"+data['conversation_id']+" .user_chat_pm_feed").append();
+        }
+      } else if ( data['new_notification'] == 1 ) {
+        $("#nav_notifications_list").prepend(data['dom_update']);
+        increment_notifications_unread();
+      } else if ( data['decrement_message_unread'] == 1 ) {
+        decrement_messages_unread(data['conversation_id']);
+      } else if ( data['decrement_notification_unread'] == 1 ) {
+        decrement_notifications_unread();
+      }
+      return false;
+    },
+
+  });
+};
+$(function() {
+  this.App || (this.App = {});
+  
+  App.cable || (App.cable = ActionCable.createConsumer());
+
+  register_notifier();
+
+  $(".user_pm_message").focus(function() {
+    var user_to = $(this).parent(".user_chat_pm_reply").find(".pm_message_user_to");
+  });
+
+});

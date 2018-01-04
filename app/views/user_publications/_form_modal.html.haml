@@ -1,0 +1,13 @@
+- modal_title = 'Edit Publication'
+
+#add-publication-modal.modal.fullscreen.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+    .modal-content{:style=>"border-radius: 0px;"}
+      .modal-header
+        %button.close{:type=>"button", :class=>"close-publication-modal", "aria-label"=>"Close"}
+          %span{"aria-hidden"=>"true"} &times;
+        .row
+          .col-md-8.col-md-offset-2.col-sm-12.mr-30
+            %h3.modal-title= modal_title
+      .modal-body.col-md-8.col-md-offset-2.col-sm-12#add-publication-form
+        = render 'form'

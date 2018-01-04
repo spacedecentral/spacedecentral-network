@@ -1,0 +1,7 @@
+- on_mobile ||= nil
+- css_class_on_mobile ||= 'mb-20 visible-xs search-on-mobile'
+
+.search-box{class: (on_mobile && css_class_on_mobile), style: (on_mobile && 'display: none')}
+  = text_field_tag :search, '', class: 'search-control js-search-forum-input', placeholder: 'Search posts'
+  = inline_svg('search.svg', class: 'search-icon js-search-icon')
+  = inline_svg('x_close.svg', class: 'clear-search-icon js-clear-search-filter', style: 'display: none')

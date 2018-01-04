@@ -1,0 +1,5 @@
+- if mission.mission_type? && mission.projects.present?
+  .col-md-12.space-col
+    %h3 Projects
+    .row
+      = render partial: 'missions/mission', collection: mission.projects, as: :mission, locals: { col: 'col-md-12' }

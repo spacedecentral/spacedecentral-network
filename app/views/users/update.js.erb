@@ -1,0 +1,8 @@
+<% if @user.errors.present? %>
+  $('#edit-profile-form').html("<%= j (render 'form') %>");
+  initUserForm();
+  confirmCloseModal();
+<% else %>
+  $("#edit-profile-modal").modal('hide');
+  window.location.reload(true);
+<% end %>

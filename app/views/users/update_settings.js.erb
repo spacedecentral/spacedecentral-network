@@ -1,0 +1,12 @@
+<% if current_user.errors.present? %>
+  $('#user_setting_modal .modal-content').html("<%= j render('users/settings_form') %>");
+<% else %>
+  <% if params[:step].to_s == 'username' %>
+    window.location.href = "<%= settings_path %>";
+  <% elsif params[:step].to_s == 'personal' %>
+    $('.user-settings .user-info').html("<%= j render('users/info_setting') %>");
+  <% elsif params[:step].to_s == 'email' %>
+    $('.flash').html("<%= j render('shared/flashages', notice: 'We are sent an email to you to confirm that you want to change your email.') %>");
+  <% end %>
+  $('#modal .modal').modal('hide');
+<% end %>

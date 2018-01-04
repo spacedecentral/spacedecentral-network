@@ -1,0 +1,12 @@
+- title ||= 'New Post'
+#post_form_modal.modal.fullscreen.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+    .modal-content{:style=>"border-radius: 0px;"}
+      .modal-header
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+          %span{"aria-hidden"=>"true"} &times;
+        .row
+          .col-md-8.col-md-offset-2.col-sm-12
+            %h4.modal-title= title
+      .modal-body.col-md-8.col-md-offset-2.col-sm-12
+        = render 'posts/form', remote: true

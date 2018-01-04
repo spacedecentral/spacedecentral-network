@@ -1,0 +1,37 @@
+= form_for @user, :authenticity_token => true do |f|
+  #profile-errors.alert.alert-danger{:style=>"display:none;"}
+  .form-group
+    %h2=@user.name
+    = f.label :name
+    = f.text_field :name, :class=>"form-control"
+  .form-group
+    = image_tag @user.avatar.url(:thumb), :class=>"img-circle"
+    %label.profile-edit-button{:for=>"user_avatar"} 
+      / Edit Avatar
+      =image_tag "pencil.svg"
+    = f.file_field :avatar, :class=>"profile-file-field"
+  .form-group
+    = f.label :cover_photo, 'Update Cover Photo'
+    = f.file_field :cover_photo, :class=>"form-control"
+  .form-group
+    = f.label :cover_dy, 'Cover Offset Y'
+    = f.number_field :cover_dy, :class=>'form-control' 
+  .form-group
+    = f.label :title, 'Edit Title'
+    = f.text_area :title, :class=>"form-control"
+  .form-group
+    = f.label :location, 'Edit Location'
+    = f.text_area :location, :class=>"form-control"
+  .form-group
+    = f.label :bio, 'Edit Bio'
+    = f.text_area :bio, :class=>"form-control"
+  -if current_user.is_admin_user?
+    .form-group
+      = f.label :role
+      = f.number_field :role, :class=>"form-control"
+  .form-group
+    .row
+      .col-md-12
+        .pull-right
+          %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Cancel
+          = f.submit 'Save Profile Updates', :class=>"btn btn-success"

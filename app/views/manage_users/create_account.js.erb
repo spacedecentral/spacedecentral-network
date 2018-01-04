@@ -1,0 +1,5 @@
+<% if @user.errors.any? %>
+  $("#new_account_errors").html("<%= j (render 'new_account_error') %>").show();
+<% else %>
+  $("#new-account-modal").modal('hide');
+<% end %>

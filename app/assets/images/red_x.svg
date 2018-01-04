@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="WIREFRAMES" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy" transform="translate(-371.000000, -392.000000)" fill="#DE0202">
+            <g id="1156" transform="translate(371.000000, 392.000000)">
+                <g id="Layer_1">
+                    <g id="Group">
+                        <path d="M9,18.000375 C4.037625,18.000375 0,13.96275 0,9.000375 C0,4.038 4.037625,0.000375 9,0.000375 C13.962375,0.000375 18,4.038 18,9.000375 C18,13.96275 13.962375,18.000375 9,18.000375 Z M9,0.750375 C4.450875,0.750375 0.75,4.45125 0.75,9.000375 C0.75,13.5495 4.450875,17.250375 9,17.250375 C13.549125,17.250375 17.25,13.5495 17.25,9.000375 C17.25,4.45125 13.549125,0.750375 9,0.750375 Z" id="Shape"></path>
+                        <g transform="translate(4.875000, 5.625000)" id="Rectangle-path">
+                            <rect transform="translate(4.971485, 3.204771) rotate(45.000000) translate(-4.971485, -3.204771) " x="4.59648905" y="-0.670254769" width="1" height="7.75005068"></rect>
+                            <rect transform="translate(1.535649, 4.948532) rotate(45.016206) translate(-1.535649, -4.948532) " x="0.126975084" y="4.57353544" width="2.81734809" height="1"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

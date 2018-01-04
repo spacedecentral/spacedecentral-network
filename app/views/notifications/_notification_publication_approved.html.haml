@@ -1,0 +1,26 @@
+%li
+  .clearfix
+    .pull-left
+      - if notification.sender
+        = image_tag notification.sender&.avatar.try(:url, :thumb),
+          class: "message-avatar"
+    - unless notification.read?
+      .unread-mark.pull-right
+    .messages-container
+      .message-text
+        - if notification.sender.is_owner_of?(notification.notifiable.user_publication)
+          = link_to notification.sender&.name, user_path(notification.sender),
+            class: 'text-bold', target: '_blank'
+          \has #{notification.event} access to the full text for
+
+        - else
+          \You have #{notification.event}
+          = link_to notification.sender&.name, user_path(notification.sender),
+            class: 'text-bold', target: '_blank'
+          \to access the full text for
+        = link_to notification.notifiable&.user_publication&.title,
+          user_publication_path(notification.notifiable&.user_publication),
+        class: 'text-bold', target: '_blank'
+    .pull-right.message-time.mt-10
+      .platform_timestamp{"data-time-stamp"=>notification.created_at}
+        = platform_timestamp(notification.created_at)

@@ -1,0 +1,47 @@
+.container-fluid.auth-cover
+  .auth-container
+    %h2
+      Sign up with the Cooperative
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .row
+        .col-md-12
+          = f.text_field :name, autofocus: true , placeholder: "FULL NAME", class: 'auth-field'
+          = f.email_field :email, placeholder: "EMAIL ADDRESS", :class=>'auth-field'
+          = f.password_field :password, autocomplete: "off" ,placeholder: "PASSWORD", :class=>'auth-field'
+      .row
+        .col-md-12
+          .row
+            .col-md-12.auth-password
+              %input{:type=>"checkbox"}
+              %span Please send me the newsletter
+      .row
+        .col-md-12
+          = f.submit "Sign up with email", :class=>"btn"
+      .row
+        .col-md-12
+          .row
+            .col-md-12
+              .auth-spacer
+      .row
+        .col-xs-12.or-divider
+          .col-xs-5.left-divider
+          .col-xs-2
+            %span or
+          .col-xs-5.right-divider
+      .row
+        .col-md-12
+          %a.btn.button-google-auth{:href=>"auth/google_oauth2"} Sign up with Google
+      .row.auth-sign-up
+        .col-md-12
+      .row
+        .col-md-12
+          = link_to "Have an account? Log in", new_session_path(resource_name), :class=>"btn auth-sign-up-btn"
+
+/ .container-fluid.auth-cover
+/   .auth-container
+/     %h2
+/       Sign up with the Cooperative
+/     %a.btn.auth-sign-up-btn{:href=>"https://goo.gl/forms/iwNfNS0cHRANnTGq2", "target"=>"_blank"}
+
+

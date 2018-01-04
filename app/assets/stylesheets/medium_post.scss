@@ -1,0 +1,44 @@
+#medium_posts {
+  .blog-post {
+    background-color: #fff;
+    &:hover {
+      box-shadow: 5px 5px 15px 0px #ddd;
+    }
+
+    header .blog-element img {
+      max-width: 350px;
+    }
+    .blog-content {
+      padding: 15px;
+      .author, .date {
+        font-weight: 300;
+        color: #9b9b9b;
+      }
+      > * {
+        font-family: 'Lato';
+      }
+      h4 {
+        &.ellipsis-box {
+          height: 52px;
+          overflow-y: hidden;
+          display: ellipsis;
+        }
+        a {
+          font-size: 24px;
+          color: #4a4a4a;
+          text-decoration: none;
+          font-style: normal;
+        }
+
+      }
+      .blog-body {
+        height: 90px;
+        overflow-y: hidden;
+        display: ellipsis;
+        em {
+          font-style: normal !important;
+        }
+      }
+    }
+  }
+}

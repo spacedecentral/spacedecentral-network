@@ -1,0 +1,12 @@
+- if users.empty?
+  .no-data.text-center
+    = inline_svg('following_follower_empty.svg', class: 'empty-icon')
+    %span.empty-text= empty_text
+- else
+  - users.first( users.count > 9 ? 8 : 9).each do |user|
+    .col-xs-4.pl-0.text-center
+      =  link_to image_tag(user.avatar.url(:medium), :class=>"img-circle avatar-img follower-avatar"), user
+  - if users.count > 9
+    .col-xs-4.text-center
+      %a#show-follower-more.follower-more
+        ="+"+number_to_human(users.count - 8, :format => '%n%u', :units => { :thousand => 'K' })

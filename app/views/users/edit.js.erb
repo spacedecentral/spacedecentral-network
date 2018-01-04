@@ -1,0 +1,8 @@
+$('#edit-profile-form').html("<%= j (render 'form') %>");
+$("#edit-profile-modal").modal({
+  show:true,
+  backdrop: 'static',
+  keyboard: false
+});
+
+confirmCloseModal();

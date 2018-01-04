@@ -1,0 +1,11 @@
+#loading_a_modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        .modal-body
+          %h4.modal-title 
+            Please Wait Loading...
+          = image_tag('eclipse_loader.svg', :class=>'fill_width_icon')
+        .modal-footer 

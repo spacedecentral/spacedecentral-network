@@ -1,0 +1,93 @@
+.checkbox-custom {
+  position: relative;
+  width: 100%;
+  min-height: 20px;
+}
+.invisible {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.cntr {
+  position: relative;
+  width: 100%;
+  .label-cbx {
+    user-select: none;
+    cursor: pointer;
+    margin-bottom: 0;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+  }
+  .label-cbx input:checked + .checkbox {
+    border-color: #20C2E0;
+  }
+  .label-cbx input:checked + .checkbox svg path {
+    fill: #20C2E0;
+  }
+  .label-cbx input:checked + .checkbox svg polyline {
+    stroke-dashoffset: 0;
+  }
+  // .label-cbx:hover .checkbox svg path {
+  //   stroke-dashoffset: 0;
+  // }
+  .label-cbx .checkbox {
+    position: relative;
+    top: 2px;
+    float: left;
+    margin-right: 8px;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #C8CCD4;
+    border-radius: 1px;
+  }
+  .label-cbx .checkbox svg {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 14px;
+    height: 14px;
+  }
+  .label-cbx .checkbox svg path {
+    fill: none;
+    stroke: #20C2E0;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 71px;
+    stroke-dashoffset: 71px;
+    transition: all 0.6s ease;
+  }
+  .label-cbx .checkbox svg polyline {
+    fill: none;
+    stroke: #FFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 20px;
+    stroke-dashoffset: 20px;
+    transition: all 0.3s ease;
+  }
+  .label-cbx > span {
+    pointer-events: none;
+    vertical-align: middle;
+    font-size: 12px;
+  }
+}
+
+.tag-checkbox-button {
+  .label-tag-cbx {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+
+    input:checked + .forum-taglink {
+      text-decoration: none;
+      background-color: #4a4a4a;
+      color: #fff;
+      pointer-events: none;
+    }
+  }
+}

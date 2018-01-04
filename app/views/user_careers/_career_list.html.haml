@@ -1,0 +1,14 @@
+=form_for @user,:html => {:class => 'sleek_form', remote: true} do |f|
+  .modal-content-container
+    #profile-errors.alert.alert-danger{:style=>"display:none;"}
+    #career_forms
+      .career_title
+        =link_to_add_association f, :user_careers, :id=>'add_career_button' do
+          = inline_svg('plus-blue.svg')
+          .btn-text Add Another
+      =f.fields_for :user_careers do |career|
+        =render "user_career_fields", :f => career
+  .row
+    .col-md-12
+      .pull-right
+        = f.submit 'Save', :class=>"btn btn-primary"

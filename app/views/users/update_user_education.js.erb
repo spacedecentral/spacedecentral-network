@@ -1,0 +1,6 @@
+<% if @user.errors.present? %>
+  $('#edit-education-form').html("<%= j (render 'education_form') %>");
+<% else %>
+  $("#edit-education-modal").modal('hide');
+  window.location.href = "<%= user_path(current_user) %>";
+<% end %>

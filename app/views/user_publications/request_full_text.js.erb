@@ -1,0 +1,7 @@
+$('#publication_request_stages').html("<%= j render(partial: 'user_publications/request_stage', locals: { publication: @user_publication }) %>");
+
+$(".publication-heading").html("<%= j remotipart_render('user_publications/publication_heading', publication: @user_publication) %>");
+
+<% if params[:show_flash].present? %>
+  $('.flash').html("<%= j render('shared/flashages', notice: 'We sent your request to the authors to provide you the full-text. Waiting for lift off...') %>");
+<% end %>

@@ -1,0 +1,26 @@
+- report_parent ||= nil
+= render 'shared/user_info', user: reply.user, original_poster: reply.decorate.my_reply?
+%div
+  = render_markdown_content(reply.content, target: '_blank')
+.like-share.clearfix
+  .like.pull-left{ id: "like_box#{reply.id}" }
+    = render partial: 'likes/like', locals: { likable: reply }
+  .reply.pull-left
+    %span.middle-dot
+      &#183;
+      = link_to "Reply", '#', class: 'reply-link', :data => { id: reply.id }
+  .forum-time.pull-right
+    .platform_timestamp{"data-time-stamp"=>reply.created_at}=platform_timestamp(reply.created_at)
+    .dropdown.pull-right
+      %a.forum-menu{href: '#', data: {toggle: 'dropdown'}, aria: { haspopup: true, expanded: false} }
+        = inline_svg('post_action.svg')
+      %ul.dropdown-menu.dropdown-menu-right.forum-dropmenu
+        - if reply.decorate.can_modified?
+          %li
+            = link_to "Delete", reply_path(reply), method: :delete,
+              data: { confirm_target: '#reply_delete_comfirmation_modal' }, remote: true
+          %li
+            = link_to "Edit", edit_reply_path(reply),
+              class: 'edit-reply-link', remote: true
+        - if !reply.decorate.mine?
+          %li= report_link(reply, report_parent)

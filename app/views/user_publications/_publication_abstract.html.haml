@@ -1,0 +1,52 @@
+.card-title Abstract
+.post-content
+  = render_markdown_content(publication.abstract, target: '_blank')
+%ul.inline-items.light-items
+  - if publication.doi.present?
+    %li.item
+      DOI: #{publication.doi}
+    %li.item.separator
+  - if publication.arXiv?
+    %li.item
+      arXiv: #{publication.arXiv}
+    %li.item.separator
+  - if publication.PMID.present?
+    %li.item
+      PMID: #{publication.PMID}
+    %li.item.separator
+  - if publication.volume.present?
+    %li.item
+      Volume: #{publication.volume}
+    %li.item.separator
+  - if publication.issue.present?
+    %li.item
+      Issue: #{publication.issue}
+    %li.item.separator
+.row
+  .col-xs-12
+    %hr
+    %ul.inline-tags
+      = render partial: 'tags/tag', collection: publication.tags, as: :tag, locals: { link: true }
+.like-share.clearfix
+  .like.pull-left{ id: "like_box#{publication.id}" }
+    = render partial: 'likes/like', locals: { likable: publication }
+  .reply.pull-left
+    = link_to '#', class: 'js-trigger-response-box' do
+      = inline_svg('reply.svg', class: 'reply-icon')
+      %span.like-size
+        = publication.replies_count
+  .forum-time.pull-right
+    .platform_timestamp{"data-time-stamp"=>publication.created_at}
+      =platform_timestamp(publication.created_at)
+
+    - if publication.decorate.mine?
+      .dropdown.pull-right
+        %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
+          = inline_svg('post_action.svg')
+        %ul.dropdown-menu.dropdown-menu-right
+          %li
+            = link_to "Delete", '#publication_delete_confirmation_modal',
+              data: { toggle: 'modal' }
+          %li
+            = link_to "Edit", edit_user_publication_path(publication),
+              remote: true, class: 'link-edit-publication'

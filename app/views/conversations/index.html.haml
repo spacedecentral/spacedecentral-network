@@ -1,0 +1,13 @@
+.container-fluid.stars-cover
+  .container
+    .well.space-chat-well
+      .space-chat-left.platform-messages-dropdown.pull-left
+        %h2.pull-left="Messages(#{@conversations_unread})"
+        .pull-right
+          = link_to(image_tag('newmsg.svg'), new_message_path(user_id: @user&.id), remote: true, class: 'btn btn-default new-message')
+        %input#search_mission_files{:type=>"text", :placeholder=>"Search Messages",:name=>"message_search_term",:value=>@message_search_term}
+        .space-chat-convos
+          %ul
+            -@conversations.each do |message|
+              =render :partial => "messages/message_in_nav", :locals => { :message => message, :render_for_current_user=>true }
+      .space-chat-right.pull-right

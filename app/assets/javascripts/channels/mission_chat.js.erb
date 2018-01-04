@@ -1,0 +1,83 @@
+
+var register_mission_chat = function(chat_id) {
+    App.mission_chat = App.cable.subscriptions.create({
+    channel: "MissionChatChannel",
+    mission_chat_id: chat_id}, {
+    connected: function() {
+      // Called when the subscription is ready for use on the server
+      // console.log(data);
+      // var datastr = "<div class='chat_name'>"+data['name']+"</div>";
+      // datastr += "<div class='chat_time'>"+data['time']+"</div></div>";
+      // datastr += "<div class='chat_message'>"+data['message']+"</div>";
+      // $("#mission_chat_feed").append(datastr);
+      // return false;
+    },
+
+    disconnected: function() {
+      // Called when the subscription has been terminated by the server
+      // console.log(data);
+      // var datastr = "<div class='chat_name'>"+data['name']+"</div>";
+      // datastr += "<div class='chat_time'>"+data['time']+"</div></div>";
+      // datastr += "<div class='chat_message'>"+data['message']+"</div>";
+      // $("#mission_chat_feed").append(datastr);
+    },
+
+    received: function(data) {
+      // Called when there's incoming data on the websocket for this channel
+      var datastr = "<div class='chat_name'>"+data['name']+"</div>";
+      datastr += "<div class='chat_time'>"+data['time']+"</div></div>";
+      datastr += "<div class='chat_message'>"+data['message']+"</div>";
+      $("#mission_chat_feed").append(datastr);
+      return false;
+    },
+
+  });
+};
+function send_chat_msg(msginput,id,save_in_convo){
+  if ( $(msginput).val().length > 0 ) {
+    App.mission_chat.send({message:$(msginput).val(),mission_chat_id:id,save_in_convo:save_in_convo});
+    $(msginput).val("");
+  }
+}
+$(function() {
+
+  if ( $("#mission_chat_id").length > 0 ) {
+    this.App || (this.App = {});
+
+    App.cable || (App.cable = ActionCable.createConsumer());
+
+    register_mission_chat($("#mission_chat_id").data('mission-id'));
+
+    $("#send_mission_chat").click(function(){
+      send_chat_msg($("#mission_chat_message"), $("#mission_chat_id").data('mission-id'), true);
+      $(".mission_chat_pullup").animate({scrollTop: $(".mission_chat_pullup").get(0).scrollHeight}, 1000);
+    });
+    $("#mission_chat_message").keypress(function() {
+      if ( event.keyCode == 13 ) {
+        send_chat_msg($("#mission_chat_message"), $("#mission_chat_id").data('mission-id'), true);
+      $(".mission_chat_pullup").animate({scrollTop: $(".mission_chat_pullup").get(0).scrollHeight}, 1000);
+      }
+    });
+    $(".mission_chat").click(false);
+    $(".mission_chat_toggle.up").click(function(e) {
+      e.stopPropagation();
+      $(".mission_chat_toggle.up").hide();
+      $(".mission_chat_toggle.down").show();
+      $(".mission_chat_pullup").slideToggle();
+      $(".mission_chat").css('height', 'auto');
+      $(".mission_chat .mission_chat_reply .btn").css('display', 'block');
+      $(".mission_chat .mission_chat_reply input").css('display', 'block');
+    });
+    $(".mission_chat_toggle.down").click(function(e) {
+      e.stopPropagation();
+      $(".mission_chat_toggle.up").show();
+      $(".mission_chat_toggle.down").hide();
+      $(".mission_chat_pullup").slideToggle();
+      $(".mission_chat").css('height', '30px');
+      $(".mission_chat .mission_chat_reply .btn").css('display', 'none');
+      $(".mission_chat .mission_chat_reply input").css('display', 'none');
+    });
+    setTimeout(function(){App.mission_chat.send({message:"has joined the chat",mission_chat_id:$("#mission_chat_id").data('mission-id'),save_in_convo:false});}, 3000);
+
+  }
+});

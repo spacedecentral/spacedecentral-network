@@ -1,0 +1,36 @@
+.center-text.forum-banner
+  .container
+    %h1 FORUM
+    %p How can an idea turn into a plan? It needs to be discussed, analyzed and debated. The intention of the discussion forum is to facilitate conversations that lead to action.
+    %br
+.container
+  .row.forum-topbar
+    .col-md-3.col-sm-4.hidden-xs
+      = render 'shared/search_filter'
+    .col-md-9.col-sm-8.flex.fai-center.filter-toolbar
+      .forum-filter-button.visible-xs
+        = inline_svg('filter_icon.svg', class: 'filter-icon js-open-filter-button')
+        %span.filter-title{style: 'display: none;'} Filters
+      - if user_signed_in?    
+        = link_to new_post_path(request_from: 'forum'), class: "btn btn-danger new-topic mra js-toolbar-link", remote: true do
+          = inline_svg('white_pencil.svg')
+          New Post
+      = link_to '#etiquette_modal', class: 'js-toolbar-link', id: 'etiquette_modal_btn' do
+        Forum Etiquette
+
+      .close-filter-toolbar.pull-right{style: 'display: none;', "aria-hidden"=>"true"} &times;
+
+  .row
+    .post-filter.col-md-3.col-sm-4
+      .forum-sidebar{style: 'display: none'}
+        = render 'post_filter'
+    .col-md-9.col-sm-8
+      = render 'shared/search_filter', on_mobile: true
+      .post-container.mb-50
+        = render "posts/list_posts", posts: @posts
+
+= render "shared/modal_confirmation",
+  id: 'post_delete_confirmation_modal',
+  title: 'Delete Post',
+  content: 'Are you sure you want to send this post into the void?',
+  action: { title: 'Delete', method: :delete, remote: false }

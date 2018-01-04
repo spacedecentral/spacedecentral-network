@@ -1,0 +1,50 @@
+.container-fluid
+  .container.manage_users_actions
+    .row
+      .col-xs-1
+      .col-xs-3
+        = link_to "/admin/manage/users/new_account", :remote=>true, :class=>"btn btn-primary" do
+          Create New User Account
+      .col-xs-3
+        .btn.btn-default 
+          Actions
+  .container
+    .row
+      .col-xs-1
+      .col-xs-2
+        %b Name
+      .col-xs-2
+        %b Email
+      .col-xs-3
+        %b Creation Date
+      .col-xs-2
+        %b Role
+      .col-xs-2
+        %b Status
+    .row
+      %hr
+  .container.manage_users_list
+    - @users.each do |user|
+      .row
+        .col-xs-1
+        .col-xs-2
+          = link_to user.name, user_path(user.id)          
+        .col-xs-2
+          = user.email
+        .col-xs-3
+          .platform_timestamp{"data-time-stamp"=>user.created_at}=platform_timestamp(user.created_at)
+        .col-xs-2
+          = user.get_role_name
+        .col-xs-2
+          = list_user_active_status(user)
+      .row
+        %hr
+  
+#new-account-modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title New User Account        
+      #new-account-form

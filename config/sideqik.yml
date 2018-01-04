@@ -1,0 +1,11 @@
+:concurrency: 5
+:pidfile: tmp/pids/sidekiq.pid
+:queues:
+    - default
+    - [carrierwave, 3]
+    - [mailer, 2]
+    - [airbrake, 10]
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 20

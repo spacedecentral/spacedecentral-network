@@ -1,0 +1,22 @@
+.col-xs-12.col-sm-6.col-md-4
+  .crew-wrapper.row
+    .row
+      .image-wrapper.pull-left.col-lg-3.col-sm-4.col-xs-2
+        = link_to user_path(member.user.id) do
+          = image_tag(member.user.avatar.url(:thumb), class: 'platform-crew-img img-responsive')
+      .member-detail.pull-left.col-lg-9.col-sm-8.col-xs-10
+        .row
+          .detail-wrapper.col-lg-10.col-sm-9.col-xs-11
+            = link_to member.user.name, user_path(member.user.id)
+            - user_title = member.user&.title
+            - if user_title.present?
+              %p.user_title= user_title
+            %p{ class: member.role_name.underscore }= member.role_name
+          - if user_signed_in? && @isMember && (current_user&.is_admin_user? || @current_member_role&.is_coordinator_or_greater?)
+            .member-action.pull-right.col-lg-2.col-sm-3.col-xs-1
+              .dropdown
+                %a.dropdown-toggle{ href: '#', data: { toggle: 'dropdown' } }
+                  %span.forum-menu
+                    = inline_svg('post_action.svg')
+                %ul.dropdown-menu
+                  = render_crews_menu(current_user, member, @current_member_role)

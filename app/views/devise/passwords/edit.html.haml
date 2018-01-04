@@ -1,0 +1,16 @@
+.container-fluid.auth-cover
+  .auth-container
+    %h2
+      Update your Password
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = devise_error_messages!
+      = f.hidden_field :reset_password_token
+      .row
+        .col-md-12
+          -if @minimum_password_length
+            %br
+          = f.password_field :password, autofocus: true, placeholder: "NEW PASSWORD", autocomplete: "off", :class=>'auth-field'
+          = f.password_field :password_confirmation, placeholder: "CONFIRM NEW PASSWORD", autocomplete: "off", :class=>'auth-field'
+      .row
+        .col-md-12
+          = f.submit "Update my password", :class=>"btn"

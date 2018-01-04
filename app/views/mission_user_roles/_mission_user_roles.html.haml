@@ -1,0 +1,57 @@
+.container
+  .jumbotron
+    - if @mission_user_roles_pending == 0
+      %h2.display-4 No Users Awaiting Membership for #{@mission.name}
+    - else
+      %h2.display-4 #{@mission_user_roles_pending} Users Awaiting Membership for #{@mission.name}
+      - @mission_user_roles.each do |mission_user_role|
+        %hr
+        .lead
+          .row
+            .col-md-4
+              =link_to user_path(mission_user_role.user.id) do
+                = "User: #{mission_user_role.user.name} #{mission_user_role.user.email}"
+            .col-md-2
+              =link_to user_path(mission_user_role.mission.id) do
+                = "Mission: #{mission_user_role.mission.name}"
+        .lead
+          .row
+            .col-md-4
+              %strong Contribution
+            .col-md-4
+              %strong Availability
+          .row
+            .col-md-4
+              %p
+                = mission_user_role.contribute
+            .col-md-4
+              %p
+                = mission_user_role.availability
+        .lead
+          .row
+            .col-md-12
+              = link_to "Accept Membership with permission level "+mission_user_role.role.to_s, accept_membership_mission_mission_user_role_path(mission_user_role.mission, mission_user_role, :missionid=>mission_user_role.mission_id), remote: true, :class=>"btn btn-primary pull-left"
+              = link_to 'Edit', edit_mission_mission_user_role_path(mission_user_role.mission, mission_user_role), remote: true, :class=>"btn btn-warning pull-left"
+              = link_to 'Destroy', mission_mission_user_role_path(mission_user_role.mission, mission_user_role), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>"btn btn-danger"
+#mission_user_role_modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title 
+          User Mission Role
+      .modal-body#mission_user_role_form
+      .modal-footer 
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Close
+#update_mission_user_role_modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title 
+          Update User Mission Role
+      .modal-body#update_mission_user_role_form
+      .modal-footer 
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Close

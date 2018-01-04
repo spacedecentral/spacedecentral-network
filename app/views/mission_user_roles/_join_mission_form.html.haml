@@ -1,0 +1,18 @@
+= form_tag join_mission_mission_user_role_path(:id=>@mission.id), method: :post, :remote=>true do |f|
+  .modal-body
+    #join_mission_errors.alert.alert-danger{:style=>"display:none;"}
+    .row
+      %p{:style=>"padding: 5px 15px"} The information below is optional, but it will help for future for planning purposes.
+    .form-group
+      %label{:for=>"contribute"} What skills would you like to contribute?
+      %textarea#contribute.form-control{:name=>"contribute"}
+    .form-group
+      %label{:for=>"availability"} How many hours a week can you contribute?
+      %textarea#availability.form-control{:name=>"availability"}
+      %input{:type=>"hidden", :name=>"mission_id", :value=>@mission.id}
+  .modal-footer 
+    .row
+      .col-md-2.pull-right
+        %input.btn.btn-primary{:type=>"submit", :value=>"Join"}
+      .col-md-2.pull-right
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Cancel

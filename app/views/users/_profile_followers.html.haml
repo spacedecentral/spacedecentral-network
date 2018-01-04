@@ -1,0 +1,35 @@
+.space-col.following_follower_nav.clearfix
+  %ul.nav.nav-tabs#following_follower_tabs{:role=>"tablist"}
+    %li.active
+      %a{:href => "#following_tab_info", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab"}
+        %span.tab-title Following
+        &nbsp;#{@user.following.size}
+    %li
+      %a{:href => "#follower_tab_info", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab",:id=>'profile-mission-tab'}
+        %span.tab-title Followers
+        &nbsp;#{@user.followers.size}
+
+  .tab-content
+    .container-fluid.tab-pane.fade.in.active.pl-0#following_tab_info{:role=>"tabpanel"}
+      .user_list_container
+        - following = @user.following
+        - if following.present?
+          - following.each_slice(4) do |sliced|
+            .row
+              = render partial: 'users/following_follower_info', collection: sliced, as: :user
+        - else
+          .no-data.bigger.text-center
+            = inline_svg('following_follower_empty.svg', class: 'empty-icon')
+            %span.empty-text= @user.decorate.following_empty_text
+
+    .container-fluid.tab-pane.fade.pl-0#follower_tab_info{:role=>"tabpanel"}
+      .user_list_container
+        - followers = @user.followers
+        - if followers.present?
+          - followers.each_slice(4) do |sliced|
+            .row
+              = render partial: 'users/following_follower_info', collection: sliced, as: :user
+        - else
+          .no-data.bigger.text-center
+            = inline_svg('following_follower_empty.svg', class: 'empty-icon')
+            %span.empty-text= @user.decorate.follower_empty_text

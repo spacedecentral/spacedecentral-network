@@ -1,0 +1,59 @@
+<svg width="20" height="20" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>693</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-587 -4719)">
+<g id="693">
+<g id="Layer_1">
+<g id="Group">
+<g id="Group">
+<g id="Shape">
+<use xlink:href="#path0_fill" transform="translate(587 4719.04)"/>
+</g>
+<g id="Shape">
+<use xlink:href="#path1_fill" transform="translate(596.678 4719.04)"/>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Rectangle-path">
+<use xlink:href="#path2_fill" transform="matrix(0.964987 0.262297 -0.262297 0.964987 588.974 4722.27)"/>
+</g>
+<g id="Rectangle-path">
+<use xlink:href="#path3_fill" transform="matrix(0.964962 0.26239 -0.26239 0.964962 588.974 4725.85)"/>
+</g>
+<g id="Rectangle-path">
+<use xlink:href="#path4_fill" transform="matrix(0.964955 0.262415 -0.262415 0.964955 588.975 4729.43)"/>
+</g>
+<g id="Rectangle-path">
+<use xlink:href="#path3_fill" transform="matrix(0.964962 0.26239 -0.26239 0.964962 588.974 4733.02)"/>
+</g>
+</g>
+<g id="Group">
+<g id="Rectangle-path">
+<use xlink:href="#path5_fill" transform="matrix(0.262694 0.964879 -0.964879 0.262694 605.026 4722.26)"/>
+</g>
+<g id="Rectangle-path">
+<use xlink:href="#path5_fill" transform="matrix(0.262694 0.964879 -0.964879 0.262694 605.026 4725.85)"/>
+</g>
+<g id="Rectangle-path">
+<use xlink:href="#path6_fill" transform="matrix(0.262694 0.964879 -0.964879 0.262694 605.026 4729.43)"/>
+</g>
+<g id="Rectangle-path">
+<use xlink:href="#path5_fill" transform="matrix(0.262694 0.964879 -0.964879 0.262694 605.026 4733.02)"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 0.833313 1.08008L 9.48831 3.35091L 9.48831 18.9197L 0.833313 16.648L 0.833313 1.08008ZM 0 0L 0 17.2908L 10 19.9154L 10.3212 19.8321L 10.3212 2.70792L 0 0Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 9.48832 1.08008L 9.48832 16.648L 0.83374 18.9197L 0.83374 3.35091L 9.48832 1.08008ZM 10.3217 0L 0 2.70792L 0 19.8317L 0.321667 19.915L 10.3217 17.2908L 10.3217 0Z"/>
+<path id="path2_fill" fill-rule="evenodd" d="M 0 0L 6.64634 0L 6.64634 0.833344L 0 0.833344L 0 0Z"/>
+<path id="path3_fill" fill-rule="evenodd" d="M 0 0L 6.64693 0L 6.64693 0.833366L 0 0.833366L 0 0Z"/>
+<path id="path4_fill" fill-rule="evenodd" d="M 0 0L 6.64629 0L 6.64629 0.833286L 0 0.833286L 0 0Z"/>
+<path id="path5_fill" fill-rule="evenodd" d="M 0 0L 0.833351 0L 0.833351 6.64681L 0 6.64681L 0 0Z"/>
+<path id="path6_fill" fill-rule="evenodd" d="M 0 0L 0.833351 0L 0.833351 6.64723L 0 6.64723L 0 0Z"/>
+</defs>
+</svg>

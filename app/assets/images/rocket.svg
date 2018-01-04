@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="102px" height="102px" viewBox="0 0 102 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(1.000000, 1.000000)" stroke="#C1C0C1" stroke-width="2">
+            <path d="M33.8709677,85.483871 L14.516129,66.1290323 C14.516129,66.1290323 54.8387097,0 100,0 C100,45.1612903 33.8709677,85.483871 33.8709677,85.483871 Z" id="Shape"></path>
+            <polyline id="Shape" points="30.6451613 82.2580645 25.8064516 87.0967742 12.9032258 74.1935484 17.7419355 69.3548387"></polyline>
+            <path d="M9.67741935,79.0322581 C0,88.7096774 0,100 0,100 C0,100 11.2903226,100 20.9677419,90.3225806" id="Shape"></path>
+            <circle id="Oval" cx="72.5806452" cy="27.4193548" r="6.4516129"></circle>
+            <circle id="Oval" cx="58.0645161" cy="41.9354839" r="6.4516129"></circle>
+            <circle id="Oval" cx="43.5483871" cy="56.4516129" r="6.4516129"></circle>
+            <polyline id="Shape" points="85.483871 38.7096774 58.0645161 100 41.9354839 100 41.9354839 87.0967742"></polyline>
+            <polyline id="Shape" points="61.2903226 14.516129 0 41.9354839 0 58.0645161 12.9032258 58.0645161"></polyline>
+            <path d="M96.7741935,16.1290323 C89.6467742,16.1290323 83.8709677,10.3516129 83.8709677,3.22580645" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,6 @@
+<% if @contact.errors.present? %>
+  $('#contact_form').html("<%= j render('pages/contact_form') %>");
+<% else %>
+  $('#contact_form').html("<%= j render('pages/contact_form') %>");
+  $('.flash').html("<%= j render("shared/flashages", notice: "Thank you for your message. it has been sent.") %>");
+<% end %>

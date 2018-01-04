@@ -1,0 +1,77 @@
+- if current_user != @user
+  #unfollow-modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
+    .modal-dialog{:role=>"document" }
+      .modal-content
+        .modal-header
+          %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          %h4.modal-title
+            Unfollow #{@user.name}
+        .modal-body#unfollow-form
+          -if user_signed_in? && current_user.following?(@user)
+            = render "unfollow"
+        .modal-footer
+          %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            Close
+  #follow-modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
+    .modal-dialog{:role=>"document" }
+      .modal-content
+        .modal-header
+          %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          %h4.modal-title
+            Follow #{@user.name}
+        .modal-body#follow-message
+          / .alert.alert-success
+          /   %h4 You are now following #{@user.name}
+        .modal-footer
+          %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            Close
+- if @editable_by_user
+  #edit-profile-modal.modal.fullscreen.confirm-close-modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+    .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+      .modal-content{:style=>"border-radius: 0px;"}
+        .modal-header
+          %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          .col-md-8.col-md-offset-2.col-sm-12.mr-30
+            %h4.modal-title Edit Profile
+        .modal-body#edit-profile-form.col-md-8.col-md-offset-2.col-sm-12
+  #add-tags-modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+    .modal-dialog{:role=>"document" }
+      .modal-content
+        .modal-header
+          %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          %h4.modal-title
+            Add Skills
+        .modal-body
+          #add-tags-form
+          #add-tags-current-tags
+  #add-publication-modal.fullscreen.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+    .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+      .modal-content{:style=>"border-radius: 0px;"}
+        .modal-header
+          %button.close{:type=>"button", :class=>"close-publication-modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          .col-md-8.col-md-offset-2.col-sm-12.mr-30
+            %h3.modal-title  Add Publication
+        .modal-body.col-md-8.col-md-offset-2.col-sm-12#add-publication-form
+  #edit-career-modal.modal.fullscreen.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+    .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+      .modal-content{:style=>"border-radius: 0px;"}
+        .modal-header
+          %button.close{:type=>"button", :class=>"close-career-modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          .col-md-8.col-md-offset-2.col-sm-12.mr-30
+            %h3.modal-title  Edit Career
+        .modal-body#edit-career-form
+  #edit-education-modal.modal.fullscreen.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+    .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+      .modal-content{:style=>"border-radius: 0px;"}
+        .modal-header
+          %button.close{:type=>"button", :class=>"close-education-modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          .col-md-8.col-md-offset-2.col-sm-12.mr-30
+            %h3.modal-title  Edit Education
+        .modal-body#edit-education-form.col-md-8.col-md-offset-2.col-sm-12

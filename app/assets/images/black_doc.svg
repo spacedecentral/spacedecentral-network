@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>693</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Wireframes---CURRENT" stroke="none" stroke-width="1">
+        <g id="User-Profile-Copy-2" transform="translate(-545.000000, -573.000000)" >
+            <g id="Group-6" transform="translate(196.000000, 388.000000)">
+                <g id="693" transform="translate(349.000000, 185.000000)">
+                    <g id="Layer_1">
+                        <g id="Group">  
+                            <g id="Shape">
+                                <path d="M2,2.694 L22.772,8.144 L22.772,45.509 L2,40.057 L2,2.694 L2,2.694 Z M0,0.102 L0,41.6 L24,47.899 L24.771,47.699 L24.771,6.601 L0,0.102 L0,0.102 Z"></path>
+                                <path d="M46,2.694 L46,40.057 L25.229,45.509 L25.229,8.144 L46,2.694 L46,2.694 Z M48,0.102 L23.228,6.601 L23.228,47.698 L24,47.898 L48,41.6 L48,0.102 L48,0.102 Z"></path>
+                            </g>
+                            <g transform="translate(4.000000, 7.000000)" id="Rectangle-path">
+                                <g>
+                                    <rect transform="translate(8.171239, 3.895359) rotate(15.206375) translate(-8.171239, -3.895359) " x="0.195634163" y="2.89534631" width="15.9512097" height="2.00002629"></rect>
+                                    <rect transform="translate(8.171567, 12.498238) rotate(15.211904) translate(-8.171567, -12.498238) " x="0.195253111" y="11.4981984" width="15.9526282" height="2.00007876"></rect>
+                                    <rect transform="translate(8.172623, 21.098223) rotate(15.213407) translate(-8.172623, -21.098223) " x="0.197078362" y="20.0982799" width="15.9510889" height="1.99988577"></rect>
+                                    <rect transform="translate(8.171875, 29.703663) rotate(15.211904) translate(-8.171875, -29.703663) " x="0.195561111" y="28.7036234" width="15.9526282" height="2.00007876"></rect>
+                                </g>
+                                <g transform="translate(23.000000, 0.000000)">
+                                    <rect transform="translate(8.828293, 3.896219) rotate(74.770007) translate(-8.828293, -3.896219) " x="7.82827115" y="-4.07995408" width="2.0000433" height="15.9523454"></rect>
+                                    <rect transform="translate(8.828423, 12.498364) rotate(74.770007) translate(-8.828423, -12.498364) " x="7.82840135" y="4.52219132" width="2.0000433" height="15.9523454"></rect>
+                                    <rect transform="translate(8.827506, 21.101303) rotate(74.770007) translate(-8.827506, -21.101303) " x="7.8274842" y="13.1246308" width="2.0000433" height="15.9533454"></rect>
+                                    <rect transform="translate(8.827819, 29.703218) rotate(74.770007) translate(-8.827819, -29.703218) " x="7.82779685" y="21.7270448" width="2.0000433" height="15.9523454"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

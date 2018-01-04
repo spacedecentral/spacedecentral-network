@@ -1,0 +1,4 @@
+$("#edit-mission-modal.modal").modal('hide');
+<% if @mission.project_type? %>
+  $("#mission_projects").html("<%= j render('missions/list_projects', mission: @mission.dad) %>");
+<% end %>

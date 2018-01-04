@@ -1,0 +1,28 @@
+<% if @reply.replicable_type == 'Reply' %>
+  var $replyContainer = $("#reply-container-<%= @reply.replicable_id %>");
+  var level = $replyContainer.parents('.forum-card').length;
+  $("<%= j (render partial: 'reply', locals: { reply: @reply } ) %>").insertBefore($replyContainer);
+  $replyContainer.slideDown(350);
+
+  if (level >= 2) {
+    $replyContainer.closest('.forum-card')
+      .find('.reply .reply-link')
+      .data('id', "<%= @reply.replicable_id %>");
+  }
+<% else %>
+  $('.response_box').show();
+  $('html, body').animate({scrollTop: $(document).height() }, 1000);
+  $(".list-forum-cards").append("<%= j (render partial: 'reply', locals: { reply: @reply } ) %>");
+  var $replyCount = $(".js-trigger-response-box .like-size");
+  var count = $replyCount.html();
+  if (count) {
+    count = parseInt(count) + 1;
+    $replyCount.html(count);
+  }
+<% end %>
+
+$('.reply-form').hide();
+$('#reply_content').val('');
+$('.CodeMirror').each(function() {
+  this.CodeMirror.setValue(' ');
+});

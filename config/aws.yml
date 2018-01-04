@@ -1,0 +1,17 @@
+development:
+  access_key_id: <%= ENV["AM_ACCESS_A"] %>
+  secret_access_key: <%= ENV["AM_ACCESS_B"] %>
+  bucket: <%= ENV["AM_BUCKET_NAME"] %>
+  region: <%= ENV["AWS_REGION"] %>
+
+staging:
+  access_key_id: <%= ENV["AM_ACCESS_A"] %>
+  secret_access_key: <%= ENV["AM_ACCESS_B"] %>
+  bucket: <%= ENV["AM_BUCKET_NAME"] %>
+  region: <%= ENV["AWS_REGION"] %>
+
+production:
+  access_key_id: <%= ENV["AM_ACCESS_A"] %>
+  secret_access_key: <%= ENV["AM_ACCESS_B"] %>
+  bucket: <%= ENV["AM_BUCKET_NAME"] %>
+  region: <%= ENV["AWS_REGION"] %>

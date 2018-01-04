@@ -1,0 +1,37 @@
+.landing-cover
+  .fixed-bg-slide
+    .imgbg.stars-cover
+    / =image_tag("stars.jpg")
+.container.landing-cover-detail.center-text
+  %div
+    %h1
+      MEET THE COMMUNITY
+    %h3
+      No mission can be accomplished without people, at least with the existing state of technology. Check out the people who are part of our community.
+
+
+.container.user_list_container
+  .row.center-text
+    %h2.title
+      People from
+      =inline_svg("location.svg", class: '')
+      %a{:href => "#", }The Globe
+  - @users.each_slice(4) do |slice|
+    .col-md-12
+      -slice.each do |user|
+        .col-md-3.user
+          = link_to user_path(user) do
+            = image_tag user.avatar.url(:medium), class: "img-circle  avatar-img avatar"
+          %h3
+            = link_to user.name, user
+          .job
+            = user.title
+          %h4.city
+            = (user.location? && user.location != '') ? user.location : 'Universal'
+.landing-cover
+  .fixed-bg-slide
+    .imgbg
+    / =image_tag("stars.jpg")
+.container.landing-cover-detail.center-text
+
+= render 'shared/footer'

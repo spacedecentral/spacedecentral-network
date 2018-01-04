@@ -1,0 +1,40 @@
+.following_follower_nav {
+  #following_follower_tabs {
+    margin: 0;
+    li {
+      margin-right: 10px;
+      a {
+        border: none;
+        text-decoration: none;
+        padding: 5px 0;
+        color: #333;
+        .tab-title {
+          font-weight: 400;
+        }
+      }
+      &.active a {
+        border-bottom: 3px solid #333;
+      }
+    }
+  }
+
+  .no-data {
+    height: 230px;
+    text-align: center;
+    .empty-icon {
+      display: block;
+      margin: 35px auto;
+    }
+    &.bigger {
+      .empty-icon {
+        margin: 72px auto;
+        width: 96px;
+        height: 96px;
+      }
+      .empty-text {
+        font-size: 20px;
+      }
+    }
+  }
+}
+

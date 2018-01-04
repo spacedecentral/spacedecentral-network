@@ -1,0 +1,67 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 33px;
+}
+p, ol, ul, td {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 33px;
+}
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+th {
+  padding-bottom: 5px;
+}
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+#notice {
+  color: green;
+}
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+/* added red color and 100% width*/
+#error_explanation {
+  width: 100%;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  color: red;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0;
+    background-color: #c00;
+    color: red;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+label {
+  display: block;
+}

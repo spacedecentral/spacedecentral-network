@@ -1,0 +1,42 @@
+- col ||= 'col-md-4 col-sm-6'
+- post_type ||= nil
+- remote ||= nil
+- request_from ||= 'landing'
+
+%div{post_id: post.id, class: "#{col} #{request_from == 'landing' ? 'tilter tilter--3' : ''}"}
+  .tile.post-tile{style: request_from != 'landing' ? 'height: 240px; margin-bottom: 15px;' : 'margin-bottom: 30px', class: (request_from == 'landing' ? 'tilter__figure' : '')}
+    - if request_from == 'landing'
+      .post-type{class: post.post_type}
+        = inline_svg('mission_tab.svg', class: 'type-icon')
+        %span= post.decorate.label
+    .tile-content{style: request_from != 'landing' ? 'margin-top: 20px' : ''}
+      .tile-head.clearfix.ellipsis-box
+        .avatar.pull-left.mr-15
+          = image_tag post.user.avatar.url(:thumb), size: '40x40'
+        = link_to post.title, post, class: 'tile-title pull-left'
+      .tile-body
+        .ellipsis-box= render_markdown_content(post.content, stripdown: true)
+      .tile-footer
+        .like-share.clearfix
+          .like.pull-left{id: "like_box#{post.id}"}
+            = render partial: 'likes/like', locals: { likable: post }
+          .reply.pull-left
+            = inline_svg('reply.svg', :class => 'reply-icon')
+            %span.like-size
+              = post.replies_count || 0
+          .forum-time.pull-right
+            .platform_timestamp{"data-time-stamp"=>post.created_at}=platform_timestamp(post.created_at)
+            .dropdown.pull-right
+              %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
+                = inline_svg('post_action.svg')
+              %ul.dropdown-menu.dropdown-menu-right.forum-dropmenu
+                - if post.decorate.can_modified?
+                  %li
+                    = link_to "Delete", post_path(post),
+                      method: :delete, remote: true,
+                      data: { confirm_target: '#post_delete_confirmation_modal' }
+                  %li
+                    = link_to "Edit", edit_post_path(post), remote: remote
+                - else
+                  - if !post.decorate.mine?
+                    %li= report_link(post)

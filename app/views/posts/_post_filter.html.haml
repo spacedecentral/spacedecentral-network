@@ -1,0 +1,32 @@
+- request_from ||= 'forum'
+- extra_params ||= {}
+
+= form_tag filter_posts_path(request_from: request_from) ,
+  remote: true, class: 'filter-form', method: :get do
+  = hidden_field_tag 'filter[keyword]', '', id: 'filter_keyword'
+  %h4.text-uppercase.mb-20 Categories
+  .radio-custom.mb-5.filter-item
+    = radio_button_tag 'filter[category]', 'recent', checked: params[:filter][:category].to_s == 'recent'
+    %label{for: "filter_category_recent"} Most recent
+  .radio-custom.mb-5.filter-item
+    = radio_button_tag 'filter[category]', 'trending'
+    %label{for: "filter_category_trending"} Trending
+
+  - extra_params.each do |key, values|
+    - if values.is_a?(Array)
+      - values.each do |v|
+        = hidden_field_tag "filter[#{key}][]", v
+    - else
+      = hidden_field_tag "filter[#{key}][]", values
+
+  - if @missions.present?
+    %hr
+    .mission-filters.js-filter-box
+      %h4
+        %span.text-uppercase Missions
+        %span.pull-right.clear-filter Clear
+      = render partial: 'posts/mission_checkbox', collection: @missions, as: :mission
+  .tags-filters.js-filter-box
+    - if @tags.present?
+      = render partial: 'tags/list_tags', locals: { tags: @tags , checkable: true }
+

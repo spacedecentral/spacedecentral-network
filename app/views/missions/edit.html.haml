@@ -1,0 +1,16 @@
+.tab-content
+  .container-fluid.tab-pane.fade.in.active#main_mission_tab{:role=>"tabpanel"}
+    %h1 Editing Mission: #{@mission.name}
+    = render 'form'
+  .container-fluid#discussion.tab-pane.fade{:role=>"tabpanel"}
+  .container-fluid#mission_files.tab-pane.fade{:role=>"tabpanel"}
+    -if !user_signed_in?
+      .container.platform-show-container
+        .alert.alert-info
+          %h4 You need to have an account and join the mission before you can view files
+        = link_to 'LOG IN', new_session_path(resource_name), :class=>'btn btn-primary'
+        = link_to 'SIGN UP', new_registration_path(resource_name), :class=>'btn btn-primary' 
+    -elsif !@isMember && !current_user.is_admin_user?
+      .container.platform-show-container
+        .alert.alert-info
+          %h4 You need to be a member of the mission before you can view files

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="30px" viewBox="0 0 23 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>1096</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Wireframes---CURRENT" stroke="none" stroke-width="1" >
+        <g id="Mission-Landing-Copy-6" transform="translate(-332.000000, -376.000000)">
+            <g id="1096" transform="translate(332.000000, 376.000000)">
+                <g id="Layer_1">
+                    <g id="Group">
+                        <g transform="translate(0.000000, 3.750000)" id="Shape">
+                            <polygon points="17.94125 7.34 11.571875 7.34 11.571875 0.97125 12.67375 0.97125 12.67375 6.238125 17.94125 6.238125"></polygon>
+                            <path d="M18.589375,26.25 L0.0325,26.25 L0.0325,0.3225 L12.506875,0.3225 L18.589375,6.405625 L18.589375,26.25 L18.589375,26.25 Z M1.133125,25.1475 L17.488125,25.1475 L17.488125,6.861875 L12.05,1.424375 L1.133125,1.424375 L1.133125,25.1475 Z"></path>
+                        </g>
+                        <g transform="translate(3.750000, 0.000000)" id="Shape">
+                            <polygon points="18.069375 7.0175 11.70125 7.0175 11.70125 0.6475 12.801875 0.6475 12.801875 5.915625 18.069375 5.915625"></polygon>
+                            <polygon points="18.7175 25.9275 14.19125 25.9275 14.19125 24.825625 17.615625 24.825625 17.615625 6.538125 12.179375 1.101875 1.261875 1.101875 1.261875 4.623125 0.160625 4.623125 0.160625 0 12.635 0 18.7175 6.081875"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

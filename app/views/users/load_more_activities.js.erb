@@ -1,0 +1,6 @@
+$(".user-activities").append("<%= j render(partial: "users/activity", collection: @user_activities, as: :activity) %>");
+<% if @user_activities.last_page? %>
+  $("#load-more-user-activities").hide();
+<% else %>
+  $("#load-more-user-activities").attr("href", "<%= load_more_activities_user_path(@user, page: (@user_activities.current_page + 1)) %>");
+<% end %>

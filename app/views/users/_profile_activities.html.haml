@@ -1,0 +1,16 @@
+.space-col#user-profile-activities
+  - if @user_activities.empty?
+    .no-data.publications-no-data.text-center
+      = inline_svg('no_activity.svg', :class=>'fill_width_icon')
+      %p.fill_width_caption
+        - if current_user && current_user == @user
+          You have no activity yet.
+        - else
+          This user does not have any activity yet.
+  - else
+    .user-activities
+      = render partial: "activity", collection: @user_activities, as: :activity
+    .row
+      .col-md-12.center-text
+        = link_to "Load more", load_more_activities_user_path(@user, page: (@user_activities.current_page + 1)),
+          id: 'load-more-user-activities', remote: true, class: 'show-more'

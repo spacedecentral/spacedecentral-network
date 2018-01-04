@@ -1,0 +1,21 @@
+%li.dropdown.platform-notifications-dropdown.right_nav
+  %a.dropdown-toggle#notifications_dropdown_toggle{:href=>"#notifications", "data-toggle"=>"dropdown", "role"=>"button", "aria-haspopup"=>"true", "aria-expanded"=>"false"}
+    = image_tag('bell.svg', :class=>'right_nav_icon')
+    - if @notifications_unread > 0
+      %span#notifications_unread_badge.badge=@notifications_unread
+      / .nav_unread_alert=@notifications_unread
+  %ul.dropdown-menu.arrow.dropdown-menu-right.platform-notifications-nav#notication-dropdown
+    %li.dropdown-header
+      %div
+        Notifications
+    -if @notifications.empty?
+      %li.no-message#nav_notifications_none
+        You have no notifications
+      %li
+        %ul#nav_notifications_list
+    -else
+      %li
+        %ul#nav_notifications_list
+          = render partial: 'shared/notification', collection: @notifications, as: :notification
+    /%li.dropdown-footer
+    /  =link_to 'Show All Notifications', '/notifications'

@@ -1,0 +1,12 @@
+.row
+  .col-md-12
+    .col-md-12.space-col
+      .row
+        .col-xs-12
+          %ul.list-inline.profile-tag-list#second_page_tag_list
+            -@user_skills.first(5).each do |user_skill|
+              %li=user_skill.tag.tag
+            - if @user_skills.size > 5
+              %li='+'+(@user_skills.size-5).to_s
+            - if @editable_by_user
+              %li= link_to("Add Skill", new_tag_reference_path(user_id: current_user.id, tag_ref_name: "Skill"), remote: true)

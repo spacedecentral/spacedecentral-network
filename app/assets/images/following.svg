@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>check icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Wireframes---CURRENT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-122.000000, -127.000000)" fill="#FFFFFF">
+            <g id="check-icon" transform="translate(122.000000, 127.000000)">
+                <g id="Layer_1">
+                    <g id="Group">
+                        <path d="M22.5012238,45.0033852 C10.0946115,45.0033852 0,34.9087737 0,22.5021614 C0,10.0955491 10.0946115,0.000937550992 22.5012238,0.000937550992 C34.9078361,0.000937550992 45.0024476,10.0955491 45.0024476,22.5021614 C45.0024476,34.9087737 34.9078361,45.0033852 22.5012238,45.0033852 Z M22.5012238,1.87603954 C11.1277927,1.87603954 1.87510198,11.1287303 1.87510198,22.5021614 C1.87510198,33.8755925 11.1277927,43.1282832 22.5012238,43.1282832 C33.8746549,43.1282832 43.1273456,33.8755925 43.1273456,22.5021614 C43.1273456,11.1287303 33.8746549,1.87603954 22.5012238,1.87603954 Z" id="Shape"></path>
+                        <g transform="translate(12.188163, 14.063265)" id="Rectangle-path">
+                            <rect transform="translate(12.429390, 8.012362) rotate(45.000000) translate(-12.429390, -8.012362) " x="11.4918477" y="-1.67572806" width="1.875084" height="19.3761805"></rect>
+                            <rect transform="translate(3.839332, 12.372003) rotate(45.016206) translate(-3.839332, -12.372003) " x="0.317454977" y="11.4344605" width="7.04375334" height="1.87508408"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

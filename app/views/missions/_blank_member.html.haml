@@ -1,0 +1,5 @@
+= inline_svg('people.svg', class: 'fill_width_icon')
+%p.fill_width_caption
+  This mission has no crew yet.
+  %br
+  = link_to 'Join Now!', new_mission_mission_user_role_path(@mission.id), remote: true

@@ -1,0 +1,19 @@
+- children ||= false
+.forum-card.reply-form{class: children ? 'sub-reply' : '' }
+  .forum_user.field.clearfix
+    = link_to user_path(current_user), target: '_blank' do
+      = image_tag( current_user.avatar.url(:thumb), :class=>"img-circle avatar-img")
+      .info
+        %b= current_user.name
+        .forum-title= current_user.title
+  %hr
+  = form_for Reply.new, remote: true, html: { class: 'form-reply' } do |f|
+    = f.hidden_field :id, value: f.object.id
+    = f.hidden_field :replicable_id, value: replicable.id
+    = f.hidden_field :replicable_type, value: replicable.class.name
+    = f.text_area :content, placeholder: "Post new reply...",
+      class: 'form-control', id: "reply_content#{replicable.id}"
+    .clearfix
+      .pull-right
+        = link_to 'Cancel', '#', :class=>"btn btn-default cancel-btn"
+        = f.submit 'Submit', :class=>"btn btn-primary"

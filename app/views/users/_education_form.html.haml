@@ -1,0 +1,19 @@
+= form_for @user, url: update_user_education_user_path(@user), remote: true, :html => {:class => 'sleek_form'} do |f|
+  #education_forms
+    .education_title
+      =link_to_add_association f, :user_educations,
+        :id=>'add_education_button',
+        data: { association_insertion_method: 'after', association_insertion_node: '#education_forms .education_title' } do
+        = inline_svg('plus-blue.svg')
+        .btn-text Add Another
+    = f.fields_for :user_educations, @user_educations do |education|
+      = render "user_education_fields", :f => education
+  .row
+    .col-md-12
+      .pull-right
+        = f.submit 'Save', :class=>"btn btn-primary"
+
+:javascript
+  $(function() {
+    populateEducationForm();
+  });

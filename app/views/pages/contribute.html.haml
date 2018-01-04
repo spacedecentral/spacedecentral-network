@@ -1,0 +1,36 @@
+.landing-cover
+  .fixed-bg-slide
+    .imgbg.iss1-cover
+.container.landing-cover-detail.center-text
+  %div.pt-50
+    %h1 CONTRIBUTE TO OUR VISION
+    %h3 There are many ways that you can help us grow.
+
+
+
+#contribute.container.platform-show-container
+  .row.cont-margin
+    .col-md-4
+      .col-md-12.contribute-box.space-col
+        = inline_svg('contribute/own.svg', title: 'co-owner', class: 'contribute-icon')
+        %h2 Become a Co-owner
+        %p Space Cooperative is a worker-owned cooperative and we are looking to add people to our team. If you are passionate about space, humanity, and cooperative decision-making, we'd love to hear from you.
+        %p{:style => "text-align: center; font-size: 150%;"}
+          %strong
+            %a.btn.btn-primary{:href => "membership"} Learn More
+    .col-md-4
+      .col-md-12.contribute-box.space-col
+        = inline_svg('contribute/code.svg', title: 'code', class: 'contribute-icon')
+        %h2 Help Code
+        %p This platform you are using is soon to be an open source project, but it will take some time to get it into that stage. We can still use help before then and are looking for contributors that love open source. 
+        %p{:style => "text-align: center; font-size: 150%;"}
+          %strong
+            %a.btn.btn-primary{:href => "contact"} Contact Us
+    .col-md-4
+      .col-md-12.contribute-box.space-col
+        = inline_svg('contribute/donate.svg', title: 'donate', class: 'contribute-icon')
+        %h2 Financial Support
+        %p We built Space Cooperative out of passion and without any outside capital. If you believe in our vision and want to help us grow so we can implement the rest of our roadmap, a monthly contribution of $10 would be very appreciated.
+        %p{:style => "text-align: center; font-size: 150%;"}
+          %strong
+            %a.btn.btn-primary{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YQ498W4U82UFL"} Support Us

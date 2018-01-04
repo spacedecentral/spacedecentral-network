@@ -1,0 +1,5 @@
+= form_tag unfollow_following_path, method: :delete, remote: true do
+  = hidden_field_tag :id, @user.id
+  #unfollow-errors.alert.alert-danger{:style=>"display:none;"}
+  %input{:type=>"hidden", :name=>"follow_user_name", :value=>@user.name}
+  = submit_tag "Are you sure?", class: "btn btn-danger", title: "Confirm Unfollow"

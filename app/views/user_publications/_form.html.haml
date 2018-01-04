@@ -1,0 +1,116 @@
+= form_for @user_publication, remote: true, authenticity_token: true,
+  html: { class: 'sleek_form dropzone', id: 'publication-form', multipart: true }  do |f|
+  #drop-file-mask.modal-mask
+    = f.file_field :paper, style: 'display: none;'
+    = f.hidden_field :is_clear_paper_file, value: false
+    %h1 Drop File Here
+  .row
+    .col-sm-8
+      .form-group
+        = f.label :title, 'Title' , class: 'control-label'
+        = f.text_field :title, required: true, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:title))
+    .col-sm-4
+      .form-group
+        = f.label :doi, 'DOI' , class: 'control-label'
+        = f.text_field :doi, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:doi))
+  .row
+    .col-sm-8
+      .form-group
+        = f.label :publisher, 'Publisher' , class: 'control-label'
+        = f.text_field :publisher, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:publisher))
+    .col-sm-4
+      .form-group
+        = f.label :publication_date, 'Publication Date' , class: 'control-label'
+        = f.text_field :publication_date, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:publication_date))
+  .row
+    .col-xs-12
+      .form-group
+        = f.label :abstract, 'Abstract' , class: 'control-label'
+        = f.text_area :abstract, class: 'form-control', rows: '3'
+  .row
+    .col-xs-12
+      .form-group
+        %label{ class: 'control-label'} Authors
+        .chips.chips-autocomplete.chips-placeholder.form-control.authors{data: { chip: f.object.decorate.authors_chip }}
+        = f.hidden_field :authors, value: nil, id: 'publication_authors_field'
+  .row
+    .col-xs-12
+      .form-group
+        %label{ class: 'control-label'} Tags
+        .chips.chips-autocomplete.chips-placeholder.form-control.tags{data: { chip: f.object.decorate.tags_chip }}
+        = f.hidden_field :tag_ids, value: nil, id: 'publication_tags_field'
+  .row
+    .col-xs-12
+      .form-group
+        = f.label :publication_url, 'Publication URL' , class: 'control-label'
+        = f.text_field :publication_url, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:publication_url))
+  .row
+    .col-sm-6.col-md-3
+      .form-group
+        = f.label :volume, 'Volume' , class: 'control-label'
+        = f.text_field :volume, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:volume))
+    .col-sm-6.col-md-3
+      .form-group
+        = f.label :issue, 'Issue' , class: 'control-label'
+        = f.text_field :issue, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:issue))
+    .col-sm-6.col-md-3
+      .form-group
+        = f.label :arXiv, 'arXiv' , class: 'control-label'
+        = f.text_field :arXiv, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:arXiv))
+    .col-sm-6.col-md-3
+      .form-group
+        = f.label :PMID, 'PMID' , class: 'control-label'
+        = f.number_field :PMID, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:PMID))
+  #publication_location_forms
+    .row
+      .col-xs-12
+        .location_title.clearfix
+          .pull-left
+            %label{ class: 'control-label text-uppercase'} Locations
+            %div What location does this publication cover? Coordinates can be ranges (e.g. 98.33-99.55)
+          .pull-right
+            = link_to_add_association f, :publication_long_lats,
+              :partial=>'location_fields' ,:id=>'add_location_button' do
+              = inline_svg('plus-blue.svg', style: "width: 24px; height: 24px;")
+              .btn-text Add Another
+    = f.fields_for :publication_long_lats do |career|
+      = render "location_fields", f: career
+  - file_existing = f.object.paper && f.object.paper.file?
+  .row.mt-20
+    .col-md-12
+      .pull-left.text-left
+        %table
+          %tr
+            %td
+              #previewUpload{style: file_existing ? 'display: block' : '' }
+                .attached-file-box.clearfix
+                  #remove-paper-file.remove-button &#x2715;
+                  .file-name
+                    - if f.object.paper.file?
+                      = f.object.paper.original_filename
+              %a.attach-btn.btn.btn-default{style: file_existing ? 'display: none' : ''}
+                = inline_svg('blue_doc.svg')
+                .btn-text
+                  Attach File
+              %p.attach-text{style: file_existing ? 'display: none' : ''} or drag and drop to upload
+              .file-error-messages
+                = render_error(f.object.errors.full_messages_for(:paper))
+            %td#publication_keep_private{class: file_existing ? '' : 'hidden'}
+              = f.label :keep_private, '' , class: 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select' do
+                = f.check_box :keep_private, class: "mdl-checkbox__input", checked: f.object.keep_private?
+                %span{ class: "mdl-checkbox__label" } Keep file private
+      .pull-right
+        = f.submit 'Save', class: "btn btn-primary"
+:javascript 
+  $(function() {
+    initPublicationFormData();
+  });

@@ -1,0 +1,72 @@
+.tile {
+  height: 280px;
+  color: #4a4a4a;
+  background-color: #fff;
+  border: solid 1px #ebeaeb;
+  position: relative;
+  &:hover {
+    box-shadow: 5px 5px 15px 0px #ddd;
+  }
+  .tile-content {
+    margin-top: 54px;
+    padding: 0 25px 36px 25px;
+    .tile-head {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      .avatar img {
+        border-radius: 50%;
+      }
+      .tile-title {
+        font-size: 20px;
+        text-decoration: none;
+        color: #4a4a4a;
+      }
+    }
+
+    .tile-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.43;
+      text-align: left;
+      margin-top: 14px;
+      .ellipsis-box {
+        height: 85px;
+        word-break: break-all;
+      }
+    }
+  }
+}
+.post-type {
+  text-transform: uppercase;
+  padding: 3px 10px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+
+  .type-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    g {
+      fill: #fff;
+    }
+  }
+  span {
+    padding-left: 5px;
+  }
+  &.general {
+    background-color: #35c7d9;
+  }
+  &.mission, &.project {
+    background-color: #9852a7;
+  }
+  &.project {
+    background-color: #f38699;
+  }
+}

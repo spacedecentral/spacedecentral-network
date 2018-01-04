@@ -1,0 +1,18 @@
+$("#reply_content_<%= @reply.id %>").hide();
+var editForm = $("#edit_form_<%= @reply.id %>");
+editForm.html("<%= j render(partial: "replies/edit_form", locals: { reply: @reply }) %>");
+editForm.show();
+
+var textarea = editForm.find("textarea#reply_content<%= @reply.id %>")[0];
+var cmDom = $(textarea).closest('form').find(".CodeMirror")[0];
+var content = "<%= j @reply.content %>";
+
+$(textarea).val(content);
+if (cmDom) {
+  var cm = cmDom.CodeMirror;
+  cm.setValue(content);
+  cm.focus();
+} else {
+  initSCEditor(textarea);
+}
+

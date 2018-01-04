@@ -1,0 +1,28 @@
+$('#add-tags-form').html("<%= j (render 'form') %>");
+$('#add-tags-current-tags').html("<%= j (render 'current_tags') %>");
+$("#add-tags-modal").modal('show');
+
+
+$("#add-tags-form #tag_lookup").autocomplete({
+  source: function( request, response ) {
+    $.ajax( {
+      url: "/tags",
+      dataType: "json",
+      data: {
+        term: request.term
+      },
+      success: function( data ) {
+        response( data );
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        console.log(textStatus);                       
+      }
+    } );
+  },
+   minLength: 2,
+   select: function(event, ui) {
+      //auto populate other fields when selected item
+      $("#add-tags-form #tag_reference_tag_id").val(ui.item.id);
+      // $("#add-tags-form").submit();
+   }
+});

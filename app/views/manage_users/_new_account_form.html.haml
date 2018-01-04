@@ -1,0 +1,12 @@
+= form_tag("/admin/manage/users/create_account", :method=>"post", :remote=>true) do |f|
+  #new_account_errors.alert.alert-danger{:style=>"display:none;"}
+  .row
+    .col-md-12
+      %label User Name
+      = text_field_tag :user_name
+      %label User Email
+      = email_field_tag :user_email
+  .row
+  .row
+    .col-md-12
+      = submit_tag "Create", :class=>"btn"

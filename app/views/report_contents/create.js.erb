@@ -1,0 +1,7 @@
+<% if @report_content.errors.present? %>
+  $(".flash").html("<%= j render('shared/flashages', alert: @report_content.errors.values.flatten.first) %>");
+<% else %>
+  $(".flash").html("<%= j render('shared/flashages', notice: 'You are reported successfully') %>");
+<% end %>
+
+$('#report_modal').modal('hide');

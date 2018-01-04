@@ -1,0 +1,29 @@
+.row
+  .bio{ class: "#{current_user == @user || @user.user_careers.length > 0 || @user.user_educations.length > 0 ? 'col-md-7' : 'col-md-12'}" }
+    -if @user.bio?
+      =@user.bio.to_s
+    -else
+      .profile-no-data.text-center
+        =inline_svg("profile_bio.svg")
+        .desc 
+          - if current_user && current_user == @user
+            You have not populated your biography.
+          - else
+            This user hasn't populated their biography yet.
+        -if @editable_by_user
+          .action-link
+            = link_to 'Update it now',edit_user_path(@user), :class=>"icon link-edit-profile", :title=>"Edit Profile", remote: true
+  .career-education{ class: "#{current_user == @user || @user.user_careers.length > 0 || @user.user_educations.length > 0 ? 'col-md-5' : 'hide'}" }
+    = render partial: 'profile_main_tab_user_careers'
+    = render partial: 'profile_main_tab_user_educations'
+    / %div.clearfix
+    /  .icon
+    -#    =image_tag('clock.svg')
+    /  .info-text
+    /    7:15 AM local time
+    %div.clearfix
+      - unless @user.linkedin_url.blank?
+        .link-LinkedIn
+          = link_to @user.full_linkedin_url, target: '_blank' do
+            View more on
+            =image_tag('linked-in.svg')

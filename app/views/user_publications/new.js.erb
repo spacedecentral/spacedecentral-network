@@ -1,0 +1,8 @@
+$('#add-publication-form').html("<%= j (render 'form') %>");
+$("#add-publication-modal").modal(
+    {
+        show:true,
+        backdrop: 'static',
+        keyboard: false
+    }
+);

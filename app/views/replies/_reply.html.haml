@@ -1,0 +1,16 @@
+- if reply.persisted?
+  - report_parent ||= nil
+  - children = reply.replicable_type == 'Reply'
+  - if children
+    %hr.reply-separator
+  .forum-card{class: children ? 'sub-reply' : '' }
+    .edit-form{id: "edit_form_#{reply.id}"}
+    .reply-content{id: "reply_content_#{reply.id}"}
+      = render 'replies/reply_content', reply: reply, report_parent: report_parent
+    = render partial: 'replies/reply',
+      collection: reply.replies,
+      as: :reply,
+      locals: { report_parent: report_parent }
+
+    .reply-container{:id=>'reply-container-'+reply.id.to_s}
+      = render 'replies/reply_form', replicable: reply, children: children

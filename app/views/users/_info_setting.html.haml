@@ -1,0 +1,9 @@
+= link_to edit_settings_user_path(current_user, step: :personal), remote: true,
+  class: 'profile-edit-button' do
+  = inline_svg "pencil.svg"
+.col-sm-3
+  = image_tag current_user.avatar.url(:thumb), class: "img-circle"
+.col-sm-9.text
+  .name= current_user.name
+  .title= current_user.title
+  .location= current_user.location

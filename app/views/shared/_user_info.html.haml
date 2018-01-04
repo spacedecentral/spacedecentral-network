@@ -1,0 +1,12 @@
+- original_poster ||= nil
+
+.field.forum_user.clearfix
+  = link_to user_path(user), target: '_blank' do
+    = image_tag( user.avatar.url(:thumb), :class=>"img-circle avatar-img")
+  .info
+    .flex.fai-center
+      = link_to user_path(user), target: '_blank' do
+        %b= user.name
+      - if original_poster
+        = image_tag('badge.svg', class: 'like-img ml-5', title: 'Original Poster')
+    .forum-title= user.title

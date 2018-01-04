@@ -1,0 +1,6 @@
+<% if !@mission_user_role.errors.empty? %>
+	$("#mission_user_role_form #mission_user_role_errors").html("<%= j (render 'mission_user_role_errors') %>").show();
+<% else %>
+	$("#mission_user_role_modal").modal('hide');
+	$("#mission_user_roles_index").html("<%= j( render 'mission_user_roles') %>")
+<% end %>

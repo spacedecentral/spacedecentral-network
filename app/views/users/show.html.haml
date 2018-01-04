@@ -1,0 +1,103 @@
+- is_following = user_signed_in? && current_user.following?(@user)
+.container-fluid.platform-cover-container.cfixed-height
+  .platform-cover.profile-cover
+    .fixed-bg-slide
+      .imgbg{:style=>"background-image:url("+@user.cover_photo.url(:large)+");background-position:0px "+((!@user.cover_dy.nil? && @user.cover_dy>0) ? (-@user.cover_dy.to_i + 45).to_s+"px;" : "45px;")}
+    = #image_tag(@user.cover_photo.url(:large), :class=>"platform-cover-photo", :style=>((!@user.cover_dy.nil? && @user.cover_dy>0) ? "margin-top:-"+@user.cover_dy.to_s+"px;" : ""))
+  .container.platform-cover-detail.profile-cover-detail
+    %div
+      .col-xs-12.center-text
+        %span
+          = image_tag @user.avatar.url(:medium), :class=>"img-circle avatar-img"
+        %h1
+          = @user.name
+        .profile-title
+          = @user.title
+        .profile-location
+          =inline_svg("location.svg", class: '')
+          = (@user.location? && @user.location != '') ? @user.location : 'Universal'
+        .row.profile_cover_icon_row
+          - if user_signed_in? && current_user != @user
+            = link_to('', new_message_path(:user_to=>@user.id, :user_to_name=>@user.name+" "+@user.email), remote: true, class: 'platform-cover-icons message_icon', title: "Message", id: "profile_message_button")
+            - if is_following
+              %a.platform-cover-icons.unfollow_user#unfollow_user{:href=>"#", "data-toggle"=>"modal", "data-target"=>"#unfollow-modal", :title=>"Unfollow #{@user.name}" }
+              = link_to '', unfollow_following_path,
+                remote: true, method: :delete, class: 'platform-cover-icons follow_user',
+                style: "display:none;", title: "Follow #{@user.name}", id: "follow_user"
+            - else
+              %a.platform-cover-icons.unfollow_user#unfollow_user{:href=>"#", "data-toggle"=>"modal", "data-target"=>"#unfollow-modal", :title=>"Unfollow #{@user.name}", :style=>"display:none;"}
+              = link_to '', follow_following_path(@user),
+                remote: true, method: :post, class: 'platform-cover-icons follow_user',
+                title: "Follow #{@user.name}", id: "follow_user"
+
+          - if @editable_by_user
+            = link_to edit_user_path(@user), :class=>"icon link-edit-profile", :title=>"Edit Profile", remote: true do
+              =image_tag("pencil_outline.svg", :class=>'platform-cover-icons default-icon')
+              =image_tag("pencil_fill.svg", :class=>'platform-cover-icons hover-icon')
+            .dropdown.platform-missions
+              %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown", "role"=>"button", :title=>"More Actions"}
+                / dropdown toggle image
+                = image_tag('more.svg', :class=>'platform-cover-icons active-icon')
+                = image_tag('more_hover.svg', :class=>'platform-cover-icons hover-icon')
+              %ul.dropdown-menu.arrow.dropdown-menu-right
+                %li= link_to 'Upload Cover Photo', "#", :id=>"upload-cover-button"
+                - if @user.cover_photo.file?
+                  %li= link_to 'Remove Cover Photo', "#", :id=>"remove-cover-button"
+                  %li= link_to 'Reposition Cover Photo', "#", :class=>"reposition-cover-button"
+  .cover-editor.profile-cover.hidden
+    .toolbar
+      .pull-left
+        %h4 Drag to Reposition
+      .pull-right
+        = form_for @user ,remote: true, :authenticity_token => true do |f|
+          = f.hidden_field :cover_dy
+          = f.hidden_field :remove_cover_photo
+          = f.file_field :cover_photo, :class=>"hidden"
+          %a.btn.btn-default.cancel-button Cancel
+          = f.submit 'Save', :class=>"btn btn-primary"
+    .fixed-bg-slide
+      .imgbg{:style=>"background-image:url("+@user.cover_photo.url(:large)+");background-position:0px "+((!@user.cover_dy.nil? && @user.cover_dy>0) ? (-@user.cover_dy.to_i + 45).to_s+"px;" : "45px;")}
+  .row.mission_sub_nav
+    .col-md-12
+      %ul.nav.nav-tabs#profile_tabs{:role=>"tablist"}
+        %li.active
+          %a{:href => "#profile_content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab"}
+            =inline_svg("dashboard.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Overview
+        %li
+          %a{:href => "#profile-mission-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab",:id=>'profile-mission-tab'}
+            =inline_svg("mission_tab.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Missions
+        %li
+          %a{:href => "#profile-publication-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab", :id=>'profile-publication-tab'}
+            =inline_svg("black_doc.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Publications
+        %li
+          %a{:href => "#profile-follower-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab",:id=>'profile-follower-tab'}
+            =inline_svg("followers.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Connections
+        %li
+          %a{:href => "#profile-activity-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab", :id=>'profile-activity-tab'}
+            =inline_svg("activity.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Activity
+
+.container.platform-show-container{:style=>'padding-bottom:20px;'}
+  .tab-content
+    .container-fluid.tab-pane.fade.in.active#profile_content{:role=>"tabpanel"}
+      = render partial: 'profile_content'
+    .container-fluid.tab-pane.fade#profile-mission-content{:role=>"tabpanel"}
+      = render partial: 'profile_missions'
+    .container-fluid.tab-pane.fade#profile-publication-content{:role=>"tabpanel"}
+      = render partial: 'profile_publications'
+    .container-fluid.tab-pane.fade#profile-follower-content{:role=>"tabpanel"}
+      = render partial: 'profile_followers'
+    .container-fluid.tab-pane.fade#profile-activity-content{:role=>"tabpanel"}
+      = render partial: 'profile_activities'
+
+
+.container-fluid.platform-cover-container.bottom-platform-cover-container
+  .platform-cover.profile-cover
+    .fixed-bg-slide
+      .imgbg{:style=>"background-image:url("+@user.cover_photo.url(:large)+");background-position:0px 0px;background-position: bottom;"}
+
+= render partial: 'profile_modals'

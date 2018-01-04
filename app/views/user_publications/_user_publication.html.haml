@@ -1,0 +1,37 @@
+.forum-card
+  %h2=link_to user_publication.title, user_publication, :class => 'forum-title'
+  %div= render_markdown_content(user_publication.summary, stripdown: true)
+  .field.forum_user.clearfix
+    = link_to user_path(user_publication.user), target: '_blank' do
+      = image_tag( user_publication.user.avatar.url(:thumb), :class=>"img-circle avatar-img")
+      .info
+        %b= user_publication.user.name
+        .forum-title= user_publication.user.title
+  .row
+    .col-xs-12
+      %ul.inline-tags
+        = render partial: 'tags/tag', collection: publication.tags, as: :tag
+  .like-share.clearfix
+    .like.pull-left
+      - if @likes[user_publication.id].include?(current_user.id)
+        = link_to inline_svg('like_fill.svg', :class => 'like-img like-fill-img'), publication_create_like_path(user_publication.id), :method => 'get', :remote => true
+        = link_to inline_svg('like_outline.svg', :class => 'like-img like-hidden'), publication_create_like_path(user_publication.id), :method => 'get', :remote => true
+      - else
+        = link_to inline_svg('like_fill.svg', :class => 'like-img like-fill-img like-hidden'), publication_create_like_path(user_publication.id), :method => 'get', :remote => true
+        = link_to inline_svg('like_outline.svg', :class => 'like-img'), publication_create_like_path(user_publication.id), :method => 'get', :remote => true
+      %span{ :class => 'like-size', :id => "lsize#{user_publication.id}"}
+        = @likes[user_publication.id].size
+    .reply.pull-left
+      = inline_svg('reply.svg', :class => 'reply-icon')
+      %span.like-size
+        = @replies[user_publication.id].size
+    .forum-time.pull-right
+      .platform_timestamp{"data-time-stamp"=>user_publication.created_at}=platform_timestamp(user_publication.created_at)
+      .dropdown.pull-right
+        %span.forum-menu
+          = inline_svg('post_action.svg')
+        %ul.dropdown-menu.dropdown-menu-right.forum-dropmenu
+          %li
+            = link_to "Delete", user_publication, method: :delete, data: { confirm: 'Are you sure?' }
+          %li
+            = link_to "Edit", edit_publication_path(user_publication)

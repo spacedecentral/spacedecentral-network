@@ -1,0 +1,72 @@
+.container.platform-show-container.mb-100
+  .row
+    .col-md-6
+      .col-md-12.mission_objective.space-col
+        %h3 Summary
+        %p
+          - if @mission.objectives.blank?
+            = inline_svg('city.svg', title: 'Objectives have not been defined for this mission.', class: 'fill_width_icon')
+            %p.fill_width_caption
+              Objectives have not been defined for thi mission.
+          - else
+            = simple_format(@mission.objectives)
+      .col-md-12
+        %br
+      #mission_projects
+        = render "list_projects", mission: @mission
+
+    .col-md-6
+      .col-sm-12.space-col
+        %h3 Discussion
+        - if @posts.blank?
+          .no-discussion.text-center
+            = inline_svg('discussion.svg', title: 'No Discussion', class: 'no-discussion-icon')
+            %p.fill_width_caption.mt-10
+              This #{@mission.mission_type? ? 'mission' : 'project'} has no discussion yet.
+              %br
+              = link_to 'New Discussion', new_post_path(postable_type: 'Mission', postable_id: @mission.id), remote: true
+        - else
+          .row
+            = render partial: 'posts/post_tile', collection: @posts, as: :post,
+              locals: { col: 'col-sm-12', request_from: 'mission' }
+            - if !@posts.last_page?
+              .text-center
+                %a.show-more{href: '#mission_discussions'} Show More
+
+      .col-sm-12
+        %br
+      .col-sm-12.space-col
+        %h3 Crew
+        - if @members.blank?
+          = inline_svg('people.svg', title: 'Objectives have not been defined for this mission.', class: 'fill_width_icon')
+          %p.fill_width_caption
+            This mission has no crew yet.
+            %br
+            = link_to 'Join Now!', new_mission_mission_user_role_path(@mission.id), remote: true
+        - else
+          -@members.each_slice(4) do |slice|
+            .row
+              -slice.each do |member|
+                .col-xs-3.col-sm-3.col-md-3
+                  = link_to user_path(member.user.id) do
+                    = image_tag(member.user.avatar.url(:thumb), :class=>"platform-crew-img")
+      .col-sm-12
+        %br
+      .col-sm-12.space-col
+        %h3 Files
+        - if @missionfiles[:items]&.empty?
+          = image_tag('sat.svg', :class=>'fill_width_icon', :title=>"no files in mission")
+          %p.fill_width_caption
+            No files have been added to this mission yet.
+        -else
+          - @missionfiles[:items][0..5].each do |mission_file|
+            .row
+              .col-md-12
+                %br
+                = image_tag('doc.svg', :class=>'platform-show-icons')
+                =link_to mission_file[:alternate_link], :target=>"_blank" do
+                  = mission_file[:title]
+          - if @missionfiles[:items].size > 6
+            .text-center
+              %a.show-more{href: '#mission_files'} Show More
+

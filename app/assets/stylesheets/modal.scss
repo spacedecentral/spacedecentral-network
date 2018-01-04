@@ -1,0 +1,112 @@
+body.modal-open{
+    width:100% !important;
+    padding-right:0 !important;
+    overflow-y:scroll !important;
+    position:fixed !important;
+}
+.modal{
+  overflow-y: hidden !important;
+  &.square {
+    .modal-dialog {
+      margin: 70px auto;
+      .modal-content {
+        border-radius: 0;
+        .modal-body {
+          overflow-y: auto;
+          max-height: 300px;
+        }
+      }
+    }
+  }
+
+  &.confirmation {
+    .modal-dialog {
+      max-width: 462px;
+    }
+    .modal-content {
+      padding: 10px 5px 5px;
+    }
+    .modal-body {
+      padding: 0 15px;
+    }
+    .modal-header {
+      border-bottom: none;
+    }
+    .modal-footer {
+      border-top: none;
+    }
+  }
+
+  &.fullscreen {
+    padding-right: 0 !important;
+    width: 100%;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: unset !important;
+    .modal-dialog {
+      width: 100%;
+      margin-top: 0 !important;
+      .modal-header {
+        > .row {
+          margin-right: 50px;
+        }
+      }
+      .modal-content {
+        height: 100vh;
+        overflow-y: auto;
+        .modal-body {
+          padding-bottom: 100px;
+          min-height: 100vh;
+          padding-bottom: 100px;
+          .actions {
+            text-align: right;
+          }
+
+          @media (max-height: 780px) {
+            form {
+              margin-bottom: 70px;
+            }
+
+            form .actions {
+              margin-bottom: 0;
+              width: 100%;
+              position: fixed;
+              left: 0;
+              bottom: 0;
+              text-align: right;
+              padding: 10px 15px 15px;
+              float: none;
+              background: #fff;
+              z-index: 10;
+              border-top: 1px solid #e8e8e8;
+              box-shadow: 0px -5px 30px #e8e8e8;
+
+              .content {
+                width: 100%;
+              }
+
+            }
+          }
+          @media (max-device-height: 780px) {
+            form .actions {
+              position: relative;
+              box-shadow: none;
+              background: transparent;
+              border: none;
+              padding: 0;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.btn.btn-modal-cancel {
+  color: #9b9b9b;
+  border-color: #9b9b9b;
+}

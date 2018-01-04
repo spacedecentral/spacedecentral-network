@@ -1,0 +1,18 @@
+.forum-card.edit-reply-form
+  .forum_user.field.clearfix
+    = link_to user_path(current_user), target: '_blank' do
+      = image_tag(current_user.avatar.url(:thumb), :class=>"img-circle avatar-img")
+      .info
+        %b= current_user.name
+        .forum-title= current_user.title
+  %hr
+  = form_for reply, remote: true, html: { class: 'form-reply' } do |f|
+    = f.hidden_field :id, value: f.object.id
+    = f.hidden_field :replicable_id, value: reply.replicable_id
+    = f.hidden_field :replicable_type, value: reply.replicable_type
+    = f.text_area :content, placeholder: "Post new reply...",
+      class: 'form-control', id: "reply_content#{reply.id}"
+    .clearfix
+      .pull-right
+        = link_to 'Cancel', '#', :class=>"btn btn-default cancel-btn"
+        = f.submit 'Submit', :class=>"btn btn-primary"

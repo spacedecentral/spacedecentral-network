@@ -1,0 +1,6 @@
+.row
+  .col-md-12
+    #current_tags
+      %ul.list-inline.profile-tag-list#current_tag_list
+        -@current_tags.each do |tag_ref|
+          %li=tag_ref.tag.tag

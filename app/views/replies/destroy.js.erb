@@ -1,0 +1,15 @@
+var replyContainer = $("#reply-container-<%= @reply.id %>");
+replyContainer.closest('.forum-card').prev('hr.reply-separator').remove();
+replyContainer.closest('.forum-card').remove();
+
+<% if @reply.replicable_type != 'Reply' %>
+  var $replyCount = $(".js-trigger-response-box .like-size");
+  var count = $replyCount.html();
+  if (count) {
+    count = parseInt(count);
+    if (count > 0) {
+      count = count - 1;
+      $replyCount.html(count);
+    }
+  }
+<% end %>

@@ -1,0 +1,22 @@
+.row.nested-education-fields
+  .col-xs-12
+    .education_row
+      .pull-right
+        = link_to_remove_association '', f, { wrapper_class: 'nested-education-fields' }
+        %button.close{:type=>"button", :class=>"remove_education_button"}
+          %span{"aria-hidden"=>"true"} &times;
+      .input-area
+        .col-md-12
+          .form-group
+            = f.label :degree, :class => 'control-label'
+            = f.text_field :degree, :class=>"form-control"
+          = render_error(f.object.errors.full_messages_for(:degree))
+        .col-md-8
+          .form-group
+            = f.label :school, :class => 'control-label'
+            = f.text_field :school, :class=>"form-control"
+          = render_error(f.object.errors.full_messages_for(:school))
+        .col-md-4
+          .form-group
+            = f.label :graduation, :class => 'control-label'
+            = f.text_field :graduation, :class=>"form-control"

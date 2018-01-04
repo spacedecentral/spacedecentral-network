@@ -1,0 +1,16 @@
+#new-message-modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title New Message        
+      #new-message-form
+#view-message-modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+      #view-message
+#user_chat_pm_append

@@ -1,0 +1,141 @@
+.publication-banner {
+  background: image-url('forum-banner.jpg');
+  background-size: cover;
+  padding: 50px 0;
+  color: #fff;
+  margin-bottom: 10px;
+  background-position: center;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.17;
+  font-size: 14px;
+
+  .publication-heading {
+    min-height: 170px;
+    background-color: #fff;
+    border-radius: 2px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 0 0 #d8d8d8;
+    padding: 20px;
+
+    .publication-title {
+      word-wrap: break-word;
+      font-size: 24px;
+      text-align: left;
+      color: #4a4a4a;
+      position: relative;
+      .title {
+        max-width: 95%;
+      }
+      .dropdown {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 30px;
+        float: right;
+        .link-edit-publication {
+          margin-top: 0;
+        }
+      }
+    }
+    .date-publisher {
+      margin-top: 15px;
+      color: #9b9b9b;
+      font-weight: 300;
+    }
+  }
+}
+.inline-items {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+  .item {
+    text-transform: capitalize;
+    display: inline;
+    &.separator {
+      &::before {
+        content: '·';
+        padding: 0 4px;
+      }
+    }
+    &:last-child {
+      display: none;
+    }
+  }
+  &.bold-items .item {
+    color: #4a4a4a;
+    font-weight: bold;
+    &.separator {
+      font-size: 10px;
+    }
+  }
+  &.light-items .item {
+    color: #9b9b9b;
+    font-weight: 300;
+  }
+}
+.publication-row {
+  color: #4A4A4A;
+  padding-left: 25px;
+  word-wrap: break-word;
+  >div {
+    padding:5px 0px;
+  }
+  a {
+    &:link,&:hover,&:visited{
+      color: #4A4A4A;
+    }
+  }
+  .title{
+    font-size: 24px;
+  }
+  .date_publisher {
+    font-size: 16px;
+    color: #9B9B9B;
+  }
+  .abstract {
+    font-size: 16px;
+  }
+  .author-list{
+    font-size: 18px;
+    .author{
+      display: inline-block;
+    }
+    .separator{
+      &:last-child{
+        display: none;
+      }
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }
+}
+.link-edit-publication {
+  margin-top: -5px;
+}
+.new_user_publication .drag_drop_publication {
+  background-color: #eee;
+  padding: 70px 0 70px 0;
+}
+.new_user_publication a.publication_option_link {
+  float: left;
+  font-size: 18px;
+  color: #0084bf;
+}
+.new_user_publication img.publication_option_link {
+  float: left;
+  margin-right: 5px;
+}
+.new_user_publication label {
+  color: #0084bf;
+  text-align: center;
+  font-size: 18px;
+  display: block;
+}
+
+#user-profile-publications,#user-profile-activities {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}

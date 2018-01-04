@@ -1,0 +1,31 @@
+user1: 
+  id: 1
+  email: test@space.coop
+  name: test test
+  role: 5
+  encrypted_password: <%= User.new.send(:password_digest, 'abcdef1!') %>
+  confirmed_at: <%= Time.now %>
+
+user2:
+  id: 2
+  email: test2@space.coop
+  name: test2 test2
+  role: 5
+  encrypted_password: <%= User.new.send(:password_digest, 'abcdef1!') %>
+  confirmed_at: <%= Time.now %>
+
+user3:
+  id: 4
+  email: test3@space.coop
+  name: test3 test3
+  role: 3
+  encrypted_password: <%= User.new.send(:password_digest, 'abcdef1!') %>
+  confirmed_at: <%= Time.now %>
+
+admin_user: 
+  id: 3
+  email: admin@space.coop
+  name: admin test
+  role: 2
+  encrypted_password: <%= User.new.send(:password_digest, 'abcdef1!') %>
+  confirmed_at: <%= Time.now %>

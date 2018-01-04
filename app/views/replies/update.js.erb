@@ -1,0 +1,5 @@
+$("#edit_form_<%= @reply.id %>").hide();
+
+replyContent = $("#reply_content_<%= @reply.id %>");
+replyContent.html("<%= j render('replies/reply_content', reply: @reply) %>");
+replyContent.show();

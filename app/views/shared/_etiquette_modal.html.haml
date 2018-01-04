@@ -1,0 +1,34 @@
+#etiquette_modal.modal.fade.square{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
+  .modal-dialog{:role=>"document" }
+    .modal-content
+      .modal-header
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title Forum Etiquette
+      .modal-body
+        %ul
+          %li
+            Of course, NO SPAM. Spammers will be removed without warning at the first violation.
+          %li
+            Please stay on topic.
+          %li
+            Entirely off-topic posts may be removed and repeat offenders banned at the sole discretion of the moderators.
+          %li
+            All forms of hate speech, against any person or group, will be considered as entirely off-topic.
+          %li
+            All members deserve equal consideration and respect.
+          %li
+            Abusive posts will be removed and repeat offenders banned at the sole discretion of the moderators.
+          %li
+            Start with a short overview: what is your point, and why it is important.
+          %li
+            Provide linked sources for all research you cite.
+          %li
+            Try to link to primary sources (e.g. press release, journal DOI, and similar) for all research you cite.
+          %li
+            We are open-minded on highly imaginative science and space technology (e.g. EmDrive and similar), but we strive to be scientifically sound and rigorous.
+          %li
+            Arguments dismissing established scientific theories must cite supporting research, better if peer-reviewed.
+      .modal-footer
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+          Close

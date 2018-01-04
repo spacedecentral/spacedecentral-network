@@ -1,0 +1,48 @@
+.exception_handler_exception {
+  color: #fff;
+  min-height: 100%;
+  margin-top:70px;
+  padding-top: 50px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: #000;
+}
+.exception_handler_exception h1{
+  font-size: 80px;
+  text-align: center;
+  margin-top: 70px;
+}
+.exception_handler_exception h2{
+  font-size: 40px;
+  text-align: center;
+  margin-top: 35px;
+}
+.exception_handler_exception .bg {
+  margin-top: -100px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-size: cover;
+}
+.exception_handler_exception_404 {
+  background-image: image-url("exception_handler/bg.jpg");
+}
+.exception_handler_exception_other {
+  background-image: image-url("exception_handler/bg.jpg");
+}
+@media(max-width: 505px){
+  .exception_handler_exception .bg {
+    margin-top: -50px;
+  }
+}
+
+.nodata {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  padding-top: 50px;
+}

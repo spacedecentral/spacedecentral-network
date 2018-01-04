@@ -1,0 +1,28 @@
+// Place all the styles related to the UserEducations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#edit-education-form {
+  .modal-content-container {
+    max-height: 192px;
+    padding:0px 15px;
+  }
+  .education_title{
+    margin: 0px -15px;
+    padding: 8px 30px;
+    border: none;
+    border-bottom: solid 1px #EBEBEB;
+    #add_education_button {
+      margin-top: 0px;
+    }
+
+  }
+  .education_row {
+    margin-bottom: 0px;
+    border:none;
+    border-bottom: solid 1px #EEEEEE;
+    padding-bottom: 30px;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

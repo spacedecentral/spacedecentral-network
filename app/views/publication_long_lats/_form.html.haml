@@ -1,0 +1,10 @@
+= form_for @publication_long_lat do |f|
+  - if @publication_long_lat.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@publication_long_lat.errors.count, "error")} prohibited this publication_long_lat from being saved:"
+      %ul
+        - @publication_long_lat.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

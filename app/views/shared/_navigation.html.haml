@@ -1,0 +1,40 @@
+%nav.navbar.platform-header-nav.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{:type=>"button", "data-toggle"=>"collapse", "data-target"=>"#platform-header-nav"}
+        %span.sr-only Toggle Navigation
+        = image_tag("nav_toggle.png", :class=>"toggle-icon")
+        = image_tag("arrow_down.svg", :class=>"arrow")
+      %a.navbar-brand{:href=>"/"}
+        = image_tag("logo.png")
+    %ul.navbar-right
+      - if user_signed_in?
+        = render :partial => 'shared/nav_notifications'
+        = render :partial => 'shared/nav_messages'
+        %li.dropdown.avatar-nav-dropdown
+          %a.dropdown-toggle.avatar-nav-toggle{:href => "#", "data-toggle"=>"dropdown", "role"=>"button", "aria-haspopup"=>"true", "aria-expanded"=>"false"}
+            = image_tag(@current_user.avatar.url(:thumb), :class=>'img-circle img-responsive nav-profile-img')
+          %ul.dropdown-menu.arrow.dropdown-menu-right#avatar-dropdown-menu
+            %li=link_to @current_user.name, user_path(@current_user), :class=>"username"
+            %li{:role=>"separator", :class=>"divider"}
+            %li=link_to 'View Profile', user_path(@current_user)
+            %li=link_to 'Settings', settings_path
+            %li=link_to('Logout', destroy_user_session_path, :method => :delete, :id=>"nav_logout_link")
+      - else
+        %li
+          = link_to 'LOG IN', new_session_path(resource_name), :class=>'btn btn_login', :role=>"button";
+        %li
+          = link_to 'SIGN UP', new_registration_path(resource_name), :class=>'btn btn_signup', :role=>"button"
+          / %a.btn.btn_signup{:href=>"https://goo.gl/forms/iwNfNS0cHRANnTGq2", "target"=>"_blank"} SIGN UP
+    .collapse.navbar-collapse#platform-header-nav
+      %ul.nav.navbar-nav
+        %li.home-navigation
+          = link_to 'HOME', root_path
+        %li
+          %a{:href=>"/forum"} FORUM
+        %li
+          %a{:href=>"/people"} PEOPLE
+        %li
+          %a{:href=>"/team"} ABOUT
+        %li
+          %a{:href=>"/contribute"} CONTRIBUTE

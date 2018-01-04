@@ -1,0 +1,17 @@
+= form_for @message, remote: true, html: { class: 'sleek_form', id: 'message_form' } do |f|
+  .modal-body
+    .form-group
+      = f.hidden_field :conversation_id
+      %label{ class: 'control-label'} Search Users
+      .chips.chips-autocomplete.chips-placeholder.form-control.recepients{data: { chip: f.object.decorate.recepients_chip_data(params[:group_users]) }}
+      = hidden_field_tag :group_users, nil, id: 'group_users'
+    = render_error(f.object.errors.full_messages_for(:conversation_id))
+    .form-group
+      = f.label :body, class: 'control-label'
+      = f.text_area :body, class: "form-control", rows: 5
+    = render_error(f.object.errors.full_messages_for(:body))
+    .clearfix.mt-30
+      .pull-right
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Cancel
+        = f.submit 'Send Message', :class=>"btn btn-primary"
+

@@ -1,0 +1,16 @@
+- current_tag_id ||= nil
+- link ||= nil
+- checkable ||= false
+
+%li
+  - if link
+    = link_to tag.tag, forum_tag_path(tag.id), class: "forum-taglink #{(tag.id == current_tag_id) && 'active'}"
+  - elsif checkable
+    .tag-checkbox-button.filter-item
+      = label_tag 'tag_ids', class: 'label-tag-cbx', for: "tag_checkbox_#{tag.id}" do
+        = check_box_tag 'filter[tag_ids][]', tag.id, false,
+          class: 'invisible', id: "tag_checkbox_#{tag.id}"
+        .forum-taglink
+          = tag.tag
+  - else
+    %span.forum-taglink{class: tag.id == current_tag_id ? 'active' : ''} #{tag.tag}

@@ -1,0 +1,19 @@
+= form_for @contact || Contact.new, url: contacts_path, remote: true,
+  html: { class: 'contact-form' } do |f|
+  .form-group
+    = f.label :name, '* Your Name', class: 'label-control'
+    = f.text_field :name, value: f.object.name || current_user&.name, class: 'form-control', placeholder: 'Full Name'
+    = render_error(f.object.errors.full_messages_for(:name))
+  .form-group
+    = f.label :email, '* Your Email', class: 'label-control'
+    = f.text_field :email, value: f.object.email || current_user&.email, class: 'form-control', placeholder: 'Email Address'
+    = render_error(f.object.errors.full_messages_for(:email))
+  .form-group
+    = f.label :subject, class: 'label-control'
+    = f.text_field :subject, class: 'form-control', placeholder: 'Enter your subject here'
+  .form-group
+    = f.label :message, '* Your Message', class: 'label-control'
+    = f.text_area :message, rows: 6, class: 'form-control', placeholder: 'Enter your message here'
+    = render_error(f.object.errors.full_messages_for(:message))
+  .form-actions
+    = f.submit 'Send Message', class: 'btn btn-primary btn-block', data: { disable_with: 'Sending' }

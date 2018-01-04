@@ -1,0 +1,40 @@
+.publication-title
+  .title= publication.title
+  .dropdown.pull-right
+    %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
+      = inline_svg('post_action.svg')
+    %ul.dropdown-menu.dropdown-menu-right
+      - if publication.decorate.can_edit_delete?
+        %li
+          = link_to "Delete", '#publication_delete_confirmation_modal',
+            data: { toggle: 'modal' }
+        %li
+          = link_to "Edit", edit_user_publication_path(publication),
+            remote: true, class: 'link-edit-publication'
+      - if publication.publication_url.present?
+        %li= link_to "View Source URL", publication.publication_url, target: '_blank'
+
+      - if publication.paper&.file? && publication.keep_private?
+        %li
+          - if publication.decorate.current_user_has_permission?
+            = render 'download_or_view_document_link', publication: publication, style: 'link'
+          - elsif publication.decorate.requested?
+            = link_to 'Send Reminder', request_full_text_user_publication_path(publication, show_flash: true),
+              remote: true, method: :post
+          - else
+            = link_to "Request Full-Text", request_full_text_user_publication_path(publication, show_flash: true),
+              method: :post, remote: true
+
+
+%ul.inline-items.date-publisher.light-items
+  - if publication.publication_date.present?
+    %li.item
+      = publication.decorate.public_date_format
+    %li.item.separator
+  - if publication.publisher.present?
+    %li.item= publication.publisher
+    %li.item.separator
+%ul.inline-items.bold-items
+  - publication.decorate.get_authors.each do |author|
+    %li.item= author
+    %li.item.separator

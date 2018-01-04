@@ -1,0 +1,6 @@
+<% if @message[:type].to_s == 'notice' %>
+  $(".flash").html("<%= j render('shared/flashages', notice: @message[:message]) %>");
+<% else %>
+  $(".flash").html("<%= j render('shared/flashages', alert: @message[:message]) %>");
+<% end %>
+$('#nav_notifications_list').html("<%= j render(partial: 'shared/notification', collection: @notifications, as: :notification) %>");

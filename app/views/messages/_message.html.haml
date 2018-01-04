@@ -1,0 +1,15 @@
+.modal-body.view_message_modal_body
+  .row
+    .col-md-3
+      %strong
+        FROM: 
+        = (@message.user.name + " " + @message.user.email)
+  .row
+    .col-md-12
+      %p= @message.body
+.modal-footer
+  .row
+    .col-md-12.pull-right
+      = link_to('Reply', new_message_path(:user_to=>@message.user.id, :user_to_name=>@message.user.name), remote: true, :class=>"btn btn-primary")
+      = link_to 'Delete', @message, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>"btn btn-danger"
+

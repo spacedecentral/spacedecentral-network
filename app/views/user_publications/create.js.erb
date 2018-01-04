@@ -1,0 +1,11 @@
+<% if @user_publication.errors.present? %>
+  $('#add-publication-form').html("<%= j (remotipart_render 'form') %>");
+<% else %>
+  $("#add-publication-modal").modal('hide');
+  $("#profile-publication-content").html("<%= j (remotipart_render 'users/profile_publications') %>");
+  $('#profile-publication-tab').click();
+  $('html, body').animate({scrollTop: top }, 1000);
+  <% if @geotagged %>
+    $(".flash").html("<div class='container-fluid flashages-container alert alert-info notice'><div class='container'><h4>Your paper has been geotagged!&nbsp;&nbsp;<a href='/new.kml' target='_blank'>Download KML</a></h4></div></div>").show();
+  <% end %>
+<% end %>

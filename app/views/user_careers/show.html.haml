@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Position:
+  = @user_career.position
+%p
+  %b Company:
+  = @user_career.company
+%p
+  %b From:
+  = @user_career.from
+%p
+  %b To:
+  = @user_career.to
+
+= link_to 'Edit', edit_user_career_path(@user_career)
+\|
+= link_to 'Back', user_careers_path

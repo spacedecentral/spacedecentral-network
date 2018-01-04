@@ -1,0 +1,7 @@
+<% if @post.errors.present? %>
+  $('#modal .modal-body').html("<%= j render('posts/form', remote: true) %>");
+<% else %>
+  $("[post_id=<%= @post.id %>]").replaceWith("<%= j render('posts/post', post: @post, request_from: params[:request_from].to_s) %>");
+  $('.flash').html("<%= j render('shared/flashages', notice: 'Post was successfully updated.')%>");
+  $('#modal .modal').modal('hide');
+<% end %>

@@ -1,0 +1,7 @@
+$('#edit-mission-modal .modal-title').html("<%= @mission.mission_type? ? 'Edit Mission' : 'Edit Project' %>");
+$('#edit-mission-form').html("<%= j (render 'mission_edit') %>");
+$("#edit-mission-modal").modal({
+  show:true,
+  backdrop: 'static',
+  keyboard: false,
+});

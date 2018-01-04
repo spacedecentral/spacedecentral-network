@@ -1,0 +1,26 @@
+- if alert
+  .flashages-container.alert.alert-danger{role: 'alert'}
+    %span.alert-message= alert
+    %button.close{:type=>"button", "data-dismiss"=>"alert", "aria-label"=>"Close"}
+      %span{"aria-hidden"=>"true"}
+      = inline_svg("x_close.svg")
+- elsif notice
+  .flashages-container.alert.alert-info.notice.alert-dismissible{:id => "flash_notice", role: 'alert'}
+    %span.alert-message= notice
+    %button.close{:type=>"button", "data-dismiss"=>"alert", "aria-label"=>"Close"}
+      %span{"aria-hidden"=>"true"}
+      = inline_svg("x_close.svg")
+  :javascript
+    var timer = setTimeout(updateTransition, 3000);
+    function updateTransition() {
+      document.getElementById("flash_notice").className += " flash-dismiss";
+      clearTimeout(timer)
+      $(".flashages-container.alert").remove();
+    }
+
+:javascript
+  $(function() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 500);
+  });

@@ -1,0 +1,60 @@
+$("#message-dropdown").parent().removeClass('open');
+if ( $(".space-chat-well").length > 0 ) {
+  if ( $(".user_chat_pm_<%= @convo_id %>").length > 0 ) {
+    $(".user_chat_pm_<%= @convo_id %> .user_chat_pm").fadeIn();
+  } else {
+    $(".space-chat-well .space-chat-right").html("<div class='user_chat_pm_<%= @convo_id %> user_chat_pm_container' ><div class='user_chat_pm'></div></div>");
+    $(".space-chat-well .space-chat-right .user_chat_pm_<%= @convo_id %> .user_chat_pm").html("<%= j (render 'convo') %>").hide();
+    $(".space-chat-well .space-chat-right .user_chat_pm_<%= @convo_id %> .user_chat_pm").fadeIn();
+
+    $('.space-chat-well .space-chat-right').animate({scrollTop: $('.space-chat-well .space-chat-right .user_chat_pm_<%= @convo_id %> .user_chat_pm .user_chat_pm_feed')[0].scrollHeight}, 1);
+
+    $(".space-chat-well .space-chat-right .user_chat_pm_<%= @convo_id %> .chat_open_toggle").click(function() {
+      $(".space-chat-well .space-chat-right .user_chat_pm_<%= @convo_id %> .user_chat_pm").fadeOut();
+    });
+    $(".space-chat-well .space-chat-right .user_chat_pm_<%= @convo_id %> .user_pm_message").keypress(function(e) {
+        if(e.which == 13) {
+          $(this).parent("form").submit();
+          return false;
+        }
+    });  
+    initConvoChatForm("<%= @convo_id %>");
+  }
+}
+else {
+  if ( $("#user_chat_pm_<%= @convo_id %>").length > 0 ) {
+    $("#user_chat_pm_<%= @convo_id %> .user_chat_pm").slideUp();
+  } else {
+    $("#user_chat_pm_append").append("<div id='user_chat_pm_<%= @convo_id %>' class='user_chat_pm_container' ></div>");
+    var chat_count = $(".user_chat_pm_container").length;
+    if ( chat_count > 1 ) {
+      var win_width = $( window ).width();
+      var new_pos = 355*(chat_count-1)-64*(chat_count-2);//parseInt($(".user_chat_pm_container").last().css("right"))+285;
+      if ( new_pos > win_width ) {
+        $("#user_chat_pm_<%= @convo_id %>").css("right", new_pos+"px");
+      } else {
+        $("#user_chat_pm_<%= @convo_id %>").css("right", new_pos+"px"); 
+      }
+    }
+    $("#user_chat_pm_<%= @convo_id %>").append('<div class="chat_open_toggle"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div><div class="user_chat_pm" style="display:none;"></div>');
+    $("#user_chat_pm_<%= @convo_id %> .user_chat_pm").html("<%= j (render 'convo') %>");
+
+    $("#user_chat_pm_<%= @convo_id %> .user_chat_pm").slideToggle();
+
+    $('#user_chat_pm_<%= @convo_id %> .user_chat_pm .user_chat_pm_feed').animate({scrollTop: $('#user_chat_pm_<%= @convo_id %>  .user_chat_pm .user_chat_pm_feed')[0].scrollHeight}, 1);
+
+    $("#user_chat_pm_<%= @convo_id %> .chat_open_toggle").click(function() {
+      $("#user_chat_pm_<%= @convo_id %> .user_chat_pm").slideToggle();
+    });
+    $("#user_chat_pm_<%= @convo_id %> .user_pm_message").keypress(function(e) {
+        if(e.which == 13) {
+          $(this).parent("form").submit();
+          return false;
+        }
+    });  
+    initConvoChatForm("<%= @convo_id %>");
+  }
+}
+
+
+

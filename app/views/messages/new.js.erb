@@ -1,0 +1,6 @@
+$('#new-message-form').html("<%= j (render 'form') %>");
+$("#messages-nag-toggle").removeClass("open");
+$("#new-message-modal").modal('show');
+
+
+initMessageForm();

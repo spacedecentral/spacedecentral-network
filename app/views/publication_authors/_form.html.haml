@@ -1,0 +1,10 @@
+= form_for @publication_author do |f|
+  - if @publication_author.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@publication_author.errors.count, "error")} prohibited this publication_author from being saved:"
+      %ul
+        - @publication_author.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

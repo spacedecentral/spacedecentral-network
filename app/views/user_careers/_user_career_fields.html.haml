@@ -1,0 +1,24 @@
+.row.nested-career-fields
+  .col-xs-12
+    .career_row
+      .pull-right
+        = link_to_remove_association '', f, { wrapper_class: 'nested-career-fields' }
+        %button.close{:type=>"button", :class=>"remove_career_button"}
+          %span{"aria-hidden"=>"true"} &times;
+      .input-area
+        .col-md-12
+          .form-group
+            = f.label :position, :class => 'control-label'
+            = f.text_field :position, :class=>"form-control"
+        .col-md-12
+          .form-group
+            = f.label :company, :class => 'control-label'
+            = f.text_field :company, :class=>"form-control"
+        .col-md-6
+          .form-group
+            = f.label :from, :class => 'control-label'
+            = f.text_field :from, :class=>"form-control"
+        .col-md-6
+          .form-group
+            = f.label :to , :class => 'control-label'
+            = f.text_field :to, :class=>"form-control"

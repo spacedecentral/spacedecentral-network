@@ -1,0 +1,3 @@
+%ul#all_notifications_list
+  - @notifications.each do |noti|
+    = render noti.template, notification: noti

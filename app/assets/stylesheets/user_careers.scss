@@ -1,0 +1,25 @@
+// Place all the styles related to the UserCareers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#edit-career-form {
+  .modal-content-container {
+    max-height: 251px;
+    padding:0px 15px;
+  }
+  .career_title{
+    margin: 0px -15px;
+    padding: 8px 30px;
+    border: none;
+    border-bottom: solid 1px #EBEBEB;
+
+    #add_career_button {
+      margin-top: 0px;
+    }
+  }
+  .career_row {
+    margin-bottom: 0px;
+    border:none;
+    border-bottom: solid 1px #EEEEEE;
+  }
+
+}

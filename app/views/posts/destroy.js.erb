@@ -1,0 +1,2 @@
+$("[post_id=<%= @deleted_post.id %>]").remove();
+$('.flash').html("<%= j render('shared/flashages', notice: 'Post was deleted.') %>");

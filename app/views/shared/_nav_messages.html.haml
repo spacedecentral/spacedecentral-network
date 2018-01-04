@@ -1,0 +1,26 @@
+%li.dropdown.platform-notifications-dropdown.platform-messages-dropdown.right_nav
+  %a.dropdown-toggle#messages_dropdown_toggle{:href=>"#messages", "data-toggle"=>"dropdown", "role"=>"button", "aria-haspopup"=>"true", "aria-expanded"=>"false"}
+    = image_tag('mail.svg', :class=>'right_nav_icon')
+    - if @conversations_unread > 0
+      %span#messages_unread_badge.badge=@conversations_unread
+      / .nav_unread_alert=@conversations_unread
+  %ul.dropdown-menu.arrow.platform-notifications-nav#message-dropdown
+    %li.dropdown-header
+      %div
+        Messages
+        -if @conversations_unread > 0
+          ='('+@conversations_unread.to_s+')'
+        = link_to(image_tag('newmsg.svg'), new_message_path(user_id: @user&.id),
+          remote: true, class: 'btn btn-default new-message')
+    -if @conversations.empty?
+      %li.no-message#nav_messages_none
+        You have no messages
+      #nav_messages_list.nav_messages_list
+    -else
+      #nav_messages_list.nav_messages_list
+        -@conversations.each do |group|
+          =render :partial => "messages/message_in_nav", :locals => { :message => group, :render_for_current_user=>true }
+    %li.dropdown-footer
+      =link_to 'Show All Messages', '/space-chat'
+
+

@@ -1,0 +1,27 @@
+-if !message.nil?
+  - render_as_received = render_as_received.nil? ? false : render_as_received
+  .clearfix
+    -if message["user_id"].to_i == current_user.id && !render_as_received
+      .sent_message
+        .row
+          .col-md-9.pull-right
+            - if message["u_id"].nil?
+              =image_tag message.user.avatar.url(:thumb), :class=>"message-avatar pull-right"  
+            - else
+              =image_tag raw_avatar_helper(message).avatar.url(:thumb), :class=>"message-avatar pull-right"  
+        .row
+          .col-md-9.pull-right
+            .chat_time.platform_timestamp{"data-time-stamp"=>message["created_at"]}=platform_timestamp(message["created_at"])
+            .chat_message=simple_format(message["body"])
+    - else
+      .from_message
+        .row
+          .col-md-9.pull-left
+            - if message["u_id"].nil?
+              =image_tag message.user.avatar.url(:thumb), :class=>"message-avatar"  
+            - else
+              =image_tag raw_avatar_helper(message).avatar.url(:thumb), :class=>"message-avatar"  
+        .row
+          .col-md-9.pull-left
+            .chat_time.platform_timestamp{"data-time-stamp"=>message["created_at"]}=platform_timestamp(message["created_at"])
+            .chat_message=simple_format(message["body"])

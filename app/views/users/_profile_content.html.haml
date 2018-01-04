@@ -1,0 +1,20 @@
+.row.user-profile-info
+  .platform-col
+    .space-col.clearfix
+      = render "biography"
+      .row
+        %ul.col-md-12.skills.list-tags
+          = render partial: 'tags/tag', collection: @user.skills, as: :tag
+.row
+  .col-md-7.platform-col
+    .space-col.mission-tile-box
+      = render partial: 'profile_main_tab_missions'
+    .space-col
+      = render partial: 'profile_main_tab_publications'
+  .col-md-5.platform-col
+    .space-col.clearfix{:style=>"height:335px;"}
+      = render partial: 'profile_main_tab_followers'
+    .space-col#user-acitivity-box
+      = render partial: 'profile_main_tab_activity'
+
+

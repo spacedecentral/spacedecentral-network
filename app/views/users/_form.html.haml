@@ -1,0 +1,48 @@
+= form_for @user, remote: true, :authenticity_token => true,:html => {:class => 'sleek_form'}  do |f|
+  .row
+    .col-md-7.col-sm-7.col-xs-6
+      .form-group
+        = f.label :name, "Name" , :class=>"control-label"
+        = f.text_field :name, :class=>"form-control"
+      = render_error(f.object.errors.full_messages_for(:name))
+      .form-group
+        = f.label :title, 'Headline', :class=>"control-label"
+        = f.text_field :title, :class=>"form-control"
+      = render_error(f.object.errors.full_messages_for(:title))
+      .form-group
+        = f.label :location, 'Location', :class=>"control-label"
+        = f.text_field :location, :class=>"form-control"
+    .col-md-5.col-sm-5.col-xs-6.center-text
+      .user_avatar_edit
+        = image_tag @user.avatar.url(:medium), :class=>"img-circle avatar-img", :id=>"user_avatar_image"
+        = image_tag @user.default_avatar, :class=>"img-circle avatar-img", :id=>"user_default_avatar"
+        .overlay
+        %label.avatar-edit-button{:for=>"user_avatar"}
+          =image_tag "camera.svg"
+          Update
+      %a.btn#remove_avatar{:style=>'display:' + (@user.avatar.file? ? 'block' : 'none')}  Remove Photo
+      = f.hidden_field :remove_avatar
+      = f.file_field :avatar, :class=>"profile-file-field"
+  .form-group
+    = f.label :bio, 'Bio', :class=>"control-label"
+    = f.text_area :bio, :class=>"form-control", :rows=>'3'
+  .form-group
+    %label{ :class => 'control-label'} Skills & Interests
+    .chips.chips-autocomplete.form-control.skills{data: { chip: f.object.decorate.skills_chips }}
+    = f.hidden_field :skill_ids, value: nil, id: 'user_skills_field'
+  .form-group
+    = f.label :linkedin_url, 'LinkedIn URL', class: 'control-label'
+    = f.text_field :linkedin_url, class: 'form-control', placeholder: 'Paste your LinkedIn profile URL here'
+  = render_error(f.object.errors.full_messages_for(:linkedin_url))
+  - if current_user.is_admin_user?
+    .form-group
+      = f.label :role
+      = f.number_field :role, :class=>"form-control"
+  .row
+    .col-md-12
+      .pull-right
+        = f.submit 'Save', :class=>"btn btn-primary"
+:javascript 
+  $(function() {
+    initUserForm();
+  });

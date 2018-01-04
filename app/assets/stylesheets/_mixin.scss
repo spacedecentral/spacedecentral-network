@@ -1,0 +1,56 @@
+$properties_keys: m p;
+$map_properties: (
+  m: margin,
+  p: padding
+);
+$pixels: 0 5 10 15 20 25 30 50 60 100;
+$directions_keys: all t r b l;
+$map_direction: (
+  all: 'all',
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+
+@each $px_num in $pixels {
+  @each $key in $directions_keys {
+    @each $property_key in $properties_keys {
+      @if $key == 'all' {
+        .#{$property_key}-#{$px_num} {
+          #{map-get($map_properties, $property_key)}: #{$px_num}px !important;
+        }
+      } @else {
+        .#{$property_key}#{$key}-#{$px_num} {
+          #{map-get($map_properties, $property_key)}-#{map-get($map_direction,
+          $key)}: #{$px_num}px !important;
+        }
+      }
+    }
+  }
+}
+
+.wh-16 { width: 16px; height: 16px; }
+
+// Display flex helpers
+.flex { display: flex }
+.fai-center { align-items: center; }
+.mra { margin-right: auto; }
+
+// Text
+.fs-18 { font-size: 18px }
+.fs-20 { font-size: 18px }
+.text-bold { font-weight: bold !important; }
+.text-capitalize { text-transform: capitalize };
+
+// Width
+.mw-500 { max-width: 500px }
+
+// border
+.no-border {
+  border: none !important;
+}
+
+.relative {
+  position: relative;
+}

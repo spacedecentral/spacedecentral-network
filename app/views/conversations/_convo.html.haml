@@ -1,0 +1,9 @@
+.user_chat_pm_feed
+  - if @messages.nil?
+    - Conversation.get_convo_messages(@convo_id).each_with_index do |message,i|
+      =render(:partial=> 'messages/message_in_convo', :locals=>{:message=>message,:render_for_current_user=>true})
+  - else
+    - @messages.each_with_index do |message,i|
+      =render(:partial=> 'messages/message_in_convo', :locals=>{:message=>message,:render_for_current_user=>true})
+.user_chat_pm_reply
+  = render :partial=>'conversations/convo_reply_form'

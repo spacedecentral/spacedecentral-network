@@ -1,0 +1,45 @@
+- title = report&.reportable.decorate.alias || 'untitled'
+#report_modal.modal.fade.square.confirmation.mt-20
+  .modal-dialog.modal-md
+    .modal-content
+      = form_for report, remote: true do |f|
+        = f.hidden_field :reportable_id
+        = f.hidden_field :reportable_type
+        = f.hidden_field :report_parent_id
+        = f.hidden_field :report_parent_type
+        .modal-header
+          %h4.modal-title Report #{title.humanize}
+        .modal-body
+          .mb-20 Why are you reporting this #{title.downcase}?
+          .error-messages.hidden
+          - ReportContent.report_types.each do |k, _v|
+            .radio-custom.mb-5
+              = f.radio_button :report_type, k
+              %label{for: "report_content_report_type_#{k}"}= k.humanize
+        .modal-footer.flex.fai-center.mt-10
+          %span.pull-left.mra
+            Review
+            = link_to 'etiquette', '#etiquette_modal', data: { toggle: 'modal' }
+
+          %button.btn.js-btn-modal-close.btn-default.btn-modal-cancel{:type=>"button",
+            "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            Cancel
+
+          = link_to 'Report', '#', class: "btn js-report-modal-btn btn-danger"
+
+:javascript
+  $(function() {
+    $('#report_modal .js-report-modal-btn').on('click', function(e) {
+      e.preventDefault();
+      var $form = $(this).closest('form');
+
+      if($form.find("input[type='radio']:checked").length <= 0) {
+        $('#report_modal .error-messages').removeClass('hidden')
+          .html("Please select type that you want to report");
+        return false;
+      }
+
+      $form.submit();
+      return false;
+    });
+  });

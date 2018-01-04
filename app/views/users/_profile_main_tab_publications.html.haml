@@ -1,0 +1,23 @@
+.row
+  .col-xs-10
+    %h3 Publications
+  .col-xs-2
+    - if @editable_by_user
+      = link_to(image_tag('plus-blue.svg'), new_user_publication_path,
+        remote: true, :class => 'link-edit-publication pull-right')
+  %br
+  - if @publications.empty?
+    .no-data.publications-no-data.text-center
+      = inline_svg('publications.svg', :class=>'fill_width_icon', :title=>"no publications by user")
+      %p.fill_width_caption
+        - if current_user && current_user == @user
+          You have not added any publications yet.
+        - else
+          This user has not added any publications yet.
+  - @publications.first(6).each do |paper|
+    .col-xs-12.publication-row
+      = link_to paper.title, user_publication_path(paper)
+      %hr
+  - if @publications.count > 6
+    .text-center
+      %a#show-more-publication.show-more Show More

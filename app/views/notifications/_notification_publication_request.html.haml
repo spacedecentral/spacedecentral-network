@@ -1,0 +1,34 @@
+%li
+  .clearfix
+    .pull-left
+      - if notification.sender
+        = image_tag notification.sender&.avatar.try(:url, :thumb),
+          class: "message-avatar"
+    - unless notification.read?
+      .unread-mark.pull-right
+    .messages-container
+      .message-text
+        = link_to notification.sender.name, user_path(notification.sender),
+          class: 'text-bold', target: '_blank'
+        \has requested the full text for
+        = link_to notification.notifiable&.user_publication&.title,
+          user_publication_path(notification.notifiable&.user_publication),
+          class: 'text-bold', target: '_blank'
+    %div
+      .pull-left.flex.fai-center.mt-10.ml-15
+        - if notification&.notifiable.approved? || notification&.notifiable.denied?
+          %span.label.label-default.text-capitalize= notification&.notifiable.status
+        - else
+          = link_to approve_request_user_publications_path(notification.notifiable_id),
+            class: 'approve-link flex mr-10', remote: true, method: :post,
+            disable_with: 'Approving' do
+            = inline_svg('red_check.svg', class: 'approve-icon mr-5')
+            Approve
+          = link_to deny_request_user_publications_path(notification.notifiable_id),
+            class: 'deny-link flex', remote: true, method: :post,
+            disable_with: 'Dening' do
+            = inline_svg('x_close.svg', class: 'deny-icon mr-5')
+            Deny
+      .pull-right.message-time.mt-10
+        .platform_timestamp{"data-time-stamp"=>notification.created_at}
+          = platform_timestamp(notification.created_at)

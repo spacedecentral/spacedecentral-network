@@ -1,0 +1,5 @@
+.col-md-3.user
+  = link_to(image_tag(user.avatar.url(:medium), :class=>'img-circle  avatar-img avatar'), user)
+  %h3= link_to user.name, user
+  .job= user.title
+  %h4.city= user.location.present?  ? user.location : 'Universal'

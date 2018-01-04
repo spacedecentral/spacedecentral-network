@@ -1,0 +1,23 @@
+-@user.user_careers.each_with_index do |career, index|
+  %div.clearfix
+    .icon
+      -if index < 1
+        =image_tag('profile-career.svg')
+      -else
+        .line-up{:style=>'height:'+(index < 2 ? '32px': '38px')+';margin-bottom:4px'}
+        .circle
+    -if @editable_by_user && index < 1
+      .pull-right
+        = link_to user_careers_path, :class=>"link-edit-career", :title=>"", remote: true do
+          =image_tag('2blue_pencil.svg')
+    .info-text
+      =career.position + ','
+      %b
+        =career.company
+-if @user.user_careers.count < 1
+  %div.clearfix
+    .icon
+      =image_tag('profile-career.svg')
+    -if @editable_by_user
+      .info-text
+        = link_to 'Edit Career',user_careers_path, :class=>"link-edit-career", :title=>"", remote: true

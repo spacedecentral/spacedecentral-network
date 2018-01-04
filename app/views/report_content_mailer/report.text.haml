@@ -1,0 +1,7 @@
+- url = reportable_url(@report.reportable, @report.report_parent)
+
+#{@report.reporter.name} has reported a #{@report.reportable&.decorate.alias} made by #{@report.reportable&.user&.name}
+
+Reason: #{@report.report_type.humanize}
+Source: #{report_source(@report.reportable)}
+URL: #{url}
