@@ -12,11 +12,11 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = { host: 'goingto.space.coop' }
+  config.action_mailer.default_url_options = { host: 'staging.spacedecentral.com' }
 
-  Rails.application.config.action_cable.allowed_request_origins = ['http://goingto.space.coop', 'https://goingto.space.coop']
+  Rails.application.config.action_cable.allowed_request_origins = ['http://staging.spacedecentral.com', 'https://staging.spacedecentral.com']
 
-  config.action_cable.url = "wss://goingto.space.coop/cable"
+  config.action_cable.url = "wss://staging.spacedecentral.com/cable"
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -36,7 +36,7 @@ Rails.application.configure do
       :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
       :email_prefix => "[PREFIX] ",
       :sender_address => %{"notifier" <info@space.coop>},
-      :exception_recipients => %w{dennis@space.coop kvique@googlemail.com saycherry809@gmail.com yalda@space.coop brayden@space.coop}
+      :exception_recipients => %w{dennis@space.coop radek@space.coop saycherry809@gmail.com yalda@space.coop brayden@space.coop}
     }
 
   config.cache_store = :redis_store, {
