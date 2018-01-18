@@ -37,7 +37,7 @@ gem 'sidekiq'
 gem 'redis-rails', '~> 5'
 gem 'friendly_id'
 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 3.0'
 gem 'omniauth-google-oauth2'
 gem 'signet'
 gem 'google-api-client'
