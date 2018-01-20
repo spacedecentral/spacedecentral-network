@@ -8,6 +8,9 @@
       %a.navbar-brand{:href=>"/"}
         = image_tag("logo.png")
     %ul.navbar-right
+      %li
+        %a{:href=>"https://t.me/SpaceDecentral"}
+          = image_tag("telegram-logo-icon.png", :class=>"right_nav_icon")
       - if user_signed_in?
         = render :partial => 'shared/nav_notifications'
         = render :partial => 'shared/nav_messages'
