@@ -70,7 +70,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'stagecdn.space.coop'
+  config.action_controller.asset_host = 'stagingcdn.spacedecentral.net'
 
   config.public_file_server.headers = {
     "Cache-Control" => "public, s-maxage=31536000, maxage=15552000",

@@ -49,7 +49,7 @@ Rails.application.configure do
     namespace: "cache"
   }
 
-  # config.action_controller.asset_host = 'stagecdn.space.coop'
+  # config.action_controller.asset_host = 'stagingcdn.spacedecentral.net'
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
