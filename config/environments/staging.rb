@@ -12,11 +12,11 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = { host: 'staging.spacedecentral.com' }
+  config.action_mailer.default_url_options = { host: 'staging.spacedecentral.net' }
 
-  Rails.application.config.action_cable.allowed_request_origins = ['http://staging.spacedecentral.com', 'https://staging.spacedecentral.com']
+  Rails.application.config.action_cable.allowed_request_origins = ['http://staging.spacedecentral.net', 'https://staging.spacedecentral.net']
 
-  config.action_cable.url = "wss://staging.spacedecentral.com/cable"
+  config.action_cable.url = "wss://staging.spacedecentral.net/cable"
 
   # Code is not reloaded between requests.
   config.cache_classes = true
