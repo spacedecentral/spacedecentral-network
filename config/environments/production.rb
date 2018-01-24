@@ -12,11 +12,11 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.action_mailer.default_url_options = { host: 'space.coop' }
+  config.action_mailer.default_url_options = { host: 'spacedecentral.net' }
 
-  Rails.application.config.action_cable.allowed_request_origins = ['http://space.coop', 'https://space.coop']
+  Rails.application.config.action_cable.allowed_request_origins = ['http://spacedecentral.net', 'https://spacedecentral.net']
 
-  config.action_cable.url = 'wss://space.coop/cable'
+  config.action_cable.url = 'wss://spacedecentral.net/cable'
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -74,7 +74,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'cdn.space.coop'
+  config.action_controller.asset_host = 'cdn.spacedecentral.net'
 
   config.public_file_server.headers = {
     "Cache-Control" => "public, s-maxage=31536000, maxage=15552000",
