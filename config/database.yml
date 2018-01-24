@@ -35,7 +35,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: spacedecentral
+  database: spacecoop
   username: spaceuser
   password: <%= ENV["LOCAL_SPACE_ACCESS"] %>
   host: <%= ENV["LOCAL_SPACE_ACCESS_HOST"] %>
