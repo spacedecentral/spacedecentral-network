@@ -133,6 +133,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     google-api-client (0.19.3)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.5, < 0.7.0)
@@ -439,6 +440,7 @@ DEPENDENCIES
   exception_notification
   figaro
   friendly_id
+  google-analytics-rails (= 1.1.1)
   google-api-client
   haml-rails
   high_voltage (~> 3.0.0)

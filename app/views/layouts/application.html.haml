@@ -12,6 +12,8 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', async: Rails.env.production?
     = javascript_include_tag 'application'
+    = analytics_init if GoogleAnalytics.valid_tracker?
+
   %body
     = render partial: 'shared/navigation'
     .flash
