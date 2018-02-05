@@ -90,6 +90,20 @@
         = f.password_field :new_password_confirmation, class: 'form-control'
       = render_error(f.object.errors.full_messages_for(:new_password_confirmation))
 
+  - elsif params[:step].to_s == 'newsletter'
+    .modal-header
+      %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        %span{"aria-hidden"=>"true"} &times;
+      %h4.modal-title Send Newsletter?
+    .modal-body
+      %p
+        Your current preferrence is:
+        %strong= current_user.newsletter ? 'YES' : 'NO'
+      .form-group
+        = f.label :newsletter, 'Please send me the newsletter', class: 'control-label'
+        = f.check_box :newsletter, value: nil, class: 'form-control'
+      = render_error(f.object.errors.full_messages_for(:newsletter))
+
   .modal-footer.no-border.mt-15
     .pull-left
       - if params[:step].to_s == 'password'

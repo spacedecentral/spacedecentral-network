@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008085329) do
+ActiveRecord::Schema.define(version: 20180205220723) do
 
-  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "type"
     t.text     "activity",   limit: 65535
     t.integer  "user_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
   end
 
-  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "email"
     t.string   "subject"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_conversations_on_user_id", using: :btree
   end
 
-  create_table "followings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "followings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.integer  "follow_user"
     t.datetime "created_at",  null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_followings_on_user_id", using: :btree
   end
 
-  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
-  create_table "g_drive_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "g_drive_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
     t.string   "direct_link"
     t.integer  "user_id"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_g_drive_files_on_user_id", using: :btree
   end
 
-  create_table "group_convo_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "group_convo_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "conversation_id"
     t.integer  "user_id"
     t.boolean  "read",            default: false
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_group_convo_references_on_user_id", using: :btree
   end
 
-  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.integer  "likable_id"
     t.datetime "created_at",   null: false
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.string   "likable_type"
   end
 
-  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "body",              limit: 65535
     t.integer  "user_id"
     t.integer  "user_to"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
-  create_table "mission_user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mission_user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "role"
     t.integer  "mission_id"
     t.integer  "user_id"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_mission_user_roles_on_user_id", using: :btree
   end
 
-  create_table "missions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "missions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",                                        null: false
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["slug"], name: "index_missions_on_slug", unique: true, using: :btree
   end
 
-  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.string   "event"
     t.integer  "from_user"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
-  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
     t.text     "content",       limit: 65535
     t.integer  "user_id"
@@ -170,14 +170,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
-  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title"
-    t.text     "bio",        limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "publication_authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "publication_authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "author"
     t.integer  "user_publication_id"
     t.datetime "created_at",          null: false
@@ -187,7 +180,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_publication_id"], name: "index_publication_authors_on_user_publication_id", using: :btree
   end
 
-  create_table "publication_long_lats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "publication_long_lats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.float    "longitude",           limit: 24
     t.float    "latitude",            limit: 24
     t.float    "max_long",            limit: 24
@@ -199,7 +192,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_publication_id"], name: "index_publication_long_lats_on_user_publication_id", using: :btree
   end
 
-  create_table "replies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "replies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "content",         limit: 65535
     t.integer  "user_id"
     t.integer  "replicable_id"
@@ -213,7 +206,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_replies_on_user_id", using: :btree
   end
 
-  create_table "report_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "report_contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.string   "reportable_type"
     t.integer  "reportable_id"
@@ -227,21 +220,14 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_report_contents_on_user_id", using: :btree
   end
 
-  create_table "rlikes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user"
-    t.integer  "reply"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user"
     t.integer  "post"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tag_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tag_references", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "tag_id"
     t.integer  "post_id"
     t.integer  "user_publication_id"
@@ -256,13 +242,13 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_publication_id"], name: "index_tag_references_on_user_publication_id", using: :btree
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_careers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_careers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "position"
     t.string   "company"
     t.string   "from"
@@ -273,7 +259,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_user_careers_on_user_id", using: :btree
   end
 
-  create_table "user_educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_educations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "degree"
     t.string   "school"
     t.string   "graduation"
@@ -283,7 +269,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_user_educations_on_user_id", using: :btree
   end
 
-  create_table "user_publication_permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_publication_permissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_publication_id"
     t.integer  "user_id"
     t.string   "status"
@@ -293,7 +279,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_publication_id"], name: "index_user_publication_permissions_on_user_publication_id", using: :btree
   end
 
-  create_table "user_publications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_publications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
     t.string   "summary"
     t.datetime "created_at",                                      null: false
@@ -324,7 +310,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.index ["user_id"], name: "index_user_publications_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "email",                                  default: "", null: false
     t.string   "encrypted_password",                     default: "", null: false
     t.string   "reset_password_token"
@@ -363,6 +349,7 @@ ActiveRecord::Schema.define(version: 20171008085329) do
     t.string   "title"
     t.string   "linkedin_url"
     t.string   "username"
+    t.boolean  "newsletter"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

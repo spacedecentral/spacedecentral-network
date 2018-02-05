@@ -13,7 +13,7 @@
         .col-md-12
           .row
             .col-md-12.auth-password
-              %input{:type=>"checkbox"}
+              = f.check_box :newsletter, {checked: false}
               %span Please send me the newsletter
       .row
         .col-md-12

@@ -28,3 +28,9 @@
             = link_to edit_settings_user_path(current_user, step: :password), remote: true,
               class: 'profile-edit-button' do
               = inline_svg "pencil.svg"
+          %li.item
+            .title newsletter
+            .content= current_user.newsletter ? 'YES' : 'NO'
+            = link_to edit_settings_user_path(current_user, step: :newsletter), remote: true,
+              class: 'profile-edit-button' do
+              = inline_svg "pencil.svg"
