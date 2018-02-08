@@ -30,7 +30,7 @@ gem 'mark_it_zero' #, git: 'git@github.com:khacluan/mark_it_zero.git', tag: 'v0.
 gem 'redcarpet'
 
 gem 'turbolinks', '~> 5'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'remotipart', '~> 1.2'
 gem 'devise'
 gem 'sidekiq'
