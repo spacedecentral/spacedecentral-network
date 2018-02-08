@@ -103,6 +103,15 @@ bundle install
 rake db:migrate
 rake db:seed
 ```
+
+If you are working a mac, you may get an error about rmagick. The following has usually worked:
+
+```
+brew unlink imagemagick
+brew install imagemagick@6 && brew link imagemagick@6 --force
+gem install rmagick 
+```
+
 ### Updating roles
 
 #### Step 1: open terminal and cd to root project and run command
