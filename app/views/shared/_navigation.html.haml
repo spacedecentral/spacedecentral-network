@@ -6,7 +6,7 @@
         = image_tag("nav_toggle.png", :class=>"toggle-icon")
         = image_tag("arrow_down.svg", :class=>"arrow")
       %a.navbar-brand{:href=>"/"}
-        = image_tag("logo_hb.png")
+        = image_tag("sd_logo.png")
     %ul.navbar-right
       - if user_signed_in?
         = render :partial => 'shared/nav_notifications'
@@ -37,7 +37,9 @@
         %li
           %a{:href=>"/events"} EVENTS
         %li
-          %a{:href=>"https://docs.google.com/forms/d/e/1FAIpQLScUnaO-7Nw9AEytxadz-f16885qdPysFObX2e5I8XN_n0E0dw/viewform"} PRESALES
+          %a{:href=>"https://docs.google.com/forms/d/e/1FAIpQLScUnaO-7Nw9AEytxadz-f16885qdPysFObX2e5I8XN_n0E0dw/viewform"} CROWDSALE
+        %li
+          %a{:href=>"/team"} TEAM
         %li
           %a{:href=>"https://docs.google.com/document/d/1i-16dKDOg--oyuzKN1LaVdAJyKAy2qRVQen0Nrot-0Y"} WHITEPAPER
 
