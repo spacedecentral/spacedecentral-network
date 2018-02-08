@@ -28,9 +28,12 @@
               These events encourage the cross-pollination of ideas amongst scientists, engineers, artists and thinkers that are interested in all aspects of becoming a spacefaring civilization. We present challenges that stem from both socio-economical and technological perspectives, reaching out to experts from both industry and academia to inform the community about their latest work. Meetups are highly interactive and engage the audience through “brainstorming jams” that are both fun and thought-provoking.
             .sponsor.mt-30 Sponsors
             %p.mt-10
-              = image_tag 'logo.png', size: '120x33', alt: 'Space Cooperative', class: 'mr-30'
-              = image_tag 'events/cross-campus.png', size: '120x33', alt: 'Cross Campus', class: 'mr-20'
-              = image_tag 'events/ip.jpg', size: '120x64', alt: 'PPT_BG'
+              = link_to "http://space.coop" do
+                = image_tag 'sc_logo.png', size: '120x33', alt: 'Space Cooperative', class: 'mr-30'
+              = link_to "http://www.innovatepasadena.org" do
+                = image_tag 'events/cross-campus.png', size: '120x33', alt: 'Cross Campus', class: 'mr-20'
+              = link_to "http://www.crosscamp.us/site" do
+                = image_tag 'events/ip.jpg', size: '120x64', alt: 'PPT_BG'
 
       .row.mt-20
         .events.slider
