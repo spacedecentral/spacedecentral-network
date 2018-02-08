@@ -34,9 +34,9 @@ Rails.application.configure do
   Rails.application.config.middleware.use ExceptionNotification::Rack,
     :email => {
       :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-      :email_prefix => "[PREFIX] ",
+      :email_prefix => "[SD-STAGING-ERROR] ",
       :sender_address => %{"notifier" <info@space.coop>},
-      :exception_recipients => %w{dennis@space.coop radek@space.coop saycherry809@gmail.com yalda@space.coop brayden@space.coop}
+      :exception_recipients => %w{radek@space.coop yalda@space.coop}
     }
 
   config.cache_store = :redis_store, {
