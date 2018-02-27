@@ -15,10 +15,12 @@
         %b Name
       .col-xs-2
         %b Email
-      .col-xs-3
+      .col-xs-2
         %b Creation Date
       .col-xs-2
         %b Role
+      .col-xs-1
+        %b Newsletter?
       .col-xs-2
         %b Status
     .row
@@ -31,10 +33,12 @@
           = link_to user.name, user_path(user.id)          
         .col-xs-2
           = user.email
-        .col-xs-3
+        .col-xs-2
           .platform_timestamp{"data-time-stamp"=>user.created_at}=platform_timestamp(user.created_at)
         .col-xs-2
           = user.get_role_name
+        .col-xs-1
+          = user.newsletter ? 'Yes!' : 'No'
         .col-xs-2
           = list_user_active_status(user)
       .row
