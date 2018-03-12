@@ -61,7 +61,7 @@ class ManageUsersController < ApplicationController
 
   private
     def check_admin_privileges
-      unless current_user.nil? && current_user.is_admin_user?
+      unless !current_user.nil? && current_user.is_admin_user?
         Rails.logger.info "non admin dashboard access attemp"
         redirect_to "/"
       end
