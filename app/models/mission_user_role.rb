@@ -11,7 +11,7 @@ class MissionUserRole < ApplicationRecord
 
   MISSION_ROLE_NAMES = 
     {
-      MASTER_ROLE=>{:name=>'Master',              
+      MASTER_ROLE=>{:name=>'Admin',              
         :val=>MASTER_ROLE
       },
       COORDINATOR_ROLE=>{:name=>'Coordinator',    
