@@ -5,8 +5,6 @@
     .post-type{ class: post.post_type }
       = inline_svg('mission_tab.svg', class: 'type-icon')
       = post.decorate.label
-      - if post.pinned?
-        = inline_svg('pin.svg', class: 'pin-icon')
   %h2= link_to post.title, post, class: 'forum-title'
   %div= render_markdown_content(post.content, stripdown: true,
     truncate_length: 300)
