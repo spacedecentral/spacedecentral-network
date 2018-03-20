@@ -1,37 +1,50 @@
 - request_from ||= 'forum'
 
-.forum-card{post_id: post.id}
+.forum-card{ class: ("pinned" if post.pinned), post_id: post.id }
   - if request_from.to_s == 'forum' && post.decorate.label.present?
-    .post-type{class: post.post_type}
+    .post-type{ class: post.post_type }
       = inline_svg('mission_tab.svg', class: 'type-icon')
       = post.decorate.label
-  %h2=link_to post.title, post, :class => 'forum-title'
-  %div= render_markdown_content(post.content, stripdown: true, truncate_length: 300)
-  = render "shared/user_info", user: post.user
+      - if post.pinned?
+        = inline_svg('pin.svg', class: 'pin-icon')
+  %h2= link_to post.title, post, class: 'forum-title'
+  %div= render_markdown_content(post.content, stripdown: true,
+    truncate_length: 300)
+  = render 'shared/user_info', user: post.user
   .row
     .col-xs-12
       - post.tag_references.each do |tag_ref|
-        %a.forum-taglink=tag_ref.tag.tag
+        %a.forum-taglink= tag_ref.tag.tag
   .like-share.clearfix
-    .like.pull-left{id: "like_box#{post.id}"}
+    .like.pull-left{ id: "like_box#{post.id}" }
       = render partial: 'likes/like', locals: { likable: post }
     .reply.pull-left
-      = inline_svg('reply.svg', :class => 'reply-icon')
+      = inline_svg('reply.svg', class: 'reply-icon')
       %span.like-size
         = post.replies_count || 0
     .forum-time.pull-right
-      .platform_timestamp{"data-time-stamp"=>post.created_at}=platform_timestamp(post.created_at)
+      .platform_timestamp{ 'data-time-stamp' => post.created_at }
+      = platform_timestamp(post.created_at)
       .dropdown.pull-right
-        %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
+        %a.forum-menu{ href: '#', data: { toggle: 'dropdown' },
+        aria: { haspopup: true, expanded: false } }
           = inline_svg('post_action.svg')
         %ul.dropdown-menu.dropdown-menu-right.forum-dropmenu
+          - if post.decorate.can_pin?
+            - if post.pinned?
+              %li
+              = link_to 'Remove pin', toggle_pin_post_path(post), method: :put, remote: true
+            - else
+              %li
+              = link_to 'Pin', toggle_pin_post_path(post), method: :put, remote: true
           - if post.decorate.can_modified?
             %li
-              = link_to "Delete", post_path(post),
-                method: :delete, remote: true,
-                data: { confirm_target: '#post_delete_confirmation_modal' }
+            = link_to 'Delete', post_path(post),
+            method: :delete, remote: true,
+            data: { confirm_target: '#post_delete_confirmation_modal' }
             %li
-              = link_to "Edit", edit_post_path(post, request_from: request_from), remote: true
+            = link_to 'Edit',
+            edit_post_path(post, request_from: request_from), remote: true
           - else
-            - if !post.decorate.mine?
-              %li= report_link(post)
+            - unless post.decorate.mine?
+              %li= report_link post

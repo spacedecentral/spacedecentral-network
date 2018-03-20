@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205220723) do
+ActiveRecord::Schema.define(version: 20180319192141) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "type"
@@ -156,14 +156,15 @@ ActiveRecord::Schema.define(version: 20180205220723) do
     t.string   "title"
     t.text     "content",       limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "slug"
     t.integer  "replies_count",               default: 0
     t.integer  "likes_count",                 default: 0
     t.integer  "post_type",                   default: 0
     t.string   "postable_type"
     t.integer  "postable_id"
+    t.boolean  "pinned",                      default: false, null: false
     t.index ["postable_id"], name: "index_posts_on_postable_id", using: :btree
     t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", using: :btree

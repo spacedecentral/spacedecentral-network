@@ -44,7 +44,7 @@ module Filter
       if @params[:category].to_s == TRENDING
         order_clause = "replies_count desc, posts.created_at desc, MAX(replies.updated_at) desc"
       else
-        order_clause = "posts.created_at desc, MAX(replies.updated_at) desc"
+        order_clause = "posts.pinned desc, posts.created_at desc, MAX(replies.updated_at) desc"
       end
 
       puts where_clause

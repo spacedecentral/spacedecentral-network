@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :toggle_pin]
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy,:toggle_pin]
 
   def index
     filter
@@ -92,6 +92,18 @@ class PostsController < ApplicationController
       format.json { head :no_content }
       format.js
     end
+  end
+
+  def toggle_pin
+      @post.toggle!(:pinned)
+      filter
+
+      respond_to do |format|
+        format.html {
+          redirect_to posts_url, notice: @post.pinned? ? 'The post was pinned' : 'The pin was removed'
+        }
+        format.js
+      end
   end
 
   private
