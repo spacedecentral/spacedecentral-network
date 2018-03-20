@@ -42,7 +42,7 @@ module Filter
       end
 
       if @params[:category].to_s == TRENDING
-        order_clause = "replies_count desc, posts.created_at desc, MAX(replies.updated_at) desc"
+        order_clause = "posts.pinned desc, replies_count desc, posts.created_at desc, MAX(replies.updated_at) desc"
       else
         order_clause = "posts.pinned desc, posts.created_at desc, MAX(replies.updated_at) desc"
       end
