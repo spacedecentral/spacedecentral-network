@@ -70,3 +70,19 @@
     background-color: #f38699;
   }
 }
+
+.pinned {
+    background-color: #fff8dc !important;
+    border: 1px solid #e0dcfb !important;
+}
+
+.pin-icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -790%;
+    top: 20%;
+    g {
+        fill: #4a4a4a;
+    }
+}

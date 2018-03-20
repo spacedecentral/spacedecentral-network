@@ -71,6 +71,9 @@ Rails.application.routes.draw do
     get "/mission/:mission_id", to: 'posts#index_mission'
     get "/tag/:tag_id", to: 'posts#index_tag', as: :forum_tag, action: :index_tag
     resources :posts do
+      member do
+        put :toggle_pin
+      end
       collection do
         get :filter
         get :load_more

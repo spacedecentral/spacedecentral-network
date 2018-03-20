@@ -5,6 +5,10 @@ class PostDecorator < ApplicationDecorator
     @can ||= moderators? || mine?
   end
 
+  def can_pin?
+    @can ||= moderators?
+  end
+
   def mine?
     return false unless h.current_user
     @mine ||= object.user_id == h.current_user.id
