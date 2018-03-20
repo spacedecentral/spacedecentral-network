@@ -72,7 +72,7 @@ Rails.application.routes.draw do
     get "/tag/:tag_id", to: 'posts#index_tag', as: :forum_tag, action: :index_tag
     resources :posts do
       member do
-        put :toggle_pin
+        put '/', as: :toggle_pin, action: :toggle_pin
       end
       collection do
         get :filter
