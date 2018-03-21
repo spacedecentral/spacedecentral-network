@@ -1,3 +1,8 @@
+# The Space Decentral Network
+[💬 Chat on Riot](https://riot.im/app/#/room/#spacedecentral-buildingblocks:matrix.org)
+
+With an integrated set of collaborative tools, we want to make planning and executing a space mission a simple and sleek process.
+
 # Code Style Guidelines
 
 * Use HAML on new pages and a page that's in HTML that needs a large re-design
