@@ -2,13 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :http_authenticate
   before_action :authenticate_user!
   before_action :set_global_user, :set_messages, :set_notifications
-  before_filter :store_location
-  
+  before_filter :store_location, :set_cache_headers
+
   protect_from_forgery with: :exception, prepend: :true
 
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
-    return unless request.get? 
+    return unless request.get?
     if ( !request.path.include?("/log-in") &&
         !request.path.include?("/users/auth/google_oauth2/callback") &&
         !request.path.include?("/users/sign_up") &&
@@ -16,14 +16,14 @@ class ApplicationController < ActionController::Base
         !request.path.include?("/users/password/new") &&
         !request.path.include?("/users/password/edit") &&
         !request.xhr?) # don't store ajax calls
-      session[:previous_url] = request.fullpath 
+      session[:previous_url] = request.fullpath
     end
   end
 
   def after_sign_in_path_for(resource)
     session[:previous_url] || root_path
   end
-  
+
   def http_authenticate
     return if Rails.env.production? || Rails.env.development? || Rails.env.test?
 
@@ -60,6 +60,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    def set_cache_headers
+      response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+      response.headers["Pragma"] = "no-cache"
+      response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+    end
+
     def set_global_user
       return if skip_controllers
       begin
