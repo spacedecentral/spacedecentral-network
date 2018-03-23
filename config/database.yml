@@ -32,7 +32,7 @@ test:
   pool: 5
   timeout: 5000
 
-staging2:
+production:
   adapter: mysql2
   encoding: utf8
   database: spacedecentral
@@ -43,13 +43,3 @@ staging2:
   pool: 5
   timeout: 5000
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: spacecoop
-  username: spaceuser
-  password: <%= ENV["LOCAL_SPACE_ACCESS"] %>
-  host: <%= ENV["LOCAL_SPACE_ACCESS_HOST"] %>
-  port: 3306
-  pool: 5
-  timeout: 5000
