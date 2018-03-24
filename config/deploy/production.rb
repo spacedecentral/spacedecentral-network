@@ -44,7 +44,7 @@ server "spacedecentral.net", user: "capuser", roles: %w{app web db}
  set :ssh_options, {
    keys: %w(~/.ssh/id_rsa),
    forward_agent: false,
-   auth_methods: %w(password)
+   auth_methods: %w(publickey password)
  }
 #
 # The server-based syntax can be used to override options:
