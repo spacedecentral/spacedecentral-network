@@ -13,4 +13,5 @@
       locals: { report_parent: report_parent }
 
     .reply-container{:id=>'reply-container-'+reply.id.to_s}
-      = render 'replies/reply_form', replicable: reply, children: children
+      - if user_signed_in?
+        = render 'replies/reply_form', replicable: reply, children: children

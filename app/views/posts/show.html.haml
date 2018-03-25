@@ -61,7 +61,6 @@
             Write a response…
         .response_box_form
           = render 'replies/reply_form', replicable: @post
-        = render 'replies/list_replies', replies: @post.replies, report_parent: @post
       - else
         .forum-card.response_box_no_user
           .center-text
@@ -70,6 +69,7 @@
             or
             = link_to 'sign up', new_registration_path(resource_name)
             to reply
+      = render 'replies/list_replies', replies: @post.replies, report_parent: @post
 
 
 .mb-50

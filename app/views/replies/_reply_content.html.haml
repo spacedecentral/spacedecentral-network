@@ -8,7 +8,10 @@
   .reply.pull-left
     %span.middle-dot
       &#183;
-      = link_to "Reply", '#', class: 'reply-link', :data => { id: reply.id }
+      - if user_signed_in?
+        = link_to "Reply", '#', class: 'reply-link', :data => { id: reply.id }
+      - else
+        = link_to 'Reply', new_session_path(resource_name)
   .forum-time.pull-right
     .platform_timestamp{"data-time-stamp"=>reply.created_at}=platform_timestamp(reply.created_at)
     .dropdown.pull-right
