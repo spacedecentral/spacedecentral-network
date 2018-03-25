@@ -36,7 +36,7 @@
             = link_to '#', class: 'js-trigger-response-box' do
               = inline_svg('reply.svg', class: 'reply-icon')
               %span.like-size
-                = @post.replies_count
+                = @post.total_replies_count
           .forum-time.pull-right
             .platform_timestamp{"data-time-stamp"=>@post.created_at}=platform_timestamp(@post.created_at)
             .dropdown.pull-right
