@@ -31,17 +31,17 @@
           - if post.decorate.can_pin?
             - if post.pinned?
               %li
-              = link_to 'Unpin', toggle_pin_post_path(post), method: :put, remote: true
+                = link_to 'Unpin', toggle_pin_post_path(post), method: :put, remote: true
             - else
               %li
-              = link_to 'Pin', toggle_pin_post_path(post), method: :put, remote: true
+                = link_to 'Pin', toggle_pin_post_path(post), method: :put, remote: true
           - if post.decorate.can_modified?
             %li
-            = link_to 'Delete', post_path(post),
+              = link_to 'Delete', post_path(post),
             method: :delete, remote: true,
             data: { confirm_target: '#post_delete_confirmation_modal' }
             %li
-            = link_to 'Edit',
+              = link_to 'Edit',
             edit_post_path(post, request_from: request_from), remote: true
           - else
             - unless post.decorate.mine?
