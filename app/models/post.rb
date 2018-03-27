@@ -34,6 +34,16 @@ class Post < ApplicationRecord
     slug.blank? || title_changed?
   end
 
+  def total_replies_count(msg = self)
+    total_count = msg.replies_count
+    if msg.replies_count > 0
+      msg.replies.each do |sub_reply|
+        total_count += total_replies_count(sub_reply)
+      end
+    end
+    return total_count
+  end
+
   private
 
   def assign_post_type
