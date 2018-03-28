@@ -31,10 +31,10 @@
           - if post.decorate.can_pin?
             - if post.pinned?
               %li
-                = link_to 'Unpin', toggle_pin_post_path(post), method: :put, remote: true
+                = link_to 'Unpin', toggle_pin_post_path(post, request_from: request_from), method: :put, remote: true
             - else
               %li
-                = link_to 'Pin', toggle_pin_post_path(post), method: :put, remote: true
+                = link_to 'Pin', toggle_pin_post_path(post, request_from: request_from), method: :put, remote: true
           - if post.decorate.can_modified?
             %li
               = link_to 'Delete', post_path(post),
