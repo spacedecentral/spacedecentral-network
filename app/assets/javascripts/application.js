@@ -45,7 +45,7 @@ function platform_timestamp (dt) {
     }
 
     if (jsdatetime.getFullYear() != jsnow.getFullYear() ) {
-      return moment(dt).format("MMM Do yyyy");
+      return moment(dt).format("MMM Do YYYY");
     }
     var jsdatetime = jsdatetime.getTime();
     var jsnow = jsnow.getTime();
@@ -113,7 +113,7 @@ $(function(){
   $(".flashages-container .close").click(function() {
     $(this).closest(".flashages-container").remove();
   });
-  
+
 });
 
 $(document).on('click', '.dropdown-menu li a', function(e) {
