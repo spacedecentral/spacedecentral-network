@@ -9,7 +9,7 @@
       .mission_chat_feed#mission_chat_feed
         -@missionchat.each do |message|
           .chat_name=message.user.name
-          .chat_time.platform_timestamp{"data-time-stamp"=>message.created_at}=platform_timestamp(message.created_at)
+          .chat_time.platform_timestamp{"data-time-stamp"=>message.created_at}
           .chat_message=simple_format(message.body)
       .mission_chat_reply
         %input#mission_chat_message.pull-left

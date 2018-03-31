@@ -26,7 +26,7 @@
       %span.like-size
         = @replies[user_publication.id].size
     .forum-time.pull-right
-      .platform_timestamp{"data-time-stamp"=>user_publication.created_at}=platform_timestamp(user_publication.created_at)
+      .platform_timestamp{"data-time-stamp"=>user_publication.created_at}
       .dropdown.pull-right
         %span.forum-menu
           = inline_svg('post_action.svg')

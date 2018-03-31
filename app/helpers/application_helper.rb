@@ -2,26 +2,6 @@ require 'redcarpet'
 require 'redcarpet/render_strip'
 
 module ApplicationHelper
-  def platform_timestamp(dt)
-    now = Time.now
-    if !dt.nil?
-      if now.year != dt.year
-        return dt.strftime("%b %e %Y")
-      elsif now-1.hour < dt
-        diff = ((now - dt) / 1.minute).round
-        return diff > 1 ?  diff.to_s + " minutes ago" : "1 minute ago"
-      elsif now-24.hour < dt
-        diff = ((now - dt) / 1.hour).round
-        return diff > 1 ?  diff.to_s + " hours ago" : "1 hour ago"
-      elsif now-7.day < dt
-        diff = ((now - dt) / 1.day).round
-        return diff > 1 ?  diff.to_s + " days ago" : "1 day ago"
-      else
-        return dt.strftime("%b %e")
-      end
-    end
-  end
-
   def render_markdown_content(content, options = {})
     return unless content
 
