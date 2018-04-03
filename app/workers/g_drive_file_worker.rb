@@ -1,7 +1,7 @@
 class GDriveFileWorker
   include Sidekiq::Worker
 
-  def perform(file_id,mission_id,mission_name)
+  def perform(file_id,program_id,program_name)
     drive = Google::Apis::DriveV2::DriveService.new
 
     scope = ['https://www.googleapis.com/auth/drive']
@@ -16,10 +16,10 @@ class GDriveFileWorker
 
     # permission.update!({:role=>"reader",:type=>"anyone",:with_link=>true})
     # permission = drive.insert_permission(file_id, permission, email_message: "A New file has been added to the #{mission_name} mission on https://space.coop", send_notification_emails: true, fields: nil, quota_user: nil, user_ip: nil, options: nil)
-    mission_users = MissionUserRole.where(:mission_id=>mission_id)
-    logger.info "*** mision id - #{mission_id}"
-    logger.info mission_users.inspect
-    mission_users.each do |u|
+    program_users = ProgramUserRole.where(:program_id=>program_id)
+    logger.info "*** program id - #{program_id}"
+    logger.info program_users.inspect
+    program_users.each do |u|
       begin
         permission = Google::Apis::DriveV2::Permission.new
         user_role = "reader"
@@ -30,7 +30,7 @@ class GDriveFileWorker
         end 
         logger.info "***U EMAIL #{u.user.email}"
         permission.update!({:email_address=>u.user.email,:value=>u.user.email,:role=>user_role,:type=>"user"})
-        permission = drive.insert_permission(file_id, permission, email_message: "A New file has been added to the #{mission_name} mission on https://space.coop", send_notification_emails: false, fields: nil, quota_user: nil, user_ip: nil, options: nil)
+        permission = drive.insert_permission(file_id, permission, email_message: "A New file has been added to the #{program_name} program on https://spacedecentral.net", send_notification_emails: false, fields: nil, quota_user: nil, user_ip: nil, options: nil)
         logger.info permission.inspect
       rescue Exception => e
         logger.info e.inspect

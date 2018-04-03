@@ -26,8 +26,8 @@ module Filter
       joins_str = "LEFT JOIN replies ON replies.replicable_type = 'Post' AND replies.replicable_id = posts.id"
       where_clause = ''
 
-      if @params[:mission_ids].present?
-        where_clause = "postable_type = 'Mission' AND postable_id IN (#{@params[:mission_ids].join(',')})"
+      if @params[:program_ids].present?
+        where_clause = "postable_type = 'Program' AND postable_id IN (#{@params[:program_ids].join(',')})"
       end
 
       if @params[:tag_ids].present?

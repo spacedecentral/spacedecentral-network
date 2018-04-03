@@ -137,7 +137,7 @@ class UserPublicationsController < ApplicationController
   end
 
   def get_publication_permission
-    @user_publication_permission = UserPublicationPermission.find(params[:user_publication_permission_id])
+    @user_publication_permission = UserPublicationPermission.find(params[:user_publication_perprogram_id])
   end
 
   def sanitized_params

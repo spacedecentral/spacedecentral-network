@@ -2,7 +2,7 @@
   max-height: 400px;
   overflow: scroll;
 }
-.mission_file_list_container {
+.program_file_list_container {
   padding: 15px;
   min-height: 600px;
   margin-top: 17px;
@@ -10,7 +10,7 @@
 .gdrive_share_file_row {
   margin-bottom: 5px;
 }
-.mission_file_row {
+.program_file_row {
   background-color: #fff;
   padding: 15px 15px;
   border-top: 1px solid #ddd;
@@ -24,11 +24,11 @@
     &:hover { text-decoration: none; }
   }
 }
-.mission_files_utils {
+.program_files_utils {
   margin-bottom: 15px;
   float: left;
   width: 100%;
-  .mission_files_wrapper {
+  .program_files_wrapper {
     background-color: #fff;
     padding: 25px 0;
     box-shadow: 0px 3px 5px #d2d2d2;
@@ -61,7 +61,7 @@
   }
 
 }
-.mission_files_utils input[type=text]{
+.program_files_utils input[type=text]{
   height: 40px;
   line-height: 40px;
   font-size: 18px;
@@ -74,23 +74,23 @@
   border: 1px solid #ededed;
 }
 
-.mission_files_utils input[type=text]::-webkit-input-placeholder{
+.program_files_utils input[type=text]::-webkit-input-placeholder{
   color: #bcb;
 }
 
-.mission_files_utils input[type=text]::-moz-placeholder{
+.program_files_utils input[type=text]::-moz-placeholder{
   color: #bcb;
 }
 
-.mission_files_utils input[type=text]:-moz-placeholder{
+.program_files_utils input[type=text]:-moz-placeholder{
   color: #bcb;
 }
 
-.mission_files_utils input[type=text]:-ms-input-placeholder{
+.program_files_utils input[type=text]:-ms-input-placeholder{
   color: #e0e0e0;
 }
 
-.mission_files_utils .input_search_icon {
+.program_files_utils .input_search_icon {
   height: 22px;
   width: 22px;
   margin-right:-22px;
@@ -118,7 +118,7 @@ $light-green: #4ccEB2;
   }
 }
 
-.mission_file_sort_by_update {
+.program_file_sort_by_update {
   cursor: pointer;
   span svg { height: 14px; width: 15px; margin-left: 15px; }
   .like-img:hover, .like-img:focus {
@@ -134,7 +134,7 @@ $light-green: #4ccEB2;
   width: 45%;
   float: left;
 }
-.dropdown.mission_dropdown {
+.dropdown.program_dropdown {
   a.dropdown-toggle{
     &[aria-expanded=false] {
       .carrot-arrow { transform: rotate(0deg); }

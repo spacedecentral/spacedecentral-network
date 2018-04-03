@@ -1,0 +1,10 @@
+[
+	<% @programs.each do |program| %>
+		{
+			"label": "<%= program.name %>",
+			"id": "<%= program.id  %>",
+			"cover": "<%= program.cover  %>"
+		}
+	<% end %>
+]
+

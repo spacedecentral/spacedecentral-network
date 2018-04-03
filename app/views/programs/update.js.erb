@@ -1,0 +1,4 @@
+$('#edit-program-modal').modal('hide');
+<% if @program.previous_changes['slug'].present? %>
+  window.location.href = "<%= program_path(@program) %>";
+<% end %>

@@ -1,0 +1,22 @@
+.tab-content
+  .container-fluid.tab-pane.fade.in.active#main_program_tab{:role=>"tabpanel"}
+    = render partial: "main_program_tab"
+  .container-fluid#program_crews.tab-pane.fade{:role=>"tabpanel"}
+  .container-fluid#program_files.tab-pane.fade{:role=>"tabpanel"}
+    -if !user_signed_in?
+      .container.platform-show-container
+        .container
+          .alert.alert-info
+            %h4 You need to have an account and join the program before you can view files
+          = link_to 'LOG IN', new_session_path(resource_name), :class=>'btn btn-primary'
+          = link_to 'SIGN UP', new_registration_path(resource_name), :class=>'btn btn-primary'
+    -elsif !@isMember && !current_user.is_admin_user?
+      .container.platform-show-container
+        .container
+          .alert.alert-info
+            %h4 You need to be a member of the program before you can view files
+    -else
+      .container.platform-temp-container
+  .container-fluid#program_discussions.tab-pane.fade{:role=>"tabpanel"}
+
+

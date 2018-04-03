@@ -26,6 +26,6 @@ class PostDecorator < ApplicationDecorator
   end
 
   def cover_url
-    object.postable&.cover&.url if object.mission? || object.project?
+    object.postable&.cover&.url if object.program? || object.project?
   end
 end

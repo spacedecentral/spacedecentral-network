@@ -22,7 +22,7 @@ $(function() {
     });
 
     initTilter({
-      selectors: '#list_missions .tilter, #trending_posts .tilter',
+      selectors: '#list_programs .tilter, #trending_posts .tilter',
     });
   });
 });

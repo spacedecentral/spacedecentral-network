@@ -1,0 +1,5 @@
+= inline_svg('people.svg', class: 'fill_width_icon')
+%p.fill_width_caption
+  This program has no crew yet.
+  %br
+  = link_to 'Join Now!', new_program_program_user_role_path(@program.id), remote: true

@@ -19,13 +19,13 @@
     - else
       = hidden_field_tag "filter[#{key}][]", values
 
-  - if @missions.present?
+  - if @programs.present?
     %hr
-    .mission-filters.js-filter-box
+    .program-filters.js-filter-box
       %h4
-        %span.text-uppercase Missions
+        %span.text-uppercase Programs
         %span.pull-right.clear-filter Clear
-      = render partial: 'posts/mission_checkbox', collection: @missions, as: :mission
+      = render partial: 'posts/program_checkbox', collection: @programs, as: :program
   .tags-filters.js-filter-box
     - if @tags.present?
       = render partial: 'tags/list_tags', locals: { tags: @tags , checkable: true }

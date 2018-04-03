@@ -1,0 +1,13 @@
+.filter-item.checkbox-custom
+  .cntr
+    = label_tag 'program_ids', class: 'label-cbx light', for: "program_checkbox_#{program.id}" do
+      = check_box_tag "filter[program_ids][]", program.id, false,
+        class: 'invisible', id: "program_checkbox_#{program.id}"
+      .checkbox
+        = inline_svg('checkbox.svg')
+      %span= program.name
+  - if program.program_type?
+    .filter-children{filter_id: program.id}
+      - if program.projects.present?
+        = render partial: 'posts/program_checkbox',
+          collection: program.projects, as: :program

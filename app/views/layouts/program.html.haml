@@ -1,0 +1,39 @@
+!!!
+%html{:class => "#{'auth' if ['sessions', 'registrations'].include?(controller_name)}"}
+  %head    
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    = render partial: 'shared/ga_tag'
+    - if current_user
+      = action_cable_meta_tag
+    %title Space Decentral: To Space, Together
+    = favicon_link_tag 'favicon.png'
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', async: Rails.env.production?
+    = javascript_include_tag 'application'
+  %body
+    = render partial: 'shared/navigation'
+    .flash
+      = render partial: 'shared/flashages'
+    %main#platform_main_layout_content
+      = render partial: 'shared/program'
+    = render partial: 'shared/new_message'
+    = render partial: 'shared/loading_modal'
+    / <script>window.mdc.autoInit();</script>
+    = render 'shared/etiquette_modal'
+    #modal
+:javascript
+  $(function() {
+    WebFont.load({
+      google: {
+        families: ['Lato:300,300i,400,400i,700,700i', 'Josefin+Sans:400,600']
+      },
+      timeout: 2000,
+      active: function() {
+        $.each($('.ellipsis-box'), function(index, element){
+          $(element).truncate({ lines: 4 });
+        });
+      }
+    });
+  });

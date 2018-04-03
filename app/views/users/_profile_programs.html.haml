@@ -1,0 +1,12 @@
+.space-col.clearfix
+  - if @programs.blank?
+    .no-data.publications-no-data.text-center
+      = inline_svg('rocket.svg', class: 'fill_width_icon')
+      %p.fill_width_caption
+        - if current_user && current_user == @user
+          You have not joined any programs yet.
+        - else
+          This user has not joined any programs yet.
+  - else
+    = render partial: 'programs/program', collection: @programs,
+      as: :program, locals: { col: 'col-md-4 col-sm-6 col-xs-12' }

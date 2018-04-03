@@ -44,7 +44,7 @@ function increment_notifications_unread(){
 }
 function send_pm_msg(msginput,id,save_in_convo){
   if ( $(msginput).val().length > 0 ) {
-    // App.notifier.send({message:$(msginput).val(),mission_chat_id:id,save_in_convo:save_in_convo});
+    // App.notifier.send({message:$(msginput).val(),program_chat_id:id,save_in_convo:save_in_convo});
     $(msginput).val("");
   }
 }

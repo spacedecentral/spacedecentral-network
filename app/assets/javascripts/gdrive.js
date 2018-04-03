@@ -10,7 +10,7 @@ $(document).ready(function(){
     e.stopPropagation();
   });
 
-  $(document).on('hidden.bs.dropdown', '.mission_dropdown', function(){
+  $(document).on('hidden.bs.dropdown', '.program_dropdown', function(){
     $('.dropdown-submenu ul.dropdown-menu').removeClass('open');
   });
 
@@ -20,15 +20,15 @@ $(document).ready(function(){
     }
   });
 
-  $(document).on('click', '.mission_file_sort_by_update', function(){
+  $(document).on('click', '.program_file_sort_by_update', function(){
     var newval = $(this).attr("data-sort-by");
-    if ( $("#mission_file_sort_by").val() == newval ) {
-      var curdir = $("#mission_file_sort_dir").val();
-      $("#mission_file_sort_dir").val(curdir == 0 ? 1 : 0);
+    if ( $("#program_file_sort_by").val() == newval ) {
+      var curdir = $("#program_file_sort_dir").val();
+      $("#program_file_sort_dir").val(curdir == 0 ? 1 : 0);
     } else {
-      $("#mission_file_sort_by").val(newval);
+      $("#program_file_sort_by").val(newval);
     }
-    $("#mission_file_filter_form").submit();
+    $("#program_file_filter_form").submit();
   });
 
 

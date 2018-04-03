@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     end
 
     collection do
-      post '/approve_request/:user_publication_permission_id', action: :approve_request, as: :approve_request
-      post '/deny/:user_publication_permission_id', action: :deny_request, as: :deny_request
+      post '/approve_request/:user_publication_perprogram_id', action: :approve_request, as: :approve_request
+      post '/deny/:user_publication_perprogram_id', action: :deny_request, as: :deny_request
     end
   end
   resources :skills
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
 
   get "/forum", to: 'posts#index'
   scope "/forum" do
-    get "/mission/:mission_id", to: 'posts#index_mission'
+    get "/program/:program_id", to: 'posts#index_program'
     get "/tag/:tag_id", to: 'posts#index_tag', as: :forum_tag, action: :index_tag
     resources :posts do
       member do
@@ -93,7 +93,7 @@ Rails.application.routes.draw do
 
   resources :report_contents, only: [:new, :create]
 
-  resources :missions do
+  resources :programs do
     collection do
       get :search
     end
@@ -107,7 +107,7 @@ Rails.application.routes.draw do
         get :creategfile
       end
     end
-    resources :mission_user_roles do
+    resources :program_user_roles do
         member do
           get :accept_membership
           get :join
@@ -116,7 +116,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope "/missions" do
+  scope "/programs" do
     resources :gdrive do
       collection do
         get :oauthdrivecallback

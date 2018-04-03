@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   enum post_type: {
     general: 0,
-    mission: 1,
+    program: 1,
     project: 2
   }
 
@@ -48,6 +48,6 @@ class Post < ApplicationRecord
 
   def assign_post_type
     return unless postable.present?
-    self.post_type = postable.mission_type? ? :mission : :project
+    self.post_type = postable.program_type? ? :program : :project
   end
 end

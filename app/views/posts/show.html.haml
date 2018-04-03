@@ -7,10 +7,10 @@
       .col-md-8.col-sm-12.col-md-offset-2
         .row
           .col-sm-12.pl-0
-            = link_to @post.postable_type == 'Mission' ? mission_path(@post.postable) : posts_path do
+            = link_to @post.postable_type == 'Program' ? program_path(@post.postable) : posts_path do
               .post-label.relative
                 .post-type{class: @post.post_type}
-                  = inline_svg('mission_tab.svg', class: 'type-icon')
+                  = inline_svg('program_tab.svg', class: 'type-icon')
                   = @post.decorate.label
         .row
           .post-heading.col-sm-12

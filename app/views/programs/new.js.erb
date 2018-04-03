@@ -1,0 +1,10 @@
+$("#edit-program-modal.modal #edit-program-form").html("<%= j render('programs/form', remote: true) %>");
+<% if @program.project_type? %>
+  $("#edit-program-modal .modal-title").html('Add Project');
+  $("#program_object_type_field").addClass('hidden');
+<% else %>
+  $("#edit-program-modal .modal-title").html('Add Program');
+<% end %>
+
+$("#edit-program-modal.modal").modal('show');
+

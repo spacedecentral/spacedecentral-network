@@ -7,7 +7,7 @@
   .tile.post-tile{style: request_from != 'landing' ? 'height: 240px; margin-bottom: 15px;' : 'margin-bottom: 30px', class: (request_from == 'landing' ? 'tilter__figure' : '')}
     - if request_from == 'landing'
       .post-type{class: post.post_type}
-        = inline_svg('mission_tab.svg', class: 'type-icon')
+        = inline_svg('program_tab.svg', class: 'type-icon')
         %span= post.decorate.label
     .tile-content{style: request_from != 'landing' ? 'margin-top: 20px' : ''}
       .tile-head.clearfix.ellipsis-box

@@ -1,0 +1,4 @@
+$("#edit-program-modal.modal").modal('hide');
+<% if @program.project_type? %>
+  $("#program_projects").html("<%= j render('programs/list_projects', program: @program.dad) %>");
+<% end %>

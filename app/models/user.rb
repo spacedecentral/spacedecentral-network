@@ -100,7 +100,7 @@ class User < ApplicationRecord
 
   has_many :conversations
   has_many :messages
-  has_many :mission_user_roles
+  has_many :program_user_roles
   has_many :group_convo_references, dependent: :destroy
   has_many :tag_references, dependent: :destroy
   has_many :skills, class_name: Tag, through: :tag_references, source: :tag

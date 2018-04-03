@@ -1,0 +1,43 @@
+$('#join_program_modal .join_program_form').html("<%= j (render 'join_program_form') %>");
+$("#join_program_modal").modal('show');
+
+// $("#user_lookup").autocomplete({
+//   source: function( request, response ) {
+//     $.ajax( {
+//       url: "/users/search",
+//       dataType: "json",
+//       data: {
+//         term: request.term
+//       },
+//       success: function( data ) {
+//         response( data );
+//       }
+//     } );
+//   },
+//    minLength: 3,
+//    select: function(event, ui) {
+//       //auto populate other fields when selected item
+//       $("#program_user_role_modal #program_user_role_user_id").val(ui.item.id);
+//    }
+// });
+
+
+// $("#program_lookup").autocomplete({
+//   source: function( request, response ) {
+//     $.ajax( {
+//       url: "/programs/search",
+//       dataType: "json",
+//       data: {
+//         term: request.term
+//       },
+//       success: function( data ) {
+//         response( data );
+//       }
+//     } );
+//   },
+//    minLength: 3,
+//    select: function(event, ui) {
+//       //auto populate other fields when selected item
+//       $("#program_user_role_modal #program_user_role_program_id").val(ui.item.id);
+//    }
+// });

@@ -34,7 +34,7 @@
             = link_to edit_user_path(@user), :class=>"icon link-edit-profile", :title=>"Edit Profile", remote: true do
               =image_tag("pencil_outline.svg", :class=>'platform-cover-icons default-icon')
               =image_tag("pencil_fill.svg", :class=>'platform-cover-icons hover-icon')
-            .dropdown.platform-missions
+            .dropdown.platform-programs
               %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown", "role"=>"button", :title=>"More Actions"}
                 / dropdown toggle image
                 = image_tag('more.svg', :class=>'platform-cover-icons active-icon')
@@ -57,7 +57,7 @@
           = f.submit 'Save', :class=>"btn btn-primary"
     .fixed-bg-slide
       .imgbg{:style=>"background-image:url("+@user.cover_photo.url(:large)+");background-position:0px "+((!@user.cover_dy.nil? && @user.cover_dy>0) ? (-@user.cover_dy.to_i + 45).to_s+"px;" : "45px;")}
-  .row.mission_sub_nav
+  .row.program_sub_nav
     .col-md-12
       %ul.nav.nav-tabs#profile_tabs{:role=>"tablist"}
         %li.active
@@ -65,9 +65,9 @@
             =inline_svg("dashboard.svg", class: 'platform-cover-icons')
             .hidden-sm.hidden-xs Overview
         %li
-          %a{:href => "#profile-mission-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab",:id=>'profile-mission-tab'}
-            =inline_svg("mission_tab.svg", class: 'platform-cover-icons')
-            .hidden-sm.hidden-xs Missions
+          %a{:href => "#profile-program-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab",:id=>'profile-program-tab'}
+            =inline_svg("program_tab.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Programs
         %li
           %a{:href => "#profile-publication-content", "aria-controls"=>"profile-tab", :role=>"tab", "data-toggle"=>"tab", :id=>'profile-publication-tab'}
             =inline_svg("black_doc.svg", class: 'platform-cover-icons')
@@ -85,8 +85,8 @@
   .tab-content
     .container-fluid.tab-pane.fade.in.active#profile_content{:role=>"tabpanel"}
       = render partial: 'profile_content'
-    .container-fluid.tab-pane.fade#profile-mission-content{:role=>"tabpanel"}
-      = render partial: 'profile_missions'
+    .container-fluid.tab-pane.fade#profile-program-content{:role=>"tabpanel"}
+      = render partial: 'profile_programs'
     .container-fluid.tab-pane.fade#profile-publication-content{:role=>"tabpanel"}
       = render partial: 'profile_publications'
     .container-fluid.tab-pane.fade#profile-follower-content{:role=>"tabpanel"}

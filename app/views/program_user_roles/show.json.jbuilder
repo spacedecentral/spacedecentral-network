@@ -1,0 +1,1 @@
+json.partial! "program_user_roles/program_user_role", program_user_role: @program_user_role

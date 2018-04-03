@@ -1,0 +1,16 @@
+- if (@isMember || (!current_user.nil? && current_user.is_admin_user?)) && !@programchat.nil?
+  .program_chat
+    .program_chat_toggle.up
+      Show #{@program.name} Chat
+    .program_chat_toggle.down
+      Hide Chat
+    #program_chat_id{:style=>"display:none;", "data-program.id"=>@program.id}
+    .program_chat_pullup{:style=>"display:none;"}
+      .program_chat_feed#program_chat_feed
+        -@programchat.each do |message|
+          .chat_name=message.user.name
+          .chat_time.platform_timestamp{"data-time-stamp"=>message.created_at}=platform_timestamp(message.created_at)
+          .chat_message=simple_format(message.body)
+      .program_chat_reply
+        %input#program_chat_message.pull-left
+        .btn.btn-primary.pull-left#send_program_chat Send

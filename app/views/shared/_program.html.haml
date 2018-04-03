@@ -1,0 +1,100 @@
+.container-fluid.container-margin.platform-cover-container
+  .platform-cover.program-cover
+    .fixed-bg-slide
+      .imgbg{:style=>"background-image:url("+@program.cover.url(:large)+");background-position:0px "+((!@program.cover_dy.nil? && @program.cover_dy>0) ? (-@program.cover_dy + 45).to_s+"px;" : "45px;")}
+  .container.platform-cover-detail.program-cover-detail
+    .row
+      .col-md-12.center-text.clearfiv
+        - if @program.project_type?
+          = link_to @program.dad, class: 'back-to-program' do
+            = inline_svg('arrow.svg', class: 'post-arrow-left')
+            %span= @program.dad&.name
+        %h1
+          = @program.name
+        %span.number-of-members
+          = inline_svg('person.svg')
+          %span= @program.members_count
+        %p= truncate(@program.description.to_s, length: 250)
+        .row
+          - if user_signed_in?
+            - if !@isMember
+              = link_to new_program_program_user_role_path(@program.id), :id=>"join_program_button", :class=>"icon", :title=>"Follow #{@program.name}", remote: true do
+                =image_tag('plus.svg',:class=>'platform-cover-icons default-icon')
+                =image_tag('plus_white.svg',:class=>'platform-cover-icons hover-icon')
+            - else
+              %a.unfollow-program{:href=>"#", :class=>"icon", :title=>"Leave #{@program.name}", "data-toggle"=>"modal", "data-target"=>"#unfollow_modal"}
+                =image_tag('following.svg',:class=>'platform-cover-icons default-icon')
+                =image_tag('unfollow.svg',:class=>'platform-cover-icons hover-icon')
+
+            - if @program.decorate.can_write?(@current_member_role)
+              .dropdown.platform-programs
+                %a.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown", "role"=>"button", :title=>"More Actions"}
+                  / dropdown toggle image
+                  = image_tag('more.svg', :class=>'platform-cover-icons active-icon')
+                  = image_tag('more_hover.svg', :class=>'platform-cover-icons hover-icon')
+                %ul.dropdown-menu.arrow.dropdown-menu-right
+                  - if @program.program_type?
+                    %li
+                      = link_to 'Add Project',
+                        new_program_path(object_type: Program.object_types[:project],
+                          parent: @program.id),
+                        remote: true
+                  %li
+                    = link_to edit_program_path(@program.id), class: "link-edit-program",
+                      remote: true do
+                      = @program.project_type? ? 'Edit Project' : 'Edit Program'
+                  %li= link_to 'Upload Cover Photo', "#", :id=>"upload-cover-button"
+                  - if @program.cover.file?
+                    %li= link_to 'Remove Cover Photo', "#", :id=>"remove-cover-button"
+                    %li= link_to 'Reposition Cover Photo', "#", :class=>"reposition-cover-button"
+
+  .cover-editor.program-cover.hidden
+    .toolbar
+      .pull-left
+        %h4 Drag to Reposition
+      .pull-right
+        = form_for @program ,:authenticity_token => true do |f|
+          = f.hidden_field :cover_dy, :class=>'form-control'
+          = f.hidden_field :remove_cover
+          = f.file_field :cover, :class=>"hidden"
+          %a.btn.btn-default.cancel-button Cancel
+          = f.submit 'Save', :class=>"btn btn-primary"
+    .fixed-bg-slide
+      .imgbg{:style=>"background-image:url("+@program.cover.url(:large)+");background-position:0px "+((!@program.cover_dy.nil? && @program.cover_dy>0) ? (-@program.cover_dy + 45).to_s+"px;" : "45px;")}
+  .row.program_sub_nav
+    .col-md-12
+      %ul.nav.nav-tabs#program_tabs{:role=>"tablist"}
+        %li.active
+          -if !@main_program_show_url
+            =link_to @program do
+              =inline_svg("dashboard.svg", class: 'platform-cover-icons')
+              .hidden-sm.hidden-xs Dashboard
+          -else
+            %a{:href => "#main_program_tab", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+              =inline_svg("dashboard.svg", class: 'platform-cover-icons')
+              .hidden-sm.hidden-xs Dashboard
+        %li
+          %a{:href => "#program_crews", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+            =inline_svg("person_no_fill.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Crew
+        -# %li
+        -#   %a{:href => "#proposals_program_tab", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+        -#     =inline_svg("proposals.svg", class: 'platform-cover-icons')
+        -#     .hidden-sm.hidden-xs Proposals
+        %li
+          %a{:href => "#program_discussions", "aria-controls"=>"program_discussions", :role=>"tab", "data-toggle"=>"tab"}
+            =inline_svg("discussion.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Discussion
+        %li
+          %a{:href => "#program_files", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+            =inline_svg("files.svg", class: 'platform-cover-icons')
+            .hidden-sm.hidden-xs Files
+.program_yield
+  =yield
+.container-fluid.container-margin.platform-cover-container.bottom-platform-cover-container
+  .platform-cover.program-cover
+    .fixed-bg-slide
+      .imgbg{:style=>"background-image:url("+@program.cover.url(:large)+");background-position:0px 0px;background-position: bottom;"}
+
+-# = render partial: 'programs/program_chat'
+= render partial: 'programs/program_modals'

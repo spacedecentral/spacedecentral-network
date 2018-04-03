@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     filter
-    @missions = Mission.mission_type
+    @programs = Program.program_type
     @tags = Tag.joins(:posts).distinct
   end
 
@@ -18,16 +18,16 @@ class PostsController < ApplicationController
   end
   alias_method :load_more, :filter
 
-  def index_mission
-    @posts = Post.joins(:tag_references).where(tag_references: { mission_id: params[:mission_id] })
-    @missions = Mission.all
+  def index_program
+    @posts = Post.joins(:tag_references).where(tag_references: { program_id: params[:program_id] })
+    @programs = Program.all
     @tags = Tag.all
-    @current_mission = Mission.find (params[:mission_id])
+    @current_program = Program.find (params[:program_id])
   end
 
   def index_tag
     @posts = Post.joins("inner join tag_references on posts.id = tag_references.post_id where tag_id = ", params[:tag_id])
-    @missions = Mission.all
+    @programs = Program.all
     @tags = Tag.all
     @current_tag = Tag.find (params[:tag_id])
   end
@@ -124,7 +124,7 @@ class PostsController < ApplicationController
     params.require(:filter).permit(
       :keyword,
       :category,
-      mission_ids: [],
+      program_ids: [],
       tag_ids: []
     ) rescue {}
   end
