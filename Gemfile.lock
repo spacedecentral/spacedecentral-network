@@ -133,7 +133,6 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    gollum_editor (0.6)
     google-analytics-rails (1.1.1)
     google-api-client (0.19.3)
       addressable (~> 2.5, >= 2.5.1)
@@ -441,7 +440,6 @@ DEPENDENCIES
   exception_notification
   figaro
   friendly_id
-  gollum_editor
   google-analytics-rails (= 1.1.1)
   google-api-client
   haml-rails
