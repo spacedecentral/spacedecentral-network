@@ -32,7 +32,7 @@
             %input#search_program_files{:type=>"text", :placeholder=>"Search",:name=>"program_file_search_term",:value=>@program_file_search_term}
             %input#program_file_sort_by{:type=>"hidden",:value=>@params['sort_by'] != "title" ? "modifiedDate" : "title",:name=>"sort_by"}
             %input#program_file_sort_dir{:type=>"hidden", :value=>@params['sort_dir'], :name=>"sort_dir"}
-            %input{:type=>"hidden",:value=>"program_files", :name=>"selector"}
+            %input{:type=>"hidden",:value=>"files", :name=>"selector"}
         .col-md-12.no_data{ style: "display: #{@programfiles[:items]&.empty? ? 'block' : 'none'}" }
           = image_tag('sat.svg', :class=>'fill_width_icon', :title=>"no files in program")
           %p.fill_width_caption

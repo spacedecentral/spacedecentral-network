@@ -37,7 +37,7 @@ class ProgramUserRole < ApplicationRecord
   validates_uniqueness_of :user_id, scope: :program_id, :message=>"You have already requested membership to this program", :on => :create
 
   def program_user_role_names
-    return MISSION_ROLE_NAMES
+    return PROGRAM_ROLE_NAMES
   end 
 
   def is_master_or_greater?
@@ -57,8 +57,8 @@ class ProgramUserRole < ApplicationRecord
   end
 
   def role_name
-    if MISSION_ROLE_NAMES.has_key?(self.role)
-      MISSION_ROLE_NAMES[self.role][:name]
+    if PROGRAM_ROLE_NAMES.has_key?(self.role)
+      PROGRAM_ROLE_NAMES[self.role][:name]
     elsif self.is_master_or_greater?
       "Master"
     elsif self.is_trainee_or_greater?

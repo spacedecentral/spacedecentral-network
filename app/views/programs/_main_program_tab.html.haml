@@ -31,7 +31,7 @@
               locals: { col: 'col-sm-12', request_from: 'program' }
             - if !@posts.last_page?
               .text-center
-                %a.show-more{href: '#program_discussions'} Show More
+                %a.show-more{href: '#discussions'} Show More
 
       .col-sm-12
         %br
@@ -68,5 +68,5 @@
                   = program_file[:title]
           - if @programfiles[:items].size > 6
             .text-center
-              %a.show-more{href: '#program_files'} Show More
+              %a.show-more{href: '#files'} Show More
 

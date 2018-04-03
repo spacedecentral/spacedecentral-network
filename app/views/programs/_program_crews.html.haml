@@ -7,7 +7,7 @@
         =form_tag tab_render_control_program_path(@program.id), method: :get, remote: true, id: "program_crews_filter_form" do |f|
           = inline_svg('search.svg', :class=>'input_search_icon')
           = text_field_tag :program_crew_keyword, params[:program_crew_keyword], placeholder: 'Search Crew'
-          = hidden_field_tag :selector, 'program_crews'
+          = hidden_field_tag :selector, 'crews'
           = hidden_field_tag :role, params[:role] || 'all'
     .row.program_crews_lists
       .col-xs-12

@@ -68,13 +68,13 @@
           -if !@main_program_show_url
             =link_to @program do
               =inline_svg("dashboard.svg", class: 'platform-cover-icons')
-              .hidden-sm.hidden-xs Dashboard
+              .hidden-sm.hidden-xs Overview
           -else
-            %a{:href => "#main_program_tab", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+            %a{:href => "#overview", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
               =inline_svg("dashboard.svg", class: 'platform-cover-icons')
-              .hidden-sm.hidden-xs Dashboard
+              .hidden-sm.hidden-xs Overview
         %li
-          %a{:href => "#program_crews", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+          %a{:href => "#crews", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
             =inline_svg("person_no_fill.svg", class: 'platform-cover-icons')
             .hidden-sm.hidden-xs Crew
         -# %li
@@ -82,11 +82,11 @@
         -#     =inline_svg("proposals.svg", class: 'platform-cover-icons')
         -#     .hidden-sm.hidden-xs Proposals
         %li
-          %a{:href => "#program_discussions", "aria-controls"=>"program_discussions", :role=>"tab", "data-toggle"=>"tab"}
+          %a{:href => "#discussions", "aria-controls"=>"program_discussions", :role=>"tab", "data-toggle"=>"tab"}
             =inline_svg("discussion.svg", class: 'platform-cover-icons')
             .hidden-sm.hidden-xs Discussion
         %li
-          %a{:href => "#program_files", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
+          %a{:href => "#files", "aria-controls"=>"main_program_tab", :role=>"tab", "data-toggle"=>"tab"}
             =inline_svg("files.svg", class: 'platform-cover-icons')
             .hidden-sm.hidden-xs Files
 .program_yield

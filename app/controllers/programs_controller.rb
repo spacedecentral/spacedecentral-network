@@ -31,7 +31,7 @@ class ProgramsController < ApplicationController
   def tab_render_control
     @selector = params["selector"]
     @programfiles = {:items=>[]}
-    if @selector == "main_program_tab"
+    if @selector == "overview"
       # @programfiles = GDriveFile.where(:program_id=>@program.id).order("created_at DESC").limit(5)
       begin
         drive = Google::Apis::DriveV2::DriveService.new
@@ -42,7 +42,7 @@ class ProgramsController < ApplicationController
       rescue Exception => e
         Rails.logger.info e.inspect
       end
-    elsif @selector == 'program_crews'
+    elsif @selector == 'crews'
       @role_filter_name = "all"
       if !params[:program_crew_keyword]&.empty?
         @members = @members.joins(:user).where('users.name LIKE ?', "%#{params[:program_crew_keyword]}%")
@@ -50,14 +50,14 @@ class ProgramsController < ApplicationController
       if !params[:role].nil? && params[:role] != 'all'
         param_role = params[:role].to_i
         @members = @members.select {|m| m.role == param_role }
-        @role_filter_name = ProgramUserRole::MISSION_ROLE_NAMES[param_role][:name].try(:downcase) || "all"
+        @role_filter_name = ProgramUserRole::PROGRAM_ROLE_NAMES[param_role][:name].try(:downcase) || "all"
       end
     elsif @selector == "planning_program_tab"
-    elsif @selector == "program_files"
+    elsif @selector == "files"
       @gdrive_authenticated = session.has_key?(:credentials)
       get_svcacc_gfiles(params)
       # @programfiles = GDriveFile.where(:program_id=>@program.id)
-    elsif @selector == 'program_discussions'
+    elsif @selector == 'discussions'
       @posts = Filter::PostFilter.new({ program_ids: [@program.id] }).call
       @tags = Tag.joins(:posts).where(posts: { id: @posts.pluck(:id) }).distinct
       params[:filter] = { program_ids: [@program.id], category: Filter::PostFilter::RECENT }

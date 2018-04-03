@@ -115,7 +115,7 @@ class ProgramUserRolesController < ApplicationController
     end
     respond_to do |format|
       if program_user_role_save
-        format.html { redirect_to program_path(@program) + '#program_crews', notice: "#{@program_user_role.user.name} role changed" }
+        format.html { redirect_to program_path(@program) + '#crews', notice: "#{@program_user_role.user.name} role changed" }
         format.json { render :show, status: :ok, location: @program_user_role }
         format.js   { render :layout => false }
       else
@@ -135,7 +135,7 @@ class ProgramUserRolesController < ApplicationController
       @program_user_roles_pending = @program_user_roles.where(:pending=>true).count
     end
     respond_to do |format|
-      format.html { redirect_to program_path(@program) + '#program_crews', notice: 'Program user role was successfully destroyed.' }
+      format.html { redirect_to program_path(@program) + '#crews', notice: 'Program user role was successfully destroyed.' }
       format.js   {
         flash[:notice] = (current_user == @program_user_role.user ? "You have left the program to #{@program.name}" : "#{@program_user_role.user.name} is removed from program to #{@program.name}")
         render layout: false

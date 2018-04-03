@@ -1,8 +1,8 @@
 .tab-content
-  .container-fluid.tab-pane.fade.in.active#main_program_tab{:role=>"tabpanel"}
+  .container-fluid.tab-pane.fade.in.active#overview{:role=>"tabpanel"}
     = render partial: "main_program_tab"
-  .container-fluid#program_crews.tab-pane.fade{:role=>"tabpanel"}
-  .container-fluid#program_files.tab-pane.fade{:role=>"tabpanel"}
+  .container-fluid#crews.tab-pane.fade{:role=>"tabpanel"}
+  .container-fluid#files.tab-pane.fade{:role=>"tabpanel"}
     -if !user_signed_in?
       .container.platform-show-container
         .container
@@ -17,6 +17,6 @@
             %h4 You need to be a member of the program before you can view files
     -else
       .container.platform-temp-container
-  .container-fluid#program_discussions.tab-pane.fade{:role=>"tabpanel"}
+  .container-fluid#discussions.tab-pane.fade{:role=>"tabpanel"}
 
 

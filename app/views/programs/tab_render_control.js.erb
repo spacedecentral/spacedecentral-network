@@ -1,8 +1,8 @@
 var $dom = $("#<%= @selector %>");
 
-<% if @selector == "main_program_tab" %>
+<% if @selector == "overview" %>
   $dom.html("<%= j (render 'programs/main_program_tab') %>");
-<% elsif @selector == "program_crews" %>
+<% elsif @selector == "crews" %>
   <% if @role_filter_name != 'all' %>
     <% if @members.blank? %>
       $("#<%= @role_filter_name %> .row").html("<%=j render(partial: 'blank_member') %>");
@@ -12,9 +12,9 @@ var $dom = $("#<%= @selector %>");
   <% else %>
     $dom.html("<%= j (render 'programs/program_crews') %>");
   <% end %>
-<% elsif @selector == "program_discussions" %>
+<% elsif @selector == "discussions" %>
   $dom.html("<%= j render('programs/program_discussions', program: @program, posts: @posts, tags: @tags) %>");
-<% elsif @selector == "program_files" %>
+<% elsif @selector == "files" %>
   $dom.html("<%= j (render 'gdrive/program_files_tab') %>");
   setTimeout(function(){$('#loading_a_modal').modal("hide");},1000);
 <% elsif @selector == "planning_program_tab" %>
