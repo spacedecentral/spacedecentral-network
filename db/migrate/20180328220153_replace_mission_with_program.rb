@@ -13,7 +13,7 @@ class ReplaceMissionWithProgram < ActiveRecord::Migration[5.0]
 		t.rename_index :index_missions_on_slug, :index_programs_on_slug
 	end
 	change_table :mission_user_roles do |t|
-		t.rename_index :index_mission_user_roles_on_mission_id, :index_program_user_roles_on_program_id
+		t.rename_index :index_program_user_roles_on_mission_id, :index_program_user_roles_on_program_id
 	end
 	change_table :tag_references do |t|
 		t.rename :mission_id, :program_id
