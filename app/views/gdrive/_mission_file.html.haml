@@ -1,0 +1,8 @@
+- if !defined?(mission_file)
+  - mission_file = @mission_file
+.row.mission_file_row
+  .col-md-12 
+    %img{:src=>mission_file[:icon_link]}
+    =link_to mission_file[:alternate_link], :target=>"_blank", class: 'file-link' do
+      %strong= mission_file[:title]
+    .pull-right.platform_timestamp{"data-time-stamp"=>mission_file[:modified_date]}

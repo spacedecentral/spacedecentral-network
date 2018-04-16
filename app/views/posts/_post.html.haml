@@ -22,7 +22,6 @@
         = post.total_replies_count || 0
     .forum-time.pull-right
       .platform_timestamp{ 'data-time-stamp' => post.created_at }
-      = platform_timestamp(post.created_at)
       .dropdown.pull-right
         %a.forum-menu{ href: '#', data: { toggle: 'dropdown' },
         aria: { haspopup: true, expanded: false } }
@@ -31,10 +30,10 @@
           - if post.decorate.can_pin?
             - if post.pinned?
               %li
-                = link_to 'Unpin', toggle_pin_post_path(post), method: :put, remote: true
+                = link_to 'Unpin', toggle_pin_post_path(post, request_from: request_from), method: :put, remote: true
             - else
               %li
-                = link_to 'Pin', toggle_pin_post_path(post), method: :put, remote: true
+                = link_to 'Pin', toggle_pin_post_path(post, request_from: request_from), method: :put, remote: true
           - if post.decorate.can_modified?
             %li
               = link_to 'Delete', post_path(post),

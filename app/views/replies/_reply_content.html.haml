@@ -13,7 +13,7 @@
       - else
         = link_to 'Reply', new_session_path(resource_name)
   .forum-time.pull-right
-    .platform_timestamp{"data-time-stamp"=>reply.created_at}=platform_timestamp(reply.created_at)
+    .platform_timestamp{"data-time-stamp"=>reply.created_at}
     .dropdown.pull-right
       %a.forum-menu{href: '#', data: {toggle: 'dropdown'}, aria: { haspopup: true, expanded: false} }
         = inline_svg('post_action.svg')

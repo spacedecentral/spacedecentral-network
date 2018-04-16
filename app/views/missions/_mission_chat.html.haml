@@ -1,0 +1,16 @@
+- if (@isMember || (!current_user.nil? && current_user.is_admin_user?)) && !@missionchat.nil?
+  .mission_chat
+    .mission_chat_toggle.up
+      Show #{@mission.name} Chat
+    .mission_chat_toggle.down
+      Hide Chat
+    #mission_chat_id{:style=>"display:none;", "data-mission-id"=>@mission.id}
+    .mission_chat_pullup{:style=>"display:none;"}
+      .mission_chat_feed#mission_chat_feed
+        -@missionchat.each do |message|
+          .chat_name=message.user.name
+          .chat_time.platform_timestamp{"data-time-stamp"=>message.created_at}
+          .chat_message=simple_format(message.body)
+      .mission_chat_reply
+        %input#mission_chat_message.pull-left
+        .btn.btn-primary.pull-left#send_mission_chat Send

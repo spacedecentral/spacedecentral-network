@@ -3,7 +3,7 @@
     .pull-left
       =image_tag('activity-post-icon.svg')
     .pull-right.activity-time
-      .platform_timestamp{"data-time-stamp"=>activity.created_at}=platform_timestamp(activity.created_at)
+      .platform_timestamp{"data-time-stamp"=>activity.created_at}
     .activity-text
       = render_markdown_content(activity.activity)
     %hr
