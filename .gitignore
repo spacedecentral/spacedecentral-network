@@ -26,7 +26,6 @@ config/initializers/secret_token.rb
 /.bundle
 /vendor/bundle
 
-.rvmrc
 
 /vendor/assets/bower_components
 *.bowerrc
@@ -47,5 +46,3 @@ bower.json
 # Ignore application configuration
 /config/application.yml
 /config/database.yml
-.ruby-gemset
-.ruby-version

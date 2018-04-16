@@ -1,3 +1,6 @@
+#ruby=ruby-2.4.0
+#ruby-gemset=spacedecentral-network
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
