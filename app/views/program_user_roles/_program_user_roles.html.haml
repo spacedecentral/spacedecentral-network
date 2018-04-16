@@ -1,0 +1,57 @@
+.container
+  .jumbotron
+    - if @program_user_roles_pending == 0
+      %h2.display-4 No Users Awaiting Membership for #{@program.name}
+    - else
+      %h2.display-4 #{@program_user_roles_pending} Users Awaiting Membership for #{@program.name}
+      - @program_user_roles.each do |program_user_role|
+        %hr
+        .lead
+          .row
+            .col-md-4
+              =link_to user_path(program_user_role.user.id) do
+                = "User: #{program_user_role.user.name} #{program_user_role.user.email}"
+            .col-md-2
+              =link_to user_path(program_user_role.program.id) do
+                = "Program: #{program_user_role.program.name}"
+        .lead
+          .row
+            .col-md-4
+              %strong Contribution
+            .col-md-4
+              %strong Availability
+          .row
+            .col-md-4
+              %p
+                = program_user_role.contribute
+            .col-md-4
+              %p
+                = program_user_role.availability
+        .lead
+          .row
+            .col-md-12
+              = link_to "Accept Membership with perprogram level "+program_user_role.role.to_s, accept_membership_program_program_user_role_path(program_user_role.program, program_user_role, :programid=>program_user_role.program_id), remote: true, :class=>"btn btn-primary pull-left"
+              = link_to 'Edit', edit_program_program_user_role_path(program_user_role.program, program_user_role), remote: true, :class=>"btn btn-warning pull-left"
+              = link_to 'Destroy', program_program_user_role_path(program_user_role.program, program_user_role), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>"btn btn-danger"
+#program_user_role_modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title 
+          User Program Role
+      .modal-body#program_user_role_form
+      .modal-footer 
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Close
+#update_program_user_role_modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+  .modal-dialog{:role=>"document" }
+    .modal-content 
+      .modal-header 
+        %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"} 
+          %span{"aria-hidden"=>"true"} &times;
+        %h4.modal-title 
+          Update User Program Role
+      .modal-body#update_program_user_role_form
+      .modal-footer 
+        %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Close

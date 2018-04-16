@@ -1,0 +1,1 @@
+json.array! @program_user_roles, partial: 'program_user_roles/program_user_role', as: :program_user_role

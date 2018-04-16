@@ -1,0 +1,20 @@
+- if !defined?(program_file)
+  - program_file = @program_file
+.row.program_file_row
+  .col-md-12 
+    %img{:src=>program_file[:icon_link]}
+    =link_to program_file[:alternate_link], :target=>"_blank", class: 'file-link' do
+      %strong= program_file[:title]
+    .pull-right.platform_timestamp{"data-time-stamp"=>program_file[:modified_date]}=format_gdrive_timestamp(program_file[:modified_date])
+    / -if !current_user.nil? && (current_user.id == program_file.user_id || @current_member_role.is_coordinator_or_greater?)
+    /   = link_to 'Unshare', program_file, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>""
+/ - if !defined?(program_file)
+/   - program_file = @program_file
+/ .row.program_file_row
+/   .col-md-12 
+/     %img{:src=>program_file.icon_link}
+/     =link_to program_file.direct_link, :target=>"_blank" do
+/       %strong= program_file.title
+/     .pull-right.platform_timestamp{"data-time-stamp"=>program_file.created_at}=platform_timestamp(program_file.created_at)
+/     / -if !current_user.nil? && (current_user.id == program_file.user_id || @current_member_role.is_coordinator_or_greater?)
+/     /   = link_to 'Unshare', program_file, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class=>""

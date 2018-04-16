@@ -1,0 +1,72 @@
+.container.platform-show-container.mb-100
+  .row
+    .col-md-6
+      .col-md-12.program_objective.space-col
+        %h3 Summary
+        %p
+          - if @program.objectives.blank?
+            = inline_svg('city.svg', title: 'Objectives have not been defined for this program.', class: 'fill_width_icon')
+            %p.fill_width_caption
+              Objectives have not been defined for thi program.
+          - else
+            = simple_format(@program.objectives)
+      .col-md-12
+        %br
+      #program_projects
+        = render "list_projects", program: @program
+
+    .col-md-6
+      .col-sm-12.space-col
+        %h3 Discussion
+        - if @posts.blank?
+          .no-discussion.text-center
+            = inline_svg('discussion.svg', title: 'No Discussion', class: 'no-discussion-icon')
+            %p.fill_width_caption.mt-10
+              This #{@program.program_type? ? 'program' : 'project'} has no discussion yet.
+              %br
+              = link_to 'New Discussion', new_post_path(postable_type: 'Program', postable_id: @program.id), remote: true
+        - else
+          .row
+            = render partial: 'posts/post_tile', collection: @posts, as: :post,
+              locals: { col: 'col-sm-12', request_from: 'program' }
+            - if !@posts.last_page?
+              .text-center
+                %a.show-more{href: '#discussions'} Show More
+
+      .col-sm-12
+        %br
+      .col-sm-12.space-col
+        %h3 Crew
+        - if @members.blank?
+          = inline_svg('people.svg', title: 'Objectives have not been defined for this program.', class: 'fill_width_icon')
+          %p.fill_width_caption
+            This program has no crew yet.
+            %br
+            = link_to 'Join Now!', new_program_program_user_role_path(@program.id), remote: true
+        - else
+          -@members.each_slice(4) do |slice|
+            .row
+              -slice.each do |member|
+                .col-xs-3.col-sm-3.col-md-3
+                  = link_to user_path(member.user.id) do
+                    = image_tag(member.user.avatar.url(:thumb), :class=>"platform-crew-img")
+      .col-sm-12
+        %br
+      .col-sm-12.space-col
+        %h3 Files
+        - if @programfiles[:items]&.empty?
+          = image_tag('sat.svg', :class=>'fill_width_icon', :title=>"no files in program")
+          %p.fill_width_caption
+            No files have been added to this program yet.
+        -else
+          - @programfiles[:items][0..5].each do |program_file|
+            .row
+              .col-md-12
+                %br
+                = image_tag('doc.svg', :class=>'platform-show-icons')
+                =link_to program_file[:alternate_link], :target=>"_blank" do
+                  = program_file[:title]
+          - if @programfiles[:items].size > 6
+            .text-center
+              %a.show-more{href: '#files'} Show More
+

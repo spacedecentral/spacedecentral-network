@@ -1,0 +1,35 @@
+.container
+  .row.mt-30.mb-25
+    .col-md-3.col-sm-4.hidden-xs
+      = render 'shared/search_filter'
+    .col-md-9.col-sm-8.flex.fai-center.filter-toolbar
+      .forum-filter-button.visible-xs
+        = inline_svg('filter_icon.svg', class: 'filter-icon js-open-filter-button')
+        %span.filter-title{style: 'display: none;'} Filters
+      = link_to new_post_path(postable_type: 'Program', postable_id: program.id, request_from: 'program'),
+        class: "btn btn-danger new-topic mra js-toolbar-link", remote: true do
+        = inline_svg('white_pencil.svg')
+        New Post
+
+      = link_to 'Forum Etiquette', '#etiquette_modal',
+        class: 'program-forum-etiquette js-toolbar-link', data: { toggle: 'modal' }
+
+      .close-filter-toolbar.pull-right{style: 'display: none;', "aria-hidden"=>"true"} &times;
+
+  .row
+    .post-filter.col-md-3.col-sm-4
+      .forum-sidebar
+        = render 'posts/post_filter', request_from: 'program',
+          extra_params: { program_ids: program.id }
+
+    .col-md-9.col-sm-8
+      = render 'shared/search_filter', on_mobile: true
+      .post-container.mb-50
+        = render partial: 'posts/list_posts',
+          locals: { posts: posts, remote: true, request_from: 'program' }
+
+= render "shared/modal_confirmation",
+  id: 'post_delete_confirmation_modal',
+  title: 'Delete Post',
+  content: 'Are you sure you want to send this post into the void?',
+  action: { title: 'Delete', method: :delete, remote: false }

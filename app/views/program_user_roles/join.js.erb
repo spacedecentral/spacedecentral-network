@@ -1,0 +1,6 @@
+<% if !@program_user_role.errors.empty? %>
+	$("#join_program_errors").html("<%= j (render 'program_user_role_errors') %>").show();
+<% else %>
+	$("#join_program_modal").modal('hide');
+  window.location.reload(true); 
+<% end %>

@@ -1,0 +1,43 @@
+- if user_signed_in? && (@isMember || current_user.is_admin_user?)
+  #edit-program-modal.modal.fullscreen.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"false"}
+    .modal-dialog{:role=>"document", :style=>"margin: 70px auto;" }
+      .modal-content{:style=>"border-radius: 0px;"}
+        .modal-header
+          %button.close{:type=>"button", :class=>"close-program-modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          .row
+            .col-md-8.col-md-offset-2.col-sm-12.mr-30
+              %h4.modal-title
+                Edit #{@program.project_type? ? 'Project' : 'Program'}
+        .modal-body#edit-program-form.col-md-8.col-md-offset-2.col-sm-12
+  #unfollow_modal.modal.fade.square
+    .modal-dialog
+      .modal-content
+        .modal-body
+          %h4.modal-title= "Leave Program: #{@program.name}"
+          This will remove you from the program. Do you want to proceed?
+          .pull-right.button-group
+            %button.btn.btn-default.btn-sm{ data: { dismiss: 'modal' } } Cancel
+            = link_to 'Leave', [@program, @current_member_role], class: 'btn btn-danger btn-sm', method: :delete, remote: true
+
+- if !@isMember
+  #join_program_modal.modal.fade{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
+    .modal-dialog{:role=>"document" }
+      .modal-content
+        .modal-header
+          %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+            %span{"aria-hidden"=>"true"} &times;
+          %h4.modal-title
+            Join the #{@program.name} program
+        - if user_signed_in?
+          .join_program_form
+        - else
+          .modal-body
+            .alert.alert-info
+              You need to have an account before you can join programs
+            = link_to 'LOG IN', new_session_path(resource_name), :class=>'btn btn-primary'
+            = link_to 'SIGN UP', new_registration_path(resource_name), :class=>'btn btn-primary'
+          .modal-footer
+            .row
+              .col-md-2.pull-right
+                %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Close

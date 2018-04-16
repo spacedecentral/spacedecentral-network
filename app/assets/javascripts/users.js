@@ -79,8 +79,8 @@ function initUserForm() {
   }).trigger('blur');
 }
 
-$(document).on('click', '#show-more-mission', function(){
-  $('#profile-mission-tab').click();
+$(document).on('click', '#show-more-program', function(){
+  $('#profile-program-tab').click();
   $('html, body').animate({scrollTop: top }, 1000);
 });
 

@@ -1,7 +1,7 @@
-<% if !@mission_file.errors.empty? %>
+<% if !@program_file.errors.empty? %>
   $("#gdrive_share_file_errors").html("<%= j (render 'gdrive_error') %>").show();
 <% else %>
-  $("#mission_files_list").prepend("<%= j( render 'mission_file') %>")
+  $("#program_files_list").prepend("<%= j( render 'program_file') %>")
   $("#share_gdrive_file").modal('hide');
   $("#share_gdrive_file").css('display', 'none');
 <% end %>  

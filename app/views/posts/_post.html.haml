@@ -3,7 +3,7 @@
 .forum-card{ class: ("pinned" if post.pinned), post_id: post.id }
   - if request_from.to_s == 'forum' && post.decorate.label.present?
     .post-type{ class: post.post_type }
-      = inline_svg('mission_tab.svg', class: 'type-icon')
+      = inline_svg('program_tab.svg', class: 'type-icon')
       = post.decorate.label
   %h2= link_to post.title, post, class: 'forum-title'
   %div= render_markdown_content(post.content, stripdown: true,

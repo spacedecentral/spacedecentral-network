@@ -1,0 +1,26 @@
+var $dom = $("#<%= @selector %>");
+
+<% if @selector == "overview" %>
+  $dom.html("<%= j (render 'programs/main_program_tab') %>");
+<% elsif @selector == "crews" %>
+  <% if @role_filter_name != 'all' %>
+    <% if @members.blank? %>
+      $("#<%= @role_filter_name %> .row").html("<%=j render(partial: 'blank_member') %>");
+    <% else %>
+      $("#<%= @role_filter_name %> .row").html("<%=j render(partial: 'member', collection: @members, as: :member) %>");
+    <% end %>
+  <% else %>
+    $dom.html("<%= j (render 'programs/program_crews') %>");
+  <% end %>
+<% elsif @selector == "discussions" %>
+  $dom.html("<%= j render('programs/program_discussions', program: @program, posts: @posts, tags: @tags) %>");
+<% elsif @selector == "files" %>
+  $dom.html("<%= j (render 'gdrive/program_files_tab') %>");
+  setTimeout(function(){$('#loading_a_modal').modal("hide");},1000);
+<% elsif @selector == "planning_program_tab" %>
+  window.location.replace("http://plan.space.coop/<%= @program.slug %>")
+<% elsif @selector == "proposals_program_tab" %>
+  alert("nothing for this tab yet");
+<% else %>
+  console.log("<% @selector %>");
+<% end %>

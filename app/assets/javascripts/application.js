@@ -19,9 +19,9 @@
 //= require forums.js
 //= require gdrive.js
 //= require landing.js
-//= require mission_user_roles.js
+//= require program_user_roles.js
 //= require landing.js
-//= require missions.js
+//= require programs.js
 //= require tag_references.js
 //= require user_careers.js
 //= require user_educations.js

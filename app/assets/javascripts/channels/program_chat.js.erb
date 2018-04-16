@@ -1,0 +1,83 @@
+
+var register_program_chat = function(chat_id) {
+    App.program_chat = App.cable.subscriptions.create({
+    channel: "ProgramChatChannel",
+    program_chat_id: chat_id}, {
+    connected: function() {
+      // Called when the subscription is ready for use on the server
+      // console.log(data);
+      // var datastr = "<div class='chat_name'>"+data['name']+"</div>";
+      // datastr += "<div class='chat_time'>"+data['time']+"</div></div>";
+      // datastr += "<div class='chat_message'>"+data['message']+"</div>";
+      // $("#program_chat_feed").append(datastr);
+      // return false;
+    },
+
+    disconnected: function() {
+      // Called when the subscription has been terminated by the server
+      // console.log(data);
+      // var datastr = "<div class='chat_name'>"+data['name']+"</div>";
+      // datastr += "<div class='chat_time'>"+data['time']+"</div></div>";
+      // datastr += "<div class='chat_message'>"+data['message']+"</div>";
+      // $("#program_chat_feed").append(datastr);
+    },
+
+    received: function(data) {
+      // Called when there's incoming data on the websocket for this channel
+      var datastr = "<div class='chat_name'>"+data['name']+"</div>";
+      datastr += "<div class='chat_time'>"+data['time']+"</div></div>";
+      datastr += "<div class='chat_message'>"+data['message']+"</div>";
+      $("#program_chat_feed").append(datastr);
+      return false;
+    },
+
+  });
+};
+function send_chat_msg(msginput,id,save_in_convo){
+  if ( $(msginput).val().length > 0 ) {
+    App.program_chat.send({message:$(msginput).val(),program_chat_id:id,save_in_convo:save_in_convo});
+    $(msginput).val("");
+  }
+}
+$(function() {
+
+  if ( $("#program_chat_id").length > 0 ) {
+    this.App || (this.App = {});
+
+    App.cable || (App.cable = ActionCable.createConsumer());
+
+    register_program_chat($("#program_chat_id").data('program.id'));
+
+    $("#send_program_chat").click(function(){
+      send_chat_msg($("#program_chat_message"), $("#program_chat_id").data('program-id'), true);
+      $(".program_chat_pullup").animate({scrollTop: $(".program_chat_pullup").get(0).scrollHeight}, 1000);
+    });
+    $("#program_chat_message").keypress(function() {
+      if ( event.keyCode == 13 ) {
+        send_chat_msg($("#program_chat_message"), $("#program_chat_id").data('program-id'), true);
+      $(".program_chat_pullup").animate({scrollTop: $(".program_chat_pullup").get(0).scrollHeight}, 1000);
+      }
+    });
+    $(".program_chat").click(false);
+    $(".program_chat_toggle.up").click(function(e) {
+      e.stopPropagation();
+      $(".program_chat_toggle.up").hide();
+      $(".program_chat_toggle.down").show();
+      $(".program_chat_pullup").slideToggle();
+      $(".program_chat").css('height', 'auto');
+      $(".program_chat .program_chat_reply .btn").css('display', 'block');
+      $(".program_chat .program_chat_reply input").css('display', 'block');
+    });
+    $(".program_chat_toggle.down").click(function(e) {
+      e.stopPropagation();
+      $(".program_chat_toggle.up").show();
+      $(".program_chat_toggle.down").hide();
+      $(".program_chat_pullup").slideToggle();
+      $(".program_chat").css('height', '30px');
+      $(".program_chat .program_chat_reply .btn").css('display', 'none');
+      $(".program_chat .program_chat_reply input").css('display', 'none');
+    });
+    setTimeout(function(){App.program_chat.send({message:"has joined the chat",program_chat_id:$("#program_chat_id").data('program-id'),save_in_convo:false});}, 3000);
+
+  }
+});

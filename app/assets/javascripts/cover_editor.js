@@ -44,10 +44,10 @@ $(document).ready( function() {
         $("#user_cover_dy").val((-cover_dy+45));
 
     });
-    $("form.edit_mission").submit(function(){
+    $("form.edit_program").submit(function(){
         var displacement = $(".cover-editor .imgbg").css("background-position").split(' ');
         cover_dy = Number(displacement[1].replace(/[^0-9-]/g, ''));
-        $("#mission_cover_dy").val((-cover_dy+45));
+        $("#program_cover_dy").val((-cover_dy+45));
 
     });
 

@@ -1,6 +1,6 @@
 .modal-header 
   .modal-title 
-    =form_tag listsharefiles_mission_gdrive_index_path(@mission_id), :method=>:get, :remote=>true do |f|
+    =form_tag listsharefiles_program_gdrive_index_path(@program_id), :method=>:get, :remote=>true do |f|
       %input#share_gdrive_search.modal_top_search{:name=>"term",:value=>@share_search_term}
       %input.btn.btn-primary.pull-right#share_gdrive_search_url{:type=>"submit", :value=>"Search"} 
 .modal-body
@@ -12,7 +12,7 @@
       .col-xs-11
         / %a{ :href=>"#", :id=>"share_gfile_button", "data-toggle"=>"modal", "data-target"=>"#share_gfile_modal" }
         =f[:title]
-        = link_to sharegfile_mission_gdrive_index_path(@mission_id, :title=>f[:title], :direct_link=>f[:alternate_link], :icon_link=>f[:icon_link]), :remote=>true do
+        = link_to sharegfile_program_gdrive_index_path(@program_id, :title=>f[:title], :direct_link=>f[:alternate_link], :icon_link=>f[:icon_link]), :remote=>true do
           .btn.btn-primary.pull-right Share
         / %a{:href=>f[:alternate_link], :target=>"_blank"}
         /   View
@@ -20,8 +20,8 @@
   .row
     - if !@share_search_prev_page.nil?
       .col-md-3.pull-left
-        = link_to "Previous Page", listsharefiles_mission_gdrive_index_path(@mission_id, :cur_page=>@share_search_page, :page=>@share_search_prev_page), :class=>"share_gdrive_page_link", :remote=>true
+        = link_to "Previous Page", listsharefiles_program_gdrive_index_path(@program_id, :cur_page=>@share_search_page, :page=>@share_search_prev_page), :class=>"share_gdrive_page_link", :remote=>true
     .col-md-3.pull-left
-      = link_to "Next Page", listsharefiles_mission_gdrive_index_path(@mission_id, :cur_page=>@share_search_page, :page=>@share_search_next_page), :class=>"share_gdrive_page_link", :remote=>true
+      = link_to "Next Page", listsharefiles_program_gdrive_index_path(@program_id, :cur_page=>@share_search_page, :page=>@share_search_next_page), :class=>"share_gdrive_page_link", :remote=>true
     .col-md-2.pull-right
       %button.btn.btn-default{:type=>"button", "data-dismiss"=>"modal"} Close

@@ -4,8 +4,8 @@ class LandingController < ApplicationController
   helper_method :resource_name, :resource, :devise_mapping
 
   def index
-    @missions = Mission.mission_type.first(9)
-    @projects = Mission.project_type.first(9)
+    @programs = Program.program_type.first(9)
+    @projects = Program.project_type.first(9)
     @trending_posts = Filter::PostFilter.call({ category: Filter::PostFilter::TRENDING }, 1, 6)
   end
 end

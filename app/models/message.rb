@@ -20,7 +20,7 @@ class Message < ApplicationRecord
 
 
   def archive_chats
-    oldchats = Message.where("mission_id NOT NULL AND user_to IS NULL AND created_at < ?", (DateTime.now-2.days))
+    oldchats = Message.where("program_id NOT NULL AND user_to IS NULL AND created_at < ?", (DateTime.now-2.days))
     #TODO add smarter logic to archive chats maybe highlight important summary objects
     # highlight high active topics or liked comments etc...
     # for now just delete old chats
@@ -29,7 +29,7 @@ class Message < ApplicationRecord
 
   private
     def user_to_or_conversation
-      if self.user_to.blank? && self.conversation_id.blank? && self.mission_id.blank?
+      if self.user_to.blank? && self.conversation_id.blank? && self.program_id.blank?
         errors.add(:base, "Message needs to be sent to a user or a group")
       end
     end

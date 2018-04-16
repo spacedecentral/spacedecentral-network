@@ -1,6 +1,6 @@
 window.open('<%= @drive_file[:alternate_link] %>', '_blank');
-$('.document_list').append("<%=j render 'mission_file', mission_file: @drive_file %>");
-if($('.document_list').parents('.mission_files_utils').is(':visible') == false){
-  $('.document_list').parents('.mission_files_utils').show();
+$('.document_list').append("<%=j render 'program_file', program_file: @drive_file %>");
+if($('.document_list').parents('.program_files_utils').is(':visible') == false){
+  $('.document_list').parents('.program_files_utils').show();
   $('.no_data').hide();
 }

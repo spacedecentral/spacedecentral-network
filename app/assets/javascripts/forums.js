@@ -91,7 +91,7 @@ $(document).on('click', '.js-filter-box .clear-filter', function(e) {
   $(this).closest('form.filter-form').trigger('change');
 });
 
-$(document).on('change', '.mission-filters .filter-item input[type="checkbox"]', function() {
+$(document).on('change', '.program-filters .filter-item input[type="checkbox"]', function() {
   var children = $(this).closest('.filter-item')
                         .find('.filter-children .filter-item input[type="checkbox"]');
   if (children.length <= 0) return;

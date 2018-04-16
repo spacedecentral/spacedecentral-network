@@ -1,0 +1,18 @@
+= form_for [@program_user_role.program, @program_user_role], :remote=>true do |f|
+  #program_user_role_errors.alert.alert-danger{:style=>"display:none;"}
+  / .form-group
+  /   %label{:for=>"user_lookup"} User
+  /   %input#user_lookup.form-control{:type=>"text"}
+  /   = f.hidden_field :user_id
+  / .form-group
+  /   %label{:for=>"program_lookup"} Program
+  /   %input#program_lookup.form-control{:type=>"text"}
+  /   = f.hidden_field :program_id
+  .form-group
+    = f.label :pending, "Pending Membership"
+    = select_tag 'pending', options_for_select([{:name=>"true",:val=>1},{:name=>"false",:val=>0}].collect{ |o| [o[:name], o[:val]] })
+  .field
+    = f.label :role
+    = select_tag 'role', options_for_select(@program_user_role.program_user_role_names.collect{ |r| [r[:name], r[:val]] })
+  .actions
+    = f.submit 'Save'

@@ -29,10 +29,10 @@
           %li= link_to raw('Proposals'), '#', :title => 'Proposals'
           %li= link_to raw('Publications'), '#', :title => 'Publications'
         %hr
-        %h4.text-uppercase Missions
+        %h4.text-uppercase Programs
         %ul
-          - @missions.each do |mission|
-            %li= link_to mission.name, "/forum/mission/" + mission.id.to_s, :title => mission.name
+          - @programs.each do |program|
+            %li= link_to program.name, "/forum/program/" + program.id.to_s, :title => program.name
 
         - if @tags.present?
           = render partial: 'tags/list_tags', locals: { tags: @tags, current_tag_id: @current_tag.id }

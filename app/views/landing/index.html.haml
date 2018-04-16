@@ -61,9 +61,9 @@
     .fixed-bg-slide
       .imgbg.stars-cover
   .container.mt-20.mb-30
-    %h2.section-title.center-text Missions
-    #list_missions.row.mission-tile-row
-      = render partial: 'missions/mission', collection: @missions, as: :mission
+    %h2.section-title.center-text Programs
+    #list_programs.row.program-tile-row
+      = render partial: 'programs/program', collection: @programs, as: :program
 
 .container-fluid.container-margin.platform-cover-container
   .platform-cover.landing-cover.medium-post-cover
@@ -71,8 +71,8 @@
       .imgbg.stars-cover
   .container.mt-20.mb-30
     %h2.section-title.center-text Projects
-    #list_missions.row.mission-tile-row
-      = render partial: 'missions/mission', collection: @projects, as: :mission
+    #list_programs.row.program-tile-row
+      = render partial: 'programs/program', collection: @projects, as: :program
 
 .container-fluid.container-margin.platform-cover-container
   .platform-cover.landing-cover.medium-post-cover

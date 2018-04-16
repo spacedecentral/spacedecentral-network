@@ -5,7 +5,7 @@
  *= require gdrive
  *= require landing
  *= require messages
- *= require missions
+ *= require programs
  *= require modal
  *= require replies
  *= require scaffolds
@@ -265,7 +265,7 @@ a.btn_signup:hover, a.btn_signup:active {
   &.profile-cover {
     height: 320px;
   }
-  &.mission-cover{
+  &.program-cover{
     height: 240px;
   }
   .toolbar{

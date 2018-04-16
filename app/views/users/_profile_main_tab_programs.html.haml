@@ -1,0 +1,15 @@
+%h3 Participating Programs
+.program-tile-row.clearfix.participating-programs.row
+  - if @programs.blank?
+    .no-data.programs-no-data.text-center
+      = inline_svg('rocket.svg', class: 'no_data_image')
+      %p.desc
+        - if current_user && current_user == @user
+          You have not joined any programs yet.
+        - else
+          This user has not joined any programs yet.
+  - else
+    = render partial: 'programs/program', collection: @programs.last(2), as: :program, locals: { col: 'col-sm-6 col-xs-12' }
+- if @programs.count > 2
+  .text-center
+    %a#show-more-program.show-more Show More

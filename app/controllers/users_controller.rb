@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @editable_by_user = !current_user.nil? && current_user.id == @user.id
-    @missions = Mission.mission_type.joins(:mission_user_roles).where('mission_user_roles.user_id = ?', @user.id)
+    @programs = Program.program_type.joins(:program_user_roles).where('program_user_roles.user_id = ?', @user.id)
     @publications = UserPublication.where(:user_id=>@user.id).order("user_publications.created_at DESC")
     @user_activities = @user.activities.order(created_at: :desc).page(params[:page]).per(15)
     load_more_activities

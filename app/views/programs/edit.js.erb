@@ -1,0 +1,7 @@
+$('#edit-program-modal .modal-title').html("<%= @program.program_type? ? 'Edit Program' : 'Edit Project' %>");
+$('#edit-program-form').html("<%= j (render 'program_edit') %>");
+$("#edit-program-modal").modal({
+  show:true,
+  backdrop: 'static',
+  keyboard: false,
+});

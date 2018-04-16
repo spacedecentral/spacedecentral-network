@@ -1,4 +1,0 @@
-$('#edit-mission-modal').modal('hide');
-<% if @mission.previous_changes['slug'].present? %>
-  window.location.href = "<%= mission_path(@mission) %>";
-<% end %>

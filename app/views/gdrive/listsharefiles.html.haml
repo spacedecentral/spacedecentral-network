@@ -1,7 +1,7 @@
 .tab-content
-  .container-fluid#mission_files.tab-pane.fade.in.active{:role=>"tabpanel"}
-    = render partial: "mission_files_tab", locals: { dont_show_share_modal: true }
-  .container-fluid.tab-pane.fade#main_mission_tab{:role=>"tabpanel"}
+  .container-fluid#files.tab-pane.fade.in.active{:role=>"tabpanel"}
+    = render partial: "program_files_tab", locals: { dont_show_share_modal: true }
+  .container-fluid.tab-pane.fade#overview{:role=>"tabpanel"}
   .container-fluid#discussion.tab-pane.fade{:role=>"tabpanel"}
 .modal.fade#share_gdrive_file{:tabindex=>"-1", :role=>"dialog", "data-show"=>"true"}
   .modal-dialog{:role=>"document" }
