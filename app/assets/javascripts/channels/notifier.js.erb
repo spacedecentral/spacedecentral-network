@@ -1,4 +1,5 @@
-function decrement_messages_unread(convo_id){
+if ($("meta[name='current-user']").length > 0) {
+  function decrement_messages_unread(convo_id){
   if ( $("#messages_unread_badge").length > 0 ) {
     var current_unread = parseInt($("#messages_unread_badge").html());
     if ( current_unread > 1 ) {
@@ -104,3 +105,4 @@ $(function() {
   });
 
 });
+} 

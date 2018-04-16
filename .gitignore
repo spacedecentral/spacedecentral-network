@@ -38,6 +38,10 @@ bower.json
 #OSX files
 .DS_Store
 
+# Visual studio code
+.vscode
+
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

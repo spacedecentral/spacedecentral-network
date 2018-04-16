@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :http_authenticate
   before_action :authenticate_user!
   before_action :set_global_user, :set_messages, :set_notifications
-  before_filter :store_location, :set_cache_headers
+  before_action :store_location, :set_cache_headers
 
   protect_from_forgery with: :exception, prepend: :true
 

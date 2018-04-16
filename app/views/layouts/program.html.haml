@@ -5,8 +5,8 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
     = render partial: 'shared/ga_tag'
-    - if current_user
-      = action_cable_meta_tag
+    - if user_signed_in?
+      = tag :meta, name: "current-user", data: { id: current_user.id }
     %title Space Decentral: To Space, Together
     = favicon_link_tag 'favicon.png'
     = csrf_meta_tags
