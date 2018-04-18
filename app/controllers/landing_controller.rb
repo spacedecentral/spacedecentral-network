@@ -1,6 +1,6 @@
 class LandingController < ApplicationController
   include LandingHelper
-  skip_before_filter :authenticate_user!
+  skip_before_action :authenticate_user!
   helper_method :resource_name, :resource, :devise_mapping
 
   def index

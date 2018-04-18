@@ -1,3 +1,6 @@
+#ruby=ruby-2.4.0
+#ruby-gemset=spacedecentral-network
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -34,7 +37,8 @@ gem 'paperclip', '~> 5.2.0'
 gem 'remotipart', '~> 1.2'
 gem 'devise'
 gem 'sidekiq'
-gem 'redis-rails', '~> 5'
+gem 'redis', '~> 3.3.5'
+gem 'redis-rails'
 gem 'friendly_id'
 
 gem 'aws-sdk', '= 2.10.1'
