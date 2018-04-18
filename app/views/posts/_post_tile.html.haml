@@ -25,7 +25,7 @@
             %span.like-size
               = post.total_replies_count || 0
           .forum-time.pull-right
-            .platform_timestamp{"data-time-stamp"=>post.created_at}=platform_timestamp(post.created_at)
+            .platform_timestamp{"data-time-stamp"=>post.created_at}
             .dropdown.pull-right
               %a.forum-menu{href: '#', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }}
                 = inline_svg('post_action.svg')

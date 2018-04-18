@@ -36,7 +36,7 @@
 
           output += '<div class="blog-element" style="background-image: url(' + src + '); background-position: 50% 50%; height: 150px; background-size: 100%;"></div></header>';
           output += '<div class="blog-content"><h4 class="ellipsis-box"><a href="'+ item.link + '">' + item.title + '</a></h4>';
-          output += '<div class="blog-body ellipsis-box"><div class="post-meta"><span class="author">By ' + item.author + '&nbsp;&#183;&nbsp;<span class="date">' + moment(item.pubDate).format("MMMM Do YYYY") + '</span></span></div>';
+          output += '<div class="blog-body ellipsis-box"><div class="post-meta"><span class="author">By ' + item.author + '&nbsp;&#183;&nbsp;<span class="date platform_timestamp" data-time-stamp= ' +  item.pubDate  + ' /></span></div>';
 
           var yourString = item.description.replace(/<img[^>]*>/g,"");
           var maxLength = 120 // maximum number of characters to extract
@@ -53,6 +53,7 @@
         output += '</div>';
         $container.html(output);
         data.done(true);
+        updatePlatformTimestamps();
       }
     });
   }

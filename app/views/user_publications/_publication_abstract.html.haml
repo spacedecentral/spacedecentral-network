@@ -37,7 +37,6 @@
         = publication.replies_count
   .forum-time.pull-right
     .platform_timestamp{"data-time-stamp"=>publication.created_at}
-      =platform_timestamp(publication.created_at)
 
     - if publication.decorate.mine?
       .dropdown.pull-right
