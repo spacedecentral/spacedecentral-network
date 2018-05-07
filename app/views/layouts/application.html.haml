@@ -1,18 +1,37 @@
 !!!
-%html{:class => "#{'auth' if ['sessions', 'registrations'].include?(controller_name)}"}
-  %head    
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
-    = render partial: 'shared/ga_tag'
+%html{class: "#{'auth' if ['sessions', 'registrations'].include?(controller_name)}"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no"}
+    %meta{name: "description", content: "#{meta_description}"}
+    %meta{name: "application-name", content: "#{meta_title}"}
+
+    -# Twitter Card data
+    %meta{name: "twitter:card", content: "summary_large_image"}
+    %meta{name: "twitter:site", content: "#{DEFAULT_META["twitter_account"]}"}
+    %meta{name: "twitter:title", content: "#{meta_title}"}
+    %meta{name: "twitter:description", content: "#{meta_description}"}
+    %meta{name: "twitter:creator", content: "#{DEFAULT_META["twitter_account"]}"}
+    %meta{name: "twitter:image:src", content: "#{meta_image}"}
+
+    -# Facebook Open Graph data
+    %meta{property: "og:title", content: "#{meta_title}"}
+    %meta{property: "og:type", content: "website"}
+    %meta{property: "og:url", content: "#{request.original_url}"}
+    %meta{property: "og:image", content: "#{meta_image}"}
+    %meta{property: "og:description", content: "#{meta_description}"}
+    %meta{property: "og:site_name", content: "#{meta_title}"}
+
+
     - if user_signed_in?
       = tag :meta, name: "current-user", data: { id: current_user.id }
-    %title Space Decentral: To Space, Together
-    = favicon_link_tag 'favicon.png'
     = csrf_meta_tags
+    = render partial: 'shared/ga_tag'
+    = favicon_link_tag 'favicon.png'
     = stylesheet_link_tag    'application', media: 'all', async: Rails.env.production?
     = javascript_include_tag 'application'
     = analytics_init if GoogleAnalytics.valid_tracker?
+    %title #{meta_title}
 
   %body
     = render partial: 'shared/navigation'

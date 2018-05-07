@@ -59,6 +59,10 @@ class ApplicationController < ActionController::Base
     Integer(number) rescue false
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   private
     def set_cache_headers
       response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
