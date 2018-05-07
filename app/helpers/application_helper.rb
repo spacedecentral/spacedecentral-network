@@ -27,7 +27,7 @@ module ApplicationHelper
         strikethrough: true,
         tables: true,
         underline: true,
-        qoute: true,
+        quote: true,
       )
 
       html_render.render(content).html_safe
