@@ -16,7 +16,6 @@ class PostsController < ApplicationController
     @filter_params = filter_params
     @posts = ::Filter::PostFilter.new(filter_params, params[:page]).call
   end
-  alias_method :load_more, :filter
 
   def index_program
     @posts = Post.joins(:tag_references).where(tag_references: { program_id: params[:program_id] })

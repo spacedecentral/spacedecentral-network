@@ -1,9 +1,18 @@
 (function($, viewport){
 
+  $(window).scroll(function() {
+    url = $('.pagination .next > a:nth-child(1)').attr('href')
+    if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 10) {
+      console.log(url)
+      $('.pagination').text("Fetching more posts...")
+      $.getScript(url)
+    }
+  });
+
   var highlightBoxes = function() {
     if(!viewport.is('xs')) {
       $('.filter-title, .close-filter-toolbar').hide();
-      $('.forum-banner, .post-list, .js-toolbar-link, .js-filter-button, #js_load_more').show();
+      $('.forum-banner, .post-list, .js-toolbar-link, .js-filter-button').show();
       $('.forum-filter-button').removeClass('mra');
       $('.post-filter .forum-sidebar').show();
       $('.post-filter').removeClass('js-on-mobile p-0');
@@ -35,7 +44,7 @@
 $(document).on('click', '.filter-toolbar .close-filter-toolbar', function() {
   $('.filter-title, .close-filter-toolbar').hide();
   $('.forum-sidebar').slideUp('300').hide();
-  $('.forum-banner, .post-list, .js-toolbar-link, .js-open-filter-button, #js_load_more').show();
+  $('.forum-banner, .post-list, .js-toolbar-link, .js-open-filter-button').show();
   $('.search-on-mobile').addClass('visible-xs');
   $('.forum-filter-button').removeClass('mra');
 });
@@ -43,7 +52,7 @@ $(document).on('click', '.filter-toolbar .close-filter-toolbar', function() {
 $(document).on('click', '.js-open-filter-button', function(event) {
   $('.filter-title, .close-filter-toolbar').show();
   $('.forum-sidebar').show();
-  $('.forum-banner, .post-list, .js-toolbar-link, .js-open-filter-button, #js_load_more').hide();
+  $('.forum-banner, .post-list, .js-toolbar-link, .js-open-filter-button').hide();
   $('.forum-filter-button').addClass('mra');
   $('.search-on-mobile').removeClass('visible-xs');
 });

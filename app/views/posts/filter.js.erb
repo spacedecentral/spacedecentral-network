@@ -1,14 +1,5 @@
 <% if @posts.present? %>
   $(".post-container").html("<%= j render(partial: 'posts/list_posts', locals: { posts: @posts, request_from: params[:request_from] }) %>");
-
-  <% if @posts.last_page? %>
-    $("#js_load_more").hide();
-  <% else %>
-    var page = parseInt($('#js_load_more').data('page'));
-    var params = $.param({ filter: <%= raw @filter_params.to_h.to_json %>, page: page, request_from: <%= params[:request_from] %> });
-    var href = "<%= load_more_posts_path %>?" + params;
-    $("#js_load_more").attr("href", href);
-  <% end %>
 <% else %>
   $(".post-container").html("<%= j render('shared/nodata') %>");
 <% end %>
