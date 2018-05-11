@@ -9,7 +9,4 @@
 - if posts.current_page < posts.total_pages
   .row
     .col-md-12.center-text
-      = link_to "Load more",
-        load_more_posts_path(filter: params[:filter], page: (posts.current_page + 1), request_from: request_from),
-        id: 'js_load_more', remote: true, class: 'show-more', data: { page: posts.current_page + 1 }
-
+      = paginate @posts

@@ -1,8 +1,0 @@
-$(".post-list").append("<%= j render(partial: "posts/post", collection: @posts, as: :post, locals: { request_from: params[:request_from] }) %>");
-<% if @posts.last_page? %>
-  $("#js_load_more").hide();
-<% else %>
-  var params = $.param({ filter: <%= raw @filter_params.to_h.to_json %>, page: <%= @posts.current_page + 1 %> });
-  var href = "<%= load_more_posts_path(request_from: params[:request_from]) %>?" + params;
-  $("#js_load_more").attr("href", href);
-<% end %>

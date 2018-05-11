@@ -76,7 +76,6 @@ Rails.application.routes.draw do
       end
       collection do
         get :filter
-        get :load_more
       end
     end
   end
