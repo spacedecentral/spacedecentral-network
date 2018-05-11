@@ -14,26 +14,25 @@
 %html{class: "#{'auth' if ['sessions', 'registrations'].include?(controller_name)}"}
   %head
     %meta{charset: "utf-8"}
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no"}
-    %meta{name: "description", content: "#{meta_description}"}
-    %meta{name: "application-name", content: "#{meta_title}"}
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}
+    %meta{content: meta_description, name: "description"}
+    %meta{content: meta_title, name: "application-name"}
 
     -# Twitter Card data
-    %meta{name: "twitter:card", content: "summary_large_image"}
-    %meta{name: "twitter:site", content: "#{DEFAULT_META["twitter_account"]}"}
-    %meta{name: "twitter:title", content: "#{meta_title}"}
-    %meta{name: "twitter:description", content: "#{meta_description}"}
-    %meta{name: "twitter:creator", content: "#{DEFAULT_META["twitter_account"]}"}
-    %meta{name: "twitter:image:src", content: "#{meta_image}"}
+    %meta{content: "summary_large_image", name: "twitter:card"}
+    %meta{content: "#{DEFAULT_META["twitter_account"]}", name: "twitter:site"}
+    %meta{content: meta_title, name: "twitter:title"}
+    %meta{content: meta_description, name: "twitter:description"}
+    %meta{content: "#{DEFAULT_META["twitter_account"]}", name: "twitter:creator"}
+    %meta{content: meta_image, name: "twitter:image:src"}
 
     -# Facebook Open Graph data
-    %meta{property: "og:title", content: "#{meta_title}"}
-    %meta{property: "og:type", content: "website"}
-    %meta{property: "og:url", content: "#{request.original_url}"}
-    %meta{property: "og:image", content: "#{meta_image}"}
-    %meta{property: "og:description", content: "#{meta_description}"}
-    %meta{property: "og:site_name", content: "#{meta_title}"}
-
+    %meta{content: meta_title, property: "og:title"}
+    %meta{content: "website", property: "og:type"}
+    %meta{content: "#{request.original_url}", property: "og:url"}
+    %meta{content: meta_image, property: "og:image"}
+    %meta{content: meta_description, property: "og:description"}
+    %meta{content: meta_title, property: "og:site_name"}
 
     - if user_signed_in?
       = tag :meta, name: "current-user", data: { id: current_user.id }
