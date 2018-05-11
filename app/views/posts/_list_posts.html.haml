@@ -1,11 +1,10 @@
 .post-list
-- if posts.blank?
-  = render "shared/nodata"
-- else
-  - remote ||= nil
-  - request_from ||= nil
-
-  = render partial: "posts/post", collection: posts, as: :post, locals: { remote: remote, request_from: request_from }
+  - if posts.blank?
+    = render "shared/nodata"
+  - else
+    - remote ||= nil
+    - request_from ||= nil
+    = render partial: "posts/post", collection: posts, as: :post, locals: { remote: remote, request_from: request_from }
 - if posts.current_page < posts.total_pages
   .row
     .col-md-12.center-text
