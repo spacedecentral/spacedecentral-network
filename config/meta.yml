@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Space Decentral"
+meta_title: "Space Decentral: To Space, Together"
+meta_description: "TO SPACE, TOGETHER. We are building a decentralized space program, connecting thousands of engineers, scientists, and future astronauts, to devise and fund next-generation space initiatives."
+meta_image: "bg/astronaut.jpg"            # should exist in `app/assets/images/`
+twitter_account: "@SpaceDecentral"   # required for Twitter Cards

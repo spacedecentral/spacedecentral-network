@@ -1,3 +1,7 @@
+- content_for :meta_title, "#{@post.title} |  #{DEFAULT_META["meta_product_name"]}"
+- content_for :meta_description, @post.content
+- content_for :meta_image, @post.decorate.cover_url
+
 .container-fluid.container-margin.platform-cover-container
   .platform-cover.forum-cover
     .fixed-bg-slide
