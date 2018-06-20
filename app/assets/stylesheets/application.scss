@@ -159,6 +159,14 @@ main {
 .dropdown-menu.open {
   display: block;
 }
+.central-buttons {
+  text-align: center;
+  margin-top: 30px;
+  >a {
+    width: 160px;
+    margin: 0px 50px;
+  }
+}
 .platform-header-nav .navbar-right {
   margin: 0px 10px 0px 0px;
   padding-top: 20px;
