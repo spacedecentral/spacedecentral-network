@@ -35,11 +35,13 @@
         .row
           .col-xs-12
             %ul.menus.col-xs-6
-              %li= link_to 'White Paper', 'http://goo.gl/tZJiW7'
+              -#%li= link_to 'White Paper', 'http://goo.gl/tZJiW7'
+              %li= link_to 'White Paper', '/White_Paper.pdf'
               %li= link_to 'Team', page_path('team')
               %li= link_to 'Events', page_path('events')
             %ul.menus.col-xs-6
               -#%li= link_to 'Crowdsale', 'http://goo.gl/W5q9Lj'
+              %li= link_to 'Governance Paper', '/Governance_Paper.pdf'
               %li= link_to 'Blog', 'https://medium.com/spacedecentral/'
               %li= link_to 'Contact', page_path('contact')
       .col-md-4.col-sm-4.hidden-xs
@@ -59,7 +61,7 @@
           %li
             = link_to 'https://www.youtube.com/channel/UCQc7myPFFWnX95G9u65uOWw', title: 'Youtube' do
               = inline_svg('socials/youtube.svg')
-          %li
+          -#%li
             = link_to 'https://t.me/SpaceDecentral', title: 'Telegram' do
               = inline_svg('socials/telegram.svg')
           %li

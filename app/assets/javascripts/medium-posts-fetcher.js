@@ -2,7 +2,7 @@
   $.fn.fetchMediumPosts = function(options) {
     var $container = $(this);
     var defaults = {
-      rss_url: 'https://blog.space.coop/feed',
+      rss_url: 'https://medium.com/feed/spacedecentral',
       title: 'Medium Posts',
       titleClass: 'section-title',
       done: null, // callback function
