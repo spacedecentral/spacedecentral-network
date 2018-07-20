@@ -22,6 +22,15 @@ function increment_messages_unread(){
 }
 function decrement_notifications_unread(){
   if ( $("#notifications_unread_badge").length > 0 ) {
+    $("#notifications_unread_badge").html("")
+    $("#nav_notifications_none").show();
+  }
+  if( $("#nav_notifications_none").length > 0 ) {
+    $("#nav_notifications_none").hide();
+  }
+}
+function decrement_notifications_unread(){
+  if ( $("#notifications_unread_badge").length > 0 ) {
     var current_unread = parseInt($("#notifications_unread_badge").html());
     if ( current_unread > 1 ) {
       $("#notifications_unread_badge").html(current_unread-1);
@@ -87,6 +96,8 @@ var register_notifier = function() {
         decrement_messages_unread(data['conversation_id']);
       } else if ( data['decrement_notification_unread'] == 1 ) {
         decrement_notifications_unread();
+      } else if ( data['decrement_notification_unread'] == 0 ) {
+        zero_notifications_unread();
       }
       return false;
     },

@@ -9,6 +9,16 @@ class NotificationsController < ApplicationController
     @notifications.reload
   end
 
+  def mark_all_read
+    @notifications = Notification.where(user_id: current_user.id)
+    mark_as_read(@notifications)
+    begin
+      ActionCable.server.broadcast "app_notifier_#{current_user.id}", decrement_notification_unread: 2
+    rescue Exception => e
+      Rails.logger.info e.inspect
+    end
+  end
+
   # GET /notifications/1
   # GET /notifications/1.json
   def show

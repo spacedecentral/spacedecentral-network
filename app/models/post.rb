@@ -13,6 +13,7 @@ class Post < ApplicationRecord
 
   has_many :replies, as: :replicable, dependent: :destroy
   has_many :likes, as: :likable, dependent: :destroy
+  has_many :watcher, as: :watchable, dependent: :destroy
   has_many :tag_references, dependent: :destroy
   has_many :tags, through: :tag_references
 

@@ -5,6 +5,8 @@
 .like-share.clearfix
   .like.pull-left{ id: "like_box#{reply.id}" }
     = render partial: 'likes/like', locals: { likable: reply }
+  .reply.pull-left{ id: "watcher_box#{reply.id}" }
+    = render partial: 'watcher/watcher', locals: { watchable: reply }
   .reply.pull-left
     %span.middle-dot
       &#183;

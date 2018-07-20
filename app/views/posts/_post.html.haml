@@ -20,6 +20,8 @@
       = inline_svg('reply.svg', class: 'reply-icon')
       %span.like-size
         = post.total_replies_count || 0
+    .reply.pull-left{ id: "watcher_box#{post.id}" }
+      = render partial: 'watcher/watcher', locals: { watchable: post }
     .forum-time.pull-right
       .platform_timestamp{ 'data-time-stamp' => post.created_at }
       .dropdown.pull-right
