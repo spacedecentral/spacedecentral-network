@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   resources :notifications
+  get "/notifs/mark_all_read", to: "notifications#mark_all_read"
+
   resources :user_publications do
     member do
       post :request_full_text
@@ -89,6 +91,7 @@ Rails.application.routes.draw do
   resources :replies, except: [:index]
 
   resources :likes, only: [:create]
+  post "/watcher", to: "watcher#create"
 
   resources :report_contents, only: [:new, :create]
 
