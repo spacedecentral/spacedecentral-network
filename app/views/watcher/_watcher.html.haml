@@ -1,9 +1,8 @@
 - watchable_params = { watchable_id: watchable.id, watchable_type: watchable.class.name }
-- if user_signed_in? && watchable.watcher.pluck(:user_id).include?(current_user.id)
-  -#= link_to 'watched',
-  = link_to inline_svg('eye.svg'),
-    watcher_path(watchable_params), method: :post, remote: true
-- else
-  -#= link_to 'not watched',
-  = link_to inline_svg('no_eye.svg'),
-    watcher_path(watchable_params), method: :post, remote: true
+- if user_signed_in?
+  - if watchable.watcher.pluck(:user_id).include?(current_user.id)
+    = link_to inline_svg('eye.svg'),
+      watcher_path(watchable_params), method: :post, remote: true
+  - else
+    = link_to inline_svg('no_eye.svg'),
+      watcher_path(watchable_params), method: :post, remote: true
