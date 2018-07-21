@@ -20,7 +20,7 @@ function increment_messages_unread(){
     $("#messages_dropdown_toggle").append("<span id='messages_unread_badge' class='badge'>1</span>")
   }
 }
-function decrement_notifications_unread(){
+function zero_notifications_unread(){
   if ( $("#notifications_unread_badge").length > 0 ) {
     $("#notifications_unread_badge").html("")
     $("#nav_notifications_none").show();
@@ -96,7 +96,7 @@ var register_notifier = function() {
         decrement_messages_unread(data['conversation_id']);
       } else if ( data['decrement_notification_unread'] == 1 ) {
         decrement_notifications_unread();
-      } else if ( data['decrement_notification_unread'] == 0 ) {
+      } else if ( data['decrement_notification_unread'] == 2 ) {
         zero_notifications_unread();
       }
       return false;

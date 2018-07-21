@@ -34,7 +34,7 @@ class RepliesController < ApplicationController
       )
 
       # notifications
-      event_author = '[See notification] ' + view_context.link_to(current_user.name, user_path(current_user), { :class=>"notif-link" } )
+      event_author = view_context.link_to(current_user.name, user_path(current_user), { :class=>"notif-link" } )
       event_link = ''
 
       # under special circumstances (when reply is sent to dynamically created reply (if I answer my own answer)) there is no post_id
