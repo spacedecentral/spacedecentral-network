@@ -104,6 +104,25 @@
         = f.check_box :newsletter, value: nil, class: 'form-control'
       = render_error(f.object.errors.full_messages_for(:newsletter))
 
+  - elsif params[:step].to_s == 'notifications'
+    .modal-header
+      %button.close{:type=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+        %span{"aria-hidden"=>"true"} &times;
+      %h4.modal-title Mail Notifications Preferences
+    .modal-body
+      %p
+        Please notify me via mail...
+      .form-group
+        = f.radio_button :notifications, 1
+        .modal-radio Immediately after each event
+      .form-group
+        = f.radio_button :notifications, 2
+        .modal-radio Daily summary of events
+      .form-group
+        = f.radio_button :notifications, 3
+        .modal-radio No mail notifications at all
+      = render_error(f.object.errors.full_messages_for(:notifications))
+
   .modal-footer.no-border.mt-15
     .pull-left
       - if params[:step].to_s == 'password'
