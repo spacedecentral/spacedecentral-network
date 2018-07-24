@@ -1,3 +1,10 @@
+class ProgramUrlConstrainer
+  def matches?(request)
+    id = request.path.gsub("/", "")
+    Program.find_by_slug(id)
+  end
+end
+
 Rails.application.routes.draw do
   resources :publication_authors
   resources :publication_long_lats
@@ -94,6 +101,13 @@ Rails.application.routes.draw do
   post "/watcher", to: "watcher#create"
 
   resources :report_contents, only: [:new, :create]
+
+  constraints(ProgramUrlConstrainer.new) do
+    #get '/:id', to: "programs#show", as: 'short_program'
+    get('/:id', as: 'short_program', to: redirect do |params, request|
+      Rails.application.routes.url_helpers.program_path(params[:id])
+    end)
+  end
 
   resources :programs do
     collection do

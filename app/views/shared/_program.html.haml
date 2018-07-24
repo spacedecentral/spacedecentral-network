@@ -18,7 +18,8 @@
         .row
           - if user_signed_in?
             - if !@isMember
-              = link_to new_program_program_user_role_path(@program.id), :id=>"join_program_button", :class=>"icon", :title=>"Follow #{@program.name}", remote: true do
+              -#= link_to new_program_program_user_role_path(@program.id), :id=>"join_program_button", :class=>"icon", :title=>"Follow #{@program.name}", remote: true do
+              = link_to join_program_program_user_role_path(@program.id), :id=>"join_program_button", :class=>"icon", :title=>"Follow #{@program.name}", remote: true do
                 =image_tag('plus.svg',:class=>'platform-cover-icons default-icon')
                 =image_tag('plus_white.svg',:class=>'platform-cover-icons hover-icon')
             - else
