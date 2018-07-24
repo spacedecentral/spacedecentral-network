@@ -53,7 +53,7 @@ class ProgramUserRolesController < ApplicationController
 
   def join
     program_user_role_params = Hash.new
-    program_user_role_params["program_id"] = params["id"]
+    program_user_role_params["program_id"] = params["program_id"]
     program_user_role_params["user_id"] = current_user.id
     program_user_role_params["pending"] = true
     program_user_role_params["role"] = 5

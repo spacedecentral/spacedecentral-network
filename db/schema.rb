@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328220153) do
+ActiveRecord::Schema.define(version: 20180722233629) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "type"
@@ -351,11 +351,21 @@ ActiveRecord::Schema.define(version: 20180328220153) do
     t.string   "linkedin_url"
     t.string   "username"
     t.boolean  "newsletter"
+    t.integer  "notifications",                          default: 1,  null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", using: :btree
+  end
+
+  create_table "watchers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.string   "watchable_type"
+    t.integer  "watchable_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_watchers_on_user_id", using: :btree
   end
 
   add_foreign_key "activities", "users"
@@ -386,4 +396,5 @@ ActiveRecord::Schema.define(version: 20180328220153) do
   add_foreign_key "user_publication_permissions", "user_publications"
   add_foreign_key "user_publication_permissions", "users"
   add_foreign_key "user_publications", "users"
+  add_foreign_key "watchers", "users"
 end
