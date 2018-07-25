@@ -1,0 +1,15 @@
+%li
+  .clearfix
+    .pull-left
+      - if notification.sender
+        = image_tag notification.sender&.avatar.try(:url, :thumb), class: "message-avatar", size: '40x40'
+    - unless notification.read?
+      .unread-mark.pull-right
+    .messages-container
+      .message-text
+        = link_to notification_path(notification), remote:true do
+          = simple_format(notification.event)
+      .message-text
+    %div
+      .pull-right.message-time
+        .platform_timestamp{"data-time-stamp"=>notification.created_at}
