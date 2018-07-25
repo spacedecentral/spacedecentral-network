@@ -1,0 +1,11 @@
+- col ||= 'col-md-12 col-sm-6'
+%div.tilter.tilter--3{class: col}
+  .program-tile-container.tilter__figure{style: "background-image: url(#{program.cover.url(:medium)});"}
+    .overlay-tint
+      = link_to program do
+        .program-tile-detail
+          %h2{:class => "featured2"}= program.name
+          %h4.ellipsis-box{:class => "featured4"}= program.description
+        .program-tile-members
+          = inline_svg('person.svg')
+          %span= program.members_count
