@@ -141,4 +141,8 @@ Rails.application.routes.draw do
   end
 
   match 'attachments/upload', to: 'attachments#upload', via: [:post, :patch]
+
+  get "/notifiers/digest", to: "notifiers#digest"
+  get "/notifiers/immediate", to: "notifiers#immediate"
+
 end
