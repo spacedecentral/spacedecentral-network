@@ -1,4 +1,13 @@
-%p From: #{@notifiee[:name]},
-%p Email: #{@notifiee[:email]}
+%p You are receiving this mail because you have unread notifications on SpaceDecentral.Net:
 
-%p= @notifiee[:message]
+- @notifiee[:message].each do |msg|
+  %p
+    != msg
+
+%p If you wish to receive no further email notifications, you can change your account setting here:
+
+%a https://spacedecentral.net/settings
+
+best regards,
+SDN
+

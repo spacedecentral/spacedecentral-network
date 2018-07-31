@@ -1,5 +1,11 @@
-From: notifier@spacedecentral.net,
-Email: #{@notifiee[:email]}
-\-----------------------------
+You are receiving this mail because you have unread notifications on SpaceDecentral.Net:
 
-= @notifiee[:message]
+= @notifiee[:message].each do |msg|
+  = strip_tags(msg)
+
+If you wish to receive no further email notifications, you can change your account setting here:
+
+https://spacedecentral.net/settings
+
+best regards,
+SDN
