@@ -53,7 +53,6 @@ class NotifiersController < ApplicationController
       events.each do |event|
         notifiee[:message].push(event[:event])
         Notification.update(event[:id], mailed: true)
-Rails.logger.info ' ------ update: ' + event.to_s
       end
 
       NotifierMailer.notify(notifiee).deliver_now
