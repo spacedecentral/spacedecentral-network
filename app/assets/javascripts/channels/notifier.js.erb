@@ -20,6 +20,9 @@ function increment_messages_unread(){
     $("#messages_dropdown_toggle").append("<span id='messages_unread_badge' class='badge'>1</span>")
   }
 }
+function zero_notifications_unread(){
+    $("#notifications_unread_badge").remove();
+}
 function decrement_notifications_unread(){
   if ( $("#notifications_unread_badge").length > 0 ) {
     var current_unread = parseInt($("#notifications_unread_badge").html());
@@ -35,11 +38,11 @@ function decrement_notifications_unread(){
   }
 }
 function increment_notifications_unread(){
-  if ( $("#notfications_unread_badge").length > 0 ) {
-    var current_unread = parseInt($("#notfications_unread_badge").html());
-    $("#notfications_unread_badge").html(current_unread+1);
+  if ( $("#notifications_unread_badge").length > 0 ) {
+    var current_unread = parseInt($("#notifications_unread_badge").html());
+    $("#notifications_unread_badge").html(current_unread+1);
   } else {
-    $("#notifications_dropdown_toggle").append("<span id='notfications_unread_badge' class='badge'>1</span>")
+    $("#notifications_dropdown_toggle").append("<span id='notifications_unread_badge' class='badge'>1</span>")
   }
   $("#nav_notifications_none").hide();
 }
@@ -87,6 +90,8 @@ var register_notifier = function() {
         decrement_messages_unread(data['conversation_id']);
       } else if ( data['decrement_notification_unread'] == 1 ) {
         decrement_notifications_unread();
+      } else if ( data['decrement_notification_unread'] == 2 ) {
+        zero_notifications_unread();
       }
       return false;
     },

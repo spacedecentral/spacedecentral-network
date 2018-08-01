@@ -11,6 +11,10 @@
     = f.hidden_field :id, value: f.object.id
     = f.hidden_field :replicable_id, value: replicable.id
     = f.hidden_field :replicable_type, value: replicable.class.name
+    - if (defined? (@post)).nil?
+      = f.hidden_field :post_id, value: 0
+    - else
+      = f.hidden_field :post_id, value: @post.id
     = f.text_area :content, placeholder: "Post new reply...",
       class: 'form-control', id: "reply_content#{replicable.id}"
     .clearfix

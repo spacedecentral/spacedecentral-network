@@ -110,6 +110,11 @@ class UsersController < ApplicationController
     current_user.save(context: :update_newsletter)
   end
 
+  def update_notifications
+    current_user.assign_attributes(update_notifications_params)
+    current_user.save(context: :update_notifications)
+  end
+
   def update_password
     current_user.assign_attributes(update_password_params)
     if current_user.save(context: :update_password)
@@ -166,6 +171,10 @@ class UsersController < ApplicationController
 
     def update_newsletter_params
       params.require(:user).permit(:newsletter)
+    end
+
+    def update_notifications_params
+      params.require(:user).permit(:notifications)
     end
 
     def set_cache_headers

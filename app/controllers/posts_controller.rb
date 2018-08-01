@@ -50,6 +50,13 @@ class PostsController < ApplicationController
           user: current_user
         )
 
+        # by default create a watcher
+        Watcher.create!(
+          watchable_type: @post.class.name,
+          watchable_id: @post.id,
+          user: current_user
+        )
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
         format.js

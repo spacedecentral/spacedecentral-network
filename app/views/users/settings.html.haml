@@ -34,3 +34,15 @@
             = link_to edit_settings_user_path(current_user, step: :newsletter), remote: true,
               class: 'profile-edit-button' do
               = inline_svg "pencil.svg"
+          %li.item
+            .title notifications
+            .content
+              - if current_user.notifications == 1
+                Immediately after each event
+              - elsif current_user.notifications == 2
+                Daily summary of events
+              - elsif current_user.notifications == 3
+                No mail notifications at all
+            = link_to edit_settings_user_path(current_user, step: :notifications), remote: true,
+              class: 'profile-edit-button' do
+              = inline_svg "pencil.svg"

@@ -119,10 +119,13 @@
   .message-text,.user{
     line-height: 17px;
     height: 35px;
-    overflow: hidden;
+    //overflow: hidden;
     text-overflow: ellipsis;
     a{
       color:#4A4A4A;
+    }
+    .notif-link{
+      font-weight: bold;
     }
   }
   .user a{

@@ -8,6 +8,8 @@
     %li.dropdown-header
       %div
         Notifications
+        -if !@notifications.empty?
+          = link_to 'mark all read', '/notifs/mark_all_read', { class: 'pull-right', :method => 'get', :remote => true }
     -if @notifications.empty?
       %li.no-message#nav_notifications_none
         You have no notifications
