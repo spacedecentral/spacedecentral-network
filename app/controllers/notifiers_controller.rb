@@ -1,5 +1,6 @@
 class NotifiersController < ApplicationController
   before_action :authenticate_user!, :except => [:digest, :immediate]
+  skip_before_filter :http_authenticate
 
   protect_from_forgery with: :null_session
 
