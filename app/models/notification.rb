@@ -24,7 +24,8 @@ class Notification < ApplicationRecord
       from_user: sender_id,
       read: false,
       notifiable: options[:notifiable],
-      template: options[:template]
+      template: options[:template],
+      linkage: options[:linkage]
     )
 
     dom_update = ApplicationController.render(

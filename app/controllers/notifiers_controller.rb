@@ -18,8 +18,8 @@ class NotifiersController < ApplicationController
           notifications.mailed = 0 and
           users.notifications = #{notification_type}
     ")
-    .pluck(:id,:user_id,:name,:email,:notifications,:event)
-    .map { |id, user_id, name, email, notifications, event| {id: id, user_id: user_id, name: name, email: email, notifications: notifications, event: event}}
+    .pluck(:id,:user_id,:name,:email,:notifications,:event,:linkage)
+    .map { |id, user_id, name, email, notifications, event, linkage| {id: id, user_id: user_id, name: name, email: email, notifications: notifications, event: event, linkage: linkage}}
 
     users = {}
 
@@ -43,15 +43,20 @@ class NotifiersController < ApplicationController
       user = events.first
       message = ''
 
+      # 'message' should be one array of data structured enough for views to be able to use it appropriately
       notifiee = {
         name: user[:name],
         subject: subject,
         email: user[:email],
-        message: []
+        message_html: [],
+        message_text: []
       }
       
       events.each do |event|
-        notifiee[:message].push(event[:event])
+        notifiee[:message_html].push(event[:event])
+        notifiee[:message_text].push(
+          ActionView::Base.full_sanitizer.sanitize(event[:event]) + "\n\n" + event[:linkage]
+        )
         Notification.update(event[:id], mailed: true)
       end
 

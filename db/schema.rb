@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730230915) do
+ActiveRecord::Schema.define(version: 20180801010453) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "type"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20180730230915) do
     t.integer  "notifiable_id"
     t.string   "template"
     t.integer  "mailed",          default: 0,     null: false
+    t.string   "linkage",         default: "1",   null: false
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 

@@ -2,7 +2,7 @@ class RepliesController < ApplicationController
   before_action :get_reply, only: [:edit, :update, :destroy]
   respond_to :html, :js
 
-  def notify_watchers(watchers, event_text)
+  def notify_watchers(watchers, event_text, linkage)
       watchers.each do |watcher_id|
         #Rails.logger.info ' ----    notifying ' + watcher_id.to_s + ' about ' + current_user.id.to_s + ' replying'
         Notification.notify(
@@ -10,7 +10,8 @@ class RepliesController < ApplicationController
           current_user.id,
           notifiable: @reply,
           template: 'notifications/_notification_forum_nav',
-          event: event_text
+          event: event_text,
+          linkage: linkage
         )
       end
   end
@@ -34,20 +35,23 @@ class RepliesController < ApplicationController
       )
 
       # notifications
-      event_author = view_context.link_to(current_user.name, user_path(current_user), { :class=>"notif-link" } )
+      event_author = view_context.link_to('@' + current_user.name, "#{request.base_url}" + user_path(current_user), { :class=>"notif-link" } )
       event_link = ''
+      event_source = ''
 
       # under special circumstances (when reply is sent to dynamically created reply (if I answer my own answer)) there is no post_id
       if (post_id != '0')
         post = Post.find(post_id)
-        event_link = view_context.link_to(post[:title], post_path(post), { :class=>"notif-link" })
-        
+        event_source = "#{request.base_url}" + post_path(post)
+        event_link = view_context.link_to(post[:title], event_source, { :class=>"notif-link" })
+
         # get watchers of the post
         watchers_of_post = Watcher.
           where("watchable_type = ? and watchable_id = ? and user_id != ?", post.class.name, post.id, current_user.id).
           pluck(:user_id)
       else
-        event_link = event_author + 'replied in forum'
+        event_source = "#{request.base_url}/forum"
+        event_link = view_context.link_to("Forum", event_source, { :class=>"notif-link" })
       end
 
       # notify watchers of the reply
@@ -55,14 +59,14 @@ class RepliesController < ApplicationController
         where("watchable_type = ? and watchable_id = ? and user_id != ?", @reply.replicable_type, @reply.replicable_id, current_user.id).
         pluck(:user_id)
 
-      event_text = event_author + ' replied to you in ' + event_link
-      notify_watchers(watchers, event_text)
+      event_text = event_author + ' replied to you in: ' + event_link
+      notify_watchers(watchers, event_text, event_source)
 
       watchers.each { |watcher_id| watchers_of_post.delete(watcher_id) }
 
       # notify watchers of the post
-      event_text = event_author + ' replied in post you are watching ' + event_link
-      notify_watchers(watchers_of_post, event_text)
+      event_text = event_author + ' replied in post you are watching: ' + event_link
+      notify_watchers(watchers_of_post, event_text, event_source)
 
     else
       flash[:error] = "Sorry! some errors."
