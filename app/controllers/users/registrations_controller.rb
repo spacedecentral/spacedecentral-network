@@ -10,7 +10,11 @@ before_action :configure_account_update_params, only: [:update]
   # POST /resource
   def create
     super
-    resource.update_attribute(:role, 5)
+    begin
+      resource.update_attribute(:role, 5)
+    rescue Exception => e
+      Rails.logger.info 'Users::RegistrationsController create exception: ' + e.to_s
+    end
   end
 
   # GET /resource/edit
