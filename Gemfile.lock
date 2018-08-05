@@ -426,7 +426,6 @@ DEPENDENCIES
   aasm
   angularjs-rails
   aws-sdk (= 2.10.1)
-  bcrypt
   bootstrap-sass (~> 3.3.6)
   byebug
   capistrano (~> 3.6)
