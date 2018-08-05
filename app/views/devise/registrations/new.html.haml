@@ -9,7 +9,6 @@
           = f.text_field :name, autofocus: true , placeholder: "FULL NAME", class: 'auth-field'
           = f.email_field :email, placeholder: "EMAIL ADDRESS", :class=>'auth-field'
           = f.password_field :password, autocomplete: "off" ,placeholder: "PASSWORD", :class=>'auth-field'
-          = recaptcha_tags
       .row
         .col-md-12
           .row
@@ -18,7 +17,15 @@
               %span Please send me the newsletter
       .row
         .col-md-12
-          = f.submit "Sign up with email", :class=>"btn"
+          .row
+            .col-md-12
+              = recaptcha_tags
+      .row
+        .col-md-12
+          .row
+            .col-md-12
+              .auth-spacer
+              = f.submit "Sign up with email", :class=>"btn"
       .row
         .col-md-12
           .row
