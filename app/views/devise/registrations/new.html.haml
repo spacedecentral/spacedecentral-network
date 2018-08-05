@@ -9,6 +9,7 @@
           = f.text_field :name, autofocus: true , placeholder: "FULL NAME", class: 'auth-field'
           = f.email_field :email, placeholder: "EMAIL ADDRESS", :class=>'auth-field'
           = f.password_field :password, autocomplete: "off" ,placeholder: "PASSWORD", :class=>'auth-field'
+          = recaptcha_tags
       .row
         .col-md-12
           .row
