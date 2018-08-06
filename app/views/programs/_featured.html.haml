@@ -1,6 +1,6 @@
 - col ||= 'col-md-12 col-sm-6'
 %div.tilter.tilter--3{class: col}
-  .program-tile-container.tilter__figure{style: "background-image: url(#{program.cover.url(:medium)});"}
+  .program-tile-container.tilter__figure{style: "background-image: url(#{program.cover.url(:large)}); background-size: cover;"}
     .overlay-tint
       = link_to program do
         .program-tile-detail
