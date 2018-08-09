@@ -9,9 +9,9 @@
 
   <body>
     <% if @mailer_environment == "production" %>
-       <img src="https://cdn.spacedecentral.net/<%= image_path("logo.png") %>" style="width:170px;height:auto;" />
+       <img src="https://spacedecentral.net/<%= image_path("logo.png") %>" style="width:170px;height:auto;" />
     <% else %>
-       <img src="https://stagingcdn.spacedecentral.net/<%= image_path("logo.png") %>"  style="width:170px;height:auto;" />
+       <img src="https://staging.spacedecentral.net/<%= image_path("logo.png") %>"  style="width:170px;height:auto;" />
     <% end %>
    
     <%= yield %>

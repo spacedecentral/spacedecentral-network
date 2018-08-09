@@ -1,3 +1,5 @@
+include ActionView::Helpers::DateHelper
+ 
 class NotifiersController < ApplicationController
   before_action :authenticate_user!, :except => [:digest, :immediate]
   skip_before_filter :http_authenticate
@@ -14,13 +16,13 @@ class NotifiersController < ApplicationController
     notifs = Notification.joins("
         JOIN users ON
           notifications.user_id = users.id and
-          notifications.created_at < (now() - interval 10 minute) and
+          notifications.created_at < (now() - interval 1 minute) and
           notifications.read = 0 and
           notifications.mailed = 0 and
           users.notifications = #{notification_type}
     ")
-    .pluck(:id,:user_id,:name,:email,:notifications,:event,:linkage)
-    .map { |id, user_id, name, email, notifications, event, linkage| {id: id, user_id: user_id, name: name, email: email, notifications: notifications, event: event, linkage: linkage}}
+    .pluck(:id,:user_id,:name,:email,:notifications,:event,:linkage,:created_at)
+    .map { |id, user_id, name, email, notifications, event, linkage, created_at| {id: id, user_id: user_id, name: name, email: email, notifications: notifications, event: event, linkage: linkage, created_at: created_at}}
 
     users = {}
 
@@ -52,11 +54,11 @@ class NotifiersController < ApplicationController
         message_html: [],
         message_text: []
       }
-      
+     
       events.each do |event|
-        notifiee[:message_html].push(event[:event])
+        notifiee[:message_html].push(event[:event] + '<br/>' + time_ago_in_words(event[:created_at]) + ' ago')
         notifiee[:message_text].push(
-          ActionView::Base.full_sanitizer.sanitize(event[:event]) + "\n\n" + event[:linkage]
+          ActionView::Base.full_sanitizer.sanitize(event[:event] + ' (' + time_ago_in_words(event[:created_at]) + ' ago)') + "\n\n" + event[:linkage]
         )
         Notification.update(event[:id], mailed: true)
       end

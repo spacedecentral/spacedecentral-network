@@ -1,4 +1,4 @@
-%p You are receiving this mail because you have unread notifications on SpaceDecentral.Net:
+%p You are receiving this email because forum replies have been received to a thread you are watching:
 
 - @notifiee[:message_html].each do |msg|
   %p
@@ -7,10 +7,12 @@
 %p If you wish to receive no further email notifications, you can change your account settings here:
 
 %p
-  %a https://spacedecentral.net/settings
+  %a{ :href => "https://spacedecentral.net/settings", :title => "Settings" }
+    https://spacedecentral.net/settings
 
 %p
   best regards,
-  %br/ 
-  SpaceDecentral.Net
+  %br/
+  %a{ :href => "https://spacedecentral.net", :title => "SpaceDecentral.Net" }
+    SpaceDecentral.Net
 
