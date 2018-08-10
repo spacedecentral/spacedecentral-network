@@ -36,7 +36,7 @@ class RepliesController < ApplicationController
         post = Post.find(post_id)
 
         # by default create a watcher for post (not just reply)
-        Watcher.create!(
+        Watcher.find_or_create_by(
           watchable_type: post.class.name,
           watchable_id: post.id,
           user: current_user

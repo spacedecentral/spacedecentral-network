@@ -16,7 +16,7 @@ class NotifiersController < ApplicationController
     notifs = Notification.joins("
         JOIN users ON
           notifications.user_id = users.id and
-          notifications.created_at < (now() - interval 1 minute) and
+          notifications.created_at < (now() - interval 10 minute) and
           notifications.read = 0 and
           notifications.mailed = 0 and
           users.notifications = #{notification_type}
