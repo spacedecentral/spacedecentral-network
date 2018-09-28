@@ -9,29 +9,39 @@
 
 #contribute.container.platform-show-container
   .row.cont-margin{:style => 'margin-bottom: 0px'}
-    .col-md-3
+    .col-md-2
       .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FZ9VRGWB527CE"}
           = inline_svg('contribute/contribute_9.svg', title: '9 per month', class: 'contribute-icon')
-    .col-md-3
+    .col-md-2
       .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4JYZN2CC3SKHQ"}
           = inline_svg('contribute/contribute_19.svg', title: '19 per month', class: 'contribute-icon')
-    .col-md-3
+    .col-md-2
+      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+        %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SMRC3WXR387WL"}
+          = inline_svg('contribute/contribute_49.svg', title: '49 per month', class: 'contribute-icon')
+    .col-md-2
       .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J5ZCRRM3BCPNN"}
           = inline_svg('contribute/contribute_99.svg', title: '99 per month', class: 'contribute-icon')
-    .col-md-3
+    .col-md-2
       .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
         %a{:href => "https://paypal.me/spacecoop"}
           = inline_svg('contribute/contribute_custom.svg', title: 'custom contribution', class: 'contribute-icon')
+    .col-md-2
+      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+        %a{:href => "https://www.coinpayments.net/$SpaceDecentral"}
+          = inline_svg('contribute/contribute_crypto.svg', title: 'crypto contribution', class: 'contribute-icon')
 
 #contribute.container.platform-show-container
   .row.cont-margin
     .col-md-2
     .col-md-8.contribute-box.space-col
+      %p The Space Decentral Network is an open source project. You are currently using an early prototype - an alpha release. It’s still missing so many features. With your financial contributions we will be enabled to hire more full-time staff to build the necessary features for our minimum viable product. We do currently have two open roles: #{link_to 'Full Stack/Smart Contract Developer', 'https://angel.co/space-coop/jobs/430873-full-stack-smart-contract-developer'} and #{link_to 'Marketing Lead', 'https://angel.co/space-coop/jobs/430874-marketing-lead'} - please apply to help build the future of space mission collaboration. If there's some other way you'd like to contribute #{link_to 'let us know using this form', 'https://spacedecentral.typeform.com/to/JP8ia3'}.
       %h2{:style => 'text-align: left'} Roadmap
-      %p The Space Decentral Network is an open source project. You are currently using an early prototype - an alpha release. It’s still missing so many features. With your financial contributions we will be enabled to hire more full-time staff to build the necessary features for our minimum viable product, and migrate the codebase from Ruby on Rails to node.js. If you’re proficient in Ruby and Javascript, #{link_to 'join us on Github to help', 'https://github.com/spacedecentral/spacedecentral-network'} build the future of space mission collaboration.
+      %p Besides what is listed below, we plan on migrating the codebase from Ruby on Rails to node.js. If you’re proficient in Ruby and Javascript, and want to volunteer your time to our open source project, #{link_to 'join us on Github to help build', 'https://github.com/spacedecentral/spacedecentral-network'}!
+
 
       %h4 Space Decentral V0.1: Initial Prototype [Current]
       %ul
