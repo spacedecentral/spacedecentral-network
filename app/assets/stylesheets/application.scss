@@ -448,10 +448,17 @@ a.btn.btn-primary, a.btn.btn-warning {
     -moz-box-shadow: 1px 1px 7px 0px rgba(216, 216, 216, 0.3);
     box-shadow: 1px 1px 7px 0px rgba(216, 216, 216, 0.3);
   }
+  .space-col h2 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
   .space-col h3 {
     margin-top: 5px;
     font-size: 22px;
     color: #595959;
+  }
+  .space-col h4 {
+    margin-top: 25px;
   }
  .platform-show-container .space-col-divider {
     height: 17px;

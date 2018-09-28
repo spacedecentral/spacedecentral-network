@@ -1,36 +1,70 @@
 .landing-cover
   .fixed-bg-slide
     .imgbg.iss1-cover
-.container.landing-cover-detail.center-text
+.container.landing-cover-detail.center-text{:style => "margin-top: -270px"}
   %div.pt-50
-    %h1 CONTRIBUTE TO OUR VISION
-    %h3 There are many ways that you can help us grow.
-
+    %h1{:style => "margin: 10px"} HELP TAKE US TO THE NEXT LEVEL
+    %h3{:style => "margin: 0px"} SpaceDecentral.net is currently being developed and maintained by Space Cooperative. If you believe in our vision, we would be grateful for financial contributions so we can execute on our roadmap and build the most intelligent and action-oriented community of space explorers.
 
 
 #contribute.container.platform-show-container
+  .row.cont-margin{:style => 'margin-bottom: 0px'}
+    .col-md-3
+      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+        %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FZ9VRGWB527CE"}
+          = inline_svg('contribute/contribute_9.svg', title: '9 per month', class: 'contribute-icon')
+    .col-md-3
+      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+        %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4JYZN2CC3SKHQ"}
+          = inline_svg('contribute/contribute_19.svg', title: '19 per month', class: 'contribute-icon')
+    .col-md-3
+      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+        %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J5ZCRRM3BCPNN"}
+          = inline_svg('contribute/contribute_99.svg', title: '99 per month', class: 'contribute-icon')
+    .col-md-3
+      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+        %a{:href => "https://paypal.me/spacecoop"}
+          = inline_svg('contribute/contribute_custom.svg', title: 'custom contribution', class: 'contribute-icon')
+
+#contribute.container.platform-show-container
   .row.cont-margin
-    .col-md-4
-      .col-md-12.contribute-box.space-col
-        = inline_svg('contribute/own.svg', title: 'co-owner', class: 'contribute-icon')
-        %h2 Become a Co-owner
-        %p Space Cooperative is a worker-owned cooperative and we are looking to add people to our team. If you are passionate about space, humanity, and cooperative decision-making, we'd love to hear from you.
-        %p{:style => "text-align: center; font-size: 150%;"}
-          %strong
-            %a.btn.btn-primary{:href => "membership"} Learn More
-    .col-md-4
-      .col-md-12.contribute-box.space-col
-        = inline_svg('contribute/code.svg', title: 'code', class: 'contribute-icon')
-        %h2 Help Code
-        %p This platform you are using is soon to be an open source project, but it will take some time to get it into that stage. We can still use help before then and are looking for contributors that love open source. 
-        %p{:style => "text-align: center; font-size: 150%;"}
-          %strong
-            %a.btn.btn-primary{:href => "contact"} Contact Us
-    .col-md-4
-      .col-md-12.contribute-box.space-col
-        = inline_svg('contribute/donate.svg', title: 'donate', class: 'contribute-icon')
-        %h2 Financial Support
-        %p We built Space Cooperative out of passion and without any outside capital. If you believe in our vision and want to help us grow so we can implement the rest of our roadmap, a monthly contribution of $10 would be very appreciated.
-        %p{:style => "text-align: center; font-size: 150%;"}
-          %strong
-            %a.btn.btn-primary{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YQ498W4U82UFL"} Support Us
+    .col-md-2
+    .col-md-8.contribute-box.space-col
+      %h2{:style => 'text-align: left'} Roadmap
+      %p The Space Decentral Network is an open source project. You are currently using an early prototype - an alpha release. It’s still missing so many features. With your financial contributions we will be enabled to hire more full-time staff to build the necessary features for our minimum viable product, and migrate the codebase from Ruby on Rails to node.js. If you’re proficient in Ruby and Javascript, #{link_to 'join us on Github to help', 'https://github.com/spacedecentral/spacedecentral-network'} build the future of space mission collaboration.
+      %h4 Space Decentral V0.1: Initial Prototype [Current]
+      %ul
+        %li Create and manage a user profiles; follow and message users 
+        %li  Join programs and projects
+        %li Project discussion boards, with tagging and filtering 
+        %li Share and discuss research publications 
+        %li Collaborate on files with Google Drive integration 
+
+      %h4 Space Decentral V0.2: Wiki, Aragon Integration 
+      %ul
+        %li Manage global and project wikis
+        %li Create, manage and follow organizations/teams
+        %li Search by mission, person, organization, skills 
+        %li Integrate Aragon for decision making, fund allocation, and planning 
+        %li Ability to collect tokens by completing tasks
+
+      %h4 Space Decentral V0.3: Project Management Release 
+      %ul
+        %li Ability to create and manage projects 
+        %li Fully integrated task management solution
+        %li Peer review tools for project proposals
+        %li Integrated space marketplace (Satsearch)
+
+      %h4 Space Decentral V0.3: Git for Hardware Release 
+      %ul
+        %li Open source hardware collaboration (Sliderule integration) 
+        %li Offer or search for consulting services
+
+      %h4 Space Decentral V1.2: Systems Engineering Release 
+      %ul
+        %li Model-based systems engineering tools 
+        %li Wiki enhancements to support integrations to Mission Design Kit apps 
+        %li Marketplace that allows developers to monetize apps
+
+      %p{:style => "font-style: italic"}= "Learn more details about these features in our #{link_to 'white paper', '/White_Paper.pdf'}.".html_safe
+
