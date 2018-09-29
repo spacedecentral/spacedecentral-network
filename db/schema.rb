@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20180801010453) do
     t.integer  "notifiable_id"
     t.string   "template"
     t.integer  "mailed",          default: 0,     null: false
-    t.string   "linkage",         default: "1",   null: false
+    t.string   "linkage",         default: "",    null: false
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
@@ -239,7 +239,7 @@ ActiveRecord::Schema.define(version: 20180801010453) do
     t.integer  "user_id"
     t.integer  "program_id"
     t.index ["post_id"], name: "index_tag_references_on_post_id", using: :btree
-    t.index ["program_id"], name: "fk_rails_329de12adc", using: :btree
+    t.index ["program_id"], name: "fk_rails_029c065b8a", using: :btree
     t.index ["tag_id"], name: "index_tag_references_on_tag_id", using: :btree
     t.index ["user_id"], name: "index_tag_references_on_user_id", using: :btree
     t.index ["user_publication_id"], name: "index_tag_references_on_user_publication_id", using: :btree
