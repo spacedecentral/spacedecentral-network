@@ -71,9 +71,14 @@
   }
 
   #contribute {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    ul {
+      margin: 0px;
+    }
     .cont-margin {
-      margin-top: 30px;
-      margin-bottom: 45px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
     .btn {
       width: 100%;
@@ -85,8 +90,29 @@
       width: 100%;
       height: auto;
     }
-    .contribute-box {
+    .contribute-icon-box {
       height: auto;
+      margin-top: 20px;
+      padding: 5px;
+      min-height: 250px;
+      slim-margin {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .contribute-crypto {
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        word-break: break-all;
+        text-align: center;
+      }
+      h1 {
+        margin-top: 0px;
+        text-align: center;
+      }
+    }
+    .contribute-box {
       p {
         font-weight: 300;
         font-size: 16px;
@@ -103,7 +129,6 @@
       }
     }
   }
-
 
   #faq {
     .section-desc {
@@ -217,3 +242,4 @@
     transform: rotate(90deg);
   }
 }
+

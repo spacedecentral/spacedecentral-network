@@ -4,34 +4,34 @@
 .container.landing-cover-detail.center-text{:style => "margin-top: -270px"}
   %div.pt-50
     %h1{:style => "margin: 10px"} HELP TAKE US TO THE NEXT LEVEL
-    %h3{:style => "margin: 0px"} SpaceDecentral.net is currently being developed and maintained by Space Cooperative. If you believe in our vision, we would be grateful for financial contributions so we can execute on our roadmap and build the most intelligent and action-oriented community of space explorers.
+    %h3{:style => "margin: 0px"} SpaceDecentral.net is currently maintained by Space Cooperative. If you believe in our vision, we would be grateful for financial contributions so we can execute on our roadmap and build the most intelligent and action-oriented community of space explorers.
 
 
 #contribute.container.platform-show-container
   .row.cont-margin{:style => 'margin-bottom: 0px'}
-    .col-md-2
-      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+    .col-md-2.col-xs-4
+      .col-md-12.contribute-icon-box{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FZ9VRGWB527CE"}
           = inline_svg('contribute/contribute_9.svg', title: '9 per month', class: 'contribute-icon')
-    .col-md-2
-      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+    .col-md-2.col-xs-4
+      .col-md-12.contribute-icon-box{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4JYZN2CC3SKHQ"}
           = inline_svg('contribute/contribute_19.svg', title: '19 per month', class: 'contribute-icon')
-    .col-md-2
-      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+    .col-md-2.col-xs-4
+      .col-md-12.contribute-icon-box{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SMRC3WXR387WL"}
           = inline_svg('contribute/contribute_49.svg', title: '49 per month', class: 'contribute-icon')
-    .col-md-2
-      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+    .col-md-2.col-xs-4
+      .col-md-12.contribute-icon-box{:style => "min-height: unset"}
         %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J5ZCRRM3BCPNN"}
           = inline_svg('contribute/contribute_99.svg', title: '99 per month', class: 'contribute-icon')
-    .col-md-2
-      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
+    .col-md-2.col-xs-4
+      .col-md-12.contribute-icon-box{:style => "min-height: unset"}
         %a{:href => "https://paypal.me/spacecoop"}
-          = inline_svg('contribute/contribute_custom.svg', title: 'custom contribution', class: 'contribute-icon')
-    .col-md-2
-      .col-md-12.contribute-box.space-col{:style => "min-height: unset"}
-        %a{:href => "https://www.coinpayments.net/$SpaceDecentral"}
+          = inline_svg('contribute/contribute_fiat.svg', title: 'custom contribution', class: 'contribute-icon')
+    .col-md-2.col-xs-4
+      .col-md-12.contribute-icon-box{:style => "min-height: unset"}
+        %a{:href => "crypto"}
           = inline_svg('contribute/contribute_crypto.svg', title: 'crypto contribution', class: 'contribute-icon')
 
 #contribute.container.platform-show-container
@@ -76,5 +76,6 @@
         %li Model-based systems engineering tools 
         %li Wiki enhancements to support integrations to Mission Design Kit apps 
         %li Marketplace that allows developers to monetize apps
+      %h4
       %p{:style => "font-style: italic"}= "Learn more details about these features in our #{link_to 'white paper', '/White_Paper.pdf'}.".html_safe
 
