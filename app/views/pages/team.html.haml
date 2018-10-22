@@ -3,7 +3,7 @@
     .imgbg.iss2-cover
 .container.landing-cover-detail.center-text
   %div.pt-50
-    %h1
+    %h1{:style => "margin-top: 60px"}
       WHO WE ARE
     %h3
       At first glance, it may be difficult to understand how our team came together. We have representation from around the planet, and our skillsets are all quite eclectic.
@@ -11,9 +11,8 @@
   .main
     %article
       .entry-content
-        %p
-          %a{:href => "http://space.coop", :target => "_blank"}Space Cooperative
-          is the founding entity behind Space Decentral, and one that will be capable of interfacing with the real world when necessary such as for procuring launch licenses or remitting checks to contractors that do not accept cryptocurrency. However it should be noted that Space Cooperative will not wholly own Space Decentral. Members of Space Cooperative will act as the initial stewards of Space Decentral with the aim for it to flourish and grow to be a network where multiple organizations and individuals can share value.
+        %p{:style => "font-size: 120%; padding: 10px;"}
+          Individuals from multiple organizations are contributing to the technology development and space mission design efforts needed to make our vision of a spacefaring future become a reality. This includes #{link_to 'Space Cooperative', 'http://space.coop', target: "_blank"}, the original team that spearheaded the idea of creating a social collaboration platform for space missions, in addition to members of #{link_to 'Giveth', 'https://giveth.io/', target: "_blank"} and Kybern Systems who we are are working with to develop a Planning Suite that utilizes #{link_to 'Aragon', 'https://aragon.org/', target: "_blank"}.
 
         %h2 Our Team
         .member
@@ -26,10 +25,24 @@
               %strong Yalda Mousavinia
             %br/
             %em
-              Co-founder & Product Designer
+              Strategic Lead
               %a{:href => "http://linkedin.com/in/stellarmagnet", :target => "_blank"}
                 = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p Prior to co-founding Space Cooperative, Yalda was a Senior Product Manager at Oracle where she created solutions for the Enterprise Resource Planning cloud software suite. Her career as a product manager and designer for software companies spans 10 years. She earned her Bachelor of Science degree in Mechanical Engineering from UC Berkeley and an Astronautical Engineering Certificate from UCLA.
+          %p Yalda is a co-founder of Space Cooperative and strategic lead behind the vision of creating a global space program. Yalda was previously a Senior Product Manager at Oracle where she created solutions for the Enterprise Resource Planning cloud software suite. Her career as a product manager and designer for software companies spans 10 years. She earned her Bachelor of Science degree in Mechanical Engineering from UC Berkeley and an Astronautical Engineering Certificate from UCLA.
+        .member
+          %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
+            = image_tag 'team/suzi.png', size: '168x168', alt: 'Suzi'
+            %figcaption.wp-caption-text
+              %span{:style => "font-color: white;"}  
+          %p
+            %span{:style => "font-size: 20px;"}
+              %strong Suzi Bianco
+            %br/
+            %em
+              Operations Lead
+              %a{:href => "https://www.linkedin.com/in/suzana-bianco-43481031/", :target => "_blank"}
+                = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
+          %p Suzana leads operations, community, and the Space Mission Activation Process and is a worker-owner of Space Cooperative. She studied Architecture and Urbanism at the Federal Fluminense University in Brazil, and shortly after graduating, earned an MBA in project management at Fundacao Getulio Vargas. For 8 years she worked in the engineering company Promon Engenharia, first as an intern and later as a licensed architect, developing large scale industrial and infrastructure projects such as ports, factories, subway systems and power plants. She recently shifted her career towards space exploration and has earned a Masters in Space Architecture from the University of Houston (May 2018).        
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
             = image_tag 'team/patrick.png', size: '168x168', alt: 'Patrick'
@@ -40,24 +53,24 @@
               %strong Patrick Donovan
             %br/
             %em
-              Co-founder & Concept Developer
+              Mission Engineering Lead
               %a{:href => "https://www.linkedin.com/in/bruinsquared", :target => "_blank"}
                 = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
           %p Patrick graduated with a Bachelor of Science degree in Civil Engineering from UCLA and now works in the private sector of structural engineering within the Los Angeles area. In the span of nearly 3 years he has worked on a diverse array of new and existing residential and commercial structures across seismically-active southern California. Patrick earned NASA’s recognition for his Mars-focused ISRU concept and briefly studied space mission engineering before co-founding Space Cooperative.
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
-            = image_tag 'team/brayden.png', size: '168x168', alt: 'Brayden'
+            = image_tag 'team/radek.png', size: '168x168', alt: 'Radek'
             %figcaption.wp-caption-text
               %span{:style => "font-color: white;"}  
           %p
             %span{:style => "font-size: 20px;"}
-              %strong Brayden DeVito
+              %strong Radek Zasiadczuk
             %br/
             %em
-              Co-founder & Manufacturing Engineer
-              %a{:href => "https://www.linkedin.com/in/braydendevito", :target => "_blank"}
+              Technical Lead, Space Decentral Network
+              %a{:href => "https://www.linkedin.com/in/radoslaw-zasiadczuk-b34a922/", :target => "_blank"}
                 = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p Brayden is solutions-oriented aerospace welding and manufacturing engineer with 12 years experience facilitating the overall design process from initial specifications and simulation to prototyping and production. Throughout his career he has held various positions in the manufacturing process such as project management, streamlining manufacturing, and setting forth high caliber design and quality standards. Additionally, Brayden has contributed to projects for SpaceX and JPL, both internally as an employee and externally as a contractor, respectively.
+          %p Radek is the technical lead of the Space Decentral Network and also a developer on the Planning Suite. He studied at the Polish-Japanese Academy of Information Technology in Warsaw and has also been working as a Senior System Administrator and DevOps Engineer at Oracle for 13 years, where he builds and maintains Data Centres around the world. For the last few years with increasing fascination, he has researched augmenting human collaboration with software, starting with simple project management systems to emerging DAO-style endeavours, operating on non-linear and non-hierarchical principles.        
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
             = image_tag 'team/kevin.png', size: '168x168', alt: 'Kevin'
@@ -68,10 +81,10 @@
               %strong Kevin Siegler
             %br/
             %em
-              Co-founder & Software Engineer
+              Software Engineer, Planning Suite
               %a{:href => "https://www.linkedin.com/in/ksiegler", :target => "_blank"}
                 = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p After fostering an enduring fascination with Skunk Works, Kevin obtained a B.S. and M.S. in Mechanical Engineering from Northwestern University with a focus in robotics, and worked 3 years in the aerospace industry as a mechatronics engineer. During that time he was a member of Cobham’s Leadership Development Program. Now he’s pursuing his dream of scaling the field of aerospace  globally as a co-founder of Space Cooperative and helping to bring the Decentralized Space Agency to the blockchain as a Solidity developer.
+          %p After fostering an enduring fascination with Skunk Works, Kevin obtained a B.S. and M.S. in Mechanical Engineering from Northwestern University with a focus in robotics, and worked 3 years in the aerospace industry as a mechatronics engineer. During that time he was a member of Cobham’s Leadership Development Program. Now he’s pursuing his dream of scaling the field of aerospace  globally as a co-founder of Space Cooperative and helping to bring the Decentralized Space Agency to the blockchain as a Solidity developer for the Planning Suite.
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
             = image_tag 'team/giulio.png', size: '168x168', alt: 'Giulio'
@@ -82,24 +95,10 @@
               %strong Giulio Prisco
             %br/
             %em
-              Co-founder & Futurist
+              Media Lead
               %a{:href => "https://www.linkedin.com/in/giulioprisco/", :target => "_blank"}
                 = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
           %p After earning a degree in physics with final thesis in laser physics, Giulio worked as a scientist in European research centers including CERN, then as a space system analyst at the European Space Agency (ESA), then as a senior manager in the public space sector. In 2005, Giulio left the public sector and founded a virtual reality development and consulting company, which he ran until 2011. More recently, he has been covering developments and trends in science, technology, business, crypto, and digital economy for the specialized press.   
-        .member
-          %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
-            = image_tag 'team/srinath.png', size: '168x168', alt: 'Srinath'
-            %figcaption.wp-caption-text
-              %span{:style => "font-color: white;"}  
-          %p
-            %span{:style => "font-size: 20px;"}
-              %strong Srinath Ravichandran
-            %br/
-            %em
-              Co-founder & Engineer
-              %a{:href => "https://www.linkedin.com/in/srinath-ravichandran-09679a7", :target => "_blank"}
-                = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p Srinath has 9 years of experience in Portfolio Management and Strategic Asset Allocation at AXA and AIG. He has a Masters in Financial Engineering from Columbia University and Bachelor’s degree in Electrical Engineering from College of Engineering, Guindy. His diverse skill set covers aerospace engineering, finance, electrical engineering in addition to screenwriting.
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
             = image_tag 'team/marc.png', size: '168x168', alt: 'Marc'
@@ -110,10 +109,24 @@
               %strong Dr. Marc Cohen
             %br/
             %em
-              Project Manager & Space Architect
+              Mission Architecture Lead
               %a{:href => "https://www.linkedin.com/in/marc-m-cohen-b76748/", :target => "_blank"}
                 = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
           %p Dr. Marc M. Cohen is a licensed architect who has devoted his career to developing the new field of Space Architecture. Marc worked at NASA Ames Research Center for 26 years, then at Northrop Grumman Aerospace Systems for 4.5 years. At NASA Ames, Marc began as a facilities architect designing aircraft support facilities, life science labs, and wind tunnels. At the beginning of the Space Station Program (1983), Marc was appointed to the Space Station Concept Development Group at NASA HQ where he served as a “commuting member” for a year.
+        .member
+          %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
+            = image_tag 'team/brayden.png', size: '168x168', alt: 'Brayden'
+            %figcaption.wp-caption-text
+              %span{:style => "font-color: white;"}  
+          %p
+            %span{:style => "font-size: 20px;"}
+              %strong Brayden DeVito
+            %br/
+            %em
+              Manufacturing Engineer
+              %a{:href => "https://www.linkedin.com/in/braydendevito", :target => "_blank"}
+                = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
+          %p Brayden is solutions-oriented aerospace welding and manufacturing engineer with 12 years experience facilitating the overall design process from initial specifications and simulation to prototyping and production. Throughout his career he has held various positions in the manufacturing process such as project management, streamlining manufacturing, and setting forth high caliber design and quality standards. Additionally, Brayden has contributed to projects for SpaceX and JPL, both internally as an employee and externally as a contractor, respectively.
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
             = image_tag 'team/sean.png', size: '168x168', alt: 'Sean'
@@ -130,51 +143,39 @@
           %p Sean began his career in space exploration during his undergrad, at the University of California, Irvine, through active hands-on involvement with a Cube Satellite program. After receiving his bachelor’s degree in Mechanical Engineering, he worked on product development as an associate mechanical design engineer for Max Q Systems, embedded/IoT/robotics projects for tech startups, and numerical simulations as a volunteer for rLoop – a non-profit global think tank that competed in the first SpaceX hyperloop competition.
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
-            = image_tag 'team/radek.png', size: '168x168', alt: 'Radek'
+            = image_tag 'team/quazia.png', size: '168x168', alt: 'Quazia'
             %figcaption.wp-caption-text
               %span{:style => "font-color: white;"}  
           %p
             %span{:style => "font-size: 20px;"}
-              %strong Radek Zasiadczuk
+              %strong Quazia
             %br/
             %em
-              Software & Systems Engineer
-              %a{:href => "https://www.linkedin.com/in/radoslaw-zasiadczuk-b34a922/", :target => "_blank"}
-                = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p Radek studied and worked at Polish-Japanese Academy of Information Technology in Warsaw, then worked as Systems Administrator and DevOps Engineer, where he built and maintained Data Centres around the world. For the last few years with increasing fascination, he has researched augmenting human collaboration with software, starting with simple project management systems to emerging DAO-style endeavours, operating on non-linear and non-hierarchical principles.
+              Technical Lead, Planning Suite
+              %a{:href => "https://github.com/Quazia", :target => "_blank"}
+                = image_tag 'icon-github.png', size: '16x16', alt: 'Github'
+          %p Arthur is the technical lead of the Planning Suite and project lead of the #{link_to 'Aragon DAC development campaign'}. He graduated with a Bachelor of Science in Applied Computer Science and Globalization Theory from the Rochester Institute of Technology. He has been a professional full stack developer for 2.5 years and a smart contract developer for 1.5 years.        
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
-            = image_tag 'team/suzi.png', size: '168x168', alt: 'Suzi'
+            = image_tag 'team/otto.png', size: '168x168', alt: 'Otto'
             %figcaption.wp-caption-text
               %span{:style => "font-color: white;"}  
           %p
             %span{:style => "font-size: 20px;"}
-              %strong Suzi Bianco
+              %strong Otto Garcia
             %br/
             %em
-              Space Architect
-              %a{:href => "https://www.linkedin.com/in/suzana-bianco-43481031/", :target => "_blank"}
-                = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p Suzana studied Architecture and Urbanism at the Federal Fluminense University in Brazil, and shortly after graduating, earned an MBA in project management at Fundacao Getulio Vargas. For 8 years she worked in the engineering company Promon Engenharia, first as an intern and later as a licensed architect, developing large scale industrial and infrastructure projects such as ports, factories, subway systems and power plants. In 2016 she shifted her career towards space exploration by pursuing a masters degree in Space Architecture at the University of Houston, from which she will graduate in May 2018.
-        .member
-          %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
-            = image_tag 'team/jonas.png', size: '168x168', alt: 'Jonas'
-            %figcaption.wp-caption-text
-              %span{:style => "font-color: white;"}  
-          %p
-            %span{:style => "font-size: 20px;"}
-              %strong Jonas Allesson
-            %br/
-            %em
-              Socio-Ecological Systems Designer
-              %a{:href => "https://www.linkedin.com/in/jonas-allesson", :target => "_blank"}
-                = image_tag 'icon-linkedin.png', size: '16x16', alt: 'Linkedin'
-          %p Jonas is currently pursuing his masters degree in Development, Environment and Cultural Change at the University of Oslo, having earned his bachelor’s degree in International Relations from Malmö University in 2014. His academic interests are mainly focusing on climate change and social ecology, and he has a special interest in the formation and spread of post-nation-state democratic governance systems. Jonas is also a self taught 3D artist, having long experience with volunteer work for space advocacy.
+              Full Stack Developer
+              %a{:href => "https://github.com/ottodevs", :target => "_blank"}
+                = image_tag 'icon-github.png', size: '16x16', alt: 'Github'
+          %p Otto is a multidisciplinary self-taught developer and open source lover. He has been focused in the crypto space since 2013, involved into several altcoin community projects and blockchain startups in different fields, from mining pools to PoW algorithms, and lately doing Ethereum and dApps research, blockchain technical education programs, and managing several successful crypto communities in Spain and online with Kybern Systems.
+
+
        
         %h2 Advisors
         .member
           %figure#attachment_904.wp-caption.alignleft{:style => "width: 168px"}
-            = image_tag 'team/paolo.png', size: '168x168', alt: 'Rini'
+            = image_tag 'team/paolo.png', size: '168x168', alt: 'Paolo'
             %figcaption.wp-caption-text
               %span{:style => "font-color: white;"}  
           %p
