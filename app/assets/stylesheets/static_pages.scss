@@ -34,6 +34,20 @@
       margin-bottom: 20px;
       border: 0;
       border-bottom: 1px solid #eeeeee;
+      em {
+        font-size: 1.1em;
+      }
+      p {
+        font-size: 1.05em;
+        margin-bottom: 5px;
+        line-height: 1.5;
+      }
+      a {
+        img {
+          margin-left: 2px;
+          margin-top: -3px;
+        }
+      }
       figure {
         float: left;
         width: 200px !important;
