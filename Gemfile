@@ -19,7 +19,7 @@ gem 'non-stupid-digest-assets'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'angularjs-rails'
 gem 'momentjs-rails'
 gem 'jbuilder', '~> 2.5'
