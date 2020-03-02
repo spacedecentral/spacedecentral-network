@@ -8,19 +8,15 @@
         %h1
           TO SPACE, TOGETHER
         %h3
-          We are building a decentralized space program, connecting thousands of engineers, scientists, and future astronauts, to devise and fund next-generation space initiatives. 
+          We are building a decentralized space program, connecting engineers, artists, scientists, and future astronauts, to devise and fund next-generation space initiatives. 
         .central-buttons
-          = link_to 'Propose Mission', 'forum', :class=>'btn', :role=>"button"
-          = link_to 'Contribute', 'contribute', :class=>'btn', :role=>"button"         
+          = link_to 'Join the team', 'membership', :class=>'btn', :role=>"button" 
+          = link_to 'Propose mission', 'forum', :class=>'btn', :role=>"button"
 
   .container.mt-20
-    %h2.section-title.center-text Featured
-    #list_programs.row.program-tile-row
-      = render partial: 'programs/featured', collection: @featured, as: :program
-  .container.mt-20
-    %h2.section-title.center-text Programs
-    #list_programs.row.program-tile-row
-      = render partial: 'programs/program', collection: @programs, as: :program
+    %div{:style => "margin: 50px 0"}
+      #list_programs.row.program-tile-row
+        = render partial: 'programs/featured', collection: @featured, as: :program
 
 .container-fluid.container-margin.platform-cover-container
   .platform-cover.landing-cover.medium-post-cover
@@ -42,54 +38,6 @@
   .platform-cover.landing-cover.medium-post-cover
     .fixed-bg-slide
       .imgbg.stars-cover
-
-  .container.mt-20.mb-30
-    %h2.section-title.center-text The Space Decentral Way
-    #how-it-works.container.platform-show-container
-      .row
-        .col-md-15
-          .col-md-12.how-box.space-col
-            = inline_svg('how/brainstorm.svg', title: 'co-owner', class: 'how-icon')
-            %h3 STEP 1
-            %h2 Define Projects
-            %ul
-              %li Initial collaboration is fostered through the community-driven curation of a portfolio of projects 
-              %li Requirements and goals are defined for the projects in order to guide the solution stage
-        .col-md-15
-          .col-md-12.how-box.space-col
-            = inline_svg('how/build.svg', title: 'code', class: 'how-icon')
-            %h3 STEP 2
-            %h2 Create Solutions
-            %ul
-              %li Community members are incentivized to submit open-source action plans through a competitive “request for proposals” process
-              %li Action plans are vetted using a transparent decision-making process 
-        .col-md-15
-          .col-md-12.how-box.space-col
-            = inline_svg('how/solutions.svg', title: 'donate', class: 'how-icon')
-            %h3 STEP 3
-            %h2 Catalog Plans
-            %ul
-              %li The best proposal for each project will be added to a digital commons, with alternates archived
-              %li Everyone will have access to these shared commons and will be enabled to take action
-            %br
-        .col-md-15
-          .col-md-12.how-box.space-col
-            = inline_svg('how/fund.svg', title: 'donate', class: 'how-icon')
-            %h3 STEP 4
-            %h2 Raise Funding
-            %ul
-              %li Funds are collectively raised to support the development, testing, and launch of top action plans
-              %li Jobs are created and work contracts are assigned based on solution proposals   
-            %br
-        .col-md-15
-          .col-md-12.how-box.space-col
-            = inline_svg('how/launch.svg', title: 'donate', class: 'how-icon')
-            %h3 STEP 5
-            %h2 Engines On
-            %ul
-              %li Collaborative research and shared visions become realities
-              %li Contributions are rewarded upon commercial adoption of solutions seeded from the digital commons   
-            %br
 
 .container-fluid.container-margin.platform-cover-container.bottom-platform-cover-container
   .platform-cover.landing-cover

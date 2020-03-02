@@ -1,5 +1,5 @@
 # The Space Decentral Network
-[💬 Chat on Riot](https://riot.im/app/#/room/#spacedecentral-buildingblocks:matrix.org)
+[💬 Chat on Keybase](https://keybase.io/team/spacedecentral.community)
 
 With an integrated set of collaborative tools, we want to make planning and executing a space mission a simple and sleek process.
 
