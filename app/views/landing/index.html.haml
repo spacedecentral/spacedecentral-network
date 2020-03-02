@@ -14,13 +14,9 @@
           = link_to 'Propose mission', 'forum', :class=>'btn', :role=>"button"
 
   .container.mt-20
-    %h2.section-title.center-text Featured
-    #list_programs.row.program-tile-row
-      = render partial: 'programs/featured', collection: @featured, as: :program
-  .container.mt-20
-    %h2.section-title.center-text Programs
-    #list_programs.row.program-tile-row
-      = render partial: 'programs/program', collection: @programs, as: :program
+    %div{:style => "margin: 50px 0"}
+      #list_programs.row.program-tile-row
+        = render partial: 'programs/featured', collection: @featured, as: :program
 
 .container-fluid.container-margin.platform-cover-container
   .platform-cover.landing-cover.medium-post-cover
