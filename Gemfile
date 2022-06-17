@@ -46,7 +46,7 @@ gem 'omniauth-google-oauth2'
 gem 'signet'
 gem 'google-api-client'
 
-gem 'passenger', '5.1.2'
+gem 'passenger', '5.3.2'
 gem 'exception_notification'
 
 gem 'whenever', :require => false
